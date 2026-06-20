@@ -1,106 +1,69 @@
 import React from "react";
 
+const devices = [
+  {
+    title: "Бортовой навигационный терминал GALILEOSKY 10",
+    desc: "Передовой функционал для мониторинга, контроля и управления объектами",
+    img: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=300&q=80",
+  },
+  {
+    title: "Бортовой навигационный терминал СИГНАЛ S-2653",
+    desc: "ГЛОНАСС-трекер серии СИГНАЛ с двумя интерфейсами CAN для работы с онлайн СКДШ",
+    img: "https://images.unsplash.com/photo-1580894908361-967195033215?auto=format&fit=crop&w=300&q=80",
+  },
+  {
+    title: "Бортовой навигационный терминал УМКа302",
+    desc: "Флагманская линейка ГЛОНАСС/GPS трекеров — новый уровень производительности",
+    img: "https://images.unsplash.com/photo-1461800919507-79b16743b257?auto=format&fit=crop&w=300&q=80",
+  },
+  {
+    title: "Личное: Бортовой навигационный терминал Scout ENT855",
+    desc: "Scout ENT855 является лучшим выбором для компаний, осуществляющих комплексное оснащение автотранспорта",
+    img: "https://images.unsplash.com/photo-1498049794561-7780e7231661?auto=format&fit=crop&w=300&q=80",
+  },
+  {
+    title: "Видеорегистратор ВРК4-ЕНВО",
+    desc: "Цифровой видеорегистратор, предназначенный для транспортного применения",
+    img: "https://images.unsplash.com/photo-1589118949245-7d38baf380d6?auto=format&fit=crop&w=300&q=80",
+  },
+];
+
 export default function DevicesSection() {
-  const devices = [
-    {
-      title: "On-board navigation terminal GALILEOSKY 10",
-      desc: "Advanced functionality for monitoring and control.",
-      img: "https://images.unsplash.com/photo-1517430816045-df4b7de11d1d?w=600",
-    },
-    {
-      title: "SIGNAL S-2653 Navigation Terminal",
-      desc: "Tracker with CAN interfaces and monitoring.",
-      img: "https://images.unsplash.com/photo-1580894908361-967195033215?w=600",
-    },
-    {
-      title: "UMKa302 Navigation Terminal",
-      desc: "Reliable GLONASS/GPS tracking terminal.",
-      img: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=600",
-    },
-    {
-      title: "Scout ENT855 Navigation Terminal",
-      desc: "Comprehensive monitoring with sensors.",
-      img: "https://images.unsplash.com/photo-1581092335878-3b9d58f3c0f4?w=600",
-    },
-    {
-      title: "BI820 Dash Cam",
-      desc: "Digital recorder with GPS and Wi-Fi.",
-      img: "https://images.unsplash.com/photo-1498049794561-7780e7231661?w=600",
-    },
-  ];
-
   return (
-    <section className="bg-[#f7f7f7] py-24">
-
+    <section className="bg-white py-20">
       <div className="max-w-7xl mx-auto px-6">
 
-        <h2 className="text-center text-5xl font-medium text-[#102133] mb-16">
-          Control devices from leading manufacturers
+        <h2 className="text-center text-3xl font-bold text-[#102133] mb-12">
+          Устройства контроля от ведущих производителей
         </h2>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-6">
-
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5">
           {devices.map((item) => (
             <div
               key={item.title}
-              className="
-                bg-white
-                border
-                border-slate-200
-                rounded
-                p-6
-                flex
-                flex-col
-                items-center
-                text-center
-                hover:-translate-y-2
-                hover:shadow-xl
-                transition
-              "
+              className="bg-white border border-gray-200 rounded-lg p-5 flex flex-col items-center text-center hover:-translate-y-1 hover:shadow-lg transition"
             >
-
-              <img
-                src={item.img}
-                alt={item.title}
-                className="
-                  w-[160px]
-                  h-[110px]
-                  object-contain
-                  mb-8
-                "
-              />
-
-              <h3 className="font-semibold text-[#22313d]">
+              <div className="w-full h-28 flex items-center justify-center mb-5">
+                <img
+                  src={item.img}
+                  alt={item.title}
+                  className="h-full w-full object-contain"
+                />
+              </div>
+              <h3 className="font-semibold text-[#22313d] text-xs leading-snug mb-2">
                 {item.title}
               </h3>
-
-              <p className="mt-4 text-sm text-[#8aa0a5] leading-6">
+              <p className="text-xs text-gray-400 leading-relaxed flex-1">
                 {item.desc}
               </p>
-
-              <button
-                className="
-                  mt-8
-                  w-full
-                  py-3
-                  rounded
-                  bg-[#FFA62B]
-                  hover:bg-[#ff9800]
-                  text-white
-                  font-semibold
-                  transition
-                "
-              >
-                Find out the price
+              <button className="mt-5 w-full py-2.5 rounded bg-[#f59e0b] hover:bg-[#ffae00] text-black text-xs font-bold transition">
+                Узнать цену
               </button>
-
             </div>
           ))}
-
         </div>
 
       </div>
-
     </section>
   );
 }
