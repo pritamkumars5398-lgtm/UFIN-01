@@ -1,42 +1,19 @@
 import React, { useState } from "react";
-
-const reviews = [
-  {
-    logo: "АС",
-    company: "ООО СК Авансстрой",
-    text: "Пользуемся услугами мониторинга уже много лет. Пробовали несколько различных систем отслеживания, в последнее время работали на локальном сервере, который не позволял нам развивать автоматизацию. Облачный сервис Уфин контроль позволил нам не только интегрировать спутниковый мониторинг автотранспорта в свою информационную среду, но и подключить мониторинг выездных сотрудников по сотовой сети.",
-  },
-  {
-    logo: "TC",
-    company: "TransCo Ltd.",
-    text: "Платформа помогла нам сократить расходы на топливо и оптимизировать маршруты. Интеграция прошла гладко, а служба поддержки всегда оперативно отвечала на вопросы.",
-  },
-  {
-    logo: "LF",
-    company: "LogiFleet",
-    text: "Оповещения в реальном времени и аналитика поведения водителей позволили нам повысить безопасность и снизить количество инцидентов в автопарке.",
-  },
-  {
-    logo: "AT",
-    company: "АгроТранс",
-    text: "Мониторинг температуры и ХОУ для рефрижераторного транспорта позволил нам избежать значительных потерь в пиковые сезоны.",
-  },
-  {
-    logo: "CG",
-    company: "CityTaxi Group",
-    text: "Удобный интерфейс и надёжное отслеживание — наши диспетчеры пользуются системой каждый день.",
-  },
-];
+import { useLanguage } from "../context/LanguageContext";
 
 export default function ClientFeedback() {
+  const { t } = useLanguage();
+  const reviews = t("feedback.reviews") || [];
   const [active, setActive] = useState(0);
+
+  if (reviews.length === 0) return null;
 
   return (
     <section className="bg-[#043e35] py-20 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
 
         <h2 className="text-center text-white text-3xl font-bold mb-16">
-          Отзывы наших клиентов
+          {t("feedback.title")}
         </h2>
 
         <div className="grid lg:grid-cols-2 items-center gap-16">
@@ -75,7 +52,7 @@ export default function ClientFeedback() {
                 {reviews[active].company}
               </div>
               <button className="mt-6 px-8 py-3 rounded bg-[#f59e0b] hover:bg-[#ffae00] text-black text-sm font-bold transition">
-                Полный отзыв
+                {t("feedback.button")}
               </button>
             </div>
 

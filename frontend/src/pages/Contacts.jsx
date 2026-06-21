@@ -1,36 +1,21 @@
 import React, { useState } from "react";
 import { BarChart2, Wifi, Share2, Headphones, Star } from "lucide-react";
 import { FaTelegramPlane } from "react-icons/fa";
-
-const departments = [
-  {
-    title: "Отдел по развитию бизнеса",
-    desc: "Сотрудничество с партнерами и поставщиками",
-    email: "a@ufin.online",
-    Icon: BarChart2,
-  },
-  {
-    title: "По вопросам подключения",
-    desc: "Продажи, подключения новых объектов и собственных трекеров клиента",
-    email: "a@ufin.online",
-    Icon: Wifi,
-  },
-  {
-    title: "Медиацентр",
-    desc: "Общение с клиентами по вопросам новых продуктов, рекламы и сотрудничества",
-    email: "osa@ufin.online",
-    Icon: Share2,
-  },
-  {
-    title: "Техподдержка 24/7",
-    desc: "Технические вопросы с клиентами и поставщиками",
-    email: "support@ufin.online",
-    Icon: Headphones,
-  },
-];
+import { useLanguage } from "../context/LanguageContext";
 
 export default function Contacts() {
+  const { t, language } = useLanguage();
   const [form, setForm] = useState({ name: "", phone: "", email: "", consent: false });
+
+  const deptIcons = [BarChart2, Wifi, Share2, Headphones];
+  const deptEmails = ["a@ufin.online", "a@ufin.online", "osa@ufin.online", "support@ufin.online"];
+  const departments = (t("contactsPage.departments") || []).map((dept, idx) => ({
+    ...dept,
+    Icon: deptIcons[idx],
+    email: deptEmails[idx]
+  }));
+
+  const branchesList = t("contactsPage.branchesList") || [];
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -56,8 +41,12 @@ export default function Contacts() {
         }}
       >
         <div className="max-w-7xl mx-auto">
-          <h1 className="text-5xl font-black mb-4 leading-tight">Контакты</h1>
-          <p className="text-white/65 text-lg">Где мы находимся и как к нам добраться</p>
+          <h1 className="text-5xl font-black mb-4 leading-tight">
+            {t("contactsPage.title")}
+          </h1>
+          <p className="text-white/65 text-lg">
+            {t("contactsPage.subtitle")}
+          </p>
         </div>
       </section>
 
@@ -102,27 +91,33 @@ export default function Contacts() {
           {/* Info panel */}
           <div className="lg:w-[42%] px-10 py-10 flex flex-col justify-center gap-6">
             <div>
-              <p className="text-xs text-gray-400 mb-1 uppercase tracking-wider">Телефон</p>
+              <p className="text-xs text-gray-400 mb-1 uppercase tracking-wider">
+                {t("contactsPage.phoneLabel")}
+              </p>
               <a
-                href="tel:88004440481"
+                href={`tel:${t("common.phone").replace(/\s+/g, "")}`}
                 className="text-2xl font-bold text-gray-900 hover:text-[#4E8F89] transition"
               >
-                8 (800) 444-04-81
+                {t("common.phone")}
               </a>
             </div>
 
             <div>
-              <p className="text-xs text-gray-400 mb-1 uppercase tracking-wider">Адрес</p>
+              <p className="text-xs text-gray-400 mb-1 uppercase tracking-wider">
+                {t("contactsPage.addressLabel")}
+              </p>
               <p className="text-gray-800 font-medium text-sm leading-relaxed">
-                Москва, 129344, ул. Лётчика Бабушкина, д. 1, корпус 3, эт. 7, офис 17
+                {t("contactsPage.addressValue")}
               </p>
             </div>
 
             <div>
-              <p className="text-xs text-gray-400 mb-2 uppercase tracking-wider">Мы в сетях</p>
+              <p className="text-xs text-gray-400 mb-2 uppercase tracking-wider">
+                {t("contactsPage.socialLabel")}
+              </p>
               <div className="flex gap-3">
                 <a
-                  href="#"
+                  href="https://t.me/ufin_online"
                   className="w-9 h-9 rounded-full bg-[#229ED9] flex items-center justify-center hover:opacity-80 transition"
                 >
                   <FaTelegramPlane className="text-white text-base" />
@@ -149,7 +144,9 @@ export default function Contacts() {
                 />
               ))}
               <span className="text-sm font-bold text-gray-900 ml-1">4.9</span>
-              <span className="text-xs text-gray-400 ml-2">Рейтинг на Яндексе</span>
+              <span className="text-xs text-gray-400 ml-2">
+                {t("contactsPage.ratingLabel")}
+              </span>
             </div>
           </div>
 
@@ -158,13 +155,14 @@ export default function Contacts() {
 
       {/* ── 4. BRANCHES ── */}
       <section className="max-w-7xl mx-auto px-6 py-12">
-        <h2 className="text-2xl font-bold text-gray-900 mb-5">Наши филиалы</h2>
-        <p className="text-gray-700 text-sm mb-2">
-          г.о. Подольск, п.Сельхозтехника, Домодедовское шоссе, д.20И, СТО «Подольск» (рядом с Авто-М)
-        </p>
-        <p className="text-gray-700 text-sm">
-          г. Балашиха, Объездное шоссе, дом 10а, СТО «Балашиха»
-        </p>
+        <h2 className="text-2xl font-bold text-gray-900 mb-5">
+          {t("contactsPage.branchesTitle")}
+        </h2>
+        {branchesList.map((branch, i) => (
+          <p key={i} className="text-gray-700 text-sm mb-2">
+            {branch}
+          </p>
+        ))}
       </section>
 
       {/* ── 5. BIG MAP + FORM ── */}
@@ -186,9 +184,11 @@ export default function Contacts() {
 
           {/* Form */}
           <div className="lg:w-[40%] bg-white p-8 flex flex-col justify-center">
-            <h2 className="text-xl font-bold text-gray-900 mb-1">Связаться с нами</h2>
+            <h2 className="text-xl font-bold text-gray-900 mb-1">
+              {t("contactsPage.formTitle")}
+            </h2>
             <p className="text-gray-400 text-xs mb-7 leading-relaxed">
-              Оставьте контактные данные и наш специалист свяжется с вами в кратчайшие сроки
+              {t("contactsPage.formSubtitle")}
             </p>
 
             <form onSubmit={handleSubmit} className="space-y-4">
@@ -197,7 +197,7 @@ export default function Contacts() {
                 name="name"
                 value={form.name}
                 onChange={handleChange}
-                placeholder="Имя"
+                placeholder={t("contactsPage.placeholderName")}
                 className="w-full border border-gray-200 rounded-lg px-4 py-3 text-sm text-gray-800 focus:outline-none focus:border-[#4E8F89] transition"
                 required
               />
@@ -211,7 +211,7 @@ export default function Contacts() {
                   name="phone"
                   value={form.phone}
                   onChange={handleChange}
-                  placeholder="(999) 999-9999*"
+                  placeholder={t("contactsPage.placeholderPhone")}
                   className="flex-1 px-4 py-3 text-sm text-gray-800 focus:outline-none"
                   required
                 />
@@ -222,7 +222,7 @@ export default function Contacts() {
                 name="email"
                 value={form.email}
                 onChange={handleChange}
-                placeholder="Почта"
+                placeholder={t("contactsPage.placeholderEmail")}
                 className="w-full border border-gray-200 rounded-lg px-4 py-3 text-sm text-gray-800 focus:outline-none focus:border-[#4E8F89] transition"
                 required
               />
@@ -231,7 +231,7 @@ export default function Contacts() {
                 type="submit"
                 className="w-full bg-[#4E8F89] hover:bg-[#3d7a74] text-white font-semibold py-3 rounded-lg transition"
               >
-                Отправить
+                {t("contactsPage.submitBtn")}
               </button>
 
               <label className="flex items-start gap-2 cursor-pointer">
@@ -244,9 +244,9 @@ export default function Contacts() {
                   required
                 />
                 <span className="text-gray-400 text-xs leading-relaxed">
-                  Дал согласие на{" "}
+                  {t("contactsPage.consentText")}{" "}
                   <a href="#" className="text-[#4E8F89] hover:underline">
-                    обработку персональных данных
+                    {t("contactsPage.consentLink")}
                   </a>
                 </span>
               </label>
@@ -263,10 +263,9 @@ export default function Contacts() {
           {/* Director */}
           <div className="lg:w-[38%] flex flex-col items-start">
             <div className="bg-white/10 rounded-xl px-4 py-2 text-white/60 text-xs mb-5">
-              Генеральный директор:{" "}
-              <span className="font-bold text-white">Алексей Осипов</span>
+              {t("contactsPage.directorLabel")}:{" "}
+              <span className="font-bold text-white">{t("contactsPage.directorName")}</span>
             </div>
-            {/* Photo placeholder — replace src with real photo */}
             <div
               className="w-72 h-72 rounded-2xl overflow-hidden bg-gradient-to-b from-[#2a3245] to-[#1a2030] flex items-end justify-center"
               style={{
@@ -281,10 +280,10 @@ export default function Contacts() {
           {/* CTA text */}
           <div className="lg:w-[62%]">
             <h2 className="text-3xl lg:text-4xl font-black text-[#4E8F89] mb-3">
-              Свяжитесь с нами
+              {t("contactsPage.ctaTitle")}
             </h2>
             <p className="text-white/65 mb-8 text-base">
-              Получите подробную информацию и консультацию!
+              {t("contactsPage.ctaDesc")}
             </p>
 
             <a
@@ -292,13 +291,15 @@ export default function Contacts() {
               className="inline-flex items-center gap-2 bg-[#229ED9] hover:bg-[#1a8bc4] text-white font-semibold px-7 py-3 rounded-full transition"
             >
               <FaTelegramPlane size={17} />
-              Чат в Telegram
+              {t("contactsPage.telegramChat")}
             </a>
 
             <div className="mt-9 border-l-4 border-[#f59e0b] pl-5">
-              <p className="text-[#f59e0b] font-bold text-sm mb-1 tracking-wider">АКЦИЯ!</p>
+              <p className="text-[#f59e0b] font-bold text-sm mb-1 tracking-wider">
+                {t("contactsPage.promoTitle")}
+              </p>
               <p className="text-white font-bold text-lg leading-snug max-w-xl">
-                Оставьте онлайн заявку сейчас! Мы с вами свяжемся в рабочее время и дадим 10% скидки!
+                {t("contactsPage.promoDesc")}
               </p>
             </div>
           </div>

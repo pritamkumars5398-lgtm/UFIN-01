@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Eye, EyeOff } from "lucide-react";
+import { useLanguage } from "../context/LanguageContext";
 
 export default function Login() {
+  const { t } = useLanguage();
   const [form, setForm] = useState({ email: "", password: "" });
   const [showPass, setShowPass] = useState(false);
 
@@ -21,11 +23,11 @@ export default function Login() {
         {/* Logo */}
         <div className="text-center mb-8">
           <Link to="/" className="inline-flex flex-col items-center gap-1">
-            <span className="text-3xl font-black text-[#f59e0b]">УФИН</span>
-            <span className="text-xs tracking-[4px] text-gray-400 font-medium">КОНТРОЛЬ</span>
+            <span className="text-3xl font-black text-[#f59e0b]">{t("loginPage.brand")}</span>
+            <span className="text-xs tracking-[4px] text-gray-400 font-medium">{t("loginPage.control")}</span>
           </Link>
-          <h1 className="text-2xl font-bold text-gray-900 mt-6 mb-1">Вход в личный кабинет</h1>
-          <p className="text-gray-400 text-sm">Введите данные вашей учётной записи</p>
+          <h1 className="text-2xl font-bold text-gray-900 mt-6 mb-1">{t("loginPage.title")}</h1>
+          <p className="text-gray-400 text-sm">{t("loginPage.subtitle")}</p>
         </div>
 
         {/* Card */}
@@ -33,7 +35,7 @@ export default function Login() {
           <form onSubmit={handleSubmit} className="space-y-4">
 
             <div>
-              <label className="text-xs text-gray-400 uppercase tracking-widest block mb-1.5">Email</label>
+              <label className="text-xs text-gray-400 uppercase tracking-widest block mb-1.5">{t("loginPage.labelEmail")}</label>
               <input
                 type="email"
                 name="email"
@@ -47,8 +49,8 @@ export default function Login() {
 
             <div>
               <div className="flex justify-between items-center mb-1.5">
-                <label className="text-xs text-gray-400 uppercase tracking-widest">Пароль</label>
-                <a href="#" className="text-xs text-[#4E8F89] hover:underline">Забыли пароль?</a>
+                <label className="text-xs text-gray-400 uppercase tracking-widest">{t("loginPage.labelPassword")}</label>
+                <a href="#" className="text-xs text-[#4E8F89] hover:underline">{t("loginPage.forgotPass")}</a>
               </div>
               <div className="relative">
                 <input
@@ -74,16 +76,16 @@ export default function Login() {
               type="submit"
               className="w-full bg-[#4E8F89] hover:bg-[#3d7a74] text-white font-bold py-3.5 rounded-lg transition mt-2"
             >
-              Войти
+              {t("loginPage.submitBtn")}
             </button>
 
           </form>
 
           <div className="mt-6 text-center">
             <p className="text-xs text-gray-400">
-              Нет аккаунта?{" "}
+              {t("loginPage.noAccount")}{" "}
               <Link to="/consultation" className="text-[#4E8F89] hover:underline font-medium">
-                Оставить заявку
+                {t("loginPage.requestLink")}
               </Link>
             </p>
           </div>

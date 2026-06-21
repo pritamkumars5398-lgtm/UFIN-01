@@ -1,27 +1,23 @@
 import React from "react";
+import { useLanguage } from "../context/LanguageContext";
 
-const items = [
-  {
-    title: "Интеграция с вашими учётными системами",
-    desc: "С целью снижения рутинной работы, исключения ошибок в отчётах и направления усилий ваших сотрудников на повышение качества услуг мы помогаем максимально интегрировать (внедрить) и автоматизировать учёт и отчётность по автопарку",
-    img: "https://images.unsplash.com/photo-1554224154-26032ffc0d07?auto=format&fit=crop&w=1600&q=80",
-  },
-  {
-    title: "Контроль водителя",
-    desc: "Сокращения влияния человеческого фактора на безопасность дорожного движения",
-    img: "https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=1600&q=80",
-  },
+const images = [
+  "https://images.unsplash.com/photo-1554224154-26032ffc0d07?auto=format&fit=crop&w=1600&q=80",
+  "https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=1600&q=80",
 ];
 
 export default function FeatureBanner() {
+  const { t } = useLanguage();
+  const items = t("featureBanner.list") || [];
+
   return (
     <section className="bg-[#f5f5f5] py-8">
       <div className="max-w-[1500px] mx-auto">
         <div className="grid md:grid-cols-2">
-          {items.map((item) => (
+          {items.map((item, index) => (
             <div key={item.title} className="relative h-80 overflow-hidden group">
               <img
-                src={item.img}
+                src={images[index]}
                 alt={item.title}
                 className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition duration-700"
               />
@@ -34,7 +30,7 @@ export default function FeatureBanner() {
                   {item.desc}
                 </p>
                 <button className="w-32 h-10 bg-[#f59e0b] hover:bg-[#ffae00] rounded text-black text-sm font-bold transition">
-                  Подробнее
+                  {t("featureBanner.button")}
                 </button>
               </div>
             </div>

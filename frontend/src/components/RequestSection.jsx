@@ -1,16 +1,12 @@
 import React, { useState } from "react";
-
-const steps = [
-  "Определить перечень параметров мониторинга транспорта",
-  "Согласовать спецификацию оборудования автомониторинга и условий его монтажа",
-  "Произвести оплату оборудования с монтажом и услуг контроля на ближайший месяц",
-  "Предоставить а/м интеграторам для монтажа оборудования и установки системы",
-  "Теперь ваши а/м под непрерывным контролем!",
-];
+import { useLanguage } from "../context/LanguageContext";
 
 export default function RequestSection() {
+  const { t, language } = useLanguage();
   const [phone, setPhone] = useState("");
   const [consent, setConsent] = useState(false);
+
+  const stepsList = t("request.steps") || [];
 
   return (
     <section className="bg-[#f5f5f5] py-16">
@@ -21,10 +17,10 @@ export default function RequestSection() {
             {/* Left — steps */}
             <div>
               <h2 className="text-2xl font-bold text-[#132133] mb-10">
-                Как начать?
+                {t("request.title")}
               </h2>
               <div className="grid md:grid-cols-2 gap-x-12 gap-y-8">
-                {steps.map((step, i) => (
+                {stepsList.map((step, i) => (
                   <div key={i} className="flex gap-4">
                     <div className="w-9 h-9 rounded bg-[#177f73] text-white flex items-center justify-center font-bold text-sm shrink-0">
                       {i + 1}
@@ -38,24 +34,24 @@ export default function RequestSection() {
             {/* Right — form */}
             <div className="bg-white p-7 shadow-md rounded -mt-24 relative z-10">
               <h3 className="text-xl font-bold text-[#132133] text-center mb-6">
-                Оставить заявку
+                {t("request.formTitle")}
               </h3>
 
               <div className="flex items-center gap-3 mb-6">
                 <img
                   src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=120&q=80"
-                  alt="director"
+                  alt="Sergey Chulsky"
                   className="w-12 h-12 rounded object-cover"
                 />
                 <div>
-                  <p className="font-semibold text-[#f59e0b] text-sm">Чульский Сергей</p>
-                  <p className="text-xs text-gray-400">Тех. директор</p>
+                  <p className="font-semibold text-[#f59e0b] text-sm">{t("request.directorName")}</p>
+                  <p className="text-xs text-gray-400">{t("request.directorTitle")}</p>
                 </div>
               </div>
 
               <div className="flex justify-between text-[#4E8F89] text-xs mb-5">
-                <a href="tel:88004440481" className="hover:underline">📞 8 (800) 444-04-81</a>
-                <a href="mailto:buy@ufin.online" className="hover:underline">✉ buy@ufin.online</a>
+                <a href={`tel:${t("common.phone").replace(/\s+/g, "")}`} className="hover:underline">📞 {t("common.phone")}</a>
+                <a href={`mailto:${t("common.emailBuy")}`} className="hover:underline">✉ {t("common.emailBuy")}</a>
               </div>
 
               <div className="space-y-3">
@@ -65,13 +61,13 @@ export default function RequestSection() {
                     type="tel"
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
-                    placeholder="(999) 999-9999*"
+                    placeholder={t("request.placeholderPhone")}
                     className="flex-1 px-3 py-3 text-sm focus:outline-none text-gray-800"
                   />
                 </div>
 
                 <button className="w-full py-3 rounded bg-[#177f73] hover:bg-[#14695f] text-white text-sm font-semibold transition">
-                  Отправить
+                  {t("common.send")}
                 </button>
 
                 <label className="flex gap-2 items-start cursor-pointer">
@@ -82,8 +78,8 @@ export default function RequestSection() {
                     className="mt-0.5 accent-[#4E8F89]"
                   />
                   <span className="text-xs text-gray-400 leading-relaxed">
-                    Дал согласие на{" "}
-                    <a href="#" className="text-[#4E8F89] hover:underline">обработку персональных данных</a>
+                    {t("request.consentText")}{" "}
+                    <a href="#" className="text-[#4E8F89] hover:underline">{t("request.consentLink")}</a>
                   </span>
                 </label>
               </div>

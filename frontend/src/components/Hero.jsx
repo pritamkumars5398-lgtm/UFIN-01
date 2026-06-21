@@ -1,27 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Check } from "lucide-react";
-
-const features = [
-  {
-    title: "маршрут движения и контроль эксплуатации",
-    desc: "контроль местонахождения, расхода топлива, давления в шинах и других параметров",
-  },
-  {
-    title: "видеоконтроль процесса перевозки",
-    desc: "соответствие отраслевым нормативам, повышение безопасности, определение виновника ДТП",
-  },
-  {
-    title: "контроль климатических параметров перевозки",
-    desc: "подтверждённое качество перевозки, непрерывная автоматизированная передача данных об условиях перевозки клиенту",
-  },
-  {
-    title: "видеоконтроль и помощь водителю",
-    desc: "повышение безопасности и снижение количества ДТП",
-  },
-];
+import { useLanguage } from "../context/LanguageContext";
 
 export default function Hero() {
+  const { t } = useLanguage();
+  const features = t("hero.features") || [];
+
   return (
     <section className="relative min-h-screen overflow-hidden">
       <div
@@ -38,7 +23,7 @@ export default function Hero() {
           <div className="backdrop-blur-lg bg-black/45 border border-white/10 rounded-2xl p-8 md:p-10 shadow-2xl text-white">
 
             <h1 className="text-3xl md:text-4xl font-bold leading-tight">
-              ГЛОНАСС мониторинг транспорта
+              {t("hero.title")}
             </h1>
 
             <div className="mt-8 space-y-5">
@@ -64,7 +49,7 @@ export default function Hero() {
                 to="/consultation"
                 className="inline-block px-7 py-3 rounded bg-[#f59e0b] hover:bg-[#ffae00] text-black text-sm font-bold transition"
               >
-                Оставить заявку
+                {t("hero.button")}
               </Link>
             </div>
 

@@ -1,5 +1,6 @@
 import React, { useRef } from "react";
 import { ChevronRight } from "lucide-react";
+import { useLanguage } from "../context/LanguageContext";
 
 const companies = [
   { name: "Торэкс", country: "Россия", img: "https://images.unsplash.com/photo-1519003722824-194d4455a60c?auto=format&fit=crop&w=400&q=80" },
@@ -12,6 +13,7 @@ const companies = [
 ];
 
 export default function CompanyClients() {
+  const { t, language } = useLanguage();
   const scrollRef = useRef(null);
 
   const scroll = () => {
@@ -29,7 +31,7 @@ export default function CompanyClients() {
 
       <div className="relative max-w-7xl mx-auto px-6">
         <h2 className="text-center text-2xl md:text-3xl font-bold text-[#0b1f33] max-w-3xl mx-auto leading-tight mb-14">
-          Более 500 компаний в России и Индии пользуются услугами УФИН контроля
+          {t("companyClients.title")}
         </h2>
 
         <div className="relative">
@@ -38,18 +40,24 @@ export default function CompanyClients() {
             className="flex gap-5 overflow-x-auto pb-2 scrollbar-hide"
             style={{ scrollbarWidth: "none" }}
           >
-            {companies.map((item) => (
-              <div
-                key={item.name}
-                className="bg-white shrink-0 w-44 overflow-hidden hover:-translate-y-1 transition duration-300 rounded"
-              >
-                <img src={item.img} alt={item.name} className="w-full h-32 object-cover" />
-                <div className="p-4">
-                  <h3 className="font-semibold text-[#24323d] text-xs leading-snug">{item.name}</h3>
-                  <p className="text-[#4E8F89] mt-1 text-xs">{item.country}</p>
+            {companies.map((item) => {
+              const countryLabel = item.country === "Россия" 
+                ? (language === "en" ? "Russia" : "Россия")
+                : (language === "en" ? "India" : "Индия");
+
+              return (
+                <div
+                  key={item.name}
+                  className="bg-white shrink-0 w-44 overflow-hidden hover:-translate-y-1 transition duration-300 rounded"
+                >
+                  <img src={item.img} alt={item.name} className="w-full h-32 object-cover" />
+                  <div className="p-4">
+                    <h3 className="font-semibold text-[#24323d] text-xs leading-snug">{item.name}</h3>
+                    <p className="text-[#4E8F89] mt-1 text-xs">{countryLabel}</p>
+                  </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
 
           <button

@@ -1,188 +1,153 @@
 import React, { useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import { ChevronDown } from "lucide-react";
+import { useLanguage } from "../context/LanguageContext";
 
-/* ── Shared news items ── */
-const newsItems = [
-  { img: "https://images.unsplash.com/photo-1587300003388-59208cc962cb?auto=format&fit=crop&w=400&q=80", title: "Трекер спас жизнь храброй собаке!", to: "/resources#news" },
-  { img: "https://images.unsplash.com/photo-1545262810-a9b9f1db8a84?auto=format&fit=crop&w=400&q=80", title: "Автоматизированный контроль топлива", to: "/resources#news" },
-  { img: "https://images.unsplash.com/photo-1543373014-cfe4f4bc1cdf?auto=format&fit=crop&w=400&q=80", title: "Уфин Контроль представляет обновлённый логотип", to: "/company#news" },
-];
+/* ── News Grid Component ── */
+const NewsGrid = () => {
+  const { t } = useLanguage();
+  const newsItems = [
+    { img: "https://images.unsplash.com/photo-1587300003388-59208cc962cb?auto=format&fit=crop&w=400&q=80", title: t("resourcesPage.featuredTitle").replace("\n", " "), to: "/resources#news" },
+    { img: "https://images.unsplash.com/photo-1545262810-a9b9f1db8a84?auto=format&fit=crop&w=400&q=80", title: t("resourcesPage.resourcesList.1.title"), to: "/resources#news" },
+    { img: "https://images.unsplash.com/photo-1543373014-cfe4f4bc1cdf?auto=format&fit=crop&w=400&q=80", title: t("resourcesPage.resourcesList.4.title"), to: "/company#news" },
+  ];
+  return (
+    <div>
+      <Link to="/resources#news" className="text-sm font-semibold text-gray-900 mb-3 pb-2 border-b border-gray-100 flex items-center justify-between hover:text-[#4E8F89] transition">
+        {t("navbar.news")} <span className="text-xs font-normal text-[#4E8F89]">{t("navbar.newsAll")}</span>
+      </Link>
+      <div className="grid grid-cols-3 gap-4 mt-3">
+        {newsItems.map(({ img, title, to }) => (
+          <Link key={title} to={to} className="group block">
+            <div className="rounded-lg overflow-hidden mb-2 aspect-[4/3]">
+              <img src={img} alt={title} className="w-full h-full object-cover group-hover:scale-105 transition duration-300" />
+            </div>
+            <p className="text-xs text-gray-700 leading-snug group-hover:text-[#4E8F89] transition">{title}</p>
+          </Link>
+        ))}
+      </div>
+    </div>
+  );
+};
 
-const NewsGrid = () => (
-  <div>
-    <Link to="/resources#news" className="text-sm font-semibold text-gray-900 mb-3 pb-2 border-b border-gray-100 flex items-center justify-between hover:text-[#4E8F89] transition">
-      Новости <span className="text-xs font-normal text-[#4E8F89]">Все →</span>
-    </Link>
-    <div className="grid grid-cols-3 gap-4 mt-3">
-      {newsItems.map(({ img, title, to }) => (
-        <Link key={title} to={to} className="group block">
-          <div className="rounded-lg overflow-hidden mb-2 aspect-[4/3]">
-            <img src={img} alt={title} className="w-full h-full object-cover group-hover:scale-105 transition duration-300" />
-          </div>
-          <p className="text-xs text-gray-700 leading-snug group-hover:text-[#4E8F89] transition">{title}</p>
+/* ── Dropdown panels ── */
+const UslugiDropdown = () => {
+  const { t } = useLanguage();
+  const servicesList = t("navbar.servicesList") || [];
+  const solutionsList = t("navbar.solutionsList") || [];
+  const industriesList = t("navbar.industriesList") || [];
+  const integrationsList = t("navbar.integrationsList") || [];
+
+  return (
+    <div className="grid grid-cols-4 gap-10 px-10 py-8">
+      {/* Our services */}
+      <div>
+        <Link to="/services#services" className="text-sm font-semibold text-gray-900 mb-3 pb-2 border-b border-gray-100 block hover:text-[#4E8F89] transition">
+          {t("navbar.ourServices")}
         </Link>
-      ))}
-    </div>
-  </div>
-);
+        <ul className="space-y-3">
+          {servicesList.map((s) => (
+            <li key={s}>
+              <Link to="/services#services" className="text-sm text-gray-600 hover:text-[#4E8F89] transition">{s}</Link>
+            </li>
+          ))}
+        </ul>
+      </div>
 
-/* ── Dropdown panels (use Link internally) ── */
-const UslugiDropdown = () => (
-  <div className="grid grid-cols-4 gap-10 px-10 py-8">
-    {/* Our services */}
-    <div>
-      <Link to="/services#services" className="text-sm font-semibold text-gray-900 mb-3 pb-2 border-b border-gray-100 block hover:text-[#4E8F89] transition">
-        Наши услуги
-      </Link>
-      <ul className="space-y-3">
-        {[
-          "ГЛОНАСС/GPS мониторинг транспорта",
-          "Контроль водителя",
-          "Контроль расхода топлива",
-          "Контроль температуры",
-          "Контроль давления в шинах",
-          "Маршрутные задания",
-          "Мониторинг сотрудников",
-          "Видеонаблюдение за транспортом",
-        ].map((s) => (
-          <li key={s}>
-            <Link to="/services#services" className="text-sm text-gray-600 hover:text-[#4E8F89] transition">{s}</Link>
-          </li>
-        ))}
-      </ul>
-    </div>
+      {/* Solutions */}
+      <div>
+        <Link to="/services#solutions" className="text-sm font-semibold text-gray-900 mb-3 pb-2 border-b border-gray-100 block hover:text-[#4E8F89] transition">
+          {t("navbar.solutions")}
+        </Link>
+        <ul className="space-y-4">
+          {solutionsList.map(({ title, desc }) => (
+            <li key={title}>
+              <Link to="/services#solutions" className="group block">
+                <p className="text-sm font-medium text-gray-800 group-hover:text-[#4E8F89] transition">{title}</p>
+                <p className="text-xs text-gray-400 mt-0.5 leading-snug">{desc}</p>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </div>
 
-    {/* Solutions */}
-    <div>
-      <Link to="/services#solutions" className="text-sm font-semibold text-gray-900 mb-3 pb-2 border-b border-gray-100 block hover:text-[#4E8F89] transition">
-        Решения
-      </Link>
-      <ul className="space-y-4">
-        {[
-          { title: "Эффективность", desc: "Как Уфин повышает эффективность вашего бизнеса" },
-          { title: "Безопасность перевозок", desc: "Предотвращение аварий и инцидентов" },
-          { title: "Лояльность и удержание клиентов", desc: "Довольный клиент всегда возвращается" },
-          { title: "Уровень оказания услуг", desc: "Как мы повышаем качество ваших услуг" },
-          { title: "Контроль угроз", desc: "Защитите бизнес с помощью систем контроля" },
-        ].map(({ title, desc }) => (
-          <li key={title}>
-            <Link to="/services#solutions" className="group block">
-              <p className="text-sm font-medium text-gray-800 group-hover:text-[#4E8F89] transition">{title}</p>
-              <p className="text-xs text-gray-400 mt-0.5 leading-snug">{desc}</p>
-            </Link>
-          </li>
-        ))}
-      </ul>
-    </div>
+      {/* By industry */}
+      <div>
+        <Link to="/services#industries" className="text-sm font-semibold text-gray-900 mb-3 pb-2 border-b border-gray-100 block hover:text-[#4E8F89] transition">
+          {t("navbar.byIndustry")}
+        </Link>
+        <ul className="space-y-3 max-h-[360px] overflow-y-auto pr-2 scrollbar-thin">
+          {industriesList.map((s) => (
+            <li key={s}>
+              <Link to="/services#industries" className="text-sm text-gray-600 hover:text-[#4E8F89] transition leading-snug block">{s}</Link>
+            </li>
+          ))}
+        </ul>
+      </div>
 
-    {/* By industry */}
-    <div>
-      <Link to="/services#industries" className="text-sm font-semibold text-gray-900 mb-3 pb-2 border-b border-gray-100 block hover:text-[#4E8F89] transition">
-        По отраслям
-      </Link>
-      <ul className="space-y-3">
-        {[
-          "Перевозка продуктов питания",
-          "Грузовой транспорт",
-          "Пассажирские перевозки",
-          "Такси",
-          "Строительная техника",
-          "Лизинг",
-          "Опасные грузы",
-          "Сельхозтехника",
-          "Мониторинг транспорта ЖКХ",
-          "Банки",
-          "Производство",
-          "Торговля",
-          "Фармацевтика",
-          "Медицинские учреждения",
-          "Топливно-энергетический комплекс",
-          "Лёгкие коммерческие автомобили",
-        ].map((s) => (
-          <li key={s}>
-            <Link to="/services#industries" className="text-sm text-gray-600 hover:text-[#4E8F89] transition leading-snug block">{s}</Link>
-          </li>
-        ))}
-      </ul>
+      {/* Integrations */}
+      <div>
+        <Link to="/services#integrations" className="text-sm font-semibold text-gray-900 mb-3 pb-2 border-b border-gray-100 block hover:text-[#4E8F89] transition">
+          {t("navbar.integrations")}
+        </Link>
+        <ul className="space-y-3">
+          {integrationsList.map((s) => (
+            <li key={s}>
+              <Link to="/services#integrations" className="text-sm text-gray-600 hover:text-[#4E8F89] transition">{s}</Link>
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
+  );
+};
 
-    {/* Integrations */}
-    <div>
-      <Link to="/services#integrations" className="text-sm font-semibold text-gray-900 mb-3 pb-2 border-b border-gray-100 block hover:text-[#4E8F89] transition">
-        Интеграции
-      </Link>
-      <ul className="space-y-3">
-        {["API", "Серверы ретрансляции", "Переход с Wialon", "Установка ГЛОНАСС"].map((s) => (
-          <li key={s}>
-            <Link to="/services#integrations" className="text-sm text-gray-600 hover:text-[#4E8F89] transition">{s}</Link>
-          </li>
-        ))}
-      </ul>
+const ResursiDropdown = () => {
+  const { t } = useLanguage();
+  const resourcesList = t("navbar.resourcesList") || [];
+  return (
+    <div className="grid grid-cols-2 gap-10 px-10 py-8">
+      <div>
+        <Link to="/resources#resources" className="text-sm font-semibold text-gray-900 mb-3 pb-2 border-b border-gray-100 block hover:text-[#4E8F89] transition">
+          {t("navbar.resourcesTitle")}
+        </Link>
+        <ul className="space-y-3">
+          {resourcesList.map(({ label, to }) => (
+            <li key={label}>
+              <Link to={to} className="text-sm text-gray-600 hover:text-[#4E8F89] transition">{label}</Link>
+            </li>
+          ))}
+        </ul>
+        <Link to="/resources#faq" className="inline-flex items-center gap-1 mt-5 text-xs font-medium text-[#4E8F89] hover:underline">
+          {t("navbar.faqLink")}
+        </Link>
+      </div>
+      <NewsGrid />
     </div>
-  </div>
-);
+  );
+};
 
-const ResursiDropdown = () => (
-  <div className="grid grid-cols-2 gap-10 px-10 py-8">
-    <div>
-      <Link to="/resources#resources" className="text-sm font-semibold text-gray-900 mb-3 pb-2 border-b border-gray-100 block hover:text-[#4E8F89] transition">
-        Ресурсы
-      </Link>
-      <ul className="space-y-3">
-        {[
-          { label: "Совместимое оборудование для бизнеса", to: "/resources#resources" },
-          { label: "Руководство пользователя мобильного приложения", to: "/resources#resources" },
-          { label: "Пользовательское соглашение", to: "/resources#resources" },
-          { label: "Политика конфиденциальности", to: "/resources#resources" },
-          { label: "Что нового мы разработали?", to: "/resources#resources" },
-          { label: "Инструкции к трекерам", to: "/resources#resources" },
-        ].map(({ label, to }) => (
-          <li key={label}>
-            <Link to={to} className="text-sm text-gray-600 hover:text-[#4E8F89] transition">{label}</Link>
-          </li>
-        ))}
-      </ul>
-      <Link to="/resources#faq" className="inline-flex items-center gap-1 mt-5 text-xs font-medium text-[#4E8F89] hover:underline">
-        Частые вопросы →
-      </Link>
+const KompaniyaDropdown = () => {
+  const { t } = useLanguage();
+  const companyList = t("navbar.companyList") || [];
+  return (
+    <div className="grid grid-cols-2 gap-10 px-10 py-8">
+      <div>
+        <Link to="/company" className="text-sm font-semibold text-gray-900 mb-3 pb-2 border-b border-gray-100 block hover:text-[#4E8F89] transition">
+          {t("navbar.company")}
+        </Link>
+        <ul className="space-y-3">
+          {companyList.map(({ label, to }) => (
+            <li key={label}>
+              <Link to={to} className="text-sm text-gray-600 hover:text-[#4E8F89] transition">{label}</Link>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <NewsGrid />
     </div>
-    <NewsGrid />
-  </div>
-);
-
-const KompaniyaDropdown = () => (
-  <div className="grid grid-cols-2 gap-10 px-10 py-8">
-    <div>
-      <Link to="/company" className="text-sm font-semibold text-gray-900 mb-3 pb-2 border-b border-gray-100 block hover:text-[#4E8F89] transition">
-        Компания
-      </Link>
-      <ul className="space-y-3">
-        {[
-          { label: "О компании", to: "/company#about" },
-          { label: "Контакты", to: "/contacts" },
-          { label: "Отзывы", to: "/company#about" },
-          { label: "Партнёрам", to: "/company" },
-          { label: "Новости", to: "/company#news" },
-          { label: "Блог", to: "/resources#news" },
-          { label: "Вакансии", to: "/company" },
-          { label: "Гарантии", to: "/company" },
-        ].map(({ label, to }) => (
-          <li key={label}>
-            <Link to={to} className="text-sm text-gray-600 hover:text-[#4E8F89] transition">{label}</Link>
-          </li>
-        ))}
-      </ul>
-    </div>
-    <NewsGrid />
-  </div>
-);
-
-const NAV_ITEMS = [
-  { label: "Услуги",   path: "/services", Panel: UslugiDropdown },
-  { label: "Ресурсы",  path: "/resources", Panel: ResursiDropdown },
-  { label: "Компания", path: "/company",   Panel: KompaniyaDropdown },
-];
+  );
+};
 
 /* ── Owl SVG ── */
 const OwlLogo = () => (
@@ -199,8 +164,9 @@ const OwlLogo = () => (
   </svg>
 );
 
-/* ── Component ── */
+/* ── Navbar Component ── */
 export default function Navbar() {
+  const { language, setLanguage, t } = useLanguage();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeToggle, setActiveToggle] = useState("business");
   const [openMenu, setOpenMenu] = useState(null);
@@ -209,6 +175,12 @@ export default function Navbar() {
   const handleOpen = (label) => { clearTimeout(closeTimer.current); setOpenMenu(label); };
   const handleClose = () => { closeTimer.current = setTimeout(() => setOpenMenu(null), 120); };
   const closeAll = () => { setOpenMenu(null); setMobileOpen(false); };
+
+  const navItems = [
+    { label: t("navbar.services"),   path: "/services", Panel: UslugiDropdown },
+    { label: t("navbar.resources"),  path: "/resources", Panel: ResursiDropdown },
+    { label: t("navbar.company"), path: "/company",   Panel: KompaniyaDropdown },
+  ];
 
   return (
     <header className="fixed top-0 left-0 w-full z-50" style={{ background: "#3a3a3a" }}>
@@ -219,29 +191,29 @@ export default function Navbar() {
           <Link to="/" onClick={closeAll} className="flex items-center gap-2.5 shrink-0">
             <OwlLogo />
             <div className="leading-none">
-              <span className="block text-[#f59e0b] font-black text-lg tracking-wide">УФИН</span>
-              <span className="block text-white text-[10px] tracking-[4px] font-medium opacity-80">КОНТРОЛЬ</span>
+              <span className="block text-[#f59e0b] font-black text-lg tracking-wide">{t("navbar.logoBrand")}</span>
+              <span className="block text-white text-[10px] tracking-[4px] font-medium opacity-80">{t("navbar.logoControl")}</span>
             </div>
           </Link>
 
           {/* Toggle */}
           <div className="hidden lg:flex bg-white/10 rounded-full p-0.5 shrink-0">
-            {["business", "people"].map((t) => (
+            {["business", "people"].map((tKey) => (
               <button
-                key={t}
-                onClick={() => setActiveToggle(t)}
+                key={tKey}
+                onClick={() => setActiveToggle(tKey)}
                 className={`px-4 py-1.5 rounded-full text-sm font-medium transition ${
-                  activeToggle === t ? "bg-white text-gray-900" : "text-white/75 hover:text-white"
+                  activeToggle === tKey ? "bg-white text-gray-900" : "text-white/75 hover:text-white"
                 }`}
               >
-                {t === "business" ? "Бизнесу" : "Людям"}
+                {tKey === "business" ? t("common.business") : t("common.people")}
               </button>
             ))}
           </div>
 
           {/* Desktop nav */}
           <nav className="hidden md:flex items-center gap-6 flex-1 justify-center">
-            {NAV_ITEMS.map(({ label, path, Panel }) => (
+            {navItems.map(({ label, path, Panel }) => (
               <div key={label} className="relative" onMouseEnter={() => handleOpen(label)} onMouseLeave={handleClose}>
                 <Link
                   to={path}
@@ -271,20 +243,41 @@ export default function Navbar() {
             ))}
 
             <Link to="/contacts" onClick={closeAll} className="text-sm font-medium text-white/80 hover:text-white transition whitespace-nowrap">
-              Контакты
+              {t("navbar.contacts")}
             </Link>
           </nav>
 
           {/* Right */}
           <div className="flex items-center gap-3 shrink-0">
-            <a href="tel:88004440481" className="hidden xl:block text-[#4dbe9e] text-sm font-medium whitespace-nowrap hover:text-[#00d89a] transition">
-              8 (800) 444-04-81
+            <a href={`tel:${t("common.phone").replace(/\s+/g, "")}`} className="hidden xl:block text-[#4dbe9e] text-sm font-medium whitespace-nowrap hover:text-[#00d89a] transition">
+              {t("navbar.phone")}
             </a>
+
+            {/* Language Switcher */}
+            <div className="flex items-center bg-white/10 rounded-full p-0.5 select-none text-xs border border-white/10">
+              <button
+                onClick={() => setLanguage("en")}
+                className={`px-2.5 py-1 rounded-full font-bold transition ${
+                  language === "en" ? "bg-white text-gray-900 shadow-sm" : "text-white/85 hover:text-white"
+                }`}
+              >
+                EN
+              </button>
+              <button
+                onClick={() => setLanguage("ru")}
+                className={`px-2.5 py-1 rounded-full font-bold transition ${
+                  language === "ru" ? "bg-white text-gray-900 shadow-sm" : "text-white/85 hover:text-white"
+                }`}
+              >
+                RU
+              </button>
+            </div>
+
             <Link to="/consultation" onClick={closeAll} className="hidden sm:flex items-center px-5 py-2 rounded-full bg-[#f59e0b] hover:bg-[#ffae00] text-black text-sm font-bold transition whitespace-nowrap">
-              Консультация
+              {t("navbar.consultation")}
             </Link>
             <Link to="/login" onClick={closeAll} className="hidden sm:flex items-center px-5 py-2 rounded-full border border-white/25 text-white/80 hover:border-white/60 hover:text-white text-sm font-medium transition whitespace-nowrap">
-              Вход
+              {t("navbar.login")}
             </Link>
             <button onClick={() => setMobileOpen(!mobileOpen)} className="md:hidden text-white text-xl">☰</button>
           </div>
@@ -295,22 +288,43 @@ export default function Navbar() {
           <div className="md:hidden bg-[#2e2e2e] rounded-b-2xl p-5 mb-2 border-t border-white/10">
             <div className="flex flex-col gap-3">
               {[
-                ["Главная", "/"],
-                ["Услуги", "/services"],
-                ["Ресурсы", "/resources"],
-                ["Компания", "/company"],
-                ["Контакты", "/contacts"],
+                [t("navbar.menuHome"), "/"],
+                [t("navbar.services"), "/services"],
+                [t("navbar.resources"), "/resources"],
+                [t("navbar.company"), "/company"],
+                [t("navbar.contacts"), "/contacts"],
               ].map(([label, path]) => (
                 <Link key={label} to={path} onClick={closeAll} className="text-white/80 hover:text-white text-sm py-1 border-b border-white/5">
                   {label}
                 </Link>
               ))}
+              
+              {/* Mobile Language Switcher */}
+              <div className="flex justify-center gap-2 mt-2 bg-white/5 rounded-full p-1 max-w-[160px] mx-auto text-xs border border-white/10">
+                <button
+                  onClick={() => setLanguage("en")}
+                  className={`flex-1 py-1 rounded-full font-bold transition text-center ${
+                    language === "en" ? "bg-white text-gray-900 shadow-sm" : "text-white/80"
+                  }`}
+                >
+                  EN
+                </button>
+                <button
+                  onClick={() => setLanguage("ru")}
+                  className={`flex-1 py-1 rounded-full font-bold transition text-center ${
+                    language === "ru" ? "bg-white text-gray-900 shadow-sm" : "text-white/80"
+                  }`}
+                >
+                  RU
+                </button>
+              </div>
+
               <div className="flex gap-2 mt-3">
                 <Link to="/consultation" onClick={closeAll} className="flex-1 bg-[#f59e0b] text-black rounded-full py-2.5 text-center font-bold text-sm">
-                  Консультация
+                  {t("navbar.consultation")}
                 </Link>
                 <Link to="/login" onClick={closeAll} className="flex-1 border border-white/25 text-white rounded-full py-2.5 text-sm font-medium text-center">
-                  Вход
+                  {t("navbar.login")}
                 </Link>
               </div>
             </div>
