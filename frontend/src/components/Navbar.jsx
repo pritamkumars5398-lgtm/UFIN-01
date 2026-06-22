@@ -2,7 +2,7 @@ import React, { useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import { ChevronDown } from "lucide-react";
 import { useLanguage } from "../context/LanguageContext";
-import logoDark from "../assets/logo-dark.png";
+import logoLight from "../assets/logo-light.png";
 
 /* ── News Grid Component ── */
 const NewsGrid = () => {
@@ -194,7 +194,7 @@ export default function Navbar() {
           {/* Logo */}
           <div className="flex items-center gap-6">
             <Link to="/" className="flex items-center">
-              <img src={logoDark} alt="Tekonika Systems" className="h-10 object-contain" />
+              <img src={logoLight} alt="Tekonika Systems" className="h-10 object-contain" />
             </Link>
 
             <div className="hidden lg:flex bg-white/5 border border-white/10 rounded-full p-1">

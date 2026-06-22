@@ -10,8 +10,10 @@ export default function App() {
     <LanguageProvider>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Home/>} />
-          <Route path="/about" element={<About/>} />
+          <Route element={<Layout />}>
+            <Route path="/" element={<Home/>} />
+            <Route path="/about" element={<About/>} />
+          </Route>
         </Routes>
       </BrowserRouter>
     </LanguageProvider>
