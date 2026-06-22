@@ -10,7 +10,6 @@ export default function RequestSection() {
     "Now your cars are under continuous control",
   ];
 
-export default function RequestSection() {
   return (
     <section className="bg-[#f5f5f5] py-24">
 
