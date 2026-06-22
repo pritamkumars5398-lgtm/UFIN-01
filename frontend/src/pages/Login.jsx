@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Eye, EyeOff } from "lucide-react";
 import { useLanguage } from "../context/LanguageContext";
+import logoLight from "../assets/logo-light.png";
 
 export default function Login() {
   const { t } = useLanguage();
@@ -21,12 +22,11 @@ export default function Login() {
       <div className="w-full max-w-md">
 
         {/* Logo */}
-        <div className="text-center mb-8">
-          <Link to="/" className="inline-flex flex-col items-center gap-1">
-            <span className="text-3xl font-black text-[#f59e0b]">{t("loginPage.brand")}</span>
-            <span className="text-xs tracking-[4px] text-gray-400 font-medium">{t("loginPage.control")}</span>
+        <div className="text-center mb-8 flex flex-col items-center">
+          <Link to="/" className="inline-block mb-6">
+            <img src={logoLight} alt="Tekonika Systems" className="h-12 object-contain" />
           </Link>
-          <h1 className="text-2xl font-bold text-gray-900 mt-6 mb-1">{t("loginPage.title")}</h1>
+          <h1 className="text-2xl font-bold text-gray-900 mb-1">{t("loginPage.title")}</h1>
           <p className="text-gray-400 text-sm">{t("loginPage.subtitle")}</p>
         </div>
 

@@ -7,6 +7,7 @@ import {
 } from "lucide-react";
 import { FaTelegramPlane } from "react-icons/fa";
 import { RiRadioButtonLine } from "react-icons/ri";
+import logoLight from "../assets/logo-light.png";
 
 export default function Footer() {
   return (
@@ -35,9 +36,9 @@ export default function Footer() {
 
             {/* Logo */}
             <img
-              src="https://dummyimage.com/180x60/ffffff/000000&text=UFIN+CONTROL"
-              alt="logo"
-              className="mb-12"
+              src={logoLight}
+              alt="Tekonika Systems"
+              className="h-10 object-contain mb-12"
             />
 
             {/* Contact */}
