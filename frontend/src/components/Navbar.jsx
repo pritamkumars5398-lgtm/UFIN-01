@@ -194,7 +194,7 @@ export default function Navbar() {
           {/* Logo */}
           <div className="flex items-center gap-6">
             <Link to="/" className="flex items-center">
-              <img src={logoLight} alt="Tekonika Systems" className="h-10 object-contain" />
+              <img src={logoLight} alt="Tekonika Systems" className="h-16 object-contain" />
             </Link>
 
             <div className="hidden lg:flex bg-white/5 border border-white/10 rounded-full p-1">
