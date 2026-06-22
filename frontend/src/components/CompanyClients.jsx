@@ -23,7 +23,9 @@ export default function CompanyClients() {
   };
 
   return (
-    <section className="relative bg-[#f6f7f7] py-20 overflow-hidden">
+    <section className="relative bg-[#f6f7f7] py-24 overflow-hidden">
+
+      {/* Map Background */}
       <div
         className="absolute inset-0 opacity-[0.06] bg-center bg-cover"
         style={{ backgroundImage: "url('https://images.unsplash.com/photo-1524661135-423995f22d0b?w=1600')" }}

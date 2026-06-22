@@ -183,150 +183,142 @@ export default function Navbar() {
   ];
 
   return (
-    <header className="fixed top-0 left-0 w-full z-50" style={{ background: "#3a3a3a" }}>
-      <div className="max-w-[1400px] mx-auto px-6">
-        <div className="h-16 flex items-center justify-between gap-4">
+    <header className="fixed top-0 left-0 w-full z-50">
+      {/* Glass Background */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/75 via-black/50 to-transparent backdrop-blur-xl border-b border-white/10" />
+
+      <div className="relative max-w-7xl mx-auto px-6">
+        <div className="h-20 flex items-center justify-between">
 
           {/* Logo */}
-          <Link to="/" onClick={closeAll} className="flex items-center gap-2.5 shrink-0">
-            <OwlLogo />
-            <div className="leading-none">
-              <span className="block text-[#f59e0b] font-black text-lg tracking-wide">{t("navbar.logoBrand")}</span>
-              <span className="block text-white text-[10px] tracking-[4px] font-medium opacity-80">{t("navbar.logoControl")}</span>
-            </div>
-          </Link>
+          <div className="flex items-center gap-6">
+            <Link to="/" className="flex items-center gap-3">
 
-          {/* Toggle */}
-          <div className="hidden lg:flex bg-white/10 rounded-full p-0.5 shrink-0">
-            {["business", "people"].map((tKey) => (
+              <div className="w-11 h-11 rounded-2xl bg-white/10 backdrop-blur-md border border-white/10 flex items-center justify-center text-white font-bold shadow-lg">
+                УФ
+              </div>
+
+              <div>
+                <h2 className="text-white font-black text-xl">
+                  УФИН
+                </h2>
+
+                <p className="text-white/60 text-xs tracking-[3px]">
+                  КОНТРОЛЬ
+                </p>
+              </div>
+
+            </Link>
+
+            <div className="hidden lg:flex bg-white/5 border border-white/10 rounded-full p-1">
+
               <button
-                key={tKey}
-                onClick={() => setActiveToggle(tKey)}
-                className={`px-4 py-1.5 rounded-full text-sm font-medium transition ${
-                  activeToggle === tKey ? "bg-white text-gray-900" : "text-white/75 hover:text-white"
+                onClick={() => setActiveToggle("business")}
+                className={`px-4 py-2 rounded-full transition ${
+                  activeToggle === "business"
+                    ? "bg-white text-black"
+                    : "text-white/70 hover:text-white"
                 }`}
               >
-                {tKey === "business" ? t("common.business") : t("common.people")}
+                Business
               </button>
-            ))}
+
+              <button
+                onClick={() => setActiveToggle("people")}
+                className={`px-4 py-2 rounded-full transition ${
+                  activeToggle === "people"
+                    ? "bg-white text-black"
+                    : "text-white/70 hover:text-white"
+                }`}
+              >
+                People
+              </button>
+
+            </div>
           </div>
 
-          {/* Desktop nav */}
-          <nav className="hidden md:flex items-center gap-6 flex-1 justify-center">
-            {navItems.map(({ label, path, Panel }) => (
-              <div key={label} className="relative" onMouseEnter={() => handleOpen(label)} onMouseLeave={handleClose}>
-                <Link
-                  to={path}
-                  onClick={closeAll}
-                  className={`flex items-center gap-1 text-sm font-medium transition whitespace-nowrap ${
-                    openMenu === label ? "text-white" : "text-white/80 hover:text-white"
-                  }`}
-                >
-                  {label}
-                  <ChevronDown size={13} className={`transition-transform duration-200 ${openMenu === label ? "rotate-180" : ""}`} />
-                </Link>
+          {/* Desktop Nav */}
+          <nav className="hidden md:flex gap-8 text-white/75">
 
-                {openMenu === label && (
-                  <div
-                    className="fixed left-0 right-0 bg-white shadow-xl border-t border-gray-100 overflow-y-auto"
-                    style={{ top: "64px", maxHeight: "calc(100vh - 64px)" }}
-                    onMouseEnter={() => handleOpen(label)}
-                    onMouseLeave={handleClose}
-                    onClick={closeAll}
-                  >
-                    <div className="max-w-7xl mx-auto">
-                      <Panel />
-                    </div>
-                  </div>
-                )}
-              </div>
+            {[
+              "Services",
+              "Resources",
+              "Company",
+            ].map((item) => (
+              <button
+                key={item}
+                className="hover:text-white transition"
+              >
+                {item}
+              </button>
             ))}
 
-            <Link to="/contacts" onClick={closeAll} className="text-sm font-medium text-white/80 hover:text-white transition whitespace-nowrap">
-              {t("navbar.contacts")}
+            <Link
+              to="/contacts"
+              className="hover:text-white"
+            >
+              Contacts
             </Link>
+
           </nav>
 
           {/* Right */}
-          <div className="flex items-center gap-3 shrink-0">
-            <a href={`tel:${t("common.phone").replace(/\s+/g, "")}`} className="hidden xl:block text-[#4dbe9e] text-sm font-medium whitespace-nowrap hover:text-[#00d89a] transition">
-              {t("navbar.phone")}
+          <div className="flex items-center gap-4">
+
+            <a
+              href="tel:88004440481"
+              className="hidden xl:block text-[#00d89a]"
+            >
+              8 (800) 444-04-81
             </a>
 
-            {/* Language Switcher */}
-            <div className="flex items-center bg-white/10 rounded-full p-0.5 select-none text-xs border border-white/10">
-              <button
-                onClick={() => setLanguage("en")}
-                className={`px-2.5 py-1 rounded-full font-bold transition ${
-                  language === "en" ? "bg-white text-gray-900 shadow-sm" : "text-white/85 hover:text-white"
-                }`}
-              >
-                EN
-              </button>
-              <button
-                onClick={() => setLanguage("ru")}
-                className={`px-2.5 py-1 rounded-full font-bold transition ${
-                  language === "ru" ? "bg-white text-gray-900 shadow-sm" : "text-white/85 hover:text-white"
-                }`}
-              >
-                RU
-              </button>
-            </div>
+            <Link
+              to="/consultation"
+              className="hidden sm:flex items-center px-6 py-3 rounded-full bg-[#f59e0b] hover:bg-[#ffae00] text-black font-bold shadow-lg transition"
+            >
+              Consultation
+            </Link>
 
-            <Link to="/consultation" onClick={closeAll} className="hidden sm:flex items-center px-5 py-2 rounded-full bg-[#f59e0b] hover:bg-[#ffae00] text-black text-sm font-bold transition whitespace-nowrap">
-              {t("navbar.consultation")}
-            </Link>
-            <Link to="/login" onClick={closeAll} className="hidden sm:flex items-center px-5 py-2 rounded-full border border-white/25 text-white/80 hover:border-white/60 hover:text-white text-sm font-medium transition whitespace-nowrap">
-              {t("navbar.login")}
-            </Link>
-            <button onClick={() => setMobileOpen(!mobileOpen)} className="md:hidden text-white text-xl">☰</button>
+            <button
+              onClick={() => setMobileOpen(!mobileOpen)}
+              className="md:hidden text-white"
+            >
+              ☰
+            </button>
+
           </div>
         </div>
 
-        {/* Mobile menu */}
+        {/* Mobile */}
         {mobileOpen && (
-          <div className="md:hidden bg-[#2e2e2e] rounded-b-2xl p-5 mb-2 border-t border-white/10">
+          <div className="md:hidden mt-3 rounded-3xl bg-black/70 backdrop-blur-xl border border-white/10 p-5">
+
             <div className="flex flex-col gap-3">
+
               {[
-                [t("navbar.menuHome"), "/"],
-                [t("navbar.services"), "/services"],
-                [t("navbar.resources"), "/resources"],
-                [t("navbar.company"), "/company"],
-                [t("navbar.contacts"), "/contacts"],
-              ].map(([label, path]) => (
-                <Link key={label} to={path} onClick={closeAll} className="text-white/80 hover:text-white text-sm py-1 border-b border-white/5">
-                  {label}
+                "Home",
+                "About",
+                "Services",
+                "Resources",
+                "Company",
+                "Contacts",
+              ].map((item) => (
+                <Link
+                  key={item}
+                  to={`/${item.toLowerCase()}`}
+                  className="text-white/80 hover:text-white"
+                >
+                  {item}
                 </Link>
               ))}
-              
-              {/* Mobile Language Switcher */}
-              <div className="flex justify-center gap-2 mt-2 bg-white/5 rounded-full p-1 max-w-[160px] mx-auto text-xs border border-white/10">
-                <button
-                  onClick={() => setLanguage("en")}
-                  className={`flex-1 py-1 rounded-full font-bold transition text-center ${
-                    language === "en" ? "bg-white text-gray-900 shadow-sm" : "text-white/80"
-                  }`}
-                >
-                  EN
-                </button>
-                <button
-                  onClick={() => setLanguage("ru")}
-                  className={`flex-1 py-1 rounded-full font-bold transition text-center ${
-                    language === "ru" ? "bg-white text-gray-900 shadow-sm" : "text-white/80"
-                  }`}
-                >
-                  RU
-                </button>
-              </div>
 
-              <div className="flex gap-2 mt-3">
-                <Link to="/consultation" onClick={closeAll} className="flex-1 bg-[#f59e0b] text-black rounded-full py-2.5 text-center font-bold text-sm">
-                  {t("navbar.consultation")}
-                </Link>
-                <Link to="/login" onClick={closeAll} className="flex-1 border border-white/25 text-white rounded-full py-2.5 text-sm font-medium text-center">
-                  {t("navbar.login")}
-                </Link>
-              </div>
+              <Link
+                to="/consultation"
+                className="mt-4 bg-[#f59e0b] text-black rounded-full py-3 text-center font-bold"
+              >
+                Consultation
+              </Link>
+
             </div>
           </div>
         )}
