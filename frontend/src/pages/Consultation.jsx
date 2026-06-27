@@ -100,7 +100,7 @@ export default function Consultation() {
               <span className="text-white/50 text-sm">{t("consultationPage.support247")}</span>
             </div>
             <a
-              href="https://t.me/ufin_online"
+              href="https://t.me/tekonika_systems"
               className="inline-flex items-center gap-2 mt-2 px-5 py-2.5 bg-[#229ED9] hover:bg-[#1a8bc4] text-white text-sm font-bold rounded-full transition"
             >
               <FaTelegramPlane size={14} /> {t("consultationPage.telegramChat")}

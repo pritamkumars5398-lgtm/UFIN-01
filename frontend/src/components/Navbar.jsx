@@ -1,21 +1,25 @@
 import React, { useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import { ChevronDown } from "lucide-react";
-import { useLanguage } from "../context/LanguageContext";
 import logoLight from "../assets/logo-light.png";
+import { 
+  serviceMenuItems, 
+  solutionMenuItems, 
+  industryMenuItems, 
+  integrationMenuItems 
+} from "../data/servicesData";
 
 /* ── News Grid Component ── */
 const NewsGrid = () => {
-  const { t } = useLanguage();
   const newsItems = [
-    { img: "https://images.unsplash.com/photo-1587300003388-59208cc962cb?auto=format&fit=crop&w=400&q=80", title: t("resourcesPage.featuredTitle").replace("\n", " "), to: "/resources#news" },
-    { img: "https://images.unsplash.com/photo-1545262810-a9b9f1db8a84?auto=format&fit=crop&w=400&q=80", title: t("resourcesPage.resourcesList.1.title"), to: "/resources#news" },
-    { img: "https://images.unsplash.com/photo-1543373014-cfe4f4bc1cdf?auto=format&fit=crop&w=400&q=80", title: t("resourcesPage.resourcesList.4.title"), to: "/company#news" },
+    { img: "https://images.unsplash.com/photo-1587300003388-59208cc962cb?auto=format&fit=crop&w=400&q=80", title: "Latest System Updates", to: "/resources#news" },
+    { img: "https://images.unsplash.com/photo-1545262810-a9b9f1db8a84?auto=format&fit=crop&w=400&q=80", title: "Fuel Control Best Practices", to: "/resources#news" },
+    { img: "https://images.unsplash.com/photo-1543373014-cfe4f4bc1cdf?auto=format&fit=crop&w=400&q=80", title: "New API Capabilities", to: "/company#news" },
   ];
   return (
     <div>
       <Link to="/resources#news" className="text-sm font-semibold text-gray-900 mb-3 pb-2 border-b border-gray-100 flex items-center justify-between hover:text-[#4E8F89] transition">
-        {t("navbar.news")} <span className="text-xs font-normal text-[#4E8F89]">{t("navbar.newsAll")}</span>
+        News <span className="text-xs font-normal text-[#4E8F89]">All news</span>
       </Link>
       <div className="grid grid-cols-3 gap-4 mt-3">
         {newsItems.map(({ img, title, to }) => (
@@ -33,23 +37,17 @@ const NewsGrid = () => {
 
 /* ── Dropdown panels ── */
 const UslugiDropdown = () => {
-  const { t } = useLanguage();
-  const servicesList = t("navbar.servicesList") || [];
-  const solutionsList = t("navbar.solutionsList") || [];
-  const industriesList = t("navbar.industriesList") || [];
-  const integrationsList = t("navbar.integrationsList") || [];
-
   return (
     <div className="grid grid-cols-4 gap-10 px-10 py-8">
       {/* Our services */}
       <div>
-        <Link to="/services#services" className="text-sm font-semibold text-gray-900 mb-3 pb-2 border-b border-gray-100 block hover:text-[#4E8F89] transition">
-          {t("navbar.ourServices")}
+        <Link to="/services" className="text-sm font-semibold text-gray-900 mb-3 pb-2 border-b border-gray-100 block hover:text-[#4E8F89] transition">
+          Our Services
         </Link>
         <ul className="space-y-3">
-          {servicesList.map((s) => (
-            <li key={s}>
-              <Link to="/services#services" className="text-sm text-gray-600 hover:text-[#4E8F89] transition">{s}</Link>
+          {serviceMenuItems.map((s) => (
+            <li key={s.slug}>
+              <Link to={`/services/${s.slug}`} className="text-sm text-gray-600 hover:text-[#4E8F89] transition">{s.label}</Link>
             </li>
           ))}
         </ul>
@@ -57,14 +55,14 @@ const UslugiDropdown = () => {
 
       {/* Solutions */}
       <div>
-        <Link to="/services#solutions" className="text-sm font-semibold text-gray-900 mb-3 pb-2 border-b border-gray-100 block hover:text-[#4E8F89] transition">
-          {t("navbar.solutions")}
+        <Link to="/services" className="text-sm font-semibold text-gray-900 mb-3 pb-2 border-b border-gray-100 block hover:text-[#4E8F89] transition">
+          Solutions
         </Link>
         <ul className="space-y-4">
-          {solutionsList.map(({ title, desc }) => (
-            <li key={title}>
-              <Link to="/services#solutions" className="group block">
-                <p className="text-sm font-medium text-gray-800 group-hover:text-[#4E8F89] transition">{title}</p>
+          {solutionMenuItems.map(({ label, desc, slug }) => (
+            <li key={slug}>
+              <Link to={`/solutions/${slug}`} className="group block">
+                <p className="text-sm font-medium text-gray-800 group-hover:text-[#4E8F89] transition">{label}</p>
                 <p className="text-xs text-gray-400 mt-0.5 leading-snug">{desc}</p>
               </Link>
             </li>
@@ -74,13 +72,13 @@ const UslugiDropdown = () => {
 
       {/* By industry */}
       <div>
-        <Link to="/services#industries" className="text-sm font-semibold text-gray-900 mb-3 pb-2 border-b border-gray-100 block hover:text-[#4E8F89] transition">
-          {t("navbar.byIndustry")}
-        </Link>
+        <span className="text-sm font-semibold text-gray-900 mb-3 pb-2 border-b border-gray-100 block">
+          By Industry
+        </span>
         <ul className="space-y-3 max-h-[360px] overflow-y-auto pr-2 scrollbar-thin">
-          {industriesList.map((s) => (
-            <li key={s}>
-              <Link to="/services#industries" className="text-sm text-gray-600 hover:text-[#4E8F89] transition leading-snug block">{s}</Link>
+          {industryMenuItems.map((s) => (
+            <li key={s.slug}>
+              <Link to={`/services`} className="text-sm text-gray-600 hover:text-[#4E8F89] transition leading-snug block">{s.label}</Link>
             </li>
           ))}
         </ul>
@@ -88,13 +86,13 @@ const UslugiDropdown = () => {
 
       {/* Integrations */}
       <div>
-        <Link to="/services#integrations" className="text-sm font-semibold text-gray-900 mb-3 pb-2 border-b border-gray-100 block hover:text-[#4E8F89] transition">
-          {t("navbar.integrations")}
-        </Link>
+        <span className="text-sm font-semibold text-gray-900 mb-3 pb-2 border-b border-gray-100 block">
+          Integrations
+        </span>
         <ul className="space-y-3">
-          {integrationsList.map((s) => (
-            <li key={s}>
-              <Link to="/services#integrations" className="text-sm text-gray-600 hover:text-[#4E8F89] transition">{s}</Link>
+          {integrationMenuItems.map((s) => (
+            <li key={s.slug}>
+              <Link to={`/services`} className="text-sm text-gray-600 hover:text-[#4E8F89] transition">{s.label}</Link>
             </li>
           ))}
         </ul>
@@ -104,13 +102,17 @@ const UslugiDropdown = () => {
 };
 
 const ResursiDropdown = () => {
-  const { t } = useLanguage();
-  const resourcesList = t("navbar.resourcesList") || [];
+  const resourcesList = [
+    { label: "Blog & Articles", to: "/resources#blog" },
+    { label: "Webinars & Events", to: "/resources#webinars" },
+    { label: "Case Studies", to: "/resources#cases" },
+    { label: "Documentation", to: "/resources#docs" },
+  ];
   return (
     <div className="grid grid-cols-2 gap-10 px-10 py-8">
       <div>
-        <Link to="/resources#resources" className="text-sm font-semibold text-gray-900 mb-3 pb-2 border-b border-gray-100 block hover:text-[#4E8F89] transition">
-          {t("navbar.resourcesTitle")}
+        <Link to="/resources" className="text-sm font-semibold text-gray-900 mb-3 pb-2 border-b border-gray-100 block hover:text-[#4E8F89] transition">
+          Resources
         </Link>
         <ul className="space-y-3">
           {resourcesList.map(({ label, to }) => (
@@ -120,7 +122,7 @@ const ResursiDropdown = () => {
           ))}
         </ul>
         <Link to="/resources#faq" className="inline-flex items-center gap-1 mt-5 text-xs font-medium text-[#4E8F89] hover:underline">
-          {t("navbar.faqLink")}
+          Go to FAQ Section
         </Link>
       </div>
       <NewsGrid />
@@ -129,13 +131,17 @@ const ResursiDropdown = () => {
 };
 
 const KompaniyaDropdown = () => {
-  const { t } = useLanguage();
-  const companyList = t("navbar.companyList") || [];
+  const companyList = [
+    { label: "About Us", to: "/about" },
+    { label: "Careers", to: "/company#careers" },
+    { label: "Partners", to: "/company#partners" },
+    { label: "Contact Us", to: "/contacts" },
+  ];
   return (
     <div className="grid grid-cols-2 gap-10 px-10 py-8">
       <div>
         <Link to="/company" className="text-sm font-semibold text-gray-900 mb-3 pb-2 border-b border-gray-100 block hover:text-[#4E8F89] transition">
-          {t("navbar.company")}
+          Company
         </Link>
         <ul className="space-y-3">
           {companyList.map(({ label, to }) => (
@@ -150,24 +156,8 @@ const KompaniyaDropdown = () => {
   );
 };
 
-/* ── Owl SVG ── */
-const OwlLogo = () => (
-  <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <ellipse cx="18" cy="20" rx="13" ry="12" fill="white" fillOpacity="0.9"/>
-    <polygon points="8,10 6,2 13,8" fill="white" fillOpacity="0.9"/>
-    <polygon points="28,10 30,2 23,8" fill="white" fillOpacity="0.9"/>
-    <circle cx="13" cy="18" r="4" fill="#f59e0b"/>
-    <circle cx="23" cy="18" r="4" fill="#f59e0b"/>
-    <circle cx="13" cy="18" r="2" fill="#1a1a1a"/>
-    <circle cx="23" cy="18" r="2" fill="#1a1a1a"/>
-    <polygon points="18,21 15,25 21,25" fill="#f59e0b"/>
-    <path d="M5 24 Q8 30 18 31 Q28 30 31 24" stroke="white" strokeWidth="1.5" fill="none" strokeOpacity="0.6"/>
-  </svg>
-);
-
 /* ── Navbar Component ── */
 export default function Navbar() {
-  const { language, setLanguage, t } = useLanguage();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeToggle, setActiveToggle] = useState("business");
   const [openMenu, setOpenMenu] = useState(null);
@@ -178,9 +168,9 @@ export default function Navbar() {
   const closeAll = () => { setOpenMenu(null); setMobileOpen(false); };
 
   const navItems = [
-    { label: t("navbar.services"),   path: "/services", Panel: UslugiDropdown },
-    { label: t("navbar.resources"),  path: "/resources", Panel: ResursiDropdown },
-    { label: t("navbar.company"), path: "/company",   Panel: KompaniyaDropdown },
+    { label: "Services",   path: "/services", Panel: UslugiDropdown },
+    { label: "Resources",  path: "/resources", Panel: ResursiDropdown },
+    { label: "Company", path: "/company",   Panel: KompaniyaDropdown },
   ];
 
   return (
@@ -193,7 +183,7 @@ export default function Navbar() {
 
           {/* Logo */}
           <div className="flex items-center gap-6">
-            <Link to="/" className="flex items-center">
+            <Link to="/" className="flex items-center" onClick={closeAll}>
               <img src={logoLight} alt="Tekonika Systems" className="h-16 object-contain" />
             </Link>
 
@@ -203,8 +193,8 @@ export default function Navbar() {
                 onClick={() => setActiveToggle("business")}
                 className={`px-4 py-2 rounded-full transition ${
                   activeToggle === "business"
-                    ? "bg-white text-black"
-                    : "text-white/70 hover:text-white"
+                    ? "bg-white text-black text-sm font-medium"
+                    : "text-white/70 hover:text-white text-sm"
                 }`}
               >
                 Business
@@ -214,8 +204,8 @@ export default function Navbar() {
                 onClick={() => setActiveToggle("people")}
                 className={`px-4 py-2 rounded-full transition ${
                   activeToggle === "people"
-                    ? "bg-white text-black"
-                    : "text-white/70 hover:text-white"
+                    ? "bg-white text-black text-sm font-medium"
+                    : "text-white/70 hover:text-white text-sm"
                 }`}
               >
                 People
@@ -225,28 +215,39 @@ export default function Navbar() {
           </div>
 
           {/* Desktop Nav */}
-          <nav className="hidden md:flex gap-8 text-white/75">
-
-            {[
-              "Services",
-              "Resources",
-              "Company",
-            ].map((item) => (
-              <button
-                key={item}
-                className="hover:text-white transition"
+          <nav className="hidden md:flex gap-8 text-white/75 items-center">
+            {navItems.map((item) => (
+              <div 
+                key={item.label}
+                className="relative py-8"
+                onMouseEnter={() => handleOpen(item.label)}
+                onMouseLeave={handleClose}
               >
-                {item}
-              </button>
+                <Link
+                  to={item.path}
+                  className="hover:text-white transition flex items-center gap-1 group font-medium"
+                  onClick={closeAll}
+                >
+                  {item.label}
+                  <ChevronDown size={14} className={`transition-transform duration-300 ${openMenu === item.label ? "rotate-180 text-white" : "text-white/50 group-hover:text-white"}`} />
+                </Link>
+
+                {/* Mega Menu Dropdown */}
+                {openMenu === item.label && (
+                  <div className="absolute top-[80px] left-1/2 -translate-x-1/2 w-[900px] bg-white rounded-2xl shadow-[0_20px_40px_-15px_rgba(0,0,0,0.2)] border border-gray-100 overflow-hidden transform origin-top transition-all animate-in fade-in zoom-in-95 duration-200">
+                    <item.Panel />
+                  </div>
+                )}
+              </div>
             ))}
 
             <Link
               to="/contacts"
-              className="hover:text-white"
+              className="hover:text-white font-medium"
+              onClick={closeAll}
             >
               Contacts
             </Link>
-
           </nav>
 
           {/* Right */}
@@ -254,14 +255,15 @@ export default function Navbar() {
 
             <a
               href="tel:88004440481"
-              className="hidden xl:block text-[#00d89a]"
+              className="hidden xl:block text-[#00d89a] font-bold"
             >
               8 (800) 444-04-81
             </a>
 
             <Link
               to="/consultation"
-              className="hidden sm:flex items-center px-6 py-3 rounded-full bg-[#f59e0b] hover:bg-[#ffae00] text-black font-bold shadow-lg transition"
+              className="hidden sm:flex items-center px-6 py-2.5 rounded-full bg-[#f59e0b] hover:bg-[#ffae00] text-black font-bold shadow-lg transition text-sm"
+              onClick={closeAll}
             >
               Consultation
             </Link>
@@ -292,8 +294,9 @@ export default function Navbar() {
               ].map((item) => (
                 <Link
                   key={item}
-                  to={`/${item.toLowerCase()}`}
-                  className="text-white/80 hover:text-white"
+                  to={item === "Home" ? "/" : `/${item.toLowerCase()}`}
+                  className="text-white/80 hover:text-white py-2"
+                  onClick={closeAll}
                 >
                   {item}
                 </Link>
@@ -302,6 +305,7 @@ export default function Navbar() {
               <Link
                 to="/consultation"
                 className="mt-4 bg-[#f59e0b] text-black rounded-full py-3 text-center font-bold"
+                onClick={closeAll}
               >
                 Consultation
               </Link>

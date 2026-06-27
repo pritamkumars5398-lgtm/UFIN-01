@@ -2,7 +2,7 @@ export const translations = {
   en: {
     common: {
       phone: "8 (800) 444-04-81",
-      emailBuy: "buy@ufin.online",
+      emailBuy: "buy@tekonikasystems.online",
       phoneFree: "free",
       learnMore: "Learn more",
       showAll: "Show all",
@@ -31,7 +31,7 @@ export const translations = {
       login: "Login",
       phone: "8 (800) 444-04-81",
       logoControl: "CONTROL",
-      logoBrand: "UFIN",
+      logoBrand: "TEKONIKA SYSTEMS",
       menuHome: "Home",
       news: "News",
       newsAll: "All →",
@@ -56,7 +56,7 @@ export const translations = {
       
       // solutions list
       solutionsList: [
-        { title: "Efficiency", desc: "How Ufin increases your business efficiency" },
+        { title: "Efficiency", desc: "How Tekonika Systems increases your business efficiency" },
         { title: "Transportation safety", desc: "Prevention of accidents and incidents" },
         { title: "Customer loyalty & retention", desc: "A satisfied customer always returns" },
         { title: "Service provision level", desc: "How we improve the quality of your services" },
@@ -199,7 +199,7 @@ export const translations = {
         {
           logo: "AC",
           company: "Avansstroy Construction LLC",
-          text: "We have been using monitoring services for many years. We tried several tracking systems and recently worked on a local server, which did not allow us to scale automation. The cloud service Ufin Control allowed us not only to integrate satellite fleet monitoring into our IT environment, but also to connect cellular monitoring for our field employees."
+          text: "We have been using monitoring services for many years. We tried several tracking systems and recently worked on a local server, which did not allow us to scale automation. The cloud service Tekonika Systems Control allowed us not only to integrate satellite fleet monitoring into our IT environment, but also to connect cellular monitoring for our field employees."
         },
         {
           logo: "TC",
@@ -224,7 +224,7 @@ export const translations = {
       ]
     },
     companyClients: {
-      title: "More than 500 companies in Russia and India use UFIN control services"
+      title: "More than 500 companies in Russia and India use TEKONIKA SYSTEMS control services"
     },
     devices: {
       title: "Control devices from leading manufacturers",
@@ -308,7 +308,7 @@ export const translations = {
     },
     companyPage: {
       aboutCategory: "ABOUT US",
-      heroTitle: "Ufin Control —\nreliable partner\nsince 2012",
+      heroTitle: "Tekonika Systems Control —\nreliable partner\nsince 2012",
       heroDesc: "We build technologies that help transport companies monitor fleets, reduce costs, and improve road safety.",
       becomeClient: "Become a client",
       stats: [
@@ -325,7 +325,7 @@ export const translations = {
       ],
       historyTitle: "Company History",
       timeline: [
-        { year: "2012", title: "Company Founding", desc: "Ufin Control launched as a startup for transport monitoring in Moscow" },
+        { year: "2012", title: "Company Founding", desc: "Tekonika Systems Control launched as a startup for transport monitoring in Moscow" },
         { year: "2015", title: "100 Clients", desc: "First 100 corporate clients in cargo and passenger transportation" },
         { year: "2018", title: "Expansion to India", desc: "Opening of representative office and first partnerships with Indian transport companies" },
         { year: "2021", title: "500+ Companies", desc: "Platform serves over 500 companies, covering 8 transport logistics industries" },
@@ -415,7 +415,7 @@ export const translations = {
       promoDesc: "Submit a request online now! We will contact you during business hours and give you a 10% discount!"
     },
     loginPage: {
-      brand: "UFIN",
+      brand: "TEKONIKA SYSTEMS",
       control: "CONTROL",
       title: "Log in to Personal Account",
       subtitle: "Enter your account details",
@@ -429,7 +429,7 @@ export const translations = {
     resourcesPage: {
       category: "Knowledge Base",
       title: "Resources\nand documentation",
-      desc: "Everything you need to work with the UFIN Control platform — instructions, agreements, guides, and news",
+      desc: "Everything you need to work with the TEKONIKA SYSTEMS Control platform — instructions, agreements, guides, and news",
       searchPlaceholder: "Search resources...",
       featuredTag: "Stories",
       featuredTitle: "Tracker saved\na brave dog's life!",
@@ -444,8 +444,8 @@ export const translations = {
       },
       resourcesList: [
         { cat: "Equipment", title: "Compatible equipment for business", desc: "Full list of supported trackers, sensors, and peripherals", badge: "PDF" },
-        { cat: "App", title: "Mobile app user manual", desc: "Step-by-step instructions for Ufin Control application", badge: "Guide" },
-        { cat: "Documents", title: "User Agreement", desc: "Terms of service for Ufin Control service", badge: "DOC" },
+        { cat: "App", title: "Mobile app user manual", desc: "Step-by-step instructions for Tekonika Systems Control application", badge: "Guide" },
+        { cat: "Documents", title: "User Agreement", desc: "Terms of service for Tekonika Systems Control service", badge: "DOC" },
         { cat: "Documents", title: "Privacy Policy", desc: "How we process and protect your personal data", badge: "DOC" },
         { cat: "Updates", title: "What new features have we developed?", desc: "List of recent updates and new platform features", badge: "New" },
         { cat: "Equipment", title: "Instructions for trackers", desc: "Installation and configuration documentation for each model", badge: "PDF" }
@@ -457,7 +457,7 @@ export const translations = {
       faqs: [
         { q: "How to connect a tracker to the platform?", a: "After installing the tracker, log in to your personal account, go to the 'Equipment' section, and add the device by IMEI." },
         { q: "Are third-party GPS trackers supported?", a: "Yes, we support over 200 tracker models from leading manufacturers. The full list is in the 'Compatible equipment' section." },
-        { q: "How to get access to API?", a: "Apply via the form on the 'Integrations' page or email buy@ufin.online. Access is granted after agreeing on the conditions." },
+        { q: "How to get access to API?", a: "Apply via the form on the 'Integrations' page or email buy@tekonikasystems.online. Access is granted after agreeing on the conditions." },
         { q: "What data export format is supported?", a: "Data is exported in Excel, CSV, and PDF formats. An API is also available for integration with your systems." }
       ]
     },
@@ -494,7 +494,7 @@ export const translations = {
       solutionsTitle: "Solutions",
       solutionsSubtitle: "How our services solve your business challenges",
       solutionsList: [
-        { title: "Efficiency", desc: "How Ufin increases business profitability through accounting and control automation" },
+        { title: "Efficiency", desc: "How Tekonika Systems increases business profitability through accounting and control automation" },
         { title: "Transportation safety", desc: "Preventing accidents, incidents, and traffic violations through continuous monitoring" },
         { title: "Customer loyalty", desc: "Improving service quality and transparency for clients through online access to data" },
         { title: "Service provision level", desc: "Real-time control over adherence to transport standards and regulations" },
@@ -522,7 +522,7 @@ export const translations = {
   ru: {
     common: {
       phone: "8 (800) 444-04-81",
-      emailBuy: "buy@ufin.online",
+      emailBuy: "buy@tekonikasystems.online",
       phoneFree: "бесплатно",
       learnMore: "Узнать больше",
       showAll: "Показать все",
@@ -551,7 +551,7 @@ export const translations = {
       login: "Вход",
       phone: "8 (800) 444-04-81",
       logoControl: "КОНТРОЛЬ",
-      logoBrand: "УФИН",
+      logoBrand: "TEKONIKA SYSTEMS",
       menuHome: "Главная",
       news: "Новости",
       newsAll: "Все →",
@@ -573,7 +573,7 @@ export const translations = {
       ],
       
       solutionsList: [
-        { title: "Эффективность", desc: "Как Уфин повышает эффективность вашего бизнеса" },
+        { title: "Эффективность", desc: "Как Tekonika Systems повышает эффективность вашего бизнеса" },
         { title: "Безопасность перевозок", desc: "Предотвращение аварий и инцидентов" },
         { title: "Лояльность и удержание клиентов", desc: "Довольный клиент всегда возвращается" },
         { title: "Уровень оказания услуг", desc: "Как мы повышаем качество ваших услуг" },
@@ -712,7 +712,7 @@ export const translations = {
         {
           logo: "АС",
           company: "ООО СК Авансстрой",
-          text: "Пользуемся услугами мониторинга уже много лет. Пробовали несколько различных систем отслеживания, в последнее время работали на локальном сервере, который не позволял нам развивать автоматизацию. Облачный сервис Уфин контроль позволил нам не только интегрировать спутниковый мониторинг автотранспорта в свою информационную среду, но и подключить мониторинг выездных сотрудников по сотовой сети."
+          text: "Пользуемся услугами мониторинга уже много лет. Пробовали несколько различных систем отслеживания, в последнее время работали на локальном сервере, который не позволял нам развивать автоматизацию. Облачный сервис Tekonika Systems контроль позволил нам не только интегрировать спутниковый мониторинг автотранспорта в свою информационную среду, но и подключить мониторинг выездных сотрудников по сотовой сети."
         },
         {
           logo: "TC",
@@ -737,7 +737,7 @@ export const translations = {
       ]
     },
     companyClients: {
-      title: "Более 500 компаний в России и Индии пользуются услугами УФИН контроля"
+      title: "Более 500 компаний в России и Индии пользуются услугами TEKONIKA SYSTEMS контроля"
     },
     devices: {
       title: "Устройства контроля от ведущих производителей",
@@ -821,7 +821,7 @@ export const translations = {
     },
     companyPage: {
       aboutCategory: "О нас",
-      heroTitle: "Уфин Контроль —\nнадёжный партнёр\nс 2012 года",
+      heroTitle: "Tekonika Systems Контроль —\nнадёжный партнёр\nс 2012 года",
       heroDesc: "Мы создаём технологии, которые помогают транспортным компаниям контролировать автопарк, снижать издержки и повышать безопасность на дорогах.",
       becomeClient: "Стать клиентом",
       stats: [
@@ -838,7 +838,7 @@ export const translations = {
       ],
       historyTitle: "История компании",
       timeline: [
-        { year: "2012", title: "Основание компании", desc: "Уфин Контроль запущен как стартап по мониторингу транспорта в Москве" },
+        { year: "2012", title: "Основание компании", desc: "Tekonika Systems Контроль запущен как стартап по мониторингу транспорта в Москве" },
         { year: "2015", title: "100 клиентов", desc: "Первые 100 корпоративных клиентов в сфере грузовых и пассажирских перевозок" },
         { year: "2018", title: "Выход в Индию", desc: "Открытие представительства и первые партнёрства с индийскими транспортными компаниями" },
         { year: "2021", title: "500+ компаний", desc: "Платформа обслуживает более 500 компаний, охватывая 8 отраслей транспортной логистики" },
@@ -928,7 +928,7 @@ export const translations = {
       promoDesc: "Оставьте онлайн заявку сейчас! Мы с вами свяжемся в рабочее время и дадим 10% скидки!"
     },
     loginPage: {
-      brand: "УФИН",
+      brand: "TEKONIKA SYSTEMS",
       control: "КОНТРОЛЬ",
       title: "Вход в личный кабинет",
       subtitle: "Введите данные вашей учётной записи",
@@ -942,7 +942,7 @@ export const translations = {
     resourcesPage: {
       category: "База знаний",
       title: "Ресурсы\nи документация",
-      desc: "Всё необходимое для работы с платформой Уфин Контроль — инструкции, соглашения, руководства и новости",
+      desc: "Всё необходимое для работы с платформой Tekonika Systems Контроль — инструкции, соглашения, руководства и новости",
       searchPlaceholder: "Поиск по ресурсам...",
       featuredTag: "Истории",
       featuredTitle: "Трекер спас жизнь\nхраброй собаке!",
@@ -957,8 +957,8 @@ export const translations = {
       },
       resourcesList: [
         { cat: "Equipment", title: "Совместимое оборудование для бизнеса", desc: "Полный список поддерживаемых трекеров, датчиков и периферии", badge: "PDF" },
-        { cat: "App", title: "Руководство пользователя мобильного приложения", desc: "Пошаговая инструкция по работе с приложением Уфин Контроль", badge: "Гид" },
-        { cat: "Documents", title: "Пользовательское соглашение", desc: "Условия использования сервиса Уфин Контроль", badge: "DOC" },
+        { cat: "App", title: "Руководство пользователя мобильного приложения", desc: "Пошаговая инструкция по работе с приложением Tekonika Systems Контроль", badge: "Гид" },
+        { cat: "Documents", title: "Пользовательское соглашение", desc: "Условия использования сервиса Tekonika Systems Контроль", badge: "DOC" },
         { cat: "Documents", title: "Политика конфиденциальности", desc: "Как мы обрабатываем и защищаем ваши персональные данные", badge: "DOC" },
         { cat: "Updates", title: "Что нового мы разработали?", desc: "Список последних обновлений и новых функций платформы", badge: "Новое" },
         { cat: "Equipment", title: "Инструкции к трекерам", desc: "Документация по установке и настройке каждой модели", badge: "PDF" }
@@ -970,7 +970,7 @@ export const translations = {
       faqs: [
         { q: "Как подключить трекер к платформе?", a: "После установки трекера подключитесь к личному кабинету, перейдите в раздел «Оборудование» и добавьте устройство по IMEI." },
         { q: "Поддерживаются ли сторонние GPS-трекеры?", a: "Да, мы поддерживаем более 200 моделей трекеров от ведущих производителей. Полный список — в разделе «Совместимое оборудование»." },
-        { q: "Как получить доступ к API?", a: "Подайте заявку через форму на странице «Интеграции» или напишите на buy@ufin.online. Доступ предоставляется после согласования условий." },
+        { q: "Как получить доступ к API?", a: "Подайте заявку через форму на странице «Интеграции» или напишите на buy@tekonikasystems.online. Доступ предоставляется после согласования условий." },
         { q: "Какой формат экспорта данных поддерживается?", a: "Данные экспортируются в форматах Excel, CSV и PDF. Также доступен API для интеграции с вашими системами." }
       ]
     },
@@ -1007,7 +1007,7 @@ export const translations = {
       solutionsTitle: "Решения",
       solutionsSubtitle: "Как наши услуги решают задачи вашего бизнеса",
       solutionsList: [
-        { title: "Эффективность", desc: "Как Уфин повышает рентабельность вашего бизнеса за счёт автоматизации учёта и контроля" },
+        { title: "Эффективность", desc: "Как Tekonika Systems повышает рентабельность вашего бизнеса за счёт автоматизации учёта и контроля" },
         { title: "Безопасность перевозок", desc: "Предотвращение аварий, инцидентов и нарушений ПДД с помощью непрерывного мониторинга" },
         { title: "Лояльность клиентов", desc: "Повышение качества сервиса и прозрачность для клиентов через онлайн-доступ к данным" },
         { title: "Уровень оказания услуг", desc: "Контроль соблюдения стандартов и нормативов перевозки в режиме реального времени" },

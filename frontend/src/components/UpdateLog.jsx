@@ -24,7 +24,7 @@ export default function UpdateLog() {
       ],
 
       desc:
-        "Messenger MAX is now available as the main support channel across all UFIN Control mobile applications.",
+        "Messenger MAX is now available as the main support channel across all TEKONIKA SYSTEMS Control mobile applications.",
     },
 
     {

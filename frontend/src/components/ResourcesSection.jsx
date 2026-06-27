@@ -56,7 +56,7 @@ export default function ResourcesSection() {
                   </div>
                   <span className="text-base font-bold text-[#0B1F33]">{t("common.phone")}</span>
                 </div>
-                <a href="https://t.me/ufin_online" className="w-9 h-9 rounded bg-[#229ED9] text-white flex items-center justify-center hover:opacity-80 transition">
+                <a href="https://t.me/tekonika_systems" className="w-9 h-9 rounded bg-[#229ED9] text-white flex items-center justify-center hover:opacity-80 transition">
                   <FaTelegramPlane size={16} />
                 </a>
               </div>

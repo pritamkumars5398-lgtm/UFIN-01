@@ -9,7 +9,7 @@ export default function NewsSection() {
     },
     {
       date: "March 14, 2025",
-      title: "Ufin Control presents an updated logo",
+      title: "Tekonika Systems Control presents an updated logo",
     },
     {
       date: "October 18, 2024",

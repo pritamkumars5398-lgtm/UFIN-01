@@ -157,7 +157,7 @@ export default function Company() {
             </p>
           </div>
           <div className="flex gap-3 shrink-0">
-            <a href="https://t.me/ufin_online" className="flex items-center gap-2 px-6 py-3 bg-[#229ED9] hover:bg-[#1a8bc4] text-white text-sm font-bold rounded-full transition">
+            <a href="https://t.me/tekonika_systems" className="flex items-center gap-2 px-6 py-3 bg-[#229ED9] hover:bg-[#1a8bc4] text-white text-sm font-bold rounded-full transition">
               <FaTelegramPlane size={15} /> Telegram
             </a>
             <Link to="/contacts" className="px-6 py-3 border border-white/20 text-white text-sm font-bold rounded-full hover:bg-white/10 transition">

@@ -1,31 +1,28 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import { Check } from "lucide-react";
-import { useLanguage } from "../context/LanguageContext";
 
 export default function Hero() {
   const features = [
     {
-      title: "Route monitoring & operation control",
-      desc: "Monitoring location, fuel consumption, tire pressure and other parameters",
+      title: "route of movement and control of operation",
+      desc: "monitoring location, fuel consumption, tire pressure and other parameters",
     },
     {
-      title: "Transportation video monitoring",
-      desc: "Compliance with standards, improved safety, and accident analysis",
+      title: "video monitoring of the transportation process",
+      desc: "compliance with industry standards, improving safety, and determining who is at fault in an accident",
     },
     {
-      title: "Climate parameter control",
-      desc: "Automated transfer of transportation condition data to clients",
+      title: "control of climatic parameters of transportation",
+      desc: "confirmed quality of transportation, continuous automated transfer of data on transportation conditions to the client",
     },
     {
-      title: "Driver assistance & video monitoring",
-      desc: "Improving safety and reducing road accidents",
+      title: "video monitoring and driver assistance",
+      desc: "improving safety and reducing the number of road accidents",
     },
   ];
 
   return (
-    <section className="relative min-h-screen overflow-hidden">
-      {/* Background */}
+    <section className="relative min-h-screen overflow-hidden font-sans">
+      {/* Background Image */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
@@ -34,72 +31,45 @@ export default function Hero() {
         }}
       />
 
-      {/* Overlay */}
-      <div className="absolute inset-0 bg-black/65" />
+      {/* Overlay - Darker on the left side, transparent on the right */}
+      <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/60 to-transparent" />
 
-      <div className="relative max-w-7xl mx-auto px-6 py-24">
+      {/* Content */}
+      <div className="relative z-10 max-w-7xl mx-auto px-6 pt-40 pb-24">
         <div className="max-w-3xl">
-          <div className="backdrop-blur-lg bg-black/50 border border-white/10 rounded-3xl p-8 md:p-12 shadow-2xl text-white">
-            
-            <h1 className="text-4xl md:text-5xl font-bold leading-tight">
-              GLONASS Transport Monitoring
-            </h1>
+          
+          <h1 className="text-4xl md:text-[50px] font-bold text-white leading-tight tracking-tight mb-12">
+            GLONASS transport monitoring
+          </h1>
 
-            <p className="mt-4 text-white/75 text-lg">
-              Smart transport tracking with real-time monitoring,
-              safety systems and climate control.
-            </p>
-
-            <div className="mt-10 space-y-7">
-              {features.map((item, index) => (
-                <div
-                  key={index}
-                  className="flex gap-4 group"
-                >
-                  <div className="w-10 h-10 rounded-full bg-orange-500/20 flex items-center justify-center shrink-0">
-                    <svg
-                      className="w-5 h-5 text-orange-400"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M16.707 5.293a1 1 0 00-1.414-1.414L8 11.172 4.707 7.879A1 1 0 003.293 9.293l4 4a1 1 0 001.414 0l8-8z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
-                  </div>
-
-                  <div>
-                    <h3 className="text-xl font-semibold group-hover:text-orange-400 transition">
-                      {item.title}
-                    </h3>
-
-                    <p className="mt-2 text-white/70 leading-7">
-                      {item.desc}
-                    </p>
-                  </div>
+          <div className="space-y-6">
+            {features.map((item, index) => (
+              <div key={index} className="flex gap-5 items-start group">
+                <div className="shrink-0 mt-1">
+                  <svg 
+                    width="24" 
+                    height="24" 
+                    viewBox="0 0 24 24" 
+                    fill="none" 
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="text-[#f59e0b]" // Orange color for checkmark
+                  >
+                    <path d="M5 13L9 17L19 7" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
                 </div>
-              ))}
-            </div>
 
-            <div className="mt-10 flex flex-wrap gap-4">
-              <Link
-                to="/consultation"
-                className="px-7 py-3 rounded-xl bg-orange-500 hover:bg-orange-600 text-black font-semibold transition"
-              >
-                Request Demo
-              </Link>
-
-              <Link
-                to="/services"
-                className="px-7 py-3 rounded-xl border border-white/20 hover:bg-white hover:text-black transition"
-              >
-                Explore Services
-              </Link>
-            </div>
-
+                <div>
+                  <h3 className="text-xl text-white font-medium mb-1.5 group-hover:text-[#f59e0b] transition-colors">
+                    {item.title}
+                  </h3>
+                  <p className="text-gray-400 text-sm md:text-[15px] leading-relaxed max-w-2xl font-light">
+                    {item.desc}
+                  </p>
+                </div>
+              </div>
+            ))}
           </div>
+
         </div>
       </div>
     </section>

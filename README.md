@@ -30,5 +30,5 @@ If you want, I can run installs and start both servers for you.
 #   U F I N - 0 2  
  #   U F I N  
  
-# UFIN-01# UFIN-01
-# UFIN-01
+# TEKONIKA-SYSTEMS-01# TEKONIKA-SYSTEMS-01
+# TEKONIKA-SYSTEMS-01

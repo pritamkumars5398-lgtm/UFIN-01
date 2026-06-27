@@ -99,7 +99,7 @@ export default function RequestSection() {
 
                 <div className="flex justify-between text-[#ff8c00] text-sm">
                   <span>📞 8 (800) 444-04-81</span>
-                  <span>✉ buy@ufin.online</span>
+                  <span>✉ buy@tekonikasystems.online</span>
                 </div>
 
                 <input
