@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { Phone, Mail, MapPin, Clock, MessageCircle, Send } from "lucide-react";
+import { Phone, Mail, MapPin, Clock, MessageCircle, Send, TrendingUp, Wifi, Share2, Headset } from "lucide-react";
 
 export default function Contacts() {
   const [form, setForm] = useState({ name: "", phone: "", message: "" });
@@ -14,83 +14,77 @@ export default function Contacts() {
 
   const departments = [
     {
-      title: "Business Development",
-      desc: "Cooperation with partners and suppliers",
+      title: "Business Development Department",
       email: "a@tekonikasystems.online",
+      Icon: TrendingUp
     },
     {
-      title: "Connection Questions",
-      desc: "Sales, connecting new objects and client's own trackers",
+      title: "For connection questions",
       email: "a@tekonikasystems.online",
+      Icon: Wifi
     },
     {
       title: "Media Center",
-      desc: "Communicating with clients regarding new products, advertising, and partnership",
       email: "osa@tekonikasystems.online",
+      Icon: Share2
     },
     {
-      title: "Tech Support 24/7",
-      desc: "Technical questions with clients and suppliers",
+      title: "24/7 technical support",
       email: "support@tekonikasystems.online",
+      Icon: Headset
     },
   ];
 
   return (
     <div className="font-sans">
       {/* ─── Hero Banner ─── */}
-      <section className="relative min-h-[380px] flex items-end overflow-hidden">
+      <section className="relative min-h-[480px] flex items-end overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
             backgroundImage:
-              "url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1600&q=80')",
+              "url('https://images.unsplash.com/photo-1512428559087-560fa5ceab42?auto=format&fit=crop&w=1600&q=80')",
           }}
         />
-        <div className="absolute inset-0 bg-[#0b1f33]/75" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#17232d] via-[#17232d]/90 to-transparent" />
 
-        <div className="relative max-w-7xl mx-auto px-6 pb-20 pt-40 w-full">
-          {/* Breadcrumb */}
-          <div className="flex items-center gap-2 text-white/50 text-sm mb-5">
-            <Link to="/" className="hover:text-white transition">
-              Home
-            </Link>
-            <span>/</span>
-            <span className="text-white">Contacts</span>
-          </div>
-
+        <div className="relative max-w-7xl mx-auto px-6 pb-32 pt-40 w-full z-10">
           <h1 className="text-5xl md:text-6xl font-bold text-white leading-tight mb-4">
             Contacts
           </h1>
-          <p className="text-white/65 text-lg max-w-xl">
-            Where we are and how to reach us. Providing monitoring systems for people and transport with competitive prices and fast installation.
+          <p className="text-white/80 text-xl font-medium max-w-xl">
+            Where we are and how to get to us
           </p>
         </div>
       </section>
 
       {/* ─── Departments ─── */}
-      <section className="bg-[#f7f7f7] py-20">
+      <section className="bg-white -mt-20 relative z-20 pb-20">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {departments.map((dep, idx) => (
-              <div
-                key={idx}
-                className="bg-white p-8 rounded hover:shadow-lg hover:-translate-y-1 transition duration-300 border-t-4 border-[#177f73]"
-              >
-                <h3 className="text-lg font-bold text-[#0b1f33] mb-3">
-                  {dep.title}
-                </h3>
-                <p className="text-sm text-slate-500 mb-6 h-12">
-                  {dep.desc}
-                </p>
-                <a
-                  href={`mailto:${dep.email}`}
-                  className="text-[#177f73] font-semibold hover:text-[#0b1f33] transition flex items-center gap-2"
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {departments.map((dep, idx) => {
+              const IconComponent = dep.Icon;
+              return (
+                <div
+                  key={idx}
+                  className="bg-white p-8 rounded border border-[#177f73] hover:shadow-xl transition duration-300 min-h-[220px] flex flex-col justify-between"
                 >
-                  <Mail size={16} />
-                  {dep.email}
-                </a>
-              </div>
-            ))}
+                  <div>
+                    <IconComponent size={48} strokeWidth={2.5} className="text-[#177f73] mb-6" />
+                    <h3 className="text-lg font-bold text-[#143451] leading-tight">
+                      {dep.title}
+                    </h3>
+                  </div>
+                  <a
+                    href={`mailto:${dep.email}`}
+                    className="text-[#177f73] font-semibold hover:text-[#143451] transition flex items-center gap-2 mt-6 text-sm"
+                  >
+                    <Mail size={16} />
+                    {dep.email}
+                  </a>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>

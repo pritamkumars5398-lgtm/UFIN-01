@@ -1,6 +1,6 @@
 import React, { useState, useRef } from "react";
 import { Link } from "react-router-dom";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, Languages } from "lucide-react";
 import logoLight from "../assets/logo-light.png";
 import { 
   serviceMenuItems, 
@@ -8,6 +8,12 @@ import {
   industryMenuItems, 
   integrationMenuItems 
 } from "../data/servicesData";
+import { 
+  peopleServiceMenuItems,
+  peopleResourceMenuItems,
+  peopleCompanyMenuItems
+} from "../data/peopleData";
+import { useLanguage } from "../context/LanguageContext";
 
 /* ── News Grid Component ── */
 const NewsGrid = () => {
@@ -156,8 +162,95 @@ const KompaniyaDropdown = () => {
   );
 };
 
+/* ── People (B2C) Dropdown panels ── */
+const PeopleUslugiDropdown = () => {
+  return (
+    <div className="grid grid-cols-3 gap-10 px-10 py-8">
+      <div>
+        <span className="text-sm font-semibold text-gray-900 mb-3 pb-2 border-b border-gray-100 block">
+          Our services
+        </span>
+        <ul className="space-y-3">
+          {peopleServiceMenuItems.ourServices.map((s) => (
+            <li key={s.slug}>
+              <Link to={`/services/${s.slug}`} className="text-sm text-gray-600 hover:text-[#4E8F89] transition">{s.label}</Link>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div>
+        <span className="text-sm font-semibold text-gray-900 mb-3 pb-2 border-b border-gray-100 block">
+          Solutions
+        </span>
+        <ul className="space-y-3">
+          {peopleServiceMenuItems.solutions.map((s) => (
+            <li key={s.slug}>
+              <Link to={`/solutions/${s.slug}`} className="text-sm text-gray-600 hover:text-[#4E8F89] transition">{s.label}</Link>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div>
+        <span className="text-sm font-semibold text-gray-900 mb-3 pb-2 border-b border-gray-100 block">
+          Pets
+        </span>
+        <ul className="space-y-3">
+          {peopleServiceMenuItems.pets.map((s) => (
+            <li key={s.slug}>
+              <Link to={`/services/${s.slug}`} className="text-sm text-gray-600 hover:text-[#4E8F89] transition">{s.label}</Link>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  );
+};
+
+const PeopleResursiDropdown = () => {
+  return (
+    <div className="grid grid-cols-2 gap-10 px-10 py-8">
+      <div>
+        <Link to="/resources" className="text-sm font-semibold text-gray-900 mb-3 pb-2 border-b border-gray-100 block hover:text-[#4E8F89] transition">
+          Resources
+        </Link>
+        <ul className="space-y-3">
+          {peopleResourceMenuItems.map(({ label, slug }) => (
+            <li key={slug}>
+              <Link to={`/resources#${slug}`} className="text-sm text-gray-600 hover:text-[#4E8F89] transition">{label}</Link>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <NewsGrid />
+    </div>
+  );
+};
+
+const PeopleKompaniyaDropdown = () => {
+  return (
+    <div className="grid grid-cols-2 gap-10 px-10 py-8">
+      <div>
+        <Link to="/company" className="text-sm font-semibold text-gray-900 mb-3 pb-2 border-b border-gray-100 block hover:text-[#4E8F89] transition">
+          Company
+        </Link>
+        <ul className="space-y-3">
+          {peopleCompanyMenuItems.map(({ label, slug }) => (
+            <li key={slug}>
+              <Link to={`/company#${slug}`} className="text-sm text-gray-600 hover:text-[#4E8F89] transition">{label}</Link>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <NewsGrid />
+    </div>
+  );
+};
+
 /* ── Navbar Component ── */
 export default function Navbar() {
+  const { language, setLanguage } = useLanguage();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeToggle, setActiveToggle] = useState("business");
   const [openMenu, setOpenMenu] = useState(null);
@@ -167,10 +260,14 @@ export default function Navbar() {
   const handleClose = () => { closeTimer.current = setTimeout(() => setOpenMenu(null), 120); };
   const closeAll = () => { setOpenMenu(null); setMobileOpen(false); };
 
-  const navItems = [
+  const navItems = activeToggle === "business" ? [
     { label: "Services",   path: "/services", Panel: UslugiDropdown },
     { label: "Resources",  path: "/resources", Panel: ResursiDropdown },
-    { label: "Company", path: "/company",   Panel: KompaniyaDropdown },
+    { label: "Company",    path: "/company",  Panel: KompaniyaDropdown },
+  ] : [
+    { label: "Services",   path: "/services", Panel: PeopleUslugiDropdown },
+    { label: "Resources",  path: "/resources", Panel: PeopleResursiDropdown },
+    { label: "Company",    path: "/company",  Panel: PeopleKompaniyaDropdown },
   ];
 
   return (

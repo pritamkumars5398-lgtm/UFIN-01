@@ -3,6 +3,7 @@ import { Outlet } from 'react-router-dom'
 import Navbar from './Navbar'
 import Footer from './Footer'
 import FooterButton from './FooterButton'
+import LanguageToggle from './LanguageToggle'
 
 export default function Layout({ children }){
   return (
@@ -13,6 +14,7 @@ export default function Layout({ children }){
       </main>
       <Footer />
       <FooterButton/>
+      <LanguageToggle />
     </div>
   )
 }
