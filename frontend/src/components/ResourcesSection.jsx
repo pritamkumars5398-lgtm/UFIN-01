@@ -2,6 +2,7 @@ import React from "react";
 import { ChevronRight, Phone } from "lucide-react";
 import { FaTelegramPlane } from "react-icons/fa";
 import { useLanguage } from "../context/LanguageContext";
+import partnerImg from "../assets/rybric-1.png.webp";
 
 export default function ResourcesSection() {
   const { t } = useLanguage();
@@ -16,7 +17,7 @@ export default function ResourcesSection() {
           {/* Left image */}
           <div>
             <img
-              src="https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1200&q=80"
+              src={partnerImg}
               alt="Partnership"
               className="w-full h-[560px] object-cover rounded-xl"
             />

@@ -3,6 +3,11 @@ import { Link } from "react-router-dom";
 import { Award, Globe, HeartHandshake, Briefcase, ShieldCheck, ChevronRight, ArrowRight } from "lucide-react";
 import { FaTelegramPlane } from "react-icons/fa";
 import { useLanguage } from "../context/LanguageContext";
+import imgNews1 from "../assets/img-24-e1674854414374.png.webp";
+import imgNews2 from "../assets/rybric-1.png.webp";
+import imgNews3 from "../assets/rybric-10.png.webp";
+import partnerImg from "../assets/rybric-1.png.webp";
+import ceoImg from "../assets/%D0%B8%D0%B7%D0%BE%D0%B1%D1%80%D0%B0%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5_2022-03-19_013459-e1724190825582.png.webp";
 
 export default function Company() {
   const { t, language } = useLanguage();
@@ -25,9 +30,9 @@ export default function Company() {
   }));
 
   const news = [
-    { img: "https://images.unsplash.com/photo-1587300003388-59208cc962cb?auto=format&fit=crop&w=600&q=80", title: t("resourcesPage.featuredTitle").replace("\n", " "), date: language === "en" ? "May 15, 2026" : "15 мая 2026", tag: language === "en" ? "Stories" : "Истории" },
-    { img: "https://images.unsplash.com/photo-1545262810-a9b9f1db8a84?auto=format&fit=crop&w=600&q=80", title: t("resourcesPage.resourcesList.1.title"), date: language === "en" ? "April 2, 2026" : "2 апреля 2026", tag: language === "en" ? "Product" : "Продукт" },
-    { img: "https://images.unsplash.com/photo-1543373014-cfe4f4bc1cdf?auto=format&fit=crop&w=600&q=80", title: t("resourcesPage.resourcesList.4.title"), date: language === "en" ? "March 18, 2026" : "18 марта 2026", tag: language === "en" ? "Company" : "Компания" },
+    { img: imgNews1, title: t("resourcesPage.featuredTitle").replace("\n", " "), date: language === "en" ? "May 15, 2026" : "15 мая 2026", tag: language === "en" ? "Stories" : "Истории" },
+    { img: imgNews2, title: t("resourcesPage.resourcesList.1.title"), date: language === "en" ? "April 2, 2026" : "2 апреля 2026", tag: language === "en" ? "Product" : "Продукт" },
+    { img: imgNews3, title: t("resourcesPage.resourcesList.4.title"), date: language === "en" ? "March 18, 2026" : "18 марта 2026", tag: language === "en" ? "Company" : "Компания" },
   ];
 
   return (
@@ -62,9 +67,9 @@ export default function Company() {
         {/* Right image */}
         <div className="relative min-h-[50vh] lg:min-h-0">
           <img
-            src="https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1200&q=80"
-            alt="Company"
-            className="absolute inset-0 w-full h-full object-cover"
+            src={partnerImg}
+            alt="Office"
+            className="w-full h-[600px] object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-l from-transparent to-[#0d1b2a]/20" />
         </div>
@@ -142,8 +147,8 @@ export default function Company() {
       {/* ── DIRECTOR CTA ── */}
       <section className="bg-[#151b27] py-16 px-6">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-10">
-          <div className="w-28 h-28 rounded-2xl overflow-hidden shrink-0 border-2 border-[#4E8F89]/30">
-            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=200&q=80" alt="Director" className="w-full h-full object-cover" />
+          <div className="w-24 h-24 rounded-full overflow-hidden border-4 border-white shadow-xl bg-gray-100 flex-shrink-0">
+            <img src={ceoImg} alt="Director" className="w-full h-full object-cover" />
           </div>
           <div className="flex-1 text-center md:text-left">
             <p className="text-white/40 text-xs uppercase tracking-widest mb-1">

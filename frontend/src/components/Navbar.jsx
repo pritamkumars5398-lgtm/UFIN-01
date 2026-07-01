@@ -2,6 +2,9 @@ import React, { useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import { ChevronDown, Languages } from "lucide-react";
 import logoLight from "../assets/logo-light.png";
+import imgNews1 from "../assets/img-24-e1674854414374.png.webp";
+import imgNews2 from "../assets/rybric-1.png.webp";
+import imgNews3 from "../assets/rybric-10.png.webp";
 import { 
   serviceMenuItems, 
   solutionMenuItems, 
@@ -18,9 +21,9 @@ import { useLanguage } from "../context/LanguageContext";
 /* ── News Grid Component ── */
 const NewsGrid = () => {
   const newsItems = [
-    { img: "https://images.unsplash.com/photo-1587300003388-59208cc962cb?auto=format&fit=crop&w=400&q=80", title: "Latest System Updates", to: "/resources#news" },
-    { img: "https://images.unsplash.com/photo-1545262810-a9b9f1db8a84?auto=format&fit=crop&w=400&q=80", title: "Fuel Control Best Practices", to: "/resources#news" },
-    { img: "https://images.unsplash.com/photo-1543373014-cfe4f4bc1cdf?auto=format&fit=crop&w=400&q=80", title: "New API Capabilities", to: "/company#news" },
+    { img: imgNews1, title: "Latest System Updates", to: "/resources#news" },
+    { img: imgNews2, title: "Fuel Control Best Practices", to: "/resources#news" },
+    { img: imgNews3, title: "New API Capabilities", to: "/company#news" },
   ];
   return (
     <div>

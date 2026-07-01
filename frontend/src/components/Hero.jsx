@@ -1,4 +1,5 @@
 import React from "react";
+import businessVideo from "../assets/business-main.mp4";
 
 export default function Hero() {
   const features = [
@@ -22,16 +23,18 @@ export default function Hero() {
 
   return (
     <section className="relative min-h-screen overflow-hidden font-sans">
-      {/* Background Image */}
-      <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{
-          backgroundImage:
-            "url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1800&q=80')",
-        }}
-      />
+      {/* Background Video */}
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover"
+      >
+        <source src={businessVideo} type="video/mp4" />
+      </video>
 
-      {/* Overlay - Darker on the left side, transparent on the right */}
+      {/* Overlay */}
       <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/60 to-transparent" />
 
       {/* Content */}

@@ -1,12 +1,17 @@
 import React from "react";
 import { useLanguage } from "../context/LanguageContext";
+import galileo from "../assets/galileo10.jpg.webp";
+import ent850 from "../assets/ENT850.png.webp";
+import umka from "../assets/umka302-1.jpg.webp";
+import bpk from "../assets/BPK4-EHBO.jpg.webp";
+import img24 from "../assets/img-24-e1674854414374.png.webp";
 
 const images = [
-  "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=300&q=80",
-  "https://images.unsplash.com/photo-1580894908361-967195033215?auto=format&fit=crop&w=300&q=80",
-  "https://images.unsplash.com/photo-1461800919507-79b16743b257?auto=format&fit=crop&w=300&q=80",
-  "https://images.unsplash.com/photo-1498049794561-7780e7231661?auto=format&fit=crop&w=300&q=80",
-  "https://images.unsplash.com/photo-1589118949245-7d38baf380d6?auto=format&fit=crop&w=300&q=80",
+  galileo,
+  ent850,
+  umka,
+  bpk,
+  img24,
 ];
 
 export default function DevicesSection() {

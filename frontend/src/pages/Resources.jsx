@@ -1,6 +1,9 @@
 import React, { useState } from "react";
-import { FileText, Smartphone, Shield, HelpCircle, BookOpen, Settings, ChevronDown, Search } from "lucide-react";
+import { Clock, BookOpen, Video, FileText, Download, TrendingUp, Search, Calendar, ChevronRight, Smartphone, Shield, HelpCircle, Settings, ChevronDown } from "lucide-react";
 import { useLanguage } from "../context/LanguageContext";
+import imgNews1 from "../assets/img-24-e1674854414374.png.webp";
+import imgNews2 from "../assets/rybric-1.png.webp";
+import imgNews3 from "../assets/rybric-10.png.webp";
 
 export default function Resources() {
   const { t, language } = useLanguage();
@@ -25,21 +28,21 @@ export default function Resources() {
     "bg-red-100 text-red-600",
   ];
 
-  const resources = (t("resourcesPage.resourcesList") || []).map((res, idx) => ({
+  const resourcesList = (t("resourcesPage.resourcesList") || []).map((res, idx) => ({
     ...res,
     Icon: resourceIcons[idx],
     badgeColor: badgeColors[idx]
   }));
 
   const news = [
-    { img: "https://images.unsplash.com/photo-1587300003388-59208cc962cb?auto=format&fit=crop&w=800&q=80", title: t("resourcesPage.featuredTitle").replace("\n", " "), date: language === "en" ? "May 15, 2026" : "15 мая 2026", tag: language === "en" ? "Stories" : "Истории" },
-    { img: "https://images.unsplash.com/photo-1545262810-a9b9f1db8a84?auto=format&fit=crop&w=600&q=80", title: t("resourcesPage.resourcesList.1.title"), date: language === "en" ? "April 2, 2026" : "2 апреля 2026", tag: language === "en" ? "Product" : "Продукт" },
-    { img: "https://images.unsplash.com/photo-1543373014-cfe4f4bc1cdf?auto=format&fit=crop&w=600&q=80", title: t("resourcesPage.resourcesList.4.title"), date: language === "en" ? "March 18, 2026" : "18 марта 2026", tag: language === "en" ? "Company" : "Компания" },
+    { img: imgNews1, title: t("resourcesPage.featuredTitle").replace("\n", " "), date: language === "en" ? "May 15, 2026" : "15 мая 2026", tag: language === "en" ? "Stories" : "Истории" },
+    { img: imgNews2, title: t("resourcesPage.resourcesList.1.title"), date: language === "en" ? "April 2, 2026" : "2 апреля 2026", tag: language === "en" ? "Product" : "Продукт" },
+    { img: imgNews3, title: t("resourcesPage.resourcesList.4.title"), date: language === "en" ? "March 18, 2026" : "18 марта 2026", tag: language === "en" ? "Company" : "Компания" },
   ];
 
   const faqs = t("resourcesPage.faqs") || [];
 
-  const filtered = activeCat === "All" ? resources : resources.filter((r) => r.cat === activeCat);
+  const filtered = activeCat === "All" ? resourcesList : resourcesList.filter((r) => r.cat === activeCat);
 
   return (
     <div className="bg-white min-h-screen">
@@ -64,11 +67,11 @@ export default function Resources() {
               </div>
             </div>
             {/* Featured card */}
-            <div className="relative rounded-2xl overflow-hidden h-64 lg:h-80 group cursor-pointer">
+            <div className="w-full lg:w-1/2 aspect-video overflow-hidden shrink-0 relative group">
               <img
-                src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?auto=format&fit=crop&w=800&q=80"
-                alt="Featured"
-                className="w-full h-full object-cover group-hover:scale-105 transition duration-500"
+                src={imgNews1}
+                alt="Featured resource"
+                className="w-full h-full object-cover group-hover:scale-105 transition duration-700"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
               <div className="absolute bottom-0 left-0 p-6 text-white">

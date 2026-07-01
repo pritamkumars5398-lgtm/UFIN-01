@@ -1,9 +1,11 @@
 import React from "react";
 import { useLanguage } from "../context/LanguageContext";
+import bannerImg1 from "../assets/rybric-1.png.webp";
+import bannerImg2 from "../assets/rybric-10.png.webp";
 
 const images = [
-  "https://images.unsplash.com/photo-1554224154-26032ffc0d07?auto=format&fit=crop&w=1600&q=80",
-  "https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=1600&q=80",
+  bannerImg1,
+  bannerImg2,
 ];
 
 export default function FeatureBanner() {

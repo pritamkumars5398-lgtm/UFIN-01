@@ -1,15 +1,23 @@
 import React, { useRef } from "react";
 import { ChevronRight } from "lucide-react";
 import { useLanguage } from "../context/LanguageContext";
+import gazprom from "../assets/GazpromMain.png.webp";
+import gruz from "../assets/GruzTransport.png.webp";
+import passenger from "../assets/PassazhirPerevozki.png.webp";
+import taxi from "../assets/Taxi.png.webp";
+import construction from "../assets/StroyTechnika.png.webp";
+import leasing from "../assets/Lizing.png.webp";
+import produkiy from "../assets/Produkty.png.webp";
+import rybricBg from "../assets/rybric-bg.png";
 
 const companies = [
-  { name: "Торэкс", country: "Россия", img: "https://images.unsplash.com/photo-1519003722824-194d4455a60c?auto=format&fit=crop&w=400&q=80" },
-  { name: "Октион", country: "Россия", img: "https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=400&q=80" },
-  { name: "ГазПром Межрегионгаз", country: "Россия", img: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=400&q=80" },
-  { name: "Sudha Fleet Management", country: "Индия", img: "https://images.unsplash.com/photo-1566473965997-3de9c817e938?auto=format&fit=crop&w=400&q=80" },
-  { name: "Bajaj Travels", country: "Индия", img: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=400&q=80" },
-  { name: "ПАО «Северсталь»", country: "Россия", img: "https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=400&q=80" },
-  { name: "Логистик Групп", country: "Россия", img: "https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=400&q=80" },
+  { name: "Торэкс", country: "Россия", img: gruz },
+  { name: "Октион", country: "Россия", img: produkiy },
+  { name: "ГазПром Межрегионгаз", country: "Россия", img: gazprom },
+  { name: "Sudha Fleet Management", country: "Индия", img: passenger },
+  { name: "Bajaj Travels", country: "Индия", img: taxi },
+  { name: "ПАО «Северсталь»", country: "Россия", img: construction },
+  { name: "Логистик Групп", country: "Россия", img: leasing },
 ];
 
 export default function CompanyClients() {
@@ -28,7 +36,7 @@ export default function CompanyClients() {
       {/* Map Background */}
       <div
         className="absolute inset-0 opacity-[0.06] bg-center bg-cover"
-        style={{ backgroundImage: "url('https://images.unsplash.com/photo-1524661135-423995f22d0b?w=1600')" }}
+        style={{ backgroundImage: `url('${rybricBg}')` }}
       />
 
       <div className="relative max-w-7xl mx-auto px-6">

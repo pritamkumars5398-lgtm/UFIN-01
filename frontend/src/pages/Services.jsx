@@ -4,7 +4,16 @@ import {
   BarChart2, Users, Fuel, Thermometer, Video, MapPin, Cpu, FileText,
   ArrowRight, Check, ChevronDown, ChevronUp, Shield, Gauge, Zap, Package
 } from "lucide-react";
-
+import imgFood from "../assets/Produkty.png.webp";
+import imgFreight from "../assets/GruzTransport.png.webp";
+import imgPassenger from "../assets/PassazhirPerevozki.png.webp";
+import imgTaxi from "../assets/Taxi.png.webp";
+import imgConstruction from "../assets/StroyTechnika.png.webp";
+import imgLeasing from "../assets/Lizing.png.webp";
+import imgDangerous from "../assets/OpasnieGruzy.png.webp";
+import imgAgri from "../assets/Selhoz.png.webp";
+import imgGazprom from "../assets/GazpromMain.png.webp";
+import rybricBg from "../assets/rybric-bg.png";
 const faqs = [
   {
     q: "How do we price our services?",
@@ -114,56 +123,56 @@ const services = [
     title: "GLONASS/GPS Transport Monitoring",
     desc: "Real-time continuous monitoring of location, speed, mileage, and fuel consumption with history and analytics.",
     points: ["Online map with routes", "Trip history", "Geofences and alerts"],
-    img: "https://images.unsplash.com/photo-1519003722824-194d4455a60c?auto=format&fit=crop&w=800&q=80",
+    img: imgFreight,
   },
   {
     Icon: Users,
     title: "Driver Control",
     desc: "Monitoring driving style, compliance with work and rest schedules, and driver identification.",
     points: ["Driving style analysis", "Work and rest schedule", "Key-based identification"],
-    img: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&w=800&q=80",
+    img: imgGazprom,
   },
   {
     Icon: Fuel,
     title: "Fuel Consumption Control",
     desc: "Automatic detection of fuel theft, unauthorized refueling, and excessive fuel consumption.",
     points: ["Fuel level sensors", "Refueling reports", "Theft detection"],
-    img: "https://images.unsplash.com/photo-1545262810-a9b9f1db8a84?auto=format&fit=crop&w=800&q=80",
+    img: imgDangerous,
   },
   {
     Icon: Thermometer,
     title: "Temperature Control",
     desc: "Monitoring climate parameters of refrigerated transport with notifications.",
     points: ["Multiple cooling zones", "Data transmission to client", "Temperature archive"],
-    img: "https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=800&q=80",
+    img: imgFood,
   },
   {
     Icon: Zap,
     title: "Tire Pressure Monitoring",
     desc: "Online monitoring of tire pressure and temperature while driving and parked.",
     points: ["TPMS sensors", "Instant notifications", "Wear statistics"],
-    img: "https://images.unsplash.com/photo-1568702846914-96b305d2aaeb?auto=format&fit=crop&w=800&q=80",
+    img: imgTaxi,
   },
   {
     Icon: FileText,
     title: "Route Assignments",
     desc: "Automation of timely execution of route assignments (orders).",
     points: ["Task assignment", "Completion notifications", "1C integration"],
-    img: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=800&q=80",
+    img: imgConstruction,
   },
   {
     Icon: MapPin,
     title: "Employee Monitoring",
     desc: "Tracking employee locations — objective attendance records, cost optimization.",
     points: ["GPS/GLONASS trackers", "Working hours", "Geofences"],
-    img: "https://images.unsplash.com/photo-1596633608891-fd3c7ef1e97d?auto=format&fit=crop&w=800&q=80",
+    img: imgLeasing,
   },
   {
     Icon: Video,
     title: "Video Surveillance for Transport",
     desc: "Live streaming and video archive from inside the cab, passenger area, and exterior of the vehicle.",
     points: ["Live stream", "Cloud storage", "AI-powered analysis"],
-    img: "https://images.unsplash.com/photo-1574943320219-553eb213f72d?auto=format&fit=crop&w=800&q=80",
+    img: imgAgri,
   },
 ];
 
@@ -176,22 +185,22 @@ const solutions = [
 ];
 
 const industries = [
-  { title: "Food Transportation", img: "https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=400&q=80" },
-  { title: "Freight Transport", img: "https://images.unsplash.com/photo-1519003722824-194d4455a60c?auto=format&fit=crop&w=400&q=80" },
-  { title: "Passenger Transit", img: "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=400&q=80" },
-  { title: "Taxi Fleets", img: "https://images.unsplash.com/photo-1568702846914-96b305d2aaeb?auto=format&fit=crop&w=400&q=80" },
-  { title: "Construction Equipment", img: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=400&q=80" },
-  { title: "Leasing", img: "https://images.unsplash.com/photo-1596633608891-fd3c7ef1e97d?auto=format&fit=crop&w=400&q=80" },
-  { title: "Dangerous Goods", img: "https://images.unsplash.com/photo-1545262810-a9b9f1db8a84?auto=format&fit=crop&w=400&q=80" },
-  { title: "Agricultural Machinery", img: "https://images.unsplash.com/photo-1574943320219-553eb213f72d?auto=format&fit=crop&w=400&q=80" },
-  { title: "Municipal Transport", img: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&w=400&q=80" },
-  { title: "Banking", img: "https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=400&q=80" },
-  { title: "Manufacturing", img: "https://images.unsplash.com/photo-1519003722824-194d4455a60c?auto=format&fit=crop&w=400&q=80" },
-  { title: "Retail", img: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=400&q=80" },
-  { title: "Pharmaceuticals", img: "https://images.unsplash.com/photo-1574943320219-553eb213f72d?auto=format&fit=crop&w=400&q=80" },
-  { title: "Medical Institutions", img: "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=400&q=80" },
-  { title: "Fuel & Energy", img: "https://images.unsplash.com/photo-1568702846914-96b305d2aaeb?auto=format&fit=crop&w=400&q=80" },
-  { title: "Light Commercial Vehicles", img: "https://images.unsplash.com/photo-1596633608891-fd3c7ef1e97d?auto=format&fit=crop&w=400&q=80" },
+  { title: "Food Transportation", img: imgFood },
+  { title: "Freight Transport", img: imgFreight },
+  { title: "Passenger Transit", img: imgPassenger },
+  { title: "Taxi Fleets", img: imgTaxi },
+  { title: "Construction Equipment", img: imgConstruction },
+  { title: "Leasing", img: imgLeasing },
+  { title: "Dangerous Goods", img: imgDangerous },
+  { title: "Agricultural Machinery", img: imgAgri },
+  { title: "Municipal Transport", img: imgGazprom },
+  { title: "Banking", img: imgFood },
+  { title: "Manufacturing", img: imgFreight },
+  { title: "Retail", img: imgConstruction },
+  { title: "Pharmaceuticals", img: imgAgri },
+  { title: "Medical Institutions", img: imgPassenger },
+  { title: "Fuel & Energy", img: imgTaxi },
+  { title: "Light Commercial Vehicles", img: imgLeasing },
 ];
 
 const integrations = ["API", "Relay Servers", "Migration from Wialon", "GLONASS Installation"];
@@ -210,7 +219,7 @@ export default function Services() {
       <section
         className="relative min-h-[70vh] flex items-end pb-20 px-8 lg:px-24"
         style={{
-          backgroundImage: "linear-gradient(to top, rgba(5,15,25,0.96) 30%, rgba(5,15,25,0.55) 100%), url('https://images.unsplash.com/photo-1502920514313-52581002a659?auto=format&fit=crop&w=1600&q=80')",
+          backgroundImage: `linear-gradient(to top, rgba(5,15,25,0.96) 30%, rgba(5,15,25,0.55) 100%), url('${rybricBg}')`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}

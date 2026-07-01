@@ -1,14 +1,20 @@
 import React, { useState } from "react";
 import { ChevronRight } from "lucide-react";
 import { useLanguage } from "../context/LanguageContext";
+import imgTransport from "../assets/GruzTransport.png.webp";
+import imgVideo from "../assets/rybric-1.png.webp";
+import imgDriver from "../assets/rybric-10.png.webp";
+import imgEmployees from "../assets/PassazhirPerevozki.png.webp";
+import imgIntegrations from "../assets/StroyTechnika.png.webp";
+import imgTasks from "../assets/Produkty.png.webp";
 
 const images = {
-  "TRANSPORT": "https://images.unsplash.com/photo-1519003722824-194d4455a60c?auto=format&fit=crop&w=1200&q=80",
-  "VIDEO": "https://images.unsplash.com/photo-1494412519320-aa613dfb7738?auto=format&fit=crop&w=1200&q=80",
-  "DRIVER": "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&w=1200&q=80",
-  "EMPLOYEES": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=80",
-  "INTEGRATIONS": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=80",
-  "TASKS": "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?auto=format&fit=crop&w=1200&q=80",
+  "TRANSPORT": imgTransport,
+  "VIDEO": imgVideo,
+  "DRIVER": imgDriver,
+  "EMPLOYEES": imgEmployees,
+  "INTEGRATIONS": imgIntegrations,
+  "TASKS": imgTasks,
 };
 
 export default function UnifiedAccounnt() {
@@ -23,7 +29,7 @@ export default function UnifiedAccounnt() {
         "Transportation temperature and HOU",
         "Tire pressure",
       ],
-      img: "https://images.unsplash.com/photo-1519003722824-194d4455a60c?w=1200",
+      img: imgTransport,
     },
 
     VIDEO: {
@@ -34,7 +40,7 @@ export default function UnifiedAccounnt() {
         "Recorded videos",
         "Smart alerts",
       ],
-      img: "https://images.unsplash.com/photo-1494412519320-aa613dfb7738?w=1200",
+      img: imgVideo,
     },
 
     DRIVER: {
@@ -45,7 +51,7 @@ export default function UnifiedAccounnt() {
         "Safety score",
         "Training",
       ],
-      img: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=1200",
+      img: imgDriver,
     },
 
     EMPLOYEES: {
@@ -56,7 +62,7 @@ export default function UnifiedAccounnt() {
         "Permissions",
         "Activity",
       ],
-      img: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1200",
+      img: imgEmployees,
     },
 
     INTEGRATION: {
@@ -67,7 +73,7 @@ export default function UnifiedAccounnt() {
         "Webhooks",
         "Automation",
       ],
-      img: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200",
+      img: imgIntegrations,
     },
 
     TASKS: {
@@ -78,7 +84,7 @@ export default function UnifiedAccounnt() {
         "Assignments",
         "History",
       ],
-      img: "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=1200",
+      img: imgTasks,
     },
   };
 

@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Phone, Mail, MapPin, Clock, MessageCircle, Send, TrendingUp, Wifi, Share2, Headset } from "lucide-react";
+import rybricBg from "../assets/rybric-bg.png";
+import ceoImg from "../assets/%D0%B8%D0%B7%D0%BE%D0%B1%D1%80%D0%B0%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5_2022-03-19_013459-e1724190825582.png.webp";
 
 export default function Contacts() {
   const [form, setForm] = useState({ name: "", phone: "", message: "" });
@@ -42,8 +44,8 @@ export default function Contacts() {
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage:
-              "url('https://images.unsplash.com/photo-1512428559087-560fa5ceab42?auto=format&fit=crop&w=1600&q=80')",
+             backgroundImage:
+              `url('${rybricBg}')`,
           }}
         />
         <div className="absolute inset-0 bg-gradient-to-r from-[#17232d] via-[#17232d]/90 to-transparent" />
@@ -187,7 +189,7 @@ export default function Contacts() {
               {/* CEO Contact */}
               <div className="flex items-center gap-4 mb-8">
                 <img
-                  src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=300"
+                  src={ceoImg}
                   alt="Alexey Osipov"
                   className="w-14 h-14 rounded-full object-cover"
                 />
