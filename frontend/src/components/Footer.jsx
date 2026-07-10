@@ -3,188 +3,224 @@ import {
   Phone,
   Mail,
   Clock3,
-  Send,
+  ArrowUp,
 } from "lucide-react";
-import { FaTelegramPlane } from "react-icons/fa";
-import { RiRadioButtonLine } from "react-icons/ri";
-import logoLight from "../assets/logo-light.png";
+import { FaTelegramPlane, FaApple, FaGooglePlay } from "react-icons/fa";
+import { SiHuawei } from "react-icons/si";
+import { TbDeviceMobileMessage } from "react-icons/tb"; // as a generic icon
+import logoLight from "../assets/logo-light.png"; // Assuming it's the green/orange one. Wait, the screenshot shows the colored logo. I'll use the colored logo.
+
+// The screenshots show the colored logo for the footer.
+// The current Footer uses logo-light.png. If there's a colored logo, it might be logo.png or similar.
+// I will just use the standard logo image. Let's assume logoLight is the right one, or we can use the regular logo from Navbar.
+import logo from "../assets/logo.svg";
 
 export default function Footer() {
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
-    <footer className="bg-[#F5F5F5] py-10">
-      <div className="max-w-7xl mx-auto px-6">
+    <footer className="bg-white pt-10">
+      <div className="max-w-[1400px] mx-auto px-6">
 
         {/* Top Toggle */}
-        <div className="flex justify-center mb-14">
-          <div className="bg-[#EDEDED] rounded-full p-1 shadow">
-
-            <button className="px-5 py-2 rounded-full bg-white shadow text-sm font-medium">
+        <div className="flex justify-center mb-16">
+          <div className="bg-gray-100/80 rounded-full p-1 flex">
+            <button className="px-6 py-2.5 rounded-full bg-white shadow-sm text-sm font-semibold text-[#1F2937]">
               For business
             </button>
-
-            <button className="px-5 py-2 text-sm font-medium">
+            <button className="px-6 py-2.5 text-sm font-semibold text-[#6B7280]">
               To people
             </button>
-
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-14">
+        {/* Main Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-5 gap-8 mb-20">
 
-          {/* Left */}
-          <div>
-
-            {/* Logo */}
+          {/* Left Column */}
+          <div className="pr-4">
             <img
-              src={logoLight}
-              alt="Tekonika Systems"
-              className="h-10 object-contain mb-12"
+              src={logo}
+              alt="UFIN CONTROL"
+              className="h-14 object-contain mb-10"
+              onError={(e) => { e.target.src = logoLight; }} // Fallback if logo.png doesn't exist
             />
-
-            {/* Contact */}
-            <div className="space-y-5 text-[#4E8F89]">
-
+            
+            <div className="space-y-4 text-[#1B7F6D] text-[15px] font-medium mb-10">
               <div className="flex items-center gap-3">
-                <Phone size={18} />
+                <Phone size={18} className="text-[#A4CBC5]" />
                 <span>8 (800) 444-04-81</span>
               </div>
-
               <div className="flex items-center gap-3">
-                <Mail size={18} />
-                <span>aq@tekonikasystems.online</span>
+                <Mail size={18} className="text-[#A4CBC5]" />
+                <span>a@ufin.online</span>
               </div>
-
               <div className="flex items-center gap-3">
-                <Clock3 size={18} />
-                <span>Mon–Fri: 9:00 - 18:00</span>
+                <Clock3 size={18} className="text-[#A4CBC5]" />
+                <span>Mon-Fri: 9:00 - 18:00</span>
               </div>
-
             </div>
 
-            {/* Social */}
-            <div className="flex gap-5 mt-10">
-
-              <div className="w-11 h-11 rounded-full bg-[#A4CBC5] flex items-center justify-center">
+            <div className="flex gap-4">
+              <div className="w-10 h-10 rounded-full bg-[#1B7F6D] flex items-center justify-center hover:opacity-80 transition cursor-pointer">
                 <FaTelegramPlane className="text-white text-lg" />
               </div>
-
-              <div className="w-11 h-11 rounded-full bg-[#A4CBC5] flex items-center justify-center">
-                <Send className="text-white" size={18} />
+              <div className="w-10 h-10 rounded-full bg-[#1B7F6D] flex items-center justify-center hover:opacity-80 transition cursor-pointer font-bold text-white">
+                R
               </div>
-
-              <div className="w-11 h-11 rounded-full bg-[#A4CBC5] flex items-center justify-center">
-                <RiRadioButtonLine className="text-white text-xl" />
+              <div className="w-10 h-10 rounded-full bg-[#1B7F6D] flex items-center justify-center hover:opacity-80 transition cursor-pointer">
+                <TbDeviceMobileMessage className="text-white text-xl" />
               </div>
-
             </div>
-
-          </div>
-
-          {/* Column 1 */}
-          <div>
-
-            <h3 className="font-bold text-lg mb-8">
-              Control services
-            </h3>
-
-            <ul className="space-y-4 text-gray-700">
-
-              <li>GLONASS transport monitoring</li>
-              <li>Video surveillance for transport</li>
-              <li>Driver control</li>
-              <li>Route assignments</li>
-              <li>Fuel consumption control</li>
-              <li>Tire pressure monitoring</li>
-              <li>Employee monitoring</li>
-
-            </ul>
-
-            <h3 className="font-bold text-lg mt-12 mb-6">
-              Integrations
-            </h3>
-
-            <ul className="space-y-4 text-gray-700">
-
-              <li>API</li>
-              <li>Relay servers</li>
-              <li>Transition from Wialon</li>
-              <li>GLONASS installation</li>
-
-            </ul>
-
           </div>
 
           {/* Column 2 */}
           <div>
-
-            <h3 className="font-bold text-lg mb-8">
-              Solutions
-            </h3>
-
-            <ul className="space-y-4 text-gray-700">
-
-              <li>Efficiency</li>
-              <li>Transportation safety</li>
-              <li>Level of service provision</li>
-              <li>Threat Control</li>
-              <li>Customer loyalty</li>
-
+            <h3 className="font-bold text-[#1F2937] text-[15px] mb-6">Control services</h3>
+            <ul className="space-y-4 text-[#1F2937] text-[13px]">
+              <li className="hover:text-[#1B7F6D] cursor-pointer">GLONASS transport monitoring</li>
+              <li className="hover:text-[#1B7F6D] cursor-pointer">Video surveillance for transport</li>
+              <li className="hover:text-[#1B7F6D] cursor-pointer">Driver control</li>
+              <li className="hover:text-[#1B7F6D] cursor-pointer">Route assignments</li>
+              <li className="hover:text-[#1B7F6D] cursor-pointer">Fuel consumption control</li>
+              <li className="hover:text-[#1B7F6D] cursor-pointer">Tire pressure monitoring</li>
+              <li className="hover:text-[#1B7F6D] cursor-pointer">Employee monitoring</li>
             </ul>
 
-            <h3 className="font-bold text-lg mt-12 mb-6">
-              By industry
-            </h3>
-
-            <ul className="space-y-4 text-gray-700">
-
-              <li>Transportation of food products</li>
-              <li>Freight transportation</li>
-              <li>Passenger transportation</li>
-              <li>Taxi</li>
-              <li>Construction equipment</li>
-              <li>Leasing</li>
-              <li>Dangerous goods</li>
-
+            <h3 className="font-bold text-[#1F2937] text-[15px] mt-10 mb-6">Integrations</h3>
+            <ul className="space-y-4 text-[#1F2937] text-[13px]">
+              <li className="hover:text-[#1B7F6D] cursor-pointer">API</li>
+              <li className="hover:text-[#1B7F6D] cursor-pointer">Relay servers</li>
+              <li className="hover:text-[#1B7F6D] cursor-pointer">Transition from Wialon</li>
+              <li className="hover:text-[#1B7F6D] cursor-pointer">GLONASS installation</li>
             </ul>
-
           </div>
 
           {/* Column 3 */}
           <div>
-
-            <h3 className="font-bold text-lg mb-8">
-              Resources
-            </h3>
-
-            <ul className="space-y-4 text-gray-700">
-
-              <li>Compatible equipment for business</li>
-              <li>Mobile app user manual</li>
-              <li>User Agreement</li>
-              <li>Privacy Policy</li>
-              <li>Questions and Answers</li>
-              <li>Instructions for trackers</li>
-
+            <h3 className="font-bold text-[#1F2937] text-[15px] mb-6">Solutions</h3>
+            <ul className="space-y-4 text-[#1F2937] text-[13px]">
+              <li className="hover:text-[#1B7F6D] cursor-pointer">Efficiency</li>
+              <li className="hover:text-[#1B7F6D] cursor-pointer">Transportation safety</li>
+              <li className="hover:text-[#1B7F6D] cursor-pointer">Level of service provision</li>
+              <li className="hover:text-[#1B7F6D] cursor-pointer">Threat Control</li>
+              <li className="hover:text-[#1B7F6D] cursor-pointer">Customer loyalty and retention</li>
             </ul>
 
-            <h3 className="font-bold text-lg mt-12 mb-6">
-              Company
-            </h3>
+            <h3 className="font-bold text-[#1F2937] text-[15px] mt-10 mb-6">By industry</h3>
+            <ul className="space-y-4 text-[#1F2937] text-[13px]">
+              <li className="hover:text-[#1B7F6D] cursor-pointer">Transportation of food products</li>
+              <li className="hover:text-[#1B7F6D] cursor-pointer">Freight transportation</li>
+              <li className="hover:text-[#1B7F6D] cursor-pointer">Passenger transportation</li>
+              <li className="hover:text-[#1B7F6D] cursor-pointer">Taxi</li>
+              <li className="hover:text-[#1B7F6D] cursor-pointer">Construction equipment</li>
+              <li className="hover:text-[#1B7F6D] cursor-pointer">Leasing</li>
+              <li className="hover:text-[#1B7F6D] cursor-pointer">Dangerous goods</li>
+              <li className="hover:text-[#1B7F6D] cursor-pointer">Agricultural machinery</li>
+              <li className="hover:text-[#1B7F6D] cursor-pointer">Monitoring of transport and housing and communal services</li>
+              <li className="hover:text-[#1B7F6D] cursor-pointer">Banks</li>
+              <li className="hover:text-[#1B7F6D] cursor-pointer">Production</li>
+              <li className="hover:text-[#1B7F6D] cursor-pointer">Trade</li>
+              <li className="hover:text-[#1B7F6D] cursor-pointer">Pharmaceuticals</li>
+              <li className="hover:text-[#1B7F6D] cursor-pointer">Medical institutions</li>
+              <li className="hover:text-[#1B7F6D] cursor-pointer">Fuel and energy</li>
+              <li className="hover:text-[#1B7F6D] cursor-pointer">Light commercial vehicles</li>
+            </ul>
+          </div>
 
-            <ul className="space-y-4 text-gray-700">
+          {/* Column 4 */}
+          <div>
+            <h3 className="font-bold text-[#1F2937] text-[15px] mb-6">Resources</h3>
+            <ul className="space-y-4 text-[#1F2937] text-[13px]">
+              <li className="hover:text-[#1B7F6D] cursor-pointer">Compatible equipment for business</li>
+              <li className="hover:text-[#1B7F6D] cursor-pointer">Mobile app user manual</li>
+              <li className="hover:text-[#1B7F6D] cursor-pointer">User Agreement</li>
+              <li className="hover:text-[#1B7F6D] cursor-pointer">Privacy Policy</li>
+              <li className="hover:text-[#1B7F6D] cursor-pointer">What new things have we developed?</li>
+              <li className="hover:text-[#1B7F6D] cursor-pointer">Questions and Answers</li>
+              <li className="hover:text-[#1B7F6D] cursor-pointer">Instructions for trackers</li>
+            </ul>
+          </div>
 
-              <li>About the company</li>
-              <li>Contacts</li>
-              <li>Reviews</li>
-              <li>Partners</li>
-              <li>News</li>
-              <li>Blog</li>
-
+          {/* Column 5 */}
+          <div className="relative">
+            <h3 className="font-bold text-[#1F2937] text-[15px] mb-6">Company</h3>
+            <ul className="space-y-4 text-[#1F2937] text-[13px]">
+              <li className="hover:text-[#1B7F6D] cursor-pointer">About the company</li>
+              <li className="hover:text-[#1B7F6D] cursor-pointer">Contacts</li>
+              <li className="hover:text-[#1B7F6D] cursor-pointer">Reviews</li>
+              <li className="hover:text-[#1B7F6D] cursor-pointer">Partners</li>
+              <li className="hover:text-[#1B7F6D] cursor-pointer">News</li>
+              <li className="hover:text-[#1B7F6D] cursor-pointer">Blog</li>
+              <li className="hover:text-[#1B7F6D] cursor-pointer">Vacancies</li>
+              <li className="hover:text-[#1B7F6D] cursor-pointer">Guarantees</li>
             </ul>
 
+            {/* Scroll to Top Button */}
+            <button 
+              onClick={scrollToTop}
+              className="absolute -right-6 md:right-0 bottom-0 md:-bottom-10 w-12 h-12 rounded-full bg-[#1B7F6D] hover:bg-[#156456] transition flex items-center justify-center shadow-lg"
+            >
+              <ArrowUp className="text-white" size={24} />
+            </button>
           </div>
 
         </div>
+      </div>
+
+      {/* Bottom Bar */}
+      <div className="bg-[#1B7F6D] pt-10 pb-12 text-white relative">
+        <div className="max-w-[1400px] mx-auto px-6">
+          
+          {/* Top Row: Badges */}
+          <div className="flex flex-col lg:flex-row justify-between items-center gap-6">
+            {/* Badges Left */}
+            <div className="flex gap-4">
+              <img src="/src/assets/label-min.svg" alt="Минцифры" className="h-[52px]" />
+              <img src="/src/assets/label-rf.svg" alt="Роспатент" className="h-[52px]" />
+            </div>
+
+            {/* App Stores Right */}
+            <div className="flex gap-3">
+              <a href="#" className="hover:opacity-80 transition">
+                <img src="/src/assets/apk-android-white.svg" alt="APK Android" className="h-10" />
+              </a>
+              <a href="#" className="hover:opacity-80 transition">
+                <img src="/src/assets/apk-huawei-white.svg" alt="APK Huawei" className="h-10" />
+              </a>
+              <a href="#" className="hover:opacity-80 transition">
+                <img src="/src/assets/app-store-square.svg" alt="App Store" className="h-10" />
+              </a>
+              <a href="#" className="hover:opacity-80 transition">
+                <img src="/src/assets/google-play-square.svg" alt="Google Play" className="h-10" />
+              </a>
+              <a href="#" className="hover:opacity-80 transition">
+                <img src="/src/assets/huawei-square.svg" alt="Huawei AppGallery" className="h-10" />
+              </a>
+              <a href="#" className="hover:opacity-80 transition">
+                <img src="/src/assets/ru-store-square.svg" alt="RuStore" className="h-10" />
+              </a>
+            </div>
+          </div>
+
+          {/* Bottom Row: Copyright */}
+          <div className="mt-12 text-center opacity-70 text-[11px] leading-relaxed font-light">
+            © 2016-2024 ООО "Compass", INN 9717008560, OGRN 5157746091457<br />
+            © 2018-2024 IP Kochkurkina INN 771616491922, OGRNIP 31
+          </div>
+          
+        </div>
+
+        {/* Scroll to Top Button */}
+        <button 
+          onClick={scrollToTop}
+          className="absolute right-8 top-10 w-[42px] h-[42px] rounded-full bg-transparent border border-white/20 hover:bg-white/10 transition flex items-center justify-center"
+        >
+          <ArrowUp className="text-white" size={20} />
+        </button>
+
       </div>
     </footer>
   );

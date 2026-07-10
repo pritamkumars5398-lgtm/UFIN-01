@@ -1,0 +1,57 @@
+[
+  {
+    "name": "Торэкс",
+    "country": "Россия",
+    "imgFile": "изображение_2022-10-17_141426046.png.webp"
+  },
+  {
+    "name": "Октион",
+    "country": "Россия",
+    "imgFile": "изображение_2022-07-01_190844774.png.webp"
+  },
+  {
+    "name": "ГазПром Межрегионгаз",
+    "country": "Россия",
+    "imgFile": "GazpromMain.png.webp"
+  },
+  {
+    "name": "Sudha Fleet Managment",
+    "country": "Индия",
+    "imgFile": "img-24-e1674854414374.png.webp"
+  },
+  {
+    "name": "Bajaj Travels",
+    "country": "Индия",
+    "imgFile": "изображение_2022-08-26_124906397.png.webp"
+  },
+  {
+    "name": "ПАО «О11»",
+    "country": "Россия",
+    "imgFile": "изображение_2023-01-15_170731221-e1674854433948.png.webp"
+  },
+  {
+    "name": "Жуковский АСЦ МЧС",
+    "country": "Россия",
+    "imgFile": "img-25-e1674854546297.png.webp"
+  },
+  {
+    "name": "Тойоми",
+    "country": "Россия",
+    "imgFile": "img-26.png.webp"
+  },
+  {
+    "name": "ООО СК «Аванстрой»",
+    "country": "Россия",
+    "imgFile": "avanstroj-scaled.jpg.webp"
+  },
+  {
+    "name": "КупецСтрой",
+    "country": "Россия",
+    "imgFile": "kupecz.jpg.webp"
+  },
+  {
+    "name": "«ПФЛК-М»",
+    "country": "",
+    "imgFile": "pflk-m.png.webp"
+  }
+]

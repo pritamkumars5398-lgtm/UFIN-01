@@ -2,7 +2,7 @@ import React from "react";
 import { ChevronRight, Phone } from "lucide-react";
 import { FaTelegramPlane } from "react-icons/fa";
 import { useLanguage } from "../context/LanguageContext";
-import partnerImg from "../assets/rybric-1.png.webp";
+import partnerImg from "../assets/handshake.jpg";
 
 export default function ResourcesSection() {
   const { t } = useLanguage();

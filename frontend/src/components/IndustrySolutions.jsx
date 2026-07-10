@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useLanguage } from "../context/LanguageContext";
 
 // Industry category images - same as ufin.online
@@ -113,6 +113,9 @@ const industries = [
 
 export default function IndustrySolutions() {
   const { language } = useLanguage();
+  const [showAll, setShowAll] = useState(false);
+
+  const displayedIndustries = showAll ? industries : industries.slice(0, 8);
 
   return (
     <section className="bg-white py-20">
@@ -125,7 +128,7 @@ export default function IndustrySolutions() {
 
         {/* Grid — 4 columns on desktop, 2 on mobile */}
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-x-8 gap-y-14">
-          {industries.map((item) => (
+          {displayedIndustries.map((item) => (
             <a
               key={item.key}
               href="#"
@@ -146,6 +149,18 @@ export default function IndustrySolutions() {
               </p>
             </a>
           ))}
+        </div>
+
+        {/* Toggle button */}
+        <div className="mt-16 flex justify-center">
+          <button
+            onClick={() => setShowAll(!showAll)}
+            className="w-full max-w-[280px] py-3.5 px-6 border border-[#0d9488] text-[#0d9488] rounded-md font-medium text-base hover:bg-[#0d9488] hover:text-white transition-colors"
+          >
+            {showAll 
+              ? (language === "en" ? "Show less" : "Скрыть") 
+              : (language === "en" ? "Show all" : "Показать все")}
+          </button>
         </div>
       </div>
     </section>

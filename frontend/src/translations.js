@@ -115,6 +115,14 @@ export const translations = {
         { label: "Guarantees", to: "/company" }
       ]
     },
+    footer: {
+      address: "2, Proezd 607, Zelenograd, Moscow 124365, Russia",
+      rights: "© 2011–2025 LLC «Tekonika Systems». All rights reserved. Registered trademark."
+    },
+    clientFeedback: {
+      title: "Feedback from our clients",
+      fullReview: "Full review"
+    },
     hero: {
       title: "GLONASS Fleet Monitoring",
       button: "Submit Request",
@@ -224,7 +232,7 @@ export const translations = {
       ]
     },
     companyClients: {
-      title: "More than 500 companies in Russia and India use TEKONIKA SYSTEMS control services"
+      title: "More than 500 companies in Russia and India use the services of the Federal Financial Monitoring Service (UFIN)."
     },
     devices: {
       title: "Control devices from leading manufacturers",
@@ -289,19 +297,19 @@ export const translations = {
     },
     resourcesSection: {
       category: "RESOURCES",
-      title: "Your partner for years to come",
+      title: "Your partner for many years",
       questionsTitle: "Still have questions?",
       list: [
         {
-          title: "Integration with corporate IT systems",
-          desc: "Free your employees from routine tasks"
+          title: "Integration with corporate information systems",
+          desc: "Free your employees from routine work"
         },
         {
-          title: "Entry permits",
-          desc: "Data retransmission to RNIC"
+          title: "Entry passes",
+          desc: "Data relay to the Russian Scientific Research Center"
         },
         {
-          title: "Wide range of compatible hardware",
+          title: "Wide range of compatible equipment",
           desc: "Allows creating unique solutions for your business"
         }
       ]

@@ -1,142 +1,118 @@
-import React, { useState } from "react";
-import { useLanguage } from "../context/LanguageContext";
-import ceoImg from "../assets/%D0%B8%D0%B7%D0%BE%D0%B1%D1%80%D0%B0%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5_2022-03-19_013459-e1724190825582.png.webp";
+import React from "react";
+import { Phone, Mail } from "lucide-react";
+import ceoImg from "../assets/ceo.webp";
 
 export default function RequestSection() {
   const steps = [
     "Define a list of transport monitoring parameters",
-    "Agree on equipment specifications and installation conditions",
-    "Make payment for equipment, installation and monitoring services",
-    "Provide vehicles for installation and setup",
-    "Now your cars are under continuous control",
+    "Agree on the specifications of the vehicle monitoring equipment and its installation conditions",
+    "Make payment for equipment, installation, and monitoring services for the next month.",
+    "Provide vehicles to integrators for equipment installation and monitoring system setup",
+    "Now your cars are under continuous control!"
   ];
 
   return (
-    <section className="bg-[#f5f5f5] py-24">
-
-      <div className="max-w-7xl mx-auto px-6">
-
-        <div className="relative bg-[#eaf4f2] rounded-sm p-16">
-
-          <div className="grid lg:grid-cols-[1.5fr_420px] gap-16">
-
-            {/* LEFT */}
-            <div>
-
-              <h2 className="text-5xl font-bold text-[#132133] mb-14">
+    <section className="bg-white">
+      <div className="max-w-[1400px] mx-auto">
+        <div className="relative bg-[#EAF5F2] md:py-20 py-12 px-6 md:px-16 overflow-hidden">
+          <div className="grid lg:grid-cols-[1.2fr_450px] gap-12 lg:gap-20">
+            {/* LEFT SIDE */}
+            <div className="relative z-10">
+              <h2 className="text-4xl md:text-[44px] font-bold text-[#1F2937] mb-12">
                 How to start?
               </h2>
 
-              <div className="grid md:grid-cols-2 gap-x-14 gap-y-10">
-
-                {steps.map((step, i) => (
-                  <div
-                    key={i}
-                    className="flex gap-5"
-                  >
-
-                    <div
-                      className="
-                        w-12
-                        h-12
-                        rounded
-                        bg-[#177f73]
-                        text-white
-                        flex
-                        items-center
-                        justify-center
-                        font-bold
-                        shrink-0
-                      "
-                    >
-                      {i + 1}
+              <div className="grid md:grid-cols-2 gap-x-8 gap-y-10">
+                {/* Column 1: Steps 1, 2, 3 */}
+                <div className="flex flex-col gap-y-8">
+                  {steps.slice(0, 3).map((step, i) => (
+                    <div key={i} className="flex gap-4 items-start">
+                      <div className="w-10 h-10 rounded shrink-0 bg-[#1B7F6D] text-white flex items-center justify-center font-bold text-lg">
+                        {i + 1}
+                      </div>
+                      <p className="text-[#1F2937] text-sm md:text-base leading-snug">
+                        {step}
+                      </p>
                     </div>
+                  ))}
+                </div>
 
-                    <p className="text-[#102133] leading-7">
-                      {step}
-                    </p>
-
-                  </div>
-                ))}
+                {/* Column 2: Steps 4, 5 */}
+                <div className="flex flex-col gap-y-8">
+                  {steps.slice(3, 5).map((step, i) => (
+                    <div key={i + 3} className="flex gap-4 items-start">
+                      <div className="w-10 h-10 rounded shrink-0 bg-[#1B7F6D] text-white flex items-center justify-center font-bold text-lg">
+                        {i + 4}
+                      </div>
+                      <p className="text-[#1F2937] text-sm md:text-base leading-snug">
+                        {step}
+                      </p>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
 
-            {/* RIGHT */}
-            <div
-              className="
-                bg-white
-                p-8
-                shadow-lg
-                rounded
-                -mt-32
-                relative
-                z-10
-              "
-            >
+            {/* RIGHT SIDE (FORM) */}
+            <div className="relative z-20">
+              <div className="bg-white p-10 shadow-[0_10px_40px_rgba(0,0,0,0.08)] rounded-md lg:-mt-32 lg:-mb-32 relative">
+                <h3 className="text-center text-4xl font-bold text-[#1F2937] mb-8 leading-tight">
+                  Submit a<br />request
+                </h3>
 
-              <h3 className="text-center text-5xl font-bold text-[#132133]">
-                Submit a request
-              </h3>
-
-              <div className="flex items-center gap-4 mt-8">
-
-                <img
-                  src={ceoImg}
-                  alt="director"
-                  className="w-16 h-16 rounded"
-                />
-                <div>
-                  <h4 className="font-semibold text-[#ff8c00]">
-                    Chulsky Sergey
-                  </h4>
-
-                  <p className="text-sm text-slate-500">
-                    Technical Director
-                  </p>
-                </div>
-              </div>
-
-              <div className="mt-8 space-y-4">
-
-                <div className="flex justify-between text-[#ff8c00] text-sm">
-                  <span>📞 8 (800) 444-04-81</span>
-                  <span>✉ buy@tekonikasystems.online</span>
+                {/* CEO Info */}
+                <div className="flex items-center gap-4 mb-8">
+                  <img
+                    src={ceoImg}
+                    alt="director"
+                    className="w-[60px] h-[60px] rounded object-cover"
+                  />
+                  <div>
+                    <h4 className="font-bold text-[#F58220] text-sm">
+                      Chulsky Sergey
+                    </h4>
+                    <p className="text-xs text-gray-400 mt-0.5">
+                      Technical Director
+                    </p>
+                  </div>
                 </div>
 
-                <input
-                  type="tel"
-                  placeholder="+7 (999) 999-9999"
-                  className="
-                    w-full
-                    h-12
-                    px-4
-                    border
-                    rounded
-                    outline-none
-                  "
-                />
+                {/* Contact Links */}
+                <div className="flex flex-wrap items-center justify-between gap-4 mb-8">
+                  <a href="tel:88004440481" className="flex items-center gap-2 text-[#F58220] font-bold text-sm hover:underline">
+                    <Phone size={16} className="text-[#1B7F6D]" />
+                    8 (800) 444-04-81
+                  </a>
+                  <a href="mailto:buy@ufin.online" className="flex items-center gap-2 text-[#F58220] font-bold text-sm hover:underline">
+                    <Mail size={16} className="text-[#1B7F6D]" />
+                    buy@ufin.online
+                  </a>
+                </div>
 
-                <button
-                  className="
-                    w-full
-                    h-12
-                    rounded
-                    bg-[#177f73]
-                    text-white
-                    font-semibold
-                    hover:bg-[#14695f]
-                    transition
-                  "
-                >
+                {/* Phone Input Box */}
+                <div className="flex mb-4">
+                  <div className="bg-[#E5E7EB] text-gray-600 px-4 py-3 flex items-center justify-center font-medium rounded-l text-sm">
+                    +7
+                  </div>
+                  <input
+                    type="tel"
+                    placeholder="(999) 999-9999*"
+                    className="flex-1 bg-[#F9FAFB] border border-gray-200 px-4 py-3 text-sm outline-none rounded-r focus:border-[#1B7F6D] transition"
+                  />
+                </div>
+
+                {/* Submit Button */}
+                <button className="w-full bg-[#1B7F6D] hover:bg-[#156758] text-white font-bold text-sm py-4 rounded transition-colors mb-4">
                   Send
                 </button>
 
-                <label className="flex gap-2 text-xs text-slate-500">
-
-                  <input type="checkbox" />
-
-                  I agree to processing of personal data
-
+                {/* Checkbox */}
+                <label className="flex items-start gap-2 cursor-pointer mt-4">
+                  <input type="checkbox" className="mt-1" defaultChecked />
+                  <span className="text-xs text-gray-500 leading-tight">
+                    I agree to{" "}
+                    <span className="text-[#F58220]">processing of personal data</span>
+                  </span>
                 </label>
               </div>
             </div>

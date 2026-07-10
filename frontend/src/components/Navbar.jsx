@@ -44,6 +44,32 @@ const NewsGrid = () => {
   );
 };
 
+/* ── News Grid with correct ufin.online content ── */
+const UfinNewsGrid = () => {
+  const newsItems = [
+    { img: imgNews1, title: "The tracker saved the life of a brave dog!", to: "/company#news" },
+    { img: imgNews2, title: "Automated fuel control", to: "/company#news" },
+    { img: imgNews3, title: "Ufin Control presents an updated logo", to: "/company#news" },
+  ];
+  return (
+    <div>
+      <Link to="/company#news" className="text-sm font-semibold text-gray-900 mb-3 pb-2 border-b border-gray-100 flex items-center justify-between hover:text-[#4E8F89] transition">
+        News
+      </Link>
+      <div className="grid grid-cols-3 gap-4 mt-3">
+        {newsItems.map(({ img, title, to }) => (
+          <Link key={title} to={to} className="group block">
+            <div className="rounded-lg overflow-hidden mb-2 aspect-[4/3]">
+              <img src={img} alt={title} className="w-full h-full object-cover group-hover:scale-105 transition duration-300" />
+            </div>
+            <p className="text-xs text-gray-700 leading-snug group-hover:text-[#4E8F89] transition">{title}</p>
+          </Link>
+        ))}
+      </div>
+    </div>
+  );
+};
+
 /* ── Dropdown panels ── */
 const UslugiDropdown = () => {
   return (
@@ -141,10 +167,14 @@ const ResursiDropdown = () => {
 
 const KompaniyaDropdown = () => {
   const companyList = [
-    { label: "About Us", to: "/about" },
-    { label: "Careers", to: "/company#careers" },
-    { label: "Partners", to: "/company#partners" },
-    { label: "Contact Us", to: "/contacts" },
+    { label: "About the company", to: "/about" },
+    { label: "Contacts", to: "/contacts" },
+    { label: "Reviews", to: "/company#reviews" },
+    { label: "To partners", to: "/company#partners" },
+    { label: "News", to: "/company#news" },
+    { label: "Blog", to: "/company#blog" },
+    { label: "Vacancies", to: "/company#vacancies" },
+    { label: "Guarantees", to: "/company#guarantees" },
   ];
   return (
     <div className="grid grid-cols-2 gap-10 px-10 py-8">
@@ -160,7 +190,7 @@ const KompaniyaDropdown = () => {
           ))}
         </ul>
       </div>
-      <NewsGrid />
+      <UfinNewsGrid />
     </div>
   );
 };

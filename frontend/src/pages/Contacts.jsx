@@ -1,11 +1,40 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import { Phone, Mail, MapPin, Clock, MessageCircle, Send, TrendingUp, Wifi, Share2, Headset } from "lucide-react";
-import rybricBg from "../assets/rybric-bg.png";
-import ceoImg from "../assets/%D0%B8%D0%B7%D0%BE%D0%B1%D1%80%D0%B0%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5_2022-03-19_013459-e1724190825582.png.webp";
+import { TrendingUp, Wifi, Share2, Headphones, Send } from "lucide-react";
+import { FaTelegramPlane } from "react-icons/fa";
+import contactsHeroImg from "../assets/contacts_hero_phone.png";
+import osipovImg from "../assets/osipov-fullbody.png";
+import telegramIcon from "../assets/logos_telegram.svg";
+import rutubeIcon from "../assets/icon_rutube_dark_color_circle.svg";
+
+const departments = [
+  {
+    Icon: TrendingUp,
+    title: "Business Development Department",
+    desc: "Cooperation with partners and suppliers",
+    email: "a@ufin.online",
+  },
+  {
+    Icon: Wifi,
+    title: "For connection questions",
+    desc: "Sales, connection of new objects and the client's own trackers",
+    email: "a@ufin.online",
+  },
+  {
+    Icon: Share2,
+    title: "Media Center",
+    desc: "Communicating with clients on new products, advertising, and partnerships",
+    email: "osa@ufin.online",
+  },
+  {
+    Icon: Headphones,
+    title: "24/7 technical support",
+    desc: "Technical issues with clients and suppliers",
+    email: "support@ufin.online",
+  },
+];
 
 export default function Contacts() {
-  const [form, setForm] = useState({ name: "", phone: "", message: "" });
+  const [form, setForm] = useState({ name: "", phone: "", email: "" });
   const [agreed, setAgreed] = useState(false);
   const [sent, setSent] = useState(false);
 
@@ -14,264 +43,348 @@ export default function Contacts() {
     setSent(true);
   };
 
-  const departments = [
-    {
-      title: "Business Development Department",
-      email: "a@tekonikasystems.online",
-      Icon: TrendingUp
-    },
-    {
-      title: "For connection questions",
-      email: "a@tekonikasystems.online",
-      Icon: Wifi
-    },
-    {
-      title: "Media Center",
-      email: "osa@tekonikasystems.online",
-      Icon: Share2
-    },
-    {
-      title: "24/7 technical support",
-      email: "support@tekonikasystems.online",
-      Icon: Headset
-    },
-  ];
-
   return (
     <div className="font-sans">
-      {/* ─── Hero Banner ─── */}
-      <section className="relative min-h-[480px] flex items-end overflow-hidden">
+
+      {/* ─────────────────────────────────────────────
+          SECTION 1 — Hero
+          Dark background image, white text bottom-left
+      ───────────────────────────────────────────── */}
+      <section className="relative h-[380px] flex items-end overflow-hidden">
         <div
-          className="absolute inset-0 bg-cover bg-center"
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: `url('${contactsHeroImg}')` }}
+        />
+        {/* Dark gradient: strong dark left, semi-dark right */}
+        <div
+          className="absolute inset-0"
           style={{
-             backgroundImage:
-              `url('${rybricBg}')`,
+            background:
+              "linear-gradient(to right, rgba(20,30,40,0.82) 0%, rgba(20,30,40,0.60) 45%, rgba(20,30,40,0.35) 100%)",
           }}
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#17232d] via-[#17232d]/90 to-transparent" />
-
-        <div className="relative max-w-7xl mx-auto px-6 pb-32 pt-40 w-full z-10">
-          <h1 className="text-5xl md:text-6xl font-bold text-white leading-tight mb-4">
+        <div className="relative z-10 w-full max-w-[1380px] mx-auto px-10 pb-16">
+          <h1 className="text-[46px] font-bold text-white leading-tight mb-3">
             Contacts
           </h1>
-          <p className="text-white/80 text-xl font-medium max-w-xl">
+          <p className="text-white/80 text-[17px]">
             Where we are and how to get to us
           </p>
         </div>
       </section>
 
-      {/* ─── Departments ─── */}
-      <section className="bg-white -mt-20 relative z-20 pb-20">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {departments.map((dep, idx) => {
-              const IconComponent = dep.Icon;
-              return (
-                <div
-                  key={idx}
-                  className="bg-white p-8 rounded border border-[#177f73] hover:shadow-xl transition duration-300 min-h-[220px] flex flex-col justify-between"
+      {/* ─────────────────────────────────────────────
+          SECTION 2 — Department Cards
+          White bg, 4 equal border cards, gray border
+      ───────────────────────────────────────────── */}
+      <section className="bg-white py-14">
+        <div className="max-w-[1380px] mx-auto px-10">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            {departments.map(({ Icon, title, desc, email }, idx) => (
+              <div
+                key={idx}
+                className="border border-gray-200 rounded-xl p-7 flex flex-col hover:shadow-md transition-shadow duration-200"
+              >
+                <Icon size={40} strokeWidth={1.5} className="text-[#177f73] mb-5" />
+                <h3 className="font-bold text-[#1a2332] text-[15px] leading-snug mb-2">
+                  {title}
+                </h3>
+                <p className="text-gray-400 text-[13px] leading-relaxed flex-grow mb-5">
+                  {desc}
+                </p>
+                <a
+                  href={`mailto:${email}`}
+                  className="text-[#177f73] text-[13px] font-medium hover:underline"
                 >
-                  <div>
-                    <IconComponent size={48} strokeWidth={2.5} className="text-[#177f73] mb-6" />
-                    <h3 className="text-lg font-bold text-[#143451] leading-tight">
-                      {dep.title}
-                    </h3>
-                  </div>
-                  <a
-                    href={`mailto:${dep.email}`}
-                    className="text-[#177f73] font-semibold hover:text-[#143451] transition flex items-center gap-2 mt-6 text-sm"
-                  >
-                    <Mail size={16} />
-                    {dep.email}
-                  </a>
-                </div>
-              );
-            })}
+                  {email}
+                </a>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* ─── Info & Form Section ─── */}
-      <section className="bg-white py-24">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="grid lg:grid-cols-[1fr_420px] gap-16 items-start">
-            
-            {/* Left: General Info & Branches */}
+      {/* ─────────────────────────────────────────────
+          SECTION 3 — Map + Contact Info
+          Light mint bg, full-width:
+          Left (58%) = Yandex map  |  Right (42%) = info
+      ───────────────────────────────────────────── */}
+      <section style={{ backgroundColor: "#e5f2ef" }}>
+        <div
+          className="grid"
+          style={{ gridTemplateColumns: "58fr 42fr", minHeight: "420px" }}
+        >
+          {/* Map — full height */}
+          <div className="relative min-h-[420px]">
+            <iframe
+              title="UFIN Control Office Map"
+              src="https://yandex.ru/map-widget/v1/?um=constructor%3A&source=constructor&ll=37.688534%2C55.840721&z=15&pt=37.688534,55.840721,pm2rdm"
+              width="100%"
+              height="100%"
+              frameBorder="0"
+              allowFullScreen
+              className="absolute inset-0 w-full h-full"
+            />
+          </div>
+
+          {/* Info panel */}
+          <div className="px-12 py-12 flex flex-col gap-7">
+            {/* Telephone */}
             <div>
-              <h2 className="text-4xl font-bold text-[#132133] mb-12">
-                Get in touch
-              </h2>
-
-              <div className="grid sm:grid-cols-2 gap-10 mb-12">
-                <div>
-                  <h3 className="flex items-center gap-2 text-sm font-semibold text-[#177f73] uppercase tracking-widest mb-3">
-                    <Phone size={18} /> Phone
-                  </h3>
-                  <a
-                    href="tel:88004440481"
-                    className="text-2xl text-[#102133] font-bold hover:text-[#177f73] transition"
-                  >
-                    8 (800) 444-04-81
-                  </a>
-                  <p className="text-sm text-slate-500 mt-1">Free across Russia</p>
-                </div>
-
-                <div>
-                  <h3 className="flex items-center gap-2 text-sm font-semibold text-[#177f73] uppercase tracking-widest mb-3">
-                    <Clock size={18} /> Business Hours
-                  </h3>
-                  <p className="text-[#102133] leading-7">
-                    Mon - Fri: 9:00 - 18:00<br />
-                    Sat - Sun: Weekend
-                  </p>
-                </div>
-
-                <div>
-                  <h3 className="flex items-center gap-2 text-sm font-semibold text-[#177f73] uppercase tracking-widest mb-3">
-                    <MapPin size={18} /> Head Office
-                  </h3>
-                  <p className="text-[#102133] leading-7">
-                    Letchika Babushkina St, 1/3, 7th floor, office 17<br />
-                    Moscow, 129344
-                  </p>
-                </div>
-
-                <div>
-                  <h3 className="flex items-center gap-2 text-sm font-semibold text-[#177f73] uppercase tracking-widest mb-3">
-                    <MessageCircle size={18} /> Chat Online
-                  </h3>
-                  <a
-                    href="https://t.me/tekonika_systems"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="inline-flex items-center justify-center h-10 px-6 rounded bg-[#229ED9] text-white font-medium hover:bg-[#1a8bc0] transition"
-                  >
-                    Telegram Chat
-                  </a>
-                </div>
-              </div>
-
-              <div className="border-t border-gray-100 pt-10">
-                <h3 className="text-2xl font-bold text-[#132133] mb-6">Our Branches</h3>
-                <ul className="space-y-4">
-                  <li className="flex items-start gap-3 text-slate-600">
-                    <MapPin className="text-[#177f73] shrink-0 mt-0.5" size={20} />
-                    <span>Podolsk, Selkhoztekhnika, Domodedovskoe highway, 20I, STO "Podolsk"</span>
-                  </li>
-                  <li className="flex items-start gap-3 text-slate-600">
-                    <MapPin className="text-[#177f73] shrink-0 mt-0.5" size={20} />
-                    <span>Balashikha, Obyezdnoe highway, 10a, STO "Balashikha"</span>
-                  </li>
-                </ul>
-              </div>
-
+              <p className="text-[11px] text-gray-400 mb-1 tracking-wide">Telephone</p>
+              <a
+                href="tel:88004440481"
+                className="text-[#1a2332] text-[22px] font-bold hover:text-[#177f73] transition"
+              >
+                8 (800) 444-04-81
+              </a>
             </div>
 
-            {/* Right: Contact Form */}
-            <div className="bg-[#f8faf9] p-8 rounded-lg shadow-sm border border-gray-100">
-              
-              <div className="bg-[#fff4e5] border border-[#ffe0b2] rounded p-4 mb-8">
-                <h4 className="text-[#e65100] font-bold mb-1 flex items-center gap-2">
-                  <span className="text-xl">🔥</span> PROMO!
-                </h4>
-                <p className="text-[#e65100] text-sm leading-relaxed">
-                  Submit a request online now! We will contact you during business hours and give you a <strong>10% discount</strong>!
+            {/* Address */}
+            <div>
+              <p className="text-[11px] text-gray-400 mb-1 tracking-wide">Address</p>
+              <p className="text-[#1a2332] text-[15px] font-semibold leading-relaxed">
+                Moscow, 129344, Letchika Babushkina St.,<br />
+                Building 1, Block 3, Floor 7, Office 17
+              </p>
+            </div>
+
+            {/* Social networks */}
+            <div>
+              <p className="text-[11px] text-gray-400 mb-3 tracking-wide">
+                We are on social networks
+              </p>
+              <div className="flex items-center gap-3">
+                <a
+                  href="https://t.me/UfinSupportEc"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="hover:opacity-80 transition"
+                >
+                  <img src={telegramIcon} alt="Telegram" className="w-9 h-9" />
+                </a>
+                <a
+                  href="https://rutube.ru/channel/48036433/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="hover:opacity-80 transition"
+                >
+                  <img src={rutubeIcon} alt="Rutube" className="w-9 h-9" />
+                </a>
+              </div>
+            </div>
+
+            {/* Yandex 4.9 rating badge */}
+            <div className="inline-flex items-center gap-3 bg-white rounded-xl px-4 py-3 w-fit shadow-sm border border-gray-100">
+              <span className="text-[#e84444] text-lg">📍</span>
+              <div>
+                <div className="flex items-center gap-1.5">
+                  <span className="font-bold text-[#1a2332] text-[15px]">4.9</span>
+                  <div className="flex gap-[2px]">
+                    {[1, 2, 3, 4].map((i) => (
+                      <svg key={i} className="w-3.5 h-3.5 fill-[#FFC700]" viewBox="0 0 20 20">
+                        <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
+                      </svg>
+                    ))}
+                    {/* 4.5 star - partial */}
+                    <svg className="w-3.5 h-3.5" viewBox="0 0 20 20">
+                      <defs>
+                        <linearGradient id="starHalf">
+                          <stop offset="75%" stopColor="#FFC700" />
+                          <stop offset="75%" stopColor="#D1D5DB" />
+                        </linearGradient>
+                      </defs>
+                      <path
+                        fill="url(#starHalf)"
+                        d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"
+                      />
+                    </svg>
+                  </div>
+                </div>
+                <p className="text-[10px] text-gray-400 mt-0.5">Партнер организации Яндекса</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ─────────────────────────────────────────────
+          SECTION 4 — Our Branches + Contact Form
+          White bg, heading + 2 addresses, then
+          Left: Yandex map  |  Right: form (centered)
+      ───────────────────────────────────────────── */}
+      <section className="bg-white py-20">
+        <div className="max-w-[1380px] mx-auto px-10">
+          {/* Branch heading & addresses */}
+          <h2 className="text-[40px] font-bold text-[#1a2332] mb-5">
+            Our branches
+          </h2>
+          <div className="space-y-1.5 mb-12 text-[#1a2332] text-[14px] leading-relaxed">
+            <p>
+              Podolsk, Selkhoztekhnika settlement, Domodedovskoye shosse, 20I, Podolsk service station (near Avto-M)
+            </p>
+            <p>
+              Balashikha, Bypass Highway, Building 10a, Balashikha Service Station
+            </p>
+          </div>
+
+          {/* Map + Form */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+            {/* Yandex map */}
+            <div className="rounded-xl overflow-hidden" style={{ height: "420px" }}>
+              <iframe
+                title="UFIN Branches"
+                src="https://yandex.ru/map-widget/v1/?um=constructor%3A&source=constructor&ll=37.688534%2C55.840721&z=13&pt=37.688534,55.840721,pm2rdm"
+                width="100%"
+                height="100%"
+                frameBorder="0"
+                allowFullScreen
+              />
+            </div>
+
+            {/* Contact form */}
+            <div>
+              <div className="text-center mb-7">
+                <h3 className="text-[22px] font-bold text-[#1a2332] mb-2">
+                  Contact us
+                </h3>
+                <p className="text-[13px] text-gray-500 leading-relaxed max-w-[280px] mx-auto">
+                  Leave your contact information and our specialist will contact you as soon as possible.
                 </p>
               </div>
 
-              <h3 className="text-2xl font-bold text-[#132133] mb-2">
-                Leave a Request
-              </h3>
-              <p className="text-sm text-slate-500 mb-8">
-                Fill out the form — we will contact you shortly
-              </p>
-
-              {/* CEO Contact */}
-              <div className="flex items-center gap-4 mb-8">
-                <img
-                  src={ceoImg}
-                  alt="Alexey Osipov"
-                  className="w-14 h-14 rounded-full object-cover"
-                />
-                <div>
-                  <h4 className="font-semibold text-[#132133]">Alexey Osipov</h4>
-                  <p className="text-sm text-slate-500">CEO</p>
-                </div>
-              </div>
-
               {sent ? (
-                <div className="text-center py-10 bg-white rounded border border-gray-100">
-                  <div className="w-16 h-16 rounded-full bg-[#edf5f3] flex items-center justify-center mx-auto mb-4">
-                    <Send className="w-6 h-6 text-[#177f73]" />
+                <div className="text-center py-14 border border-gray-100 rounded-xl bg-gray-50">
+                  <div className="w-14 h-14 rounded-full bg-[#edf5f3] flex items-center justify-center mx-auto mb-4">
+                    <Send className="w-5 h-5 text-[#177f73]" />
                   </div>
-                  <p className="font-bold text-[#132133] text-lg">Request sent!</p>
-                  <p className="text-slate-500 text-sm mt-1">We will contact you during the business day.</p>
+                  <p className="font-bold text-[#1a2332] text-lg">Request sent!</p>
+                  <p className="text-gray-400 text-sm mt-1">We will contact you during the business day.</p>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} className="space-y-4">
+                <form onSubmit={handleSubmit} className="space-y-3 max-w-[380px] mx-auto">
                   <input
                     type="text"
                     required
-                    placeholder="Your Name *"
+                    placeholder="Name"
                     value={form.name}
                     onChange={(e) => setForm({ ...form, name: e.target.value })}
-                    className="w-full h-12 px-4 border border-slate-200 rounded outline-none focus:border-[#177f73] transition bg-white"
+                    className="w-full h-12 px-4 border border-gray-200 rounded-lg outline-none focus:border-[#177f73] text-[14px] text-[#1a2332] placeholder-gray-400 bg-white"
                   />
+                  <div className="relative">
+                    <span className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 text-[14px] select-none">+7</span>
+                    <input
+                      type="tel"
+                      required
+                      placeholder="(999) 999-9999*"
+                      value={form.phone}
+                      onChange={(e) => setForm({ ...form, phone: e.target.value })}
+                      className="w-full h-12 pl-10 pr-4 border border-gray-200 rounded-lg outline-none focus:border-[#177f73] text-[14px] text-[#1a2332] placeholder-gray-400 bg-white"
+                    />
+                  </div>
                   <input
-                    type="tel"
-                    required
-                    placeholder="(999) 999-9999 *"
-                    value={form.phone}
-                    onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                    className="w-full h-12 px-4 border border-slate-200 rounded outline-none focus:border-[#177f73] transition bg-white"
-                  />
-                  <textarea
-                    placeholder="Briefly describe your task or question..."
-                    rows={4}
-                    value={form.message}
-                    onChange={(e) => setForm({ ...form, message: e.target.value })}
-                    className="w-full px-4 py-3 border border-slate-200 rounded outline-none focus:border-[#177f73] transition resize-none bg-white"
+                    type="email"
+                    placeholder="Mail"
+                    value={form.email}
+                    onChange={(e) => setForm({ ...form, email: e.target.value })}
+                    className="w-full h-12 px-4 border border-gray-200 rounded-lg outline-none focus:border-[#177f73] text-[14px] text-[#1a2332] placeholder-gray-400 bg-white"
                   />
                   <button
                     type="submit"
-                    className="w-full h-12 rounded bg-[#ff8c00] text-white font-bold hover:bg-[#e67e00] transition flex justify-center items-center gap-2"
+                    className="w-full h-12 rounded-lg bg-[#177f73] hover:bg-[#136860] text-white font-semibold text-[15px] transition"
                   >
-                    Send Request <Send size={18} />
+                    Send
                   </button>
-                  <label className="flex gap-2 text-xs text-slate-500 items-start cursor-pointer mt-2">
+                  <label className="flex gap-2.5 text-[12px] text-gray-500 items-start cursor-pointer pt-1">
                     <input
                       type="checkbox"
                       required
                       checked={agreed}
                       onChange={(e) => setAgreed(e.target.checked)}
-                      className="mt-0.5 accent-[#ff8c00]"
+                      className="mt-0.5 accent-[#177f73] shrink-0"
                     />
-                    I consent to the processing of personal data
+                    <span>
+                      I agree to{" "}
+                      <a href="/privacy-policy" className="text-[#177f73] underline">
+                        processing of personal data
+                      </a>
+                    </span>
                   </label>
                 </form>
               )}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ─────────────────────────────────────────────
+          SECTION 5 — CEO + CTA
+          Dark forest green bg
+          Left: Alexey Osipov cutout (transparent PNG)
+            + dark translucent "General manager / Alexey Osipov" label card
+          Right: "Contact us" heading, subtitle,
+            Telegram button, PROMOTION! text
+      ───────────────────────────────────────────── */}
+      <section className="bg-[#1d4135] overflow-hidden">
+        <div className="max-w-[1380px] mx-auto px-10">
+          <div className="grid grid-cols-1 lg:grid-cols-[460px_1fr] items-end">
+
+            {/* Left — CEO photo + label */}
+            <div className="relative flex items-end">
+              <div className="relative w-full max-w-[380px] ml-auto">
+                {/* Dark translucent label card — overlays top of the photo */}
+                <div
+                  className="absolute top-20 lg:top-24 -left-4 lg:-left-20 bg-white/5 backdrop-blur-md border border-white/10 rounded-xl px-6 py-4 z-20 shadow-xl"
+                >
+                  <p className="text-gray-400 text-[12px] font-medium tracking-wide mb-1">General manager</p>
+                  <p className="text-white font-semibold text-[17px] leading-tight">
+                    Alexey Osipov
+                  </p>
+                </div>
+
+                {/* Full-body Osipov transparent PNG */}
+                <img
+                  src={osipovImg}
+                  alt="Alexey Osipov — General Manager"
+                  className="w-full object-contain object-bottom"
+                  style={{ minHeight: "360px", maxHeight: "440px" }}
+                />
+              </div>
+            </div>
+
+            {/* Right — CTA Content */}
+            <div className="text-white py-16 pl-10">
+              <h2 className="text-[36px] font-bold mb-3">Contact us</h2>
+              <p className="text-white/60 text-[15px] mb-8">
+                Get detailed information and advice!
+              </p>
+
+              {/* Telegram chat button */}
+              <a
+                href="https://t.me/UfinSupportEc"
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2 bg-white hover:bg-gray-50 transition rounded-md px-5 py-2.5 text-[#00a3ff] text-[14px] font-bold mb-10 shadow-sm"
+              >
+                <FaTelegramPlane size={18} />
+                Telegram chat
+              </a>
+
+              {/* Promotion */}
+              <div>
+                <p className="text-[#F58220] font-bold text-[15px] uppercase tracking-wide mb-2">
+                  PROMOTION!
+                </p>
+                <p className="text-white/75 text-[14px] leading-relaxed max-w-[440px]">
+                  Submit your online request now! We'll contact you during business hours and give you a 10% discount!
+                </p>
+              </div>
             </div>
 
           </div>
         </div>
       </section>
 
-      {/* ─── Map ─── */}
-      <section className="bg-[#f7f7f7] pb-0">
-        <div className="w-full h-[500px] relative">
-          <iframe
-            title="Tekonika Systems Office Moscow"
-            src="https://maps.google.com/maps?q=55.835832,37.680819&z=15&output=embed"
-            width="100%"
-            height="100%"
-            style={{ border: 0 }}
-            allowFullScreen=""
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-            className="absolute inset-0 w-full h-full grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition duration-500"
-          />
-        </div>
-      </section>
     </div>
   );
 }

@@ -7,6 +7,7 @@ import IndustrySolutions from '../components/IndustrySolutions'
 import RequestSection from '../components/RequestSection'
 import ResourcesSection from '../components/ResourcesSection'
 import NewsSection from '../components/NewsSection'
+import UpdateLog from '../components/UpdateLog'
 import FeatureBanner from '../components/FeatureBanner'
 import DevicesSection from '../components/DevicesSectio'
 import CompanyClients from '../components/CompanyClients'
@@ -45,6 +46,7 @@ export default function Home() {
       <RequestSection />
       <FeatureBanner />
       <ResourcesSection />
+      <UpdateLog />
       <NewsSection />
     </div>
   )
