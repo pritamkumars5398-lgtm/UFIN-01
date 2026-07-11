@@ -3,3 +3,50 @@
 @tailwind utilities;
 
 html, body, #root { height: 100%; }
+
+/* ===== Devices Carousel Styles ===== */
+.device-card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.device-img-hover:hover {
+  transform: scale(1.06);
+}
+
+.device-btn-hover:hover {
+  background: #e08e00 !important;
+}
+
+.arrow-btn-hover:hover {
+  background: #2d6040 !important;
+  transform: translateY(-50%) scale(1.08);
+}
+
+@layer utilities {
+  .animate-fade-in {
+    animation: fadeIn 0.4s ease-out forwards;
+  }
+  .animate-fade-in-up {
+    animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+  .animate-scale-up {
+    animation: scaleUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scaleUp {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+

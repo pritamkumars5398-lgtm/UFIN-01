@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import { ChevronRight, ChevronLeft } from "lucide-react";
 import { useLanguage } from "../context/LanguageContext";
 
-import rybricBg from "../assets/rybric-bg.png";
+import worldMapGrey from "../assets/world-map-grey.png";
 
 // Import downloaded company slider images
 import torexImg from "../assets/companies/____________2022-10-17_141426046.png.webp";
@@ -49,16 +49,32 @@ export default function CompanyClients() {
     }
   };
 
+  // Auto-scroll logic
+  React.useEffect(() => {
+    const interval = setInterval(() => {
+      if (scrollRef.current) {
+        const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
+        if (scrollLeft + clientWidth >= scrollWidth - 10) {
+          scrollRef.current.scrollTo({ left: 0, behavior: "smooth" });
+        } else {
+          scrollRef.current.scrollBy({ left: 370, behavior: "smooth" });
+        }
+      }
+    }, 4000);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section className="relative py-24 overflow-hidden" style={{ backgroundColor: "#ffffff" }}>
 
-      {/* Faint Map Background */}
+      {/* World Map Background */}
       <div
-        className="absolute inset-0 bg-center bg-no-repeat bg-cover pointer-events-none"
+        className="absolute inset-0 bg-center bg-no-repeat bg-contain pointer-events-none"
         style={{ 
-          backgroundImage: `url('${rybricBg}')`,
-          opacity: 0.15, 
-          backgroundPosition: "center top"
+          backgroundImage: `url('${worldMapGrey}')`,
+          opacity: 0.35,
+          backgroundPosition: "center center",
+          backgroundSize: "90% auto"
         }}
       />
 

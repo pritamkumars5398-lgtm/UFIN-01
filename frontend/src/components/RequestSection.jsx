@@ -1,8 +1,11 @@
 import React from "react";
 import { Phone, Mail } from "lucide-react";
 import ceoImg from "../assets/ceo.webp";
+import { useLanguage } from "../context/LanguageContext";
 
 export default function RequestSection() {
+  const { t, language } = useLanguage();
+
   const steps = [
     "Define a list of transport monitoring parameters",
     "Agree on the specifications of the vehicle monitoring equipment and its installation conditions",
@@ -55,9 +58,9 @@ export default function RequestSection() {
 
             {/* RIGHT SIDE (FORM) */}
             <div className="relative z-20">
-              <div className="bg-white p-10 shadow-[0_10px_40px_rgba(0,0,0,0.08)] rounded-md lg:-mt-32 lg:-mb-32 relative">
+              <div className="bg-white p-10 shadow-[0_10px_40px_rgba(0,0,0,0.08)] rounded-md lg:-mt-32 lg:-mb-32 relative animate-scale-up">
                 <h3 className="text-center text-4xl font-bold text-[#1F2937] mb-8 leading-tight">
-                  Submit a<br />request
+                  {t("hero.button") || "Submit a request"}
                 </h3>
 
                 {/* CEO Info */}
@@ -69,23 +72,23 @@ export default function RequestSection() {
                   />
                   <div>
                     <h4 className="font-bold text-[#F58220] text-sm">
-                      Chulsky Sergey
+                      {language === "en" ? "Sergey Chulsky" : "Чульский Сергей"}
                     </h4>
                     <p className="text-xs text-gray-400 mt-0.5">
-                      Technical Director
+                      {language === "en" ? "Technical Director" : "Технический директор"}
                     </p>
                   </div>
                 </div>
 
                 {/* Contact Links */}
                 <div className="flex flex-wrap items-center justify-between gap-4 mb-8">
-                  <a href="tel:88004440481" className="flex items-center gap-2 text-[#F58220] font-bold text-sm hover:underline">
+                  <a href={`tel:${t("common.phone").replace(/[^0-9+]/g, '')}`} className="flex items-center gap-2 text-[#F58220] font-bold text-sm hover:underline">
                     <Phone size={16} className="text-[#1B7F6D]" />
-                    8 (800) 444-04-81
+                    {t("common.phone")}
                   </a>
-                  <a href="mailto:buy@ufin.online" className="flex items-center gap-2 text-[#F58220] font-bold text-sm hover:underline">
+                  <a href={`mailto:${t("common.emailBuy")}`} className="flex items-center gap-2 text-[#F58220] font-bold text-sm hover:underline break-all">
                     <Mail size={16} className="text-[#1B7F6D]" />
-                    buy@ufin.online
+                    {t("common.emailBuy")}
                   </a>
                 </div>
 
@@ -103,15 +106,17 @@ export default function RequestSection() {
 
                 {/* Submit Button */}
                 <button className="w-full bg-[#1B7F6D] hover:bg-[#156758] text-white font-bold text-sm py-4 rounded transition-colors mb-4">
-                  Send
+                  {t("common.send")}
                 </button>
 
                 {/* Checkbox */}
                 <label className="flex items-start gap-2 cursor-pointer mt-4">
                   <input type="checkbox" className="mt-1" defaultChecked />
                   <span className="text-xs text-gray-500 leading-tight">
-                    I agree to{" "}
-                    <span className="text-[#F58220]">processing of personal data</span>
+                    {language === "en" ? "I agree to " : "Я согласен на "}
+                    <span className="text-[#F58220]">
+                      {language === "en" ? "processing of personal data" : "обработку персональных данных"}
+                    </span>
                   </span>
                 </label>
               </div>

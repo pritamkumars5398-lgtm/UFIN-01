@@ -49,6 +49,13 @@ export default function ClientFeedback() {
   const prev = () => setActive((active - 1 + reviews.length) % reviews.length);
   const next = () => setActive((active + 1) % reviews.length);
 
+  React.useEffect(() => {
+    const interval = setInterval(() => {
+      setActive(current => (current + 1) % reviews.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
+
   const review = reviews[active];
 
   return (
@@ -103,6 +110,8 @@ export default function ClientFeedback() {
 
           {/* SLIDE */}
           <div
+            key={active}
+            className="animate-fade-in"
             style={{
               flex: 1,
               display: "grid",
@@ -122,7 +131,6 @@ export default function ClientFeedback() {
               }}
             >
               <img
-                key={active}
                 src={review.logo}
                 alt={review.company}
                 style={{
@@ -130,7 +138,6 @@ export default function ClientFeedback() {
                   maxHeight: "220px",
                   width: "100%",
                   objectFit: "contain",
-                  transition: "opacity 0.4s",
                 }}
               />
             </div>

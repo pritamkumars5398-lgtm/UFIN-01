@@ -1,21 +1,12 @@
 import React from "react";
 import { ArrowRight } from "lucide-react";
+import { useLanguage } from "../context/LanguageContext";
 
 export default function NewsSection() {
-  const news = [
-    {
-      date: "March 21, 2025",
-      title: "Automated fuel control",
-    },
-    {
-      date: "March 14, 2025",
-      title: "Ufin Control presents an updated logo",
-    },
-    {
-      date: "October 18, 2024",
-      title: "Cloud video storage",
-    },
-  ];
+  const { t } = useLanguage();
+  
+  // Use translations or fallback to empty array
+  const news = t("navbar.newsItems") || [];
 
   return (
     <section className="bg-[#EAF5F2] py-28">
@@ -32,23 +23,26 @@ export default function NewsSection() {
           {/* News Cards */}
           <div className="grid grid-cols-1 md:grid-cols-3">
             {news.map((item, index) => (
-              <div
+              <a
                 key={index}
-                className="border-l border-gray-300/60 px-8 py-2 flex flex-col justify-between min-h-[160px]"
+                href={item.link}
+                target="_blank"
+                rel="noreferrer"
+                className="group border-l border-gray-300/60 px-8 py-2 flex flex-col justify-between min-h-[160px] cursor-pointer hover:bg-white transition-colors"
               >
                 <div>
                   <p className="text-xs text-[#9CA3AF] mb-3 font-medium">
                     {item.date}
                   </p>
-                  <h3 className="text-base font-bold text-[#1F2937] leading-snug pr-4">
+                  <h3 className="text-base font-bold text-[#1F2937] leading-snug pr-4 group-hover:text-[#F58220] transition-colors">
                     {item.title}
                   </h3>
                 </div>
 
-                <button className="mt-8 w-8 h-8 rounded bg-[#F58220] hover:bg-[#e0771c] transition flex items-center justify-center shrink-0">
+                <div className="mt-8 w-8 h-8 rounded bg-[#F58220] hover:bg-[#e0771c] transition flex items-center justify-center shrink-0 group-hover:translate-x-2 transition-transform">
                   <ArrowRight size={16} className="text-white" />
-                </button>
-              </div>
+                </div>
+              </a>
             ))}
           </div>
 

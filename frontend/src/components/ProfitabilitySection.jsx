@@ -25,7 +25,7 @@ export default function ProfitabilitySection() {
           className="w-full object-contain"
           style={{ display: "block" }}
         >
-          <source src={animationVideo} type="video/mp4" />
+          <source src={`${animationVideo}#t=0.001`} type="video/mp4" />
         </video>
       </div>
     </section>

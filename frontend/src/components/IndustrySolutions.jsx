@@ -115,8 +115,7 @@ export default function IndustrySolutions() {
   const { language } = useLanguage();
   const [showAll, setShowAll] = useState(false);
 
-  const displayedIndustries = showAll ? industries : industries.slice(0, 8);
-
+  // Instead of slicing, we render all and control visibility via CSS classes for animation
   return (
     <section className="bg-white py-20">
       <div className="max-w-7xl mx-auto px-6">
@@ -127,12 +126,13 @@ export default function IndustrySolutions() {
         </h2>
 
         {/* Grid — 4 columns on desktop, 2 on mobile */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-x-8 gap-y-14">
-          {displayedIndustries.map((item) => (
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-x-8 gap-y-14 transition-all duration-500 ease-in-out">
+          {industries.map((item, index) => (
             <a
               key={item.key}
               href="#"
-              className="group flex flex-col items-center text-center cursor-pointer"
+              className={`group flex flex-col items-center text-center cursor-pointer transition-all duration-500 ${!showAll && index >= 8 ? 'opacity-0 scale-95 hidden' : 'opacity-100 scale-100'}`}
+              style={{ display: !showAll && index >= 8 ? 'none' : 'flex' }}
             >
               {/* Image with transparent background, scales on hover */}
               <div className="h-[160px] w-full flex items-center justify-center mb-5">
@@ -155,7 +155,7 @@ export default function IndustrySolutions() {
         <div className="mt-16 flex justify-center">
           <button
             onClick={() => setShowAll(!showAll)}
-            className="w-full max-w-[280px] py-3.5 px-6 border border-[#0d9488] text-[#0d9488] rounded-md font-medium text-base hover:bg-[#0d9488] hover:text-white transition-colors"
+            className="w-full max-w-[280px] py-3.5 px-6 border border-[#0d9488] text-[#0d9488] rounded-md font-medium text-base hover:bg-[#0d9488] hover:text-white transition-colors cursor-pointer"
           >
             {showAll 
               ? (language === "en" ? "Show less" : "Скрыть") 

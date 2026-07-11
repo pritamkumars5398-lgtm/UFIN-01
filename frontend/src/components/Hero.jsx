@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
+import { useLanguage } from "../context/LanguageContext";
 import businessVideo from "../assets/business-main.mp4";
 
 export default function Hero() {
+  const { t } = useLanguage();
   const [modalOpen, setModalOpen] = useState(false);
   const [phone, setPhone] = useState("");
   const [agreed, setAgreed] = useState(false);
@@ -29,77 +31,50 @@ export default function Hero() {
     setSent(true);
   };
 
-  const features = [
-    {
-      title: "route of movement and control of operation",
-      desc: "monitoring location, fuel consumption, tire pressure and other parameters",
-    },
-    {
-      title: "video monitoring of the transportation process",
-      desc: "compliance with industry standards, improving safety, and determining who is at fault in an accident",
-    },
-    {
-      title: "control of climatic parameters of transportation",
-      desc: "confirmed quality of transportation, continuous automated transfer of data on transportation conditions to the client",
-    },
-    {
-      title: "video monitoring and driver assistance",
-      desc: "improving safety and reducing the number of road accidents",
-    },
-  ];
+  // Get localized content
+  const heroData = t("hero") || {};
+  const features = heroData.features || [];
 
   return (
     <>
       <section className="relative min-h-screen overflow-hidden font-sans">
         {/* Background Video */}
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          className="absolute inset-0 w-full h-full object-cover"
-        >
-          <source src={businessVideo} type="video/mp4" />
-        </video>
+        <div className="absolute inset-0 w-full h-full">
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="w-full h-full object-cover"
+          >
+            <source src={`${businessVideo}#t=0.001`} type="video/mp4" />
+          </video>
+        </div>
 
-        {/* Content — dark panel on the left, video visible on the right */}
+        {/* Content */}
         <div className="relative z-10 min-h-screen flex items-center">
-          <div className="w-full max-w-7xl mx-auto px-6 pt-36 pb-20">
-            {/* Dark panel */}
-            <div
-              className="max-w-[600px] px-10 py-12"
-              style={{ background: "rgba(15, 20, 25, 0.82)" }}
-            >
-              <h1 className="text-4xl md:text-[46px] font-bold text-white leading-tight tracking-tight mb-10">
-                GLONASS transport monitoring
+          <div className="w-full max-w-7xl mx-auto px-6 pt-36 pb-20 animate-fade-in-up">
+            <div className="max-w-[750px] bg-black/75 rounded-2xl p-8 md:p-12 lg:p-14 backdrop-blur-sm border border-white/5">
+              <h1 className="text-4xl md:text-[44px] lg:text-[52px] font-extrabold text-white leading-[1.15] tracking-tight mb-10">
+                {heroData.title}
               </h1>
 
               <div className="space-y-6">
                 {features.map((item, index) => (
-                  <div key={index} className="flex gap-4 items-start group">
+                  <div key={index} className="flex gap-5 items-start group">
                     <div className="shrink-0 mt-1">
-                      <svg
-                        width="22"
-                        height="22"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="text-[#f59e0b]"
-                      >
-                        <path
-                          d="M5 13L9 17L19 7"
-                          stroke="currentColor"
-                          strokeWidth="2.5"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
-                      </svg>
+                      <img
+                        src={new URL("../assets/tick-1.svg", import.meta.url).href}
+                        alt="check"
+                        className="w-6 h-6 object-contain"
+                        onError={(e) => { e.target.style.display = 'none'; }}
+                      />
                     </div>
                     <div>
-                      <h3 className="text-[17px] text-white font-medium mb-1 group-hover:text-[#f59e0b] transition-colors">
+                      <h3 className="text-[17px] text-white font-bold mb-1.5 transition-colors">
                         {item.title}
                       </h3>
-                      <p className="text-gray-400 text-sm leading-relaxed font-light">
+                      <p className="text-[#e2e8f0] text-[15px] leading-relaxed font-normal">
                         {item.desc}
                       </p>
                     </div>
@@ -107,33 +82,12 @@ export default function Hero() {
                 ))}
               </div>
 
-              {/* Divider */}
-              <div className="border-t border-white/20 mt-10 mb-8" />
-
               {/* CTA Button — opens modal */}
               <button
                 onClick={() => setModalOpen(true)}
-                className="px-8 py-3.5 rounded-md font-semibold text-white text-base transition-all duration-200 cursor-pointer"
-                style={{
-                  background: "linear-gradient(90deg, #ff9c23 0%, #ffb152 100%)",
-                  boxShadow: "0 4px 18px rgba(255,156,35,0.35)",
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.background =
-                    "linear-gradient(90deg, #e88a18 0%, #f5a040 100%)";
-                  e.currentTarget.style.boxShadow =
-                    "0 6px 24px rgba(255,156,35,0.5)";
-                  e.currentTarget.style.transform = "translateY(-1px)";
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.background =
-                    "linear-gradient(90deg, #ff9c23 0%, #ffb152 100%)";
-                  e.currentTarget.style.boxShadow =
-                    "0 4px 18px rgba(255,156,35,0.35)";
-                  e.currentTarget.style.transform = "translateY(0)";
-                }}
+                className="mt-8 px-10 py-4 rounded-md font-bold text-white text-[15px] bg-[#fca311] hover:bg-[#e2930f] transition-all cursor-pointer"
               >
-                Submit a request
+                {heroData.button || "Submit a request"}
               </button>
             </div>
           </div>
@@ -143,12 +97,12 @@ export default function Hero() {
       {/* ── Modal ── */}
       {modalOpen && (
         <div
-          className="fixed inset-0 z-[999] flex items-center justify-center"
+          className="fixed inset-0 z-[999] flex items-center justify-center animate-fade-in"
           style={{ background: "rgba(0,0,0,0.55)" }}
           onClick={handleClose}
         >
           <div
-            className="relative bg-white rounded-2xl px-10 py-10 w-full max-w-[480px] mx-4"
+            className="relative bg-white rounded-2xl px-10 py-10 w-full max-w-[480px] mx-4 animate-scale-up"
             style={{ boxShadow: "0 24px 60px rgba(0,0,0,0.22)" }}
             onClick={(e) => e.stopPropagation()}
           >
@@ -177,7 +131,7 @@ export default function Hero() {
               <>
                 {/* Title */}
                 <h2 className="text-[32px] font-extrabold text-gray-900 leading-tight mb-7">
-                  Submit a request
+                  {heroData.button}
                 </h2>
 
                 {/* Telegram Button */}

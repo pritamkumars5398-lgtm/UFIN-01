@@ -34,7 +34,12 @@ export const translations = {
       logoBrand: "TEKONIKA SYSTEMS",
       menuHome: "Home",
       news: "News",
-      newsAll: "All →",
+      newsAll: 'All →',
+      newsItems: [
+        { date: 'Apr 25, 2024', title: 'Connecting to RNIS. Fines. Required equipment.', link: 'https://ufin.online/podklyuchenie-k-rnis/' },
+        { date: 'Nov 01, 2023', title: 'How to use the Passenger Transportation module?', link: 'https://ufin.online/kak-ispolzovat-modul-passazhirskie-perevozki/' },
+        { date: 'Oct 20, 2023', title: 'What is the Ufin telematics platform?', link: 'https://ufin.online/chto-takoe-telematicheskaya-platforma-ufin/' }
+      ],
       
       // services subcategories
       ourServices: "Our services",
@@ -236,27 +241,59 @@ export const translations = {
     },
     devices: {
       title: "Control devices from leading manufacturers",
-      button: "Get price",
+      button: "Find out the price",
       list: [
         {
-          title: "Onboard tracking terminal GALILEOSKY 10",
-          desc: "Advanced functionality for monitoring, controlling, and managing assets"
+          title: "On-board navigation terminal GALILEOSKY 10",
+          desc: "Advanced functionality for monitoring, control and management of objects"
         },
         {
-          title: "Onboard tracking terminal SIGNAL S-2653",
-          desc: "SIGNAL series GLONASS tracker with dual CAN interfaces for online TPMS connectivity"
+          title: "On-board navigation terminal SIGNAL S-2653",
+          desc: "GLONASS tracker of the SIGNAL series with two CAN interfaces for working with TPMS, temperature monitoring, logging mileage via CAN, and other solutions"
         },
         {
-          title: "Onboard tracking terminal UMKa302",
-          desc: "Flagship GLONASS/GPS tracker line — a new level of performance"
+          title: "On-board navigation terminal UMKa302",
+          desc: "The flagship line of GLONASS/GPS trackers UMKa302 represents a new level of performance, reliability, and functionality for UMKa terminals"
         },
         {
-          title: "Personal: Onboard tracking terminal Scout ENT855",
-          desc: "Scout ENT855 is the best choice for companies carrying out comprehensive vehicle equipping"
+          title: "Personal: Scout ENT855 Onboard Navigation Terminal",
+          desc: "Scout ENT855 is the best choice for companies that provide comprehensive equipment of vehicles with additional sensors"
         },
         {
-          title: "Video Recorder VRK4-ENVO",
-          desc: "Digital video recorder designed for transport application"
+          title: "BPK4-EHBO dash cam",
+          desc: "A digital video recorder designed for transport applications, equipped with a local network interface, 4G, GPS and Wi-Fi modules"
+        },
+        {
+          title: "Driver Monitoring Video Camera MDSM-7",
+          desc: "An intelligent video camera with the function of recording driver drowsiness and other types of driver distraction from driving"
+        },
+        {
+          title: "Driver Assistance System MDAS-9",
+          desc: "Recognition of potentially emergency situations, speeding according to road signs, warning of a pedestrian on the roadway and other events"
+        },
+        {
+          title: "Driver assistance system MRV-21",
+          desc: "The world's first integrated Advanced Driver Assistance System (ADAS) with a 77 GHz radar and a windshield-mounted camera"
+        },
+        {
+          title: "Escort TD-BLE 1000mm sensor",
+          desc: "Wireless fuel level sensor with low power consumption. Average sensor life is 7 years."
+        },
+        {
+          title: "External tire pressure sensor",
+          desc: "Measures tire pressure and temperature and screws onto the valve stem"
+        },
+        {
+          title: "Temperature recorder HP21",
+          desc: "Online temperature recorder with printer. It sounds an alarm whenever the temperature exceeds a set lower or upper limit."
+        },
+        {
+          title: "Personal: Tire Pressure Monitoring System Monitor",
+          desc: "Displays the pressure and temperature in each tire, is installed in the driver's cabin, and gives an audible signal when the pressure drops below the set norm"
+        },
+        {
+          title: "Internal tire pressure sensor",
+          desc: "The miniature device, powered by a built-in battery, includes a semiconductor sensor for pressure, temperature and acceleration (semiconductor accelerometer), as well as a 433 MHz or 315 MHz antenna"
         }
       ]
     },
@@ -523,6 +560,11 @@ export const translations = {
       ],
       integrationsTitle: "Integrations",
       integrationsSubtitle: "Connect to your existing systems",
+      updateLogItems: [
+        { date: "Oct 14, 2024", title: "New 'Summary' report available", desc: "The new 'Summary' report collects key parameters from trips, fuel, and geofence reports.", link: "https://ufin.online/poyavilsya-novyj-otchet-svodnyj/" },
+        { date: "Oct 11, 2024", title: "New event — 'Mechanism Operation'", desc: "Now you can create notifications about mechanism operations. For example, when a crane boom starts working.", link: "https://ufin.online/novoe-sobytie-rabota-mexanizma/" },
+        { date: "Oct 10, 2024", title: "Now drivers can be displayed in the event report", desc: "", link: "https://ufin.online/teper-v-otchet-po-sobytiyam-mozhno-vyvodit-voditelya/" }
+      ],
       integrationsList: ["API", "Relay servers", "Transition from Wialon", "GLONASS installation"],
       connectBtn: "Connect"
     }
@@ -757,19 +799,51 @@ export const translations = {
         },
         {
           title: "Бортовой навигационный терминал СИГНАЛ S-2653",
-          desc: "ГЛОНАСС-трекер серии СИГНАЛ с двумя интерфейсами CAN для работы с онлайн СКДШ"
+          desc: "ГЛОНАСС-трекер серии СИГНАЛ с двумя интерфейсами CAN для работы с онлайн СКДШ, контролем температуры, получения пробега по CAN и других решений"
         },
         {
           title: "Бортовой навигационный терминал УМКа302",
-          desc: "Флагманская линейка ГЛОНАСС/GPS трекеров — новый уровень производительности"
+          desc: "Флагманская линейка ГЛОНАСС/GPS трекеров УМКа302 — новый уровень производительности, надежности и функциональных возможностей"
         },
         {
           title: "Личное: Бортовой навигационный терминал Scout ENT855",
-          desc: "Scout ENT855 является лучшим выбором для компаний, осуществляющих комплексное оснащение автотранспорта"
+          desc: "Scout ENT855 является лучшим выбором для компаний, осуществляющих комплексное оснащение автотранспорта дополнительными датчиками"
         },
         {
-          title: "Видеорегистратор ВРК4-ЕНВО",
-          desc: "Цифровой видеорегистратор, предназначенный для транспортного применения"
+          title: "Видеорегистратор BPK4-EHBO",
+          desc: "Цифровой видеорегистратор, предназначенный для транспортного применения, оборудован интерфейсом локальной сети, модулями 4G, GPS и Wi-Fi"
+        },
+        {
+          title: "Видеокамера контроля водителя MDSM-7",
+          desc: "Интеллектуальная видеокамера с функцией фиксирования засыпания и других типов отвлечения водителя от управления"
+        },
+        {
+          title: "Система помощи водителю MDAS-9",
+          desc: "Распознавание потенциально аварийных ситуаций, превышений скорости по дорожным знакам, предупреждение о пешеходе на дорожном полотне и другие события"
+        },
+        {
+          title: "Система помощи водителю MRV-21",
+          desc: "Первая в мире интегрированная усовершенствованная система помощи водителю ADAS с радиолокационным устройством 77 ГГц и камерой на лобовом стекле"
+        },
+        {
+          title: "Датчик топлива Эскорт ТД-BLE 1000 мм",
+          desc: "Беспроводной ДУТ с низким энергопотреблением. Средний срок эксплуатации датчика — 7 лет."
+        },
+        {
+          title: "Датчик давления в шине внешний",
+          desc: "Измеряет давление и температуру в шине, накручивается на ниппель"
+        },
+        {
+          title: "Терморегистратор HP21",
+          desc: "Онлайн терморегистратор с принтером. Подает звуковой сигнал тревоги каждый раз, когда температура выходит за установленное нижнее или верхнее предельное значение."
+        },
+        {
+          title: "Личное: Монитор системы контроля давления в шинах",
+          desc: "Отображает давление и температуру в каждой шине, устанавливается в кабине водителя, подает звуковой сигнал при падении давления ниже установленной нормы"
+        },
+        {
+          title: "Датчик давления в шине внутренний",
+          desc: "Миниатюрное устройство, работающее от встроенного элемента питания, включает полупроводниковый сенсор давления, температуры и ускорения, а также антенну 433 МГц или 315 МГц"
         }
       ]
     },
@@ -1036,6 +1110,11 @@ export const translations = {
       ],
       integrationsTitle: "Интеграции",
       integrationsSubtitle: "Подключайтесь к вашим существующим системам",
+      updateLogItems: [
+        { date: "14 Окт, 2024", title: "Появился новый отчет «Сводный»", desc: "В нем собраны основные параметры из отчетов по поездкам, топливу и посещению геозон.", link: "https://ufin.online/poyavilsya-novyj-otchet-svodnyj/" },
+        { date: "11 Окт, 2024", title: "Новое событие — «Работа механизма»", desc: "Теперь вы можете создавать уведомления о работе механизма. Например, когда заработала стрела крана.", link: "https://ufin.online/novoe-sobytie-rabota-mexanizma/" },
+        { date: "10 Окт, 2024", title: "Теперь в отчет по событиям можно выводить водителя", desc: "", link: "https://ufin.online/teper-v-otchet-po-sobytiyam-mozhno-vyvodit-voditelya/" }
+      ],
       integrationsList: ["API", "Серверы ретрансляции", "Переход с Wialon", "Установка ГЛОНАСС"],
       connectBtn: "Подключиться"
     }
