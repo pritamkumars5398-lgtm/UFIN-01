@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useLanguage } from "../context/LanguageContext";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 // ── Correct logos from ufin.online big-review section ──
 import avanstroyLogo from "../assets/avanstroy-logo.svg";
@@ -7,7 +8,6 @@ import stsLogo       from "../assets/sts-logo.svg";
 import adeoLogo      from "../assets/adeo-logo.png";
 import oktionLogo    from "../assets/oktion-logo.png";
 import trakLogo      from "../assets/trakgrupp-logo.png";
-import sagarLogo     from "../assets/sagartravels-logo.jpg";
 
 const reviews = [
   {
@@ -49,9 +49,9 @@ export default function ClientFeedback() {
   const prev = () => setActive((active - 1 + reviews.length) % reviews.length);
   const next = () => setActive((active + 1) % reviews.length);
 
-  React.useEffect(() => {
+  useEffect(() => {
     const interval = setInterval(() => {
-      setActive(current => (current + 1) % reviews.length);
+      setActive((current) => (current + 1) % reviews.length);
     }, 5000);
     return () => clearInterval(interval);
   }, []);
@@ -59,117 +59,47 @@ export default function ClientFeedback() {
   const review = reviews[active];
 
   return (
-    <section
-      style={{
-        background: "#043e35",
-        paddingTop: "80px",
-        paddingBottom: "80px",
-        overflow: "hidden",
-      }}
-    >
-      <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 24px" }}>
+    <section className="bg-[#043e35] py-12 sm:py-16 md:py-20 overflow-hidden">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Title */}
-        <h2
-          style={{
-            textAlign: "center",
-            color: "#ffffff",
-            fontSize: "clamp(28px, 4vw, 48px)",
-            fontWeight: 700,
-            marginBottom: "60px",
-            lineHeight: 1.2,
-          }}
-        >
+        <h2 className="text-center text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-8 sm:mb-12 md:mb-16 leading-tight">
           {t("clientFeedback.title") || "Feedback from our clients"}
         </h2>
 
-        {/* Slider row */}
-        <div style={{ display: "flex", alignItems: "center", gap: "16px" }}>
+        {/* Main Slider Row */}
+        <div className="relative flex items-center justify-between gap-2 sm:gap-4 md:gap-6">
 
-          {/* LEFT ARROW */}
+          {/* Desktop Left Arrow */}
           <button
             onClick={prev}
             aria-label="Previous review"
-            style={{
-              flexShrink: 0,
-              width: "44px",
-              height: "44px",
-              borderRadius: "50%",
-              border: "1px solid rgba(255,255,255,0.25)",
-              background: "transparent",
-              color: "rgba(255,255,255,0.7)",
-              fontSize: "22px",
-              cursor: "pointer",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-            }}
+            className="hidden sm:flex shrink-0 w-11 h-11 rounded-full border border-white/25 bg-white/5 hover:bg-white/15 text-white/80 hover:text-white items-center justify-center transition cursor-pointer"
           >
-            ‹
+            <ChevronLeft size={24} />
           </button>
 
-          {/* SLIDE */}
+          {/* Active Slide Content */}
           <div
             key={active}
-            className="animate-fade-in"
-            style={{
-              flex: 1,
-              display: "grid",
-              gridTemplateColumns: "minmax(220px, 380px) 1fr",
-              gap: "32px",
-              alignItems: "center",
-            }}
+            className="w-full grid grid-cols-1 md:grid-cols-12 gap-6 sm:gap-8 md:gap-10 items-center animate-fade-in"
           >
-            {/* LEFT — company logo */}
-            <div
-              style={{
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                minHeight: "260px",
-                padding: "16px",
-              }}
-            >
+            {/* Logo Column */}
+            <div className="md:col-span-5 flex items-center justify-center p-4 sm:p-6 min-h-[140px] sm:min-h-[200px] md:min-h-[260px]">
               <img
                 src={review.logo}
                 alt={review.company}
-                style={{
-                  maxWidth: "320px",
-                  maxHeight: "220px",
-                  width: "100%",
-                  objectFit: "contain",
-                }}
+                className="max-w-[200px] sm:max-w-[260px] md:max-w-[320px] max-h-[120px] sm:max-h-[180px] md:max-h-[220px] w-full object-contain filter drop-shadow-md"
               />
             </div>
 
-            {/* RIGHT — review card */}
-            <div
-              style={{
-                background: "#033028",
-                borderRadius: "12px",
-                padding: "40px 44px",
-                boxShadow: "0 20px 60px rgba(0,0,0,0.3)",
-              }}
-            >
-              <p
-                style={{
-                  color: "#ffffff",
-                  fontSize: "16px",
-                  lineHeight: 1.8,
-                  marginBottom: "20px",
-                }}
-              >
+            {/* Review Card Column */}
+            <div className="md:col-span-7 bg-[#033028] rounded-xl sm:rounded-2xl p-5 sm:p-8 md:p-10 shadow-2xl border border-white/5">
+              <p className="text-white text-sm sm:text-base leading-relaxed sm:leading-loose mb-4 sm:mb-6 font-normal">
                 {review.text}
               </p>
 
-              <p
-                style={{
-                  color: "rgba(255,255,255,0.55)",
-                  fontWeight: 600,
-                  fontSize: "14px",
-                  marginBottom: "24px",
-                }}
-              >
+              <p className="text-white/60 font-semibold text-xs sm:text-sm mb-6 sm:mb-8">
                 {review.company}
               </p>
 
@@ -177,72 +107,60 @@ export default function ClientFeedback() {
                 href={review.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                style={{
-                  display: "inline-block",
-                  padding: "12px 32px",
-                  borderRadius: "6px",
-                  background: "#ffb137",
-                  color: "#ffffff",
-                  fontWeight: 600,
-                  fontSize: "14px",
-                  textDecoration: "none",
-                }}
+                className="inline-block w-full sm:w-auto text-center px-6 py-3 rounded-lg bg-[#ffb137] hover:bg-[#ffa517] text-white font-semibold text-sm transition shadow-md"
               >
                 {t("clientFeedback.fullReview") || "Full review"}
               </a>
             </div>
           </div>
 
-          {/* RIGHT ARROW */}
+          {/* Desktop Right Arrow */}
           <button
             onClick={next}
             aria-label="Next review"
-            style={{
-              flexShrink: 0,
-              width: "44px",
-              height: "44px",
-              borderRadius: "50%",
-              border: "1px solid rgba(255,255,255,0.25)",
-              background: "transparent",
-              color: "rgba(255,255,255,0.7)",
-              fontSize: "22px",
-              cursor: "pointer",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-            }}
+            className="hidden sm:flex shrink-0 w-11 h-11 rounded-full border border-white/25 bg-white/5 hover:bg-white/15 text-white/80 hover:text-white items-center justify-center transition cursor-pointer"
           >
-            ›
+            <ChevronRight size={24} />
           </button>
         </div>
 
-        {/* Dot indicators */}
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            gap: "10px",
-            marginTop: "40px",
-          }}
-        >
-          {reviews.map((_, i) => (
-            <button
-              key={i}
-              onClick={() => setActive(i)}
-              aria-label={`Review ${i + 1}`}
-              style={{
-                width: i === active ? "28px" : "10px",
-                height: "10px",
-                borderRadius: "5px",
-                background: i === active ? "#ffffff" : "rgba(255,255,255,0.25)",
-                border: "none",
-                cursor: "pointer",
-                transition: "all 0.3s",
-                padding: 0,
-              }}
-            />
-          ))}
+        {/* Mobile Arrows & Indicators Bar */}
+        <div className="flex items-center justify-center gap-4 sm:gap-6 mt-8 sm:mt-10">
+          
+          {/* Mobile Left Arrow */}
+          <button
+            onClick={prev}
+            aria-label="Previous review"
+            className="flex sm:hidden shrink-0 w-9 h-9 rounded-full border border-white/25 bg-white/5 active:bg-white/20 text-white items-center justify-center transition"
+          >
+            <ChevronLeft size={20} />
+          </button>
+
+          {/* Dot Indicators */}
+          <div className="flex items-center gap-2">
+            {reviews.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => setActive(i)}
+                aria-label={`Review ${i + 1}`}
+                className={`h-2.5 rounded-full transition-all duration-300 ${
+                  i === active ? "w-7 bg-white" : "w-2.5 bg-white/25 hover:bg-white/50"
+                }`}
+              />
+            ))}
+          </div>
+
+          {/* Mobile Right Arrow */}
+          <button
+            onClick={next}
+            aria-label="Next review"
+            className="flex sm:hidden shrink-0 w-9 h-9 rounded-full border border-white/25 bg-white/5 active:bg-white/20 text-white items-center justify-center transition"
+          >
+            <ChevronRight size={20} />
+          </button>
+
         </div>
+
       </div>
     </section>
   );

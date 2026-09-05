@@ -19,7 +19,7 @@ import {
 import { useLanguage } from "../context/LanguageContext";
 
 /* ── News Grid Component ── */
-const NewsGrid = () => {
+const NewsGrid = ({ onClose }) => {
   const newsItems = [
     { img: imgNews1, title: "Latest System Updates", to: "/resources#news" },
     { img: imgNews2, title: "Fuel Control Best Practices", to: "/resources#news" },
@@ -27,12 +27,12 @@ const NewsGrid = () => {
   ];
   return (
     <div>
-      <Link to="/resources#news" className="text-sm font-semibold text-gray-900 mb-3 pb-2 border-b border-gray-100 flex items-center justify-between hover:text-[#4E8F89] transition">
+      <Link to="/resources#news" onClick={onClose} className="text-sm font-semibold text-gray-900 mb-3 pb-2 border-b border-gray-100 flex items-center justify-between hover:text-[#4E8F89] transition">
         News <span className="text-xs font-normal text-[#4E8F89]">All news</span>
       </Link>
       <div className="grid grid-cols-3 gap-4 mt-3">
         {newsItems.map(({ img, title, to }) => (
-          <Link key={title} to={to} className="group block">
+          <Link key={title} to={to} onClick={onClose} className="group block">
             <div className="rounded-lg overflow-hidden mb-2 aspect-[4/3]">
               <img src={img} alt={title} className="w-full h-full object-cover group-hover:scale-105 transition duration-300" />
             </div>
@@ -45,7 +45,7 @@ const NewsGrid = () => {
 };
 
 /* ── News Grid with correct ufin.online content ── */
-const UfinNewsGrid = () => {
+const UfinNewsGrid = ({ onClose }) => {
   const newsItems = [
     { img: imgNews1, title: "The tracker saved the life of a brave dog!", to: "/company#news" },
     { img: imgNews2, title: "Automated fuel control", to: "/company#news" },
@@ -53,12 +53,12 @@ const UfinNewsGrid = () => {
   ];
   return (
     <div>
-      <Link to="/company#news" className="text-sm font-semibold text-gray-900 mb-3 pb-2 border-b border-gray-100 flex items-center justify-between hover:text-[#4E8F89] transition">
+      <Link to="/company#news" onClick={onClose} className="text-sm font-semibold text-gray-900 mb-3 pb-2 border-b border-gray-100 flex items-center justify-between hover:text-[#4E8F89] transition">
         News
       </Link>
       <div className="grid grid-cols-3 gap-4 mt-3">
         {newsItems.map(({ img, title, to }) => (
-          <Link key={title} to={to} className="group block">
+          <Link key={title} to={to} onClick={onClose} className="group block">
             <div className="rounded-lg overflow-hidden mb-2 aspect-[4/3]">
               <img src={img} alt={title} className="w-full h-full object-cover group-hover:scale-105 transition duration-300" />
             </div>
@@ -71,18 +71,18 @@ const UfinNewsGrid = () => {
 };
 
 /* ── Dropdown panels ── */
-const UslugiDropdown = () => {
+const UslugiDropdown = ({ onClose }) => {
   return (
     <div className="grid grid-cols-4 gap-10 px-10 py-8">
       {/* Our services */}
       <div>
-        <Link to="/services" className="text-sm font-semibold text-gray-900 mb-3 pb-2 border-b border-gray-100 block hover:text-[#4E8F89] transition">
+        <Link to="/services" onClick={onClose} className="text-sm font-semibold text-gray-900 mb-3 pb-2 border-b border-gray-100 block hover:text-[#4E8F89] transition">
           Our Services
         </Link>
         <ul className="space-y-3">
           {serviceMenuItems.map((s) => (
             <li key={s.slug}>
-              <Link to={`/services/${s.slug}`} className="text-sm text-gray-600 hover:text-[#4E8F89] transition">{s.label}</Link>
+              <Link to={`/services/${s.slug}`} onClick={onClose} className="text-sm text-gray-600 hover:text-[#4E8F89] transition">{s.label}</Link>
             </li>
           ))}
         </ul>
@@ -90,13 +90,13 @@ const UslugiDropdown = () => {
 
       {/* Solutions */}
       <div>
-        <Link to="/services" className="text-sm font-semibold text-gray-900 mb-3 pb-2 border-b border-gray-100 block hover:text-[#4E8F89] transition">
+        <Link to="/services" onClick={onClose} className="text-sm font-semibold text-gray-900 mb-3 pb-2 border-b border-gray-100 block hover:text-[#4E8F89] transition">
           Solutions
         </Link>
         <ul className="space-y-4">
           {solutionMenuItems.map(({ label, desc, slug }) => (
             <li key={slug}>
-              <Link to={`/solutions/${slug}`} className="group block">
+              <Link to={`/solutions/${slug}`} onClick={onClose} className="group block">
                 <p className="text-sm font-medium text-gray-800 group-hover:text-[#4E8F89] transition">{label}</p>
                 <p className="text-xs text-gray-400 mt-0.5 leading-snug">{desc}</p>
               </Link>
@@ -113,7 +113,7 @@ const UslugiDropdown = () => {
         <ul className="space-y-3 max-h-[360px] overflow-y-auto pr-2 scrollbar-thin">
           {industryMenuItems.map((s) => (
             <li key={s.slug}>
-              <Link to={`/services`} className="text-sm text-gray-600 hover:text-[#4E8F89] transition leading-snug block">{s.label}</Link>
+              <Link to={`/services`} onClick={onClose} className="text-sm text-gray-600 hover:text-[#4E8F89] transition leading-snug block">{s.label}</Link>
             </li>
           ))}
         </ul>
@@ -127,7 +127,7 @@ const UslugiDropdown = () => {
         <ul className="space-y-3">
           {integrationMenuItems.map((s) => (
             <li key={s.slug}>
-              <Link to={`/services`} className="text-sm text-gray-600 hover:text-[#4E8F89] transition">{s.label}</Link>
+              <Link to={`/services`} onClick={onClose} className="text-sm text-gray-600 hover:text-[#4E8F89] transition">{s.label}</Link>
             </li>
           ))}
         </ul>
@@ -136,7 +136,7 @@ const UslugiDropdown = () => {
   );
 };
 
-const ResursiDropdown = () => {
+const ResursiDropdown = ({ onClose }) => {
   const resourcesList = [
     { label: "Blog & Articles", to: "/resources#blog" },
     { label: "Webinars & Events", to: "/resources#webinars" },
@@ -146,26 +146,26 @@ const ResursiDropdown = () => {
   return (
     <div className="grid grid-cols-2 gap-10 px-10 py-8">
       <div>
-        <Link to="/resources" className="text-sm font-semibold text-gray-900 mb-3 pb-2 border-b border-gray-100 block hover:text-[#4E8F89] transition">
+        <Link to="/resources" onClick={onClose} className="text-sm font-semibold text-gray-900 mb-3 pb-2 border-b border-gray-100 block hover:text-[#4E8F89] transition">
           Resources
         </Link>
         <ul className="space-y-3">
           {resourcesList.map(({ label, to }) => (
             <li key={label}>
-              <Link to={to} className="text-sm text-gray-600 hover:text-[#4E8F89] transition">{label}</Link>
+              <Link to={to} onClick={onClose} className="text-sm text-gray-600 hover:text-[#4E8F89] transition">{label}</Link>
             </li>
           ))}
         </ul>
-        <Link to="/resources#faq" className="inline-flex items-center gap-1 mt-5 text-xs font-medium text-[#4E8F89] hover:underline">
+        <Link to="/resources#faq" onClick={onClose} className="inline-flex items-center gap-1 mt-5 text-xs font-medium text-[#4E8F89] hover:underline">
           Go to FAQ Section
         </Link>
       </div>
-      <NewsGrid />
+      <NewsGrid onClose={onClose} />
     </div>
   );
 };
 
-const KompaniyaDropdown = () => {
+const KompaniyaDropdown = ({ onClose }) => {
   const companyList = [
     { label: "About the company", to: "/about" },
     { label: "Contacts", to: "/contacts" },
@@ -179,24 +179,24 @@ const KompaniyaDropdown = () => {
   return (
     <div className="grid grid-cols-2 gap-10 px-10 py-8">
       <div>
-        <Link to="/company" className="text-sm font-semibold text-gray-900 mb-3 pb-2 border-b border-gray-100 block hover:text-[#4E8F89] transition">
+        <Link to="/company" onClick={onClose} className="text-sm font-semibold text-gray-900 mb-3 pb-2 border-b border-gray-100 block hover:text-[#4E8F89] transition">
           Company
         </Link>
         <ul className="space-y-3">
           {companyList.map(({ label, to }) => (
             <li key={label}>
-              <Link to={to} className="text-sm text-gray-600 hover:text-[#4E8F89] transition">{label}</Link>
+              <Link to={to} onClick={onClose} className="text-sm text-gray-600 hover:text-[#4E8F89] transition">{label}</Link>
             </li>
           ))}
         </ul>
       </div>
-      <UfinNewsGrid />
+      <UfinNewsGrid onClose={onClose} />
     </div>
   );
 };
 
 /* ── People (B2C) Dropdown panels ── */
-const PeopleUslugiDropdown = () => {
+const PeopleUslugiDropdown = ({ onClose }) => {
   return (
     <div className="grid grid-cols-3 gap-10 px-10 py-8">
       <div>
@@ -206,7 +206,7 @@ const PeopleUslugiDropdown = () => {
         <ul className="space-y-3">
           {peopleServiceMenuItems.ourServices.map((s) => (
             <li key={s.slug}>
-              <Link to={`/services/${s.slug}`} className="text-sm text-gray-600 hover:text-[#4E8F89] transition">{s.label}</Link>
+              <Link to={`/services/${s.slug}`} onClick={onClose} className="text-sm text-gray-600 hover:text-[#4E8F89] transition">{s.label}</Link>
             </li>
           ))}
         </ul>
@@ -219,7 +219,7 @@ const PeopleUslugiDropdown = () => {
         <ul className="space-y-3">
           {peopleServiceMenuItems.solutions.map((s) => (
             <li key={s.slug}>
-              <Link to={`/solutions/${s.slug}`} className="text-sm text-gray-600 hover:text-[#4E8F89] transition">{s.label}</Link>
+              <Link to={`/solutions/${s.slug}`} onClick={onClose} className="text-sm text-gray-600 hover:text-[#4E8F89] transition">{s.label}</Link>
             </li>
           ))}
         </ul>
@@ -232,7 +232,7 @@ const PeopleUslugiDropdown = () => {
         <ul className="space-y-3">
           {peopleServiceMenuItems.pets.map((s) => (
             <li key={s.slug}>
-              <Link to={`/services/${s.slug}`} className="text-sm text-gray-600 hover:text-[#4E8F89] transition">{s.label}</Link>
+              <Link to={`/services/${s.slug}`} onClick={onClose} className="text-sm text-gray-600 hover:text-[#4E8F89] transition">{s.label}</Link>
             </li>
           ))}
         </ul>
@@ -241,42 +241,42 @@ const PeopleUslugiDropdown = () => {
   );
 };
 
-const PeopleResursiDropdown = () => {
+const PeopleResursiDropdown = ({ onClose }) => {
   return (
     <div className="grid grid-cols-2 gap-10 px-10 py-8">
       <div>
-        <Link to="/resources" className="text-sm font-semibold text-gray-900 mb-3 pb-2 border-b border-gray-100 block hover:text-[#4E8F89] transition">
+        <Link to="/resources" onClick={onClose} className="text-sm font-semibold text-gray-900 mb-3 pb-2 border-b border-gray-100 block hover:text-[#4E8F89] transition">
           Resources
         </Link>
         <ul className="space-y-3">
           {peopleResourceMenuItems.map(({ label, slug }) => (
             <li key={slug}>
-              <Link to={`/resources#${slug}`} className="text-sm text-gray-600 hover:text-[#4E8F89] transition">{label}</Link>
+              <Link to={`/resources#${slug}`} onClick={onClose} className="text-sm text-gray-600 hover:text-[#4E8F89] transition">{label}</Link>
             </li>
           ))}
         </ul>
       </div>
-      <NewsGrid />
+      <NewsGrid onClose={onClose} />
     </div>
   );
 };
 
-const PeopleKompaniyaDropdown = () => {
+const PeopleKompaniyaDropdown = ({ onClose }) => {
   return (
     <div className="grid grid-cols-2 gap-10 px-10 py-8">
       <div>
-        <Link to="/company" className="text-sm font-semibold text-gray-900 mb-3 pb-2 border-b border-gray-100 block hover:text-[#4E8F89] transition">
+        <Link to="/company" onClick={onClose} className="text-sm font-semibold text-gray-900 mb-3 pb-2 border-b border-gray-100 block hover:text-[#4E8F89] transition">
           Company
         </Link>
         <ul className="space-y-3">
           {peopleCompanyMenuItems.map(({ label, slug }) => (
             <li key={slug}>
-              <Link to={`/company#${slug}`} className="text-sm text-gray-600 hover:text-[#4E8F89] transition">{label}</Link>
+              <Link to={`/company#${slug}`} onClick={onClose} className="text-sm text-gray-600 hover:text-[#4E8F89] transition">{label}</Link>
             </li>
           ))}
         </ul>
       </div>
-      <NewsGrid />
+      <NewsGrid onClose={onClose} />
     </div>
   );
 };
@@ -306,7 +306,7 @@ export default function Navbar() {
   return (
     <header className="fixed top-0 left-0 w-full z-50">
       {/* Glass Background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/75 via-black/50 to-transparent backdrop-blur-xl border-b border-white/10" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/15 to-transparent backdrop-blur-md border-b border-white/10" />
 
       <div className="relative max-w-7xl mx-auto px-6">
         <div className="h-20 flex items-center justify-between">
@@ -314,7 +314,7 @@ export default function Navbar() {
           {/* Logo */}
           <div className="flex items-center gap-6">
             <Link to="/" className="flex items-center" onClick={closeAll}>
-              <img src={logoLight} alt="Tekonika Systems" className="h-16 object-contain" />
+              <img src={logoLight} alt="Tekonika Systems" className="h-16 object-contain drop-shadow-sm" />
             </Link>
 
             <div className="hidden lg:flex bg-white/5 border border-white/10 rounded-full p-1">
@@ -365,7 +365,7 @@ export default function Navbar() {
                 {/* Mega Menu Dropdown */}
                 {openMenu === item.label && (
                   <div className="absolute top-[80px] left-1/2 -translate-x-1/2 w-[900px] bg-white rounded-2xl shadow-[0_20px_40px_-15px_rgba(0,0,0,0.2)] border border-gray-100 overflow-hidden transform origin-top transition-all animate-in fade-in zoom-in-95 duration-200">
-                    <item.Panel />
+                    <item.Panel onClose={closeAll} />
                   </div>
                 )}
               </div>

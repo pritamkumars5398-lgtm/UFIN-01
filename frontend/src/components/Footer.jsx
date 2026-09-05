@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import {
   Phone,
   Mail,
@@ -8,12 +9,7 @@ import {
 import { FaTelegramPlane, FaApple, FaGooglePlay } from "react-icons/fa";
 import { SiHuawei } from "react-icons/si";
 import { TbDeviceMobileMessage } from "react-icons/tb"; // as a generic icon
-import logoLight from "../assets/logo-light.png"; // Assuming it's the green/orange one. Wait, the screenshot shows the colored logo. I'll use the colored logo.
-
-// The screenshots show the colored logo for the footer.
-// The current Footer uses logo-light.png. If there's a colored logo, it might be logo.png or similar.
-// I will just use the standard logo image. Let's assume logoLight is the right one, or we can use the regular logo from Navbar.
-import logo from "../assets/logo.svg";
+import logoLight from "../assets/logo-light.png";
 
 export default function Footer() {
   const scrollToTop = () => {
@@ -41,12 +37,13 @@ export default function Footer() {
 
           {/* Left Column */}
           <div className="pr-4">
-            <img
-              src={logo}
-              alt="UFIN CONTROL"
-              className="h-14 object-contain mb-10"
-              onError={(e) => { e.target.src = logoLight; }} // Fallback if logo.png doesn't exist
-            />
+            <Link to="/" className="block mb-8">
+              <img
+                src={logoLight}
+                alt="Tekonika Systems"
+                className="h-24 w-auto object-contain mix-blend-multiply origin-left"
+              />
+            </Link>
             
             <div className="space-y-4 text-[#1B7F6D] text-[15px] font-medium mb-10">
               <div className="flex items-center gap-3">
