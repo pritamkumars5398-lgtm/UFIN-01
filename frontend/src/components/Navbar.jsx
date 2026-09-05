@@ -1,5 +1,5 @@
-import React, { useState, useRef } from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useRef, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
 import { ChevronDown, Languages } from "lucide-react";
 import logoLight from "../assets/logo-light.png";
 import imgNews1 from "../assets/img-24-e1674854414374.png.webp";
@@ -284,14 +284,22 @@ const PeopleKompaniyaDropdown = ({ onClose }) => {
 /* ── Navbar Component ── */
 export default function Navbar() {
   const { language, setLanguage } = useLanguage();
+  const location = useLocation();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeToggle, setActiveToggle] = useState("business");
   const [openMenu, setOpenMenu] = useState(null);
   const closeTimer = useRef(null);
 
+  // Automatically close menu whenever URL/location changes
+  useEffect(() => {
+    clearTimeout(closeTimer.current);
+    setOpenMenu(null);
+    setMobileOpen(false);
+  }, [location.pathname, location.hash, location.search]);
+
   const handleOpen = (label) => { clearTimeout(closeTimer.current); setOpenMenu(label); };
   const handleClose = () => { closeTimer.current = setTimeout(() => setOpenMenu(null), 120); };
-  const closeAll = () => { setOpenMenu(null); setMobileOpen(false); };
+  const closeAll = () => { clearTimeout(closeTimer.current); setOpenMenu(null); setMobileOpen(false); };
 
   const navItems = activeToggle === "business" ? [
     { label: "Services",   path: "/services", Panel: UslugiDropdown },
@@ -364,7 +372,10 @@ export default function Navbar() {
 
                 {/* Mega Menu Dropdown */}
                 {openMenu === item.label && (
-                  <div className="absolute top-[80px] left-1/2 -translate-x-1/2 w-[900px] bg-white rounded-2xl shadow-[0_20px_40px_-15px_rgba(0,0,0,0.2)] border border-gray-100 overflow-hidden transform origin-top transition-all animate-in fade-in zoom-in-95 duration-200">
+                  <div 
+                    onClick={closeAll}
+                    className="absolute top-[80px] left-1/2 -translate-x-1/2 w-[900px] bg-white rounded-2xl shadow-[0_20px_40px_-15px_rgba(0,0,0,0.2)] border border-gray-100 overflow-hidden transform origin-top transition-all animate-in fade-in zoom-in-95 duration-200"
+                  >
                     <item.Panel onClose={closeAll} />
                   </div>
                 )}
