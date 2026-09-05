@@ -11,6 +11,16 @@ import { SiHuawei } from "react-icons/si";
 import { TbDeviceMobileMessage } from "react-icons/tb"; // as a generic icon
 import logoLight from "../assets/logo-light.png";
 
+// Footer Badge & App Store Icons
+import labelMin from "../assets/label-min.svg";
+import labelRf from "../assets/label-rf.svg";
+import apkAndroidWhite from "../assets/apk-android-white.svg";
+import apkHuaweiWhite from "../assets/apk-huawei-white.svg";
+import appStoreSquare from "../assets/app-store-square.svg";
+import googlePlaySquare from "../assets/google-play-square.svg";
+import huaweiSquare from "../assets/huawei-square.svg";
+import ruStoreSquare from "../assets/ru-store-square.svg";
+
 export default function Footer() {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -175,29 +185,29 @@ export default function Footer() {
           <div className="flex flex-col lg:flex-row justify-between items-center gap-6">
             {/* Badges Left */}
             <div className="flex gap-4">
-              <img src="/src/assets/label-min.svg" alt="Минцифры" className="h-[52px]" />
-              <img src="/src/assets/label-rf.svg" alt="Роспатент" className="h-[52px]" />
+              <img src={labelMin} alt="Минцифры" className="h-[52px]" />
+              <img src={labelRf} alt="Роспатент" className="h-[52px]" />
             </div>
 
             {/* App Stores Right */}
             <div className="flex gap-3">
               <a href="#" className="hover:opacity-80 transition">
-                <img src="/src/assets/apk-android-white.svg" alt="APK Android" className="h-10" />
+                <img src={apkAndroidWhite} alt="APK Android" className="h-10" />
               </a>
               <a href="#" className="hover:opacity-80 transition">
-                <img src="/src/assets/apk-huawei-white.svg" alt="APK Huawei" className="h-10" />
+                <img src={apkHuaweiWhite} alt="APK Huawei" className="h-10" />
               </a>
               <a href="#" className="hover:opacity-80 transition">
-                <img src="/src/assets/app-store-square.svg" alt="App Store" className="h-10" />
+                <img src={appStoreSquare} alt="App Store" className="h-10" />
               </a>
               <a href="#" className="hover:opacity-80 transition">
-                <img src="/src/assets/google-play-square.svg" alt="Google Play" className="h-10" />
+                <img src={googlePlaySquare} alt="Google Play" className="h-10" />
               </a>
               <a href="#" className="hover:opacity-80 transition">
-                <img src="/src/assets/huawei-square.svg" alt="Huawei AppGallery" className="h-10" />
+                <img src={huaweiSquare} alt="Huawei AppGallery" className="h-10" />
               </a>
               <a href="#" className="hover:opacity-80 transition">
-                <img src="/src/assets/ru-store-square.svg" alt="RuStore" className="h-10" />
+                <img src={ruStoreSquare} alt="RuStore" className="h-10" />
               </a>
             </div>
           </div>
