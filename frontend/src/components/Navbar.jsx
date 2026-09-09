@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { ChevronDown, Languages } from "lucide-react";
 import logoLight from "../assets/logo-light.png";
 import imgNews1 from "../assets/img-24-e1674854414374.png.webp";
@@ -202,15 +202,18 @@ const PeopleUslugiDropdown = ({ onClose }) => {
   return (
     <div className="grid grid-cols-3 gap-10 px-10 py-8">
       <div>
-        <span className="text-sm font-semibold text-gray-900 mb-3 pb-2 border-b border-gray-100 block">
-          Our services
-        </span>
+        <Link to="/people" onClick={onClose} className="text-sm font-semibold text-gray-900 mb-3 pb-2 border-b border-gray-100 flex items-center justify-between hover:text-[#4E8F89] transition">
+          Our services <span className="text-xs font-normal text-[#4E8F89]">For people</span>
+        </Link>
         <ul className="space-y-3">
           {peopleServiceMenuItems.ourServices.map((s) => (
             <li key={s.slug}>
-              <Link to={`/services/${s.slug}`} onClick={onClose} className="text-sm text-gray-600 hover:text-[#4E8F89] transition">{s.label}</Link>
+              <Link to={`/people/${s.slug}`} onClick={onClose} className="text-sm text-gray-600 hover:text-[#4E8F89] transition">{s.label}</Link>
             </li>
           ))}
+          <li>
+            <Link to="/people/tariffs" onClick={onClose} className="text-sm text-gray-600 hover:text-[#4E8F89] transition">Tariffs</Link>
+          </li>
         </ul>
       </div>
 
@@ -221,7 +224,7 @@ const PeopleUslugiDropdown = ({ onClose }) => {
         <ul className="space-y-3">
           {peopleServiceMenuItems.solutions.map((s) => (
             <li key={s.slug}>
-              <Link to={`/solutions/${s.slug}`} onClick={onClose} className="text-sm text-gray-600 hover:text-[#4E8F89] transition">{s.label}</Link>
+              <Link to={`/people/${s.slug}`} onClick={onClose} className="text-sm text-gray-600 hover:text-[#4E8F89] transition">{s.label}</Link>
             </li>
           ))}
         </ul>
@@ -234,7 +237,7 @@ const PeopleUslugiDropdown = ({ onClose }) => {
         <ul className="space-y-3">
           {peopleServiceMenuItems.pets.map((s) => (
             <li key={s.slug}>
-              <Link to={`/services/${s.slug}`} onClick={onClose} className="text-sm text-gray-600 hover:text-[#4E8F89] transition">{s.label}</Link>
+              <Link to={`/people/${s.slug}`} onClick={onClose} className="text-sm text-gray-600 hover:text-[#4E8F89] transition">{s.label}</Link>
             </li>
           ))}
         </ul>
@@ -287,8 +290,11 @@ const PeopleKompaniyaDropdown = ({ onClose }) => {
 export default function Navbar() {
   const { language, setLanguage } = useLanguage();
   const location = useLocation();
+  const navigate = useNavigate();
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [activeToggle, setActiveToggle] = useState("business");
+  const [activeToggle, setActiveToggle] = useState(
+    location.pathname.startsWith("/people") ? "people" : "business"
+  );
   const [openMenu, setOpenMenu] = useState(null);
   const closeTimer = useRef(null);
 
@@ -298,6 +304,11 @@ export default function Navbar() {
     setOpenMenu(null);
     setMobileOpen(false);
   }, [location.pathname, location.hash, location.search]);
+
+  // Keep the Business / People toggle in sync with the current section
+  useEffect(() => {
+    setActiveToggle(location.pathname.startsWith("/people") ? "people" : "business");
+  }, [location.pathname]);
 
   const handleOpen = (label) => { clearTimeout(closeTimer.current); setOpenMenu(label); };
   const handleClose = () => { closeTimer.current = setTimeout(() => setOpenMenu(null), 120); };
@@ -330,7 +341,7 @@ export default function Navbar() {
             <div className="hidden lg:flex bg-white/5 border border-white/10 rounded-full p-1">
 
               <button
-                onClick={() => setActiveToggle("business")}
+                onClick={() => { setActiveToggle("business"); closeAll(); navigate("/"); }}
                 className={`px-4 py-2 rounded-full transition ${
                   activeToggle === "business"
                     ? "bg-white text-black text-sm font-medium"
@@ -341,7 +352,7 @@ export default function Navbar() {
               </button>
 
               <button
-                onClick={() => setActiveToggle("people")}
+                onClick={() => { setActiveToggle("people"); closeAll(); navigate("/people"); }}
                 className={`px-4 py-2 rounded-full transition ${
                   activeToggle === "people"
                     ? "bg-white text-black text-sm font-medium"
@@ -428,20 +439,22 @@ export default function Navbar() {
             <div className="flex flex-col gap-3">
 
               {[
-                "Home",
-                "About",
-                "Services",
-                "Resources",
-                "Company",
-                "Contacts",
-              ].map((item) => (
+                { label: "Home", to: "/" },
+                { label: "For People", to: "/people" },
+                { label: "Services", to: "/services" },
+                { label: "Resources", to: "/resources" },
+                { label: "Company", to: "/company" },
+                { label: "About", to: "/about" },
+                { label: "Reviews", to: "/reviews" },
+                { label: "Contacts", to: "/contacts" },
+              ].map(({ label, to }) => (
                 <Link
-                  key={item}
-                  to={item === "Home" ? "/" : `/${item.toLowerCase()}`}
+                  key={to}
+                  to={to}
                   className="text-white/80 hover:text-white py-2"
                   onClick={closeAll}
                 >
-                  {item}
+                  {label}
                 </Link>
               ))}
 

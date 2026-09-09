@@ -24,6 +24,9 @@ import Instructions from './pages/Instructions'
 import Updates from './pages/Updates'
 import UserAgreement from './pages/UserAgreement'
 import PrivacyPolicy from './pages/PrivacyPolicy'
+import People from './pages/People'
+import PeopleDetail from './pages/PeopleDetail'
+import PeopleTariffs from './pages/PeopleTariffs'
 import { LanguageProvider } from './context/LanguageContext'
 
 export default function App() {
@@ -60,6 +63,11 @@ export default function App() {
             <Route path="/resources/updates" element={<Updates/>} />
             <Route path="/resources/user-agreement" element={<UserAgreement/>} />
             <Route path="/resources/privacy-policy" element={<PrivacyPolicy/>} />
+
+            {/* People (B2C) section */}
+            <Route path="/people" element={<People/>} />
+            <Route path="/people/tariffs" element={<PeopleTariffs/>} />
+            <Route path="/people/:slug" element={<PeopleDetail/>} />
           </Route>
         </Routes>
       </BrowserRouter>

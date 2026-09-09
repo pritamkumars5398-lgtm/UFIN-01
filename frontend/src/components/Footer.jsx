@@ -33,12 +33,12 @@ export default function Footer() {
         {/* Top Toggle */}
         <div className="flex justify-center mb-16">
           <div className="bg-gray-100/80 rounded-full p-1 flex">
-            <button className="px-6 py-2.5 rounded-full bg-white shadow-sm text-sm font-semibold text-[#1F2937]">
+            <Link to="/" className="px-6 py-2.5 rounded-full bg-white shadow-sm text-sm font-semibold text-[#1F2937]">
               For business
-            </button>
-            <button className="px-6 py-2.5 text-sm font-semibold text-[#6B7280]">
+            </Link>
+            <Link to="/people" className="px-6 py-2.5 rounded-full text-sm font-semibold text-[#6B7280] hover:text-[#1F2937] transition">
               To people
-            </button>
+            </Link>
           </div>
         </div>
 
