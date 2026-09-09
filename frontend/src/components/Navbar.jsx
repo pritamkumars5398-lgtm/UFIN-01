@@ -21,13 +21,13 @@ import { useLanguage } from "../context/LanguageContext";
 /* ── News Grid Component ── */
 const NewsGrid = ({ onClose }) => {
   const newsItems = [
-    { img: imgNews1, title: "Latest System Updates", to: "/resources#news" },
-    { img: imgNews2, title: "Fuel Control Best Practices", to: "/resources#news" },
-    { img: imgNews3, title: "New API Capabilities", to: "/company#news" },
+    { img: imgNews1, title: "The tracker saved the life of a brave dog", to: "/news/tracker-saved-brave-dog" },
+    { img: imgNews2, title: "Automated fuel control: how it works in numbers", to: "/news/automated-fuel-control" },
+    { img: imgNews3, title: "Tekonika Systems presents an updated logo", to: "/news/updated-logo" },
   ];
   return (
     <div>
-      <Link to="/resources#news" onClick={onClose} className="text-sm font-semibold text-gray-900 mb-3 pb-2 border-b border-gray-100 flex items-center justify-between hover:text-[#4E8F89] transition">
+      <Link to="/news" onClick={onClose} className="text-sm font-semibold text-gray-900 mb-3 pb-2 border-b border-gray-100 flex items-center justify-between hover:text-[#4E8F89] transition">
         News <span className="text-xs font-normal text-[#4E8F89]">All news</span>
       </Link>
       <div className="grid grid-cols-3 gap-4 mt-3">
@@ -44,17 +44,17 @@ const NewsGrid = ({ onClose }) => {
   );
 };
 
-/* ── News Grid with correct ufin.online content ── */
+/* ── News Grid with real news content ── */
 const UfinNewsGrid = ({ onClose }) => {
   const newsItems = [
-    { img: imgNews1, title: "The tracker saved the life of a brave dog!", to: "/company#news" },
-    { img: imgNews2, title: "Automated fuel control", to: "/company#news" },
-    { img: imgNews3, title: "Ufin Control presents an updated logo", to: "/company#news" },
+    { img: imgNews1, title: "The tracker saved the life of a brave dog", to: "/news/tracker-saved-brave-dog" },
+    { img: imgNews2, title: "Automated fuel control: how it works in numbers", to: "/news/automated-fuel-control" },
+    { img: imgNews3, title: "Tekonika Systems presents an updated logo", to: "/news/updated-logo" },
   ];
   return (
     <div>
-      <Link to="/company#news" onClick={onClose} className="text-sm font-semibold text-gray-900 mb-3 pb-2 border-b border-gray-100 flex items-center justify-between hover:text-[#4E8F89] transition">
-        News
+      <Link to="/news" onClick={onClose} className="text-sm font-semibold text-gray-900 mb-3 pb-2 border-b border-gray-100 flex items-center justify-between hover:text-[#4E8F89] transition">
+        News <span className="text-xs font-normal text-[#4E8F89]">All news</span>
       </Link>
       <div className="grid grid-cols-3 gap-4 mt-3">
         {newsItems.map(({ img, title, to }) => (
@@ -113,7 +113,7 @@ const UslugiDropdown = ({ onClose }) => {
         <ul className="space-y-3 max-h-[360px] overflow-y-auto pr-2 scrollbar-thin">
           {industryMenuItems.map((s) => (
             <li key={s.slug}>
-              <Link to={`/services`} onClick={onClose} className="text-sm text-gray-600 hover:text-[#4E8F89] transition leading-snug block">{s.label}</Link>
+              <Link to={`/services/${s.slug}`} onClick={onClose} className="text-sm text-gray-600 hover:text-[#4E8F89] transition leading-snug block">{s.label}</Link>
             </li>
           ))}
         </ul>
@@ -127,7 +127,7 @@ const UslugiDropdown = ({ onClose }) => {
         <ul className="space-y-3">
           {integrationMenuItems.map((s) => (
             <li key={s.slug}>
-              <Link to={`/services`} onClick={onClose} className="text-sm text-gray-600 hover:text-[#4E8F89] transition">{s.label}</Link>
+              <Link to={`/services/${s.slug}`} onClick={onClose} className="text-sm text-gray-600 hover:text-[#4E8F89] transition">{s.label}</Link>
             </li>
           ))}
         </ul>
@@ -169,12 +169,12 @@ const KompaniyaDropdown = ({ onClose }) => {
   const companyList = [
     { label: "About the company", to: "/about" },
     { label: "Contacts", to: "/contacts" },
-    { label: "Reviews", to: "/company#reviews" },
-    { label: "To partners", to: "/company#partners" },
-    { label: "News", to: "/company#news" },
-    { label: "Blog", to: "/company#blog" },
-    { label: "Vacancies", to: "/company#vacancies" },
-    { label: "Guarantees", to: "/company#guarantees" },
+    { label: "Reviews", to: "/reviews" },
+    { label: "To partners", to: "/partners" },
+    { label: "News", to: "/news" },
+    { label: "Blog", to: "/blog" },
+    { label: "Vacancies", to: "/vacancies" },
+    { label: "Guarantees", to: "/guarantees" },
   ];
   return (
     <div className="grid grid-cols-2 gap-10 px-10 py-8">
@@ -269,9 +269,9 @@ const PeopleKompaniyaDropdown = ({ onClose }) => {
           Company
         </Link>
         <ul className="space-y-3">
-          {peopleCompanyMenuItems.map(({ label, slug }) => (
-            <li key={slug}>
-              <Link to={`/company#${slug}`} onClick={onClose} className="text-sm text-gray-600 hover:text-[#4E8F89] transition">{label}</Link>
+          {peopleCompanyMenuItems.map(({ label, to }) => (
+            <li key={to}>
+              <Link to={to} onClick={onClose} className="text-sm text-gray-600 hover:text-[#4E8F89] transition">{label}</Link>
             </li>
           ))}
         </ul>

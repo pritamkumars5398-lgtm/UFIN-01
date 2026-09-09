@@ -155,14 +155,20 @@ export default function Footer() {
           <div className="relative">
             <h3 className="font-bold text-[#1F2937] text-[15px] mb-6">Company</h3>
             <ul className="space-y-4 text-[#1F2937] text-[13px]">
-              <li className="hover:text-[#1B7F6D] cursor-pointer">About the company</li>
-              <li className="hover:text-[#1B7F6D] cursor-pointer">Contacts</li>
-              <li className="hover:text-[#1B7F6D] cursor-pointer">Reviews</li>
-              <li className="hover:text-[#1B7F6D] cursor-pointer">Partners</li>
-              <li className="hover:text-[#1B7F6D] cursor-pointer">News</li>
-              <li className="hover:text-[#1B7F6D] cursor-pointer">Blog</li>
-              <li className="hover:text-[#1B7F6D] cursor-pointer">Vacancies</li>
-              <li className="hover:text-[#1B7F6D] cursor-pointer">Guarantees</li>
+              {[
+                { label: "About the company", to: "/about" },
+                { label: "Contacts", to: "/contacts" },
+                { label: "Reviews", to: "/reviews" },
+                { label: "Partners", to: "/partners" },
+                { label: "News", to: "/news" },
+                { label: "Blog", to: "/blog" },
+                { label: "Vacancies", to: "/vacancies" },
+                { label: "Guarantees", to: "/guarantees" },
+              ].map(({ label, to }) => (
+                <li key={to}>
+                  <Link to={to} className="hover:text-[#1B7F6D] transition">{label}</Link>
+                </li>
+              ))}
             </ul>
 
             {/* Scroll to Top Button */}

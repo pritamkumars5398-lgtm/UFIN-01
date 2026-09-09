@@ -37,12 +37,12 @@ export const peopleResourceMenuItems = [
 ];
 
 export const peopleCompanyMenuItems = [
-  { label: "About company", slug: "about" },
-  { label: "Contacts", slug: "contacts" },
-  { label: "Reviews", slug: "reviews" },
-  { label: "To partners", slug: "partners" },
-  { label: "News", slug: "news" },
-  { label: "Blog", slug: "blog" },
-  { label: "Vacancies", slug: "vacancies" },
-  { label: "Guarantees", slug: "guarantees" },
+  { label: "About company", to: "/about" },
+  { label: "Contacts", to: "/contacts" },
+  { label: "Reviews", to: "/reviews" },
+  { label: "To partners", to: "/partners" },
+  { label: "News", to: "/news" },
+  { label: "Blog", to: "/blog" },
+  { label: "Vacancies", to: "/vacancies" },
+  { label: "Guarantees", to: "/guarantees" },
 ];
