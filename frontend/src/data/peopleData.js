@@ -29,9 +29,9 @@ export const peopleResourceMenuItems = [
   { label: "Tracker Instructions", to: "/resources/instructions" },
   { label: "How to connect a tracker?", to: "/resources/instructions" },
   { label: "How to connect a SIM card?", to: "/resources/instructions" },
-  { label: "Tariffs", to: "/resources#tariffs" },
+  { label: "Tariffs", to: "/people/tariffs" },
   { label: "What new things have we developed?", to: "/resources/updates" },
-  { label: "Questions and Answers", to: "/resources#faq" },
+  { label: "Questions and Answers", to: "/people#faq" },
   { label: "User Agreement", to: "/resources/user-agreement" },
   { label: "Privacy Policy", to: "/resources/privacy-policy" },
 ];

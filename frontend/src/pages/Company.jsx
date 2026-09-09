@@ -23,10 +23,11 @@ export default function Company() {
   const timeline = t("companyPage.timeline") || [];
 
   const linkIcons = [HeartHandshake, Briefcase, Award];
+  const linkRoutes = ["/partners", "/vacancies", "/guarantees"];
   const links = (t("companyPage.links") || []).map((link, idx) => ({
     ...link,
     Icon: linkIcons[idx],
-    href: "#"
+    to: linkRoutes[idx] || "/company",
   }));
 
   const news = [
@@ -128,8 +129,8 @@ export default function Company() {
       <section className="py-16 px-6 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-            {links.map(({ Icon, title, desc, href }) => (
-              <a key={title} href={href} className="group flex items-center gap-5 border border-gray-200 rounded-xl p-6 hover:border-[#4E8F89] hover:shadow-md transition">
+            {links.map(({ Icon, title, desc, to }) => (
+              <Link key={title} to={to} className="group flex items-center gap-5 border border-gray-200 rounded-xl p-6 hover:border-[#4E8F89] hover:shadow-md transition">
                 <div className="w-12 h-12 rounded-xl bg-[#4E8F89]/10 flex items-center justify-center shrink-0 group-hover:bg-[#4E8F89] transition">
                   {Icon && <Icon size={20} className="text-[#4E8F89] group-hover:text-white transition" />}
                 </div>
@@ -138,7 +139,7 @@ export default function Company() {
                   <p className="text-gray-400 text-xs">{desc}</p>
                 </div>
                 <ChevronRight size={16} className="text-gray-300 group-hover:text-[#4E8F89] transition" />
-              </a>
+              </Link>
             ))}
           </div>
         </div>
