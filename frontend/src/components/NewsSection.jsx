@@ -10,7 +10,7 @@ export default function NewsSection() {
 
   return (
     <section className="bg-[#EAF5F2] py-28">
-      <div className="max-w-[1400px] mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_3fr] gap-8 items-start">
           
           {/* Left Heading */}

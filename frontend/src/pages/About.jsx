@@ -112,7 +112,7 @@ export default function About() {
               "linear-gradient(to right, rgba(15,25,35,0.85) 0%, rgba(15,25,35,0.65) 50%, rgba(15,25,35,0.35) 100%)",
           }}
         />
-        <div className="relative z-10 w-full max-w-[1380px] mx-auto px-10 pb-16">
+        <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-8 pb-16">
           <h1 className="text-[46px] font-bold text-white leading-tight mb-3">
             About the company
           </h1>
@@ -125,7 +125,7 @@ export default function About() {
           Left: truck photo | Right: heading + text
       ══════════════════════════════════════════════════ */}
       <section className="py-20 bg-white">
-        <div className="max-w-[1380px] mx-auto px-10">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             {/* Left — truck image */}
             <div className="rounded-2xl overflow-hidden shadow-sm">
@@ -158,7 +158,7 @@ export default function About() {
           Mint/light-teal bg, 4 stats centered
       ══════════════════════════════════════════════════ */}
       <section className="bg-[#e5f2ef] py-16">
-        <div className="max-w-[1380px] mx-auto px-10 text-center">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 text-center">
           <h2 className="text-[36px] font-bold text-gray-900 mb-12">
             Brief facts about our company
           </h2>
@@ -180,7 +180,7 @@ export default function About() {
           White bg, heading left, logos scroll right
       ══════════════════════════════════════════════════ */}
       <section className="py-16 bg-white border-b border-gray-100">
-        <div className="max-w-[1380px] mx-auto px-10">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-[300px_1fr] gap-12 items-center">
             <div>
               <h2 className="text-[32px] font-bold text-gray-900 leading-tight">
@@ -213,7 +213,7 @@ export default function About() {
           Right: image + next arrow
       ══════════════════════════════════════════════════ */}
       <section className="bg-[#1d4135] py-20 overflow-hidden">
-        <div className="max-w-[1380px] mx-auto px-10">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             {/* Left content */}
             <div className="text-white">
@@ -271,7 +271,7 @@ export default function About() {
           White bg, heading left, two portrait cards right
       ══════════════════════════════════════════════════ */}
       <section className="py-20 bg-white border-b border-gray-100">
-        <div className="max-w-[1380px] mx-auto px-10">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             {/* Left — heading */}
             <div>
@@ -328,7 +328,7 @@ export default function About() {
           SECTION 7 — Certificates + Testimonies (side by side)
       ══════════════════════════════════════════════════ */}
       <section className="py-20 bg-white">
-        <div className="max-w-[1380px] mx-auto px-10">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
 
             {/* Certificates */}
@@ -362,7 +362,7 @@ export default function About() {
           White bg, image left, text right
       ══════════════════════════════════════════════════ */}
       <section className="py-20 bg-white">
-        <div className="max-w-[1380px] mx-auto px-10">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             {/* Left — image */}
             <div className="rounded-2xl overflow-hidden shadow-sm">

@@ -20,7 +20,7 @@ export default function PageHero({ title, subtitle, image, crumbs = [] }) {
             "linear-gradient(to right, rgba(11,31,51,0.90) 0%, rgba(11,31,51,0.65) 55%, rgba(11,31,51,0.35) 100%)",
         }}
       />
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 pb-14">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-8 pb-14">
         {crumbs.length > 0 && (
           <div className="flex items-center gap-2 text-sm text-white/60 mb-5">
             <Link to="/" className="hover:text-white transition">

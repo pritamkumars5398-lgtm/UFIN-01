@@ -53,7 +53,7 @@ export default function Hero() {
 
         {/* Content */}
         <div className="relative z-10 min-h-screen flex items-center">
-          <div className="w-full max-w-7xl mx-auto px-6 pt-36 pb-20 animate-fade-in-up">
+          <div className="w-full max-w-7xl mx-auto px-6 lg:px-8 pt-36 pb-20 animate-fade-in-up">
             <div className="max-w-[750px] bg-black/75 rounded-2xl p-8 md:p-12 lg:p-14 backdrop-blur-sm border border-white/5">
               <h1 className="text-4xl md:text-[44px] lg:text-[52px] font-extrabold text-white leading-[1.15] tracking-tight mb-10">
                 {heroData.title}

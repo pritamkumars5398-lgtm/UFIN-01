@@ -118,7 +118,7 @@ export default function IndustrySolutions() {
   // Instead of slicing, we render all and control visibility via CSS classes for animation
   return (
     <section className="bg-white py-20">
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
 
         {/* Heading — same as ufin.online: centered, large bold */}
         <h2 className="text-center text-4xl md:text-[2.6rem] font-bold text-gray-900 mb-16 tracking-tight">

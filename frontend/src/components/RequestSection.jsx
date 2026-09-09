@@ -16,8 +16,8 @@ export default function RequestSection() {
 
   return (
     <section className="bg-white">
-      <div className="max-w-[1400px] mx-auto">
-        <div className="relative bg-[#EAF5F2] md:py-20 py-12 px-6 md:px-16 overflow-hidden">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="relative bg-[#EAF5F2] md:py-20 py-12 px-6 lg:px-12 overflow-hidden rounded-3xl">
           <div className="grid lg:grid-cols-[1.2fr_450px] gap-12 lg:gap-20">
             {/* LEFT SIDE */}
             <div className="relative z-10">

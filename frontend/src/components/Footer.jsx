@@ -28,7 +28,7 @@ export default function Footer() {
 
   return (
     <footer className="bg-white pt-10">
-      <div className="max-w-[1400px] mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
 
         {/* Top Toggle */}
         <div className="flex justify-center mb-16">
@@ -191,7 +191,7 @@ export default function Footer() {
 
       {/* Bottom Bar */}
       <div className="bg-[#1B7F6D] pt-10 pb-12 text-white relative">
-        <div className="max-w-[1400px] mx-auto px-6">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
           
           {/* Top Row: Badges */}
           <div className="flex flex-col lg:flex-row justify-between items-center gap-6">

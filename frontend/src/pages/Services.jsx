@@ -217,7 +217,7 @@ export default function Services() {
 
       {/* ── HERO ── */}
       <section
-        className="relative min-h-[70vh] flex items-end pb-20 px-8 lg:px-24"
+        className="relative min-h-[70vh] flex items-end pb-20 px-6 lg:px-8"
         style={{
           backgroundImage: `linear-gradient(to top, rgba(5,15,25,0.96) 30%, rgba(5,15,25,0.55) 100%), url('${rybricBg}')`,
           backgroundSize: "cover",

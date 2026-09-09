@@ -40,7 +40,7 @@ export default function OperationsSection() {
   return (
     <section className="bg-[#f7f7f7] py-24">
 
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
 
         <h2 className="text-center text-5xl font-bold text-[#0B1F33] mb-20">
           Industry solutions

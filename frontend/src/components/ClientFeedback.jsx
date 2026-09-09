@@ -60,7 +60,7 @@ export default function ClientFeedback() {
 
   return (
     <section className="bg-[#043e35] py-12 sm:py-16 md:py-20 overflow-hidden">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
 
         {/* Title */}
         <h2 className="text-center text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-8 sm:mb-12 md:mb-16 leading-tight">

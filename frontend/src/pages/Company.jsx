@@ -42,7 +42,7 @@ export default function Company() {
       {/* ── HERO — split screen ── */}
       <section className="grid lg:grid-cols-2 min-h-[90vh]">
         {/* Left dark */}
-        <div className="bg-[#0d1b2a] flex flex-col justify-center px-10 lg:px-16 pt-32 pb-16">
+        <div className="bg-[#0d1b2a] flex flex-col justify-center px-6 lg:px-12 pt-32 pb-16">
           <span className="text-[#4E8F89] text-xs font-bold uppercase tracking-widest mb-4">
             {t("companyPage.aboutCategory")}
           </span>
@@ -77,7 +77,7 @@ export default function Company() {
       </section>
 
       {/* ── VALUES ── */}
-      <section className="py-20 px-6 bg-white">
+      <section className="py-20 px-6 lg:px-8 bg-white">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-2xl font-black text-gray-900 mb-12 text-center">
             {t("companyPage.valuesTitle")}
@@ -97,7 +97,7 @@ export default function Company() {
       </section>
 
       {/* ── TIMELINE ── */}
-      <section id="about" className="py-20 px-6 bg-[#f7f8f9]">
+      <section id="about" className="py-20 px-6 lg:px-8 bg-[#f7f8f9]">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-2xl font-black text-gray-900 mb-14 text-center">
             {t("companyPage.historyTitle")}
@@ -126,7 +126,7 @@ export default function Company() {
       </section>
 
       {/* ── QUICK LINKS ── */}
-      <section className="py-16 px-6 bg-white">
+      <section className="py-16 px-6 lg:px-8 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
             {links.map(({ Icon, title, desc, to }) => (
@@ -146,7 +146,7 @@ export default function Company() {
       </section>
 
       {/* ── DIRECTOR CTA ── */}
-      <section className="bg-[#151b27] py-16 px-6">
+      <section className="bg-[#151b27] py-16 px-6 lg:px-8">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-10">
           <div className="w-24 h-24 rounded-full overflow-hidden border-4 border-white shadow-xl bg-gray-100 flex-shrink-0">
             <img src={ceoImg} alt="Director" className="w-full h-full object-cover" />
@@ -174,7 +174,7 @@ export default function Company() {
       </section>
 
       {/* ── NEWS ── */}
-      <section id="news" className="py-16 px-6 bg-[#f7f8f9]">
+      <section id="news" className="py-16 px-6 lg:px-8 bg-[#f7f8f9]">
         <div className="max-w-7xl mx-auto">
           <div className="flex items-center justify-between mb-10">
             <h2 className="text-2xl font-black text-gray-900">

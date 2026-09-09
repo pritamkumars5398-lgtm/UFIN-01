@@ -12,8 +12,8 @@ export default function CompanyCTA({
   to = "/consultation",
 }) {
   return (
-    <section className="bg-[#4E8F89] py-16 px-6">
-      <div className="max-w-4xl mx-auto text-center">
+    <section className="bg-[#4E8F89] py-16 px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto text-center">
         <h2 className="text-3xl lg:text-4xl font-black text-white mb-6">{heading}</h2>
         <p className="text-white/85 text-lg mb-8 max-w-2xl mx-auto">{subtitle}</p>
         <Link

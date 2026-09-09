@@ -78,7 +78,7 @@ export default function CompanyClients() {
         }}
       />
 
-      <div className="relative max-w-[1400px] mx-auto px-6">
+      <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
         
         <h2 className="text-center font-normal text-[#132133] leading-tight mb-16 mx-auto" style={{ fontSize: "clamp(24px, 4vw, 44px)", maxWidth: "1000px" }}>
           {t("companyClients.title")}

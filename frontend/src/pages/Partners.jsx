@@ -82,7 +82,7 @@ export default function Partners() {
       />
 
       {/* ── Intro ── */}
-      <section className="py-16 px-6 bg-white">
+      <section className="py-16 px-6 lg:px-8 bg-white">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl font-black text-[#0B1F33] mb-4">
             We would be glad to see you among our partners
@@ -96,7 +96,7 @@ export default function Partners() {
       </section>
 
       {/* ── Opportunities ── */}
-      <section className="py-16 px-6 bg-[#f7f8f9]">
+      <section className="py-16 px-6 lg:px-8 bg-[#f7f8f9]">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-2xl font-black text-[#0B1F33] mb-10 text-center">
             Who partnership works for
@@ -116,7 +116,7 @@ export default function Partners() {
       </section>
 
       {/* ── Contractor network ── */}
-      <section className="py-16 px-6 bg-white">
+      <section className="py-16 px-6 lg:px-8 bg-white">
         <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
           <div
             className="rounded-3xl min-h-[300px] bg-cover bg-center border border-slate-100"
@@ -146,7 +146,7 @@ export default function Partners() {
       </section>
 
       {/* ── How to register ── */}
-      <section className="py-16 px-6 bg-[#f7f8f9]">
+      <section className="py-16 px-6 lg:px-8 bg-[#f7f8f9]">
         <div className="max-w-5xl mx-auto">
           <h2 className="text-2xl font-black text-[#0B1F33] mb-10 text-center">
             How to become a partner
@@ -172,7 +172,7 @@ export default function Partners() {
       </section>
 
       {/* ── Benefits ── */}
-      <section className="py-16 px-6 bg-white">
+      <section className="py-16 px-6 lg:px-8 bg-white">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-2xl font-black text-[#0B1F33] mb-10 text-center">What partners get</h2>
           <div className="grid md:grid-cols-3 gap-6">
@@ -197,8 +197,8 @@ export default function Partners() {
       </section>
 
       {/* ── Contact + form ── */}
-      <section className="py-16 px-6 bg-[#0B1F33]">
-        <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
+      <section className="py-16 px-6 lg:px-8 bg-[#0B1F33]">
+        <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
           <div className="text-white">
             <span className="text-[#4E8F89] text-xs font-bold uppercase tracking-widest">
               Partnership desk
@@ -284,7 +284,7 @@ export default function Partners() {
         </div>
       </section>
 
-      <section className="bg-[#4E8F89] py-14 px-6 text-center">
+      <section className="bg-[#4E8F89] py-14 px-6 lg:px-8 text-center">
         <div className="max-w-3xl mx-auto">
           <h2 className="text-2xl lg:text-3xl font-black text-white mb-4">
             Ready to run monitoring in your region?

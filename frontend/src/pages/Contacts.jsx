@@ -62,7 +62,7 @@ export default function Contacts() {
               "linear-gradient(to right, rgba(20,30,40,0.82) 0%, rgba(20,30,40,0.60) 45%, rgba(20,30,40,0.35) 100%)",
           }}
         />
-        <div className="relative z-10 w-full max-w-[1380px] mx-auto px-10 pb-16">
+        <div className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:px-8 pb-16">
           <h1 className="text-[46px] font-bold text-white leading-tight mb-3">
             Contacts
           </h1>
@@ -77,7 +77,7 @@ export default function Contacts() {
           White bg, 4 equal border cards, gray border
       ───────────────────────────────────────────── */}
       <section className="bg-white py-14">
-        <div className="max-w-[1380px] mx-auto px-10">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {departments.map(({ Icon, title, desc, email }, idx) => (
               <div
@@ -213,7 +213,7 @@ export default function Contacts() {
           Left: Yandex map  |  Right: form (centered)
       ───────────────────────────────────────────── */}
       <section className="bg-white py-20">
-        <div className="max-w-[1380px] mx-auto px-10">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
           {/* Branch heading & addresses */}
           <h2 className="text-[40px] font-bold text-[#1a2332] mb-5">
             Our branches

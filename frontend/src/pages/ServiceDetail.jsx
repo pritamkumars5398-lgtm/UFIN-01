@@ -31,7 +31,7 @@ export default function ServiceDetail() {
     <div className="bg-white min-h-screen text-slate-800">
       {/* ── 1. HERO ── */}
       <section
-        className="relative min-h-[62vh] flex items-center pt-28 pb-16 px-6"
+        className="relative min-h-[62vh] flex items-center pt-28 pb-16 px-6 lg:px-8"
         style={{
           backgroundImage: `linear-gradient(to right, rgba(11,31,51,0.93) 0%, rgba(11,31,51,0.72) 100%), url('${data.heroImage}')`,
           backgroundSize: "cover",
@@ -594,8 +594,8 @@ export default function ServiceDetail() {
       )}
 
       {/* ── 16. BOTTOM CTA (unchanged) ── */}
-      <section className="bg-[#4E8F89] py-16 px-6">
-        <div className="max-w-4xl mx-auto text-center">
+      <section className="bg-[#4E8F89] py-16 px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto text-center">
           <h2 className="text-3xl font-black text-white mb-6">
             Ready to implement {data.title.toLowerCase()}?
           </h2>

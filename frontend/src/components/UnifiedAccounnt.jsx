@@ -91,7 +91,7 @@ export default function UnifiedAccounnt() {
 
   return (
     <section className="bg-[#edf5f3] py-20">
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
 
         {/* Heading */}
         <h2 className="text-center text-4xl md:text-5xl font-bold text-gray-900 mb-12">

@@ -329,7 +329,7 @@ export default function Navbar() {
       {/* Glass Background */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/15 to-transparent backdrop-blur-md border-b border-white/10" />
 
-      <div className="relative max-w-7xl mx-auto px-6">
+      <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
         <div className="h-20 flex items-center justify-between">
 
           {/* Logo */}
