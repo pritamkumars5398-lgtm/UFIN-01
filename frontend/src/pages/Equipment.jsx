@@ -154,12 +154,12 @@ export default function Equipment() {
         </div>
       </section>
 
-      <section className="bg-[#4E8F89] py-14 px-6 text-center">
+      <section className="bg-[#0B1F33] py-14 px-6 text-center">
         <div className="max-w-3xl mx-auto">
           <h2 className="text-2xl lg:text-3xl font-black text-white mb-3">
             Bring your own hardware
           </h2>
-          <p className="text-white/80 mb-6">
+          <p className="text-white/70 mb-6">
             Already have trackers from another provider? We support 200+ models and can re-point them
             to our servers without replacement.
           </p>
