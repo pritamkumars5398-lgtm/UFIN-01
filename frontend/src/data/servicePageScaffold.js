@@ -5,6 +5,7 @@
 // before/after results, "additionally" groups, equipment showcase).
 
 import { serviceData, solutionData } from "./servicesData";
+import { servicesContent } from "./servicesContent";
 
 // ── Industry hero images (the same artwork the reference site uses) ──
 import industryFood from "../assets/Produkty.png.webp";
@@ -251,10 +252,11 @@ export function fallbackServicePage(slug) {
 
 export function resolveServicePage(slug) {
   const base = serviceData[slug] || solutionData[slug] || fallbackServicePage(slug);
-  const category = base.category || "Services & Solutions";
+  const extra = servicesContent[slug] || {};
+  const category = extra.category || base.category || "Services & Solutions";
 
   return {
-    // shared defaults — overridden by anything defined per-slug
+    // shared defaults — overridden per-slug
     steps: defaultSteps,
     portfolio: defaultPortfolio,
     tariffs: defaultTariffs,
@@ -262,7 +264,10 @@ export function resolveServicePage(slug) {
     additional: defaultAdditional,
     testimonial: defaultTestimonial,
     pricing: defaultPricing(category),
+    // thin servicesData.js entry
     ...base,
+    // per-slug page content (wins over the thin entry; hero/CTA untouched)
+    ...extra,
     slug,
     category,
     heroImage: localHeroImages[slug] || base.heroImage || DEFAULT_HERO,
