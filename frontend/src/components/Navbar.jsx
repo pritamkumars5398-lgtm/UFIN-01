@@ -138,10 +138,12 @@ const UslugiDropdown = ({ onClose }) => {
 
 const ResursiDropdown = ({ onClose }) => {
   const resourcesList = [
-    { label: "Blog & Articles", to: "/resources#blog" },
-    { label: "Webinars & Events", to: "/resources#webinars" },
-    { label: "Case Studies", to: "/resources#cases" },
-    { label: "Documentation", to: "/resources#docs" },
+    { label: "Compatible equipment for business", to: "/resources/equipment" },
+    { label: "Instructions for trackers", to: "/resources/instructions" },
+    { label: "Mobile app user manual", to: "/resources/instructions" },
+    { label: "What's new we developed", to: "/resources/updates" },
+    { label: "User Agreement", to: "/resources/user-agreement" },
+    { label: "Privacy Policy", to: "/resources/privacy-policy" },
   ];
   return (
     <div className="grid grid-cols-2 gap-10 px-10 py-8">
@@ -249,9 +251,9 @@ const PeopleResursiDropdown = ({ onClose }) => {
           Resources
         </Link>
         <ul className="space-y-3">
-          {peopleResourceMenuItems.map(({ label, slug }) => (
-            <li key={slug}>
-              <Link to={`/resources#${slug}`} onClick={onClose} className="text-sm text-gray-600 hover:text-[#4E8F89] transition">{label}</Link>
+          {peopleResourceMenuItems.map(({ label, to }) => (
+            <li key={label}>
+              <Link to={to} onClick={onClose} className="text-sm text-gray-600 hover:text-[#4E8F89] transition">{label}</Link>
             </li>
           ))}
         </ul>

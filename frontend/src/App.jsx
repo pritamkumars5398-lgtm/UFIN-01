@@ -19,6 +19,11 @@ import Blog from './pages/Blog'
 import BlogArticle from './pages/BlogArticle'
 import Vacancies from './pages/Vacancies'
 import Guarantees from './pages/Guarantees'
+import Equipment from './pages/Equipment'
+import Instructions from './pages/Instructions'
+import Updates from './pages/Updates'
+import UserAgreement from './pages/UserAgreement'
+import PrivacyPolicy from './pages/PrivacyPolicy'
 import { LanguageProvider } from './context/LanguageContext'
 
 export default function App() {
@@ -48,6 +53,13 @@ export default function App() {
             <Route path="/blog/:slug" element={<BlogArticle/>} />
             <Route path="/vacancies" element={<Vacancies/>} />
             <Route path="/guarantees" element={<Guarantees/>} />
+
+            {/* Resources section */}
+            <Route path="/resources/equipment" element={<Equipment/>} />
+            <Route path="/resources/instructions" element={<Instructions/>} />
+            <Route path="/resources/updates" element={<Updates/>} />
+            <Route path="/resources/user-agreement" element={<UserAgreement/>} />
+            <Route path="/resources/privacy-policy" element={<PrivacyPolicy/>} />
           </Route>
         </Routes>
       </BrowserRouter>

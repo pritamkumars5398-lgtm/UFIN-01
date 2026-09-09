@@ -141,13 +141,19 @@ export default function Footer() {
           <div>
             <h3 className="font-bold text-[#1F2937] text-[15px] mb-6">Resources</h3>
             <ul className="space-y-4 text-[#1F2937] text-[13px]">
-              <li className="hover:text-[#1B7F6D] cursor-pointer">Compatible equipment for business</li>
-              <li className="hover:text-[#1B7F6D] cursor-pointer">Mobile app user manual</li>
-              <li className="hover:text-[#1B7F6D] cursor-pointer">User Agreement</li>
-              <li className="hover:text-[#1B7F6D] cursor-pointer">Privacy Policy</li>
-              <li className="hover:text-[#1B7F6D] cursor-pointer">What new things have we developed?</li>
-              <li className="hover:text-[#1B7F6D] cursor-pointer">Questions and Answers</li>
-              <li className="hover:text-[#1B7F6D] cursor-pointer">Instructions for trackers</li>
+              {[
+                { label: "Compatible equipment for business", to: "/resources/equipment" },
+                { label: "Instructions for trackers", to: "/resources/instructions" },
+                { label: "Mobile app user manual", to: "/resources/instructions" },
+                { label: "What's new we developed", to: "/resources/updates" },
+                { label: "User Agreement", to: "/resources/user-agreement" },
+                { label: "Privacy Policy", to: "/resources/privacy-policy" },
+                { label: "Questions and Answers", to: "/resources#faq" },
+              ].map(({ label, to }) => (
+                <li key={label}>
+                  <Link to={to} className="hover:text-[#1B7F6D] transition">{label}</Link>
+                </li>
+              ))}
             </ul>
           </div>
 

@@ -25,15 +25,15 @@ export const peopleServiceMenuItems = {
 };
 
 export const peopleResourceMenuItems = [
-  { label: "GPS Trackers", slug: "gps-trackers" },
-  { label: "Tracker Instructions", slug: "instructions" },
-  { label: "How to connect a tracker?", slug: "connect-tracker" },
-  { label: "How to connect a SIM card?", slug: "connect-sim" },
-  { label: "Tariffs", slug: "tariffs" },
-  { label: "What new things have we developed?", slug: "whats-new" },
-  { label: "Questions and Answers", slug: "faq" },
-  { label: "User Agreement", slug: "user-agreement" },
-  { label: "Privacy Policy", slug: "privacy-policy" },
+  { label: "GPS Trackers", to: "/resources/equipment" },
+  { label: "Tracker Instructions", to: "/resources/instructions" },
+  { label: "How to connect a tracker?", to: "/resources/instructions" },
+  { label: "How to connect a SIM card?", to: "/resources/instructions" },
+  { label: "Tariffs", to: "/resources#tariffs" },
+  { label: "What new things have we developed?", to: "/resources/updates" },
+  { label: "Questions and Answers", to: "/resources#faq" },
+  { label: "User Agreement", to: "/resources/user-agreement" },
+  { label: "Privacy Policy", to: "/resources/privacy-policy" },
 ];
 
 export const peopleCompanyMenuItems = [
