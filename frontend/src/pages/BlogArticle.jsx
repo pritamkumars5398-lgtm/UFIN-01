@@ -86,7 +86,7 @@ export default function BlogArticle() {
 
       {related.length > 0 && (
         <section className="pb-20 px-6">
-          <div className="max-w-5xl mx-auto">
+          <div className="max-w-3xl mx-auto">
             <h2 className="text-lg font-black text-[#0B1F33] mb-6">Related reading</h2>
             <div className="grid sm:grid-cols-3 gap-6">
               {related.map((p) => (
