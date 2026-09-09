@@ -13,8 +13,7 @@ import rybric1 from "../assets/rybric-1.png.webp";
 import rybric10 from "../assets/rybric-10.png.webp";
 import imgNews1 from "../assets/img-24-e1674854414374.png.webp";
 import vacanciesInterviewImg from "../assets/vacancies-interview.png";
-import osipovFullbodyImg from "../assets/osipov-fullbody.png";
-import { FaTelegramPlane } from "react-icons/fa";
+import CompanyCTA from "../components/CompanyCTA";
 
 // Certificate placeholder images (use inline SVG placeholder)
 const CertPlaceholder = ({ label }) => (
@@ -392,58 +391,14 @@ export default function About() {
       </section>
 
       {/* ══════════════════════════════════════════════════
-          SECTION 9 — Contact us / CEO (Dark Green)
+          SECTION 9 — Call to Action Banner
       ══════════════════════════════════════════════════ */}
-      <section className="bg-[#1d4135] relative overflow-hidden">
-        <div className="max-w-[1380px] mx-auto px-10 relative">
-          <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[500px]">
-            {/* Left side: Alexey Osipov Image */}
-            <div className="relative pt-10 flex justify-center lg:justify-start items-end">
-              <div className="relative z-10 w-[450px]">
-                {/* CEO Label Box (Glass effect) */}
-                <div className="absolute top-20 lg:top-32 -left-4 lg:-left-12 z-20 bg-white/5 backdrop-blur-md border border-white/10 px-6 py-4 rounded shadow-2xl">
-                  <p className="text-white/60 text-xs text-center font-medium mb-1">
-                    General manager
-                  </p>
-                  <p className="text-white text-[17px] font-medium text-center">
-                    Alexey Osipov
-                  </p>
-                </div>
-
-                <img
-                  src={osipovFullbodyImg}
-                  alt="Alexey Osipov"
-                  className="w-full h-auto object-contain object-bottom"
-                />
-              </div>
-            </div>
-
-            {/* Right side: Contact Content */}
-            <div className="flex flex-col justify-center py-20 lg:pl-10">
-              <h2 className="text-white text-[32px] font-bold mb-3">
-                Contact us
-              </h2>
-              <p className="text-white/70 text-[16px] mb-8">
-                Get detailed information and advice!
-              </p>
-
-              <button className="bg-white hover:bg-gray-50 text-[#0088cc] font-medium px-6 py-3 rounded flex items-center gap-2 w-max mb-12 transition">
-                <FaTelegramPlane size={18} />
-                Telegram chat
-              </button>
-
-              <div className="max-w-[480px]">
-                <h3 className="text-[#ff9800] text-[15px] font-bold uppercase mb-3">
-                  Promotion!
-                </h3>
-                <p className="text-white text-[15px] leading-relaxed">
-                  Submit your online request now! We'll contact you during business hours and give you a 10% discount!
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <CompanyCTA
+        heading="Ready to get started?"
+        subtitle="Leave an online request now! We will contact you during business hours and give you a 10% discount on the initial equipment installation."
+        buttonLabel="Submit Request"
+        to="/consultation"
+      />
 
     </div>
   );

@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import { TrendingUp, Wifi, Share2, Headphones, Send } from "lucide-react";
-import { FaTelegramPlane } from "react-icons/fa";
 import contactsHeroImg from "../assets/contacts_hero_phone.png";
-import osipovImg from "../assets/osipov-fullbody.png";
+import CompanyCTA from "../components/CompanyCTA";
 import telegramIcon from "../assets/logos_telegram.svg";
 import rutubeIcon from "../assets/icon_rutube_dark_color_circle.svg";
 
@@ -318,72 +317,14 @@ export default function Contacts() {
       </section>
 
       {/* ─────────────────────────────────────────────
-          SECTION 5 — CEO + CTA
-          Dark forest green bg
-          Left: Alexey Osipov cutout (transparent PNG)
-            + dark translucent "General manager / Alexey Osipov" label card
-          Right: "Contact us" heading, subtitle,
-            Telegram button, PROMOTION! text
+          SECTION 5 — Call to Action Banner
       ───────────────────────────────────────────── */}
-      <section className="bg-[#1d4135] overflow-hidden">
-        <div className="max-w-[1380px] mx-auto px-10">
-          <div className="grid grid-cols-1 lg:grid-cols-[460px_1fr] items-end">
-
-            {/* Left — CEO photo + label */}
-            <div className="relative flex items-end">
-              <div className="relative w-full max-w-[380px] ml-auto">
-                {/* Dark translucent label card — overlays top of the photo */}
-                <div
-                  className="absolute top-20 lg:top-24 -left-4 lg:-left-20 bg-white/5 backdrop-blur-md border border-white/10 rounded-xl px-6 py-4 z-20 shadow-xl"
-                >
-                  <p className="text-gray-400 text-[12px] font-medium tracking-wide mb-1">General manager</p>
-                  <p className="text-white font-semibold text-[17px] leading-tight">
-                    Alexey Osipov
-                  </p>
-                </div>
-
-                {/* Full-body Osipov transparent PNG */}
-                <img
-                  src={osipovImg}
-                  alt="Alexey Osipov — General Manager"
-                  className="w-full object-contain object-bottom"
-                  style={{ minHeight: "360px", maxHeight: "440px" }}
-                />
-              </div>
-            </div>
-
-            {/* Right — CTA Content */}
-            <div className="text-white py-16 pl-10">
-              <h2 className="text-[36px] font-bold mb-3">Contact us</h2>
-              <p className="text-white/60 text-[15px] mb-8">
-                Get detailed information and advice!
-              </p>
-
-              {/* Telegram chat button */}
-              <a
-                href="https://t.me/UfinSupportEc"
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex items-center gap-2 bg-white hover:bg-gray-50 transition rounded-md px-5 py-2.5 text-[#00a3ff] text-[14px] font-bold mb-10 shadow-sm"
-              >
-                <FaTelegramPlane size={18} />
-                Telegram chat
-              </a>
-
-              {/* Promotion */}
-              <div>
-                <p className="text-[#F58220] font-bold text-[15px] uppercase tracking-wide mb-2">
-                  PROMOTION!
-                </p>
-                <p className="text-white/75 text-[14px] leading-relaxed max-w-[440px]">
-                  Submit your online request now! We'll contact you during business hours and give you a 10% discount!
-                </p>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </section>
+      <CompanyCTA
+        heading="Ready to get started?"
+        subtitle="Leave an online request now! We will contact you during business hours and give you a 10% discount on the initial equipment installation."
+        buttonLabel="Submit Request"
+        to="/consultation"
+      />
 
     </div>
   );
