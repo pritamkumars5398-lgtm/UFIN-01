@@ -2,9 +2,11 @@ import React, { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import {
   ChevronRight, Check, ChevronDown, ChevronUp, MessageCircle, ArrowRight,
-  ShieldCheck, Activity, Target, Quote, Boxes, Plug,
+  ShieldCheck, Activity, Target, Quote, Boxes, Plug, Cpu,
 } from "lucide-react";
-import { resolveServicePage, sectionImagePool, deviceImagePool } from "../data/servicePageScaffold";
+import { resolveServicePage, sectionImagePool, deviceImagePool, clientLogos } from "../data/servicePageScaffold";
+import RoiCalculator from "../components/RoiCalculator";
+import EquipmentCarousel from "../components/EquipmentCarousel";
 
 export default function ServiceDetail() {
   const { slug } = useParams();
@@ -130,6 +132,48 @@ export default function ServiceDetail() {
         </section>
       )}
 
+      {/* ── 3b. CORE DEVICES (Our Services) ── */}
+      {data.category === "Our Services" && data.equipment?.length >= 3 && (
+        <section className="py-16 px-6 bg-[#f7f8f9]">
+          <div className="max-w-7xl mx-auto">
+            <div className="flex items-center gap-3 mb-3">
+              <Cpu className="text-[#4E8F89]" size={22} />
+              <h2 className="text-2xl lg:text-3xl font-black text-[#0B1F33]">Core devices for this service</h2>
+            </div>
+            <p className="text-slate-400 text-sm mb-10">
+              The main hardware options — full specs and pricing on request.
+            </p>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {data.equipment.slice(0, 3).map((e, i) => (
+                <div
+                  key={i}
+                  className="bg-white rounded-2xl border border-slate-100 overflow-hidden flex flex-col"
+                >
+                  <div className="h-44 bg-[#f7f8f9] flex items-center justify-center p-6">
+                    <img
+                      src={e.image || deviceImagePool[i % deviceImagePool.length]}
+                      alt={e.name}
+                      loading="lazy"
+                      className="max-h-full max-w-full object-contain"
+                    />
+                  </div>
+                  <div className="p-6 flex-1 flex flex-col">
+                    <h3 className="font-bold text-[#0B1F33] mb-2">{e.name}</h3>
+                    <p className="text-slate-500 text-sm leading-relaxed flex-1">{e.desc}</p>
+                    <Link
+                      to="/resources/equipment"
+                      className="mt-4 inline-flex items-center gap-1 text-sm font-bold text-[#4E8F89] hover:underline"
+                    >
+                      Get price <ChevronRight size={14} />
+                    </Link>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* ── 4. DEEP-DIVE SECTIONS (alternating image + text) ── */}
       {sections.length > 0 && (
         <section className="py-20 px-6 bg-white">
@@ -194,6 +238,55 @@ export default function ServiceDetail() {
         </section>
       )}
 
+      {/* ── 4b. YOUR SERVICE QUALITY (Solutions) ── */}
+      {data.qualityBlocks?.length > 0 && (
+        <section className="py-16 px-6 bg-[#f7f8f9]">
+          <div className="max-w-7xl mx-auto">
+            <h2 className="text-3xl font-black text-[#0B1F33] mb-10">Your service quality</h2>
+            <div className="grid md:grid-cols-2 gap-6">
+              {data.qualityBlocks.map((b, i) => (
+                <div key={i} className="bg-white rounded-2xl p-8 border border-slate-100">
+                  <div className="w-11 h-11 rounded-xl bg-[#4E8F89]/10 flex items-center justify-center mb-5">
+                    <ShieldCheck size={20} className="text-[#4E8F89]" />
+                  </div>
+                  <h3 className="font-bold text-[#0B1F33] mb-4">{b.title}</h3>
+                  <ul className="space-y-2.5">
+                    {b.items.map((it, j) => (
+                      <li key={j} className="flex items-start gap-2.5 text-sm text-slate-600">
+                        <Check size={15} className="text-[#4E8F89] shrink-0 mt-0.5" /> {it}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* ── 4c. COMPONENTS GRID (e.g. "Safety components") ── */}
+      {data.componentsGrid?.items?.length > 0 && (
+        <section className="py-20 px-6 bg-white">
+          <div className="max-w-7xl mx-auto">
+            <h2 className="text-3xl font-black text-[#0B1F33] mb-3">{data.componentsGrid.title}</h2>
+            {data.componentsGrid.subtitle && (
+              <p className="text-slate-500 text-sm mb-10 max-w-3xl">{data.componentsGrid.subtitle}</p>
+            )}
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5">
+              {data.componentsGrid.items.map((c, i) => (
+                <div key={i} className="bg-[#f7f8f9] rounded-2xl p-6 border border-slate-100">
+                  <div className="w-8 h-8 rounded-lg bg-[#4E8F89] text-white text-xs font-black flex items-center justify-center mb-4">
+                    {i + 1}
+                  </div>
+                  <h3 className="font-bold text-[#0B1F33] text-sm mb-2">{c.title}</h3>
+                  <p className="text-slate-500 text-xs leading-relaxed">{c.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* ── 5. MONITOR / DETECT ── */}
       {rich && (data.monitors?.length > 0 || data.detects?.length > 0) && (
         <section className="py-16 px-6 bg-[#f7f8f9]">
@@ -233,25 +326,37 @@ export default function ServiceDetail() {
       {/* ── 6. CLIENTS STRIP ── */}
       {data.clients?.length > 0 && (
         <section className="py-12 px-6 bg-white border-y border-slate-100">
-          <div className="max-w-7xl mx-auto text-center">
-            <p className="text-xs uppercase tracking-widest text-slate-400 font-bold mb-6">
-              Our solutions are used by
-            </p>
-            <div className="flex flex-wrap justify-center gap-4">
-              {data.clients.map((c, i) => (
-                <span
-                  key={i}
-                  className="bg-[#f7f8f9] border border-slate-100 rounded-lg px-5 py-3 text-sm font-semibold text-slate-700"
-                >
-                  {c}
-                </span>
-              ))}
+          <div className="max-w-7xl mx-auto">
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+              <p className="text-xs uppercase tracking-widest text-slate-400 font-bold">
+                Our solutions are used by
+              </p>
               <Link
                 to="/reviews"
-                className="inline-flex items-center gap-1 px-5 py-3 text-sm font-bold text-[#4E8F89] hover:underline"
+                className="inline-flex items-center gap-1 text-sm font-bold text-[#4E8F89] hover:underline"
               >
                 View all cases <ChevronRight size={14} />
               </Link>
+            </div>
+            <div className="mt-6 flex flex-wrap items-center gap-x-8 gap-y-4">
+              {data.clients.map((c, i) =>
+                clientLogos[c] ? (
+                  <img
+                    key={i}
+                    src={clientLogos[c]}
+                    alt={c}
+                    loading="lazy"
+                    className="h-8 sm:h-9 object-contain opacity-70 hover:opacity-100 transition"
+                  />
+                ) : (
+                  <span
+                    key={i}
+                    className="bg-[#f7f8f9] border border-slate-100 rounded-lg px-4 py-2.5 text-sm font-semibold text-slate-700"
+                  >
+                    {c}
+                  </span>
+                )
+              )}
             </div>
           </div>
         </section>
@@ -390,6 +495,14 @@ export default function ServiceDetail() {
         </section>
       )}
 
+      {/* ── 9b. ROI CALCULATOR ── */}
+      {data.roiCalculator && (
+        <RoiCalculator
+          title={typeof data.roiCalculator === "string" ? data.roiCalculator : "Efficiency calculator"}
+          tariffs={data.tariffs}
+        />
+      )}
+
       {/* ── 10. BEFORE / AFTER ── */}
       {rich && data.beforeAfter?.length > 0 && (
         <section className="py-20 px-6 bg-white">
@@ -468,6 +581,35 @@ export default function ServiceDetail() {
         </section>
       )}
 
+      {/* ── 11c. INTEGRATION NARRATIVE BLOCKS (services & industries) ── */}
+      {data.integrationBlocks?.length > 0 && (
+        <section className="py-20 px-6 bg-white">
+          <div className="max-w-7xl mx-auto">
+            <h2 className="text-3xl font-black text-[#0B1F33] mb-3">Integration</h2>
+            <p className="text-slate-400 text-sm mb-10">
+              A unified information environment removes manual work and gives a complete picture of operations.
+            </p>
+            <div className="grid md:grid-cols-2 gap-6">
+              {data.integrationBlocks.map((b, i) => (
+                <div key={i} className="bg-[#f7f8f9] rounded-2xl p-8 border border-slate-100 flex flex-col">
+                  <div className="w-11 h-11 rounded-xl bg-white flex items-center justify-center mb-5 shadow-sm">
+                    <Plug size={20} className="text-[#4E8F89]" />
+                  </div>
+                  <h3 className="font-bold text-[#0B1F33] mb-3">{b.title}</h3>
+                  <p className="text-slate-600 text-sm leading-relaxed flex-1">{b.content}</p>
+                  <Link
+                    to={b.to || "/services/api"}
+                    className="mt-5 inline-flex items-center gap-1 text-sm font-bold text-[#4E8F89] hover:underline"
+                  >
+                    Learn more <ChevronRight size={14} />
+                  </Link>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* ── 12. INTEGRATION PARTNERS (integrations only) ── */}
       {isIntegration && (
         <section className="py-20 px-6 bg-[#f7f8f9]">
@@ -506,43 +648,8 @@ export default function ServiceDetail() {
         </section>
       )}
 
-      {/* ── 13. EQUIPMENT SHOWCASE ── */}
-      {data.equipment?.length > 0 && (
-        <section className="py-20 px-6 bg-white">
-          <div className="max-w-7xl mx-auto">
-            <h2 className="text-3xl font-black text-[#0B1F33] mb-3">Compatible equipment</h2>
-            <p className="text-slate-400 text-sm mb-12">
-              Deeply integrated with all major monitoring devices — the list of models is constantly expanding.
-            </p>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-              {data.equipment.map((e, i) => (
-                <div
-                  key={i}
-                  className="group flex flex-col bg-white border border-slate-200 rounded-2xl overflow-hidden hover:shadow-lg transition"
-                >
-                  <div className="h-40 bg-[#f7f8f9] flex items-center justify-center p-4">
-                    <img
-                      src={deviceImagePool[i % deviceImagePool.length]}
-                      alt={e.name}
-                      className="max-h-full max-w-full object-contain group-hover:scale-105 transition duration-500"
-                    />
-                  </div>
-                  <div className="p-5 flex-1 flex flex-col">
-                    <h3 className="font-bold text-[#0B1F33] text-sm mb-2">{e.name}</h3>
-                    <p className="text-slate-500 text-xs leading-relaxed flex-1">{e.desc}</p>
-                    <Link
-                      to="/resources/equipment"
-                      className="mt-4 inline-flex items-center gap-1 text-xs font-bold text-[#4E8F89] hover:underline"
-                    >
-                      Get price <ChevronRight size={13} />
-                    </Link>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
+      {/* ── 13. EQUIPMENT SHOWCASE (carousel) ── */}
+      {data.equipment?.length > 0 && <EquipmentCarousel items={data.equipment} />}
 
       {/* ── 14. FAQ ── */}
       {data.faqs?.length > 0 && (

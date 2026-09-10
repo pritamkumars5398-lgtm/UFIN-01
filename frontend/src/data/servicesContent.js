@@ -9,6 +9,9 @@ const ZHOKHOV = { name: "Maxim Zhokhov", role: "Head of Innovation", telegram: "
 const OSIPOV = { name: "Alexey Osipov", role: "General Manager", telegram: "https://t.me/tekonika_systems" };
 
 export const servicesContent = {
+  /* ── Our Services: add-ons only (base content lives in servicesData.js) ── */
+  "fuel-control": { roiCalculator: "Fuel savings calculator" },
+
   /* ─────────────────────────  INTEGRATIONS  ───────────────────────── */
 
   api: {
@@ -289,6 +292,24 @@ export const servicesContent = {
       "Reduce repair costs through driving-style monitoring",
       "Remove manual reporting with ERP integration",
     ],
+    qualityBlocks: [
+      {
+        title: "Continuous quality control",
+        items: [
+          "Transport conditions preserved for the whole route",
+          "Clients given accurate cargo-arrival estimates",
+          "Schedule-compliance monitoring on every trip",
+        ],
+      },
+      {
+        title: "A unified information space",
+        items: [
+          "Higher customer loyalty from transparency",
+          "Manual labour and report errors removed",
+          "Consistently high-quality logistics services",
+        ],
+      },
+    ],
     monitors: [
       "Route and operating parameters in real time",
       "Fuel transactions and consumption vs norms",
@@ -349,6 +370,18 @@ export const servicesContent = {
         ],
       },
     ],
+    componentsGrid: {
+      title: "The components of safety",
+      subtitle:
+        "The base location-and-operations service already tracks the parameters that most affect road safety.",
+      items: [
+        { title: "Driving style", desc: "Acceleration vectors on all axes reveal calm, predictable driving versus risky behaviour." },
+        { title: "Speed", desc: "Compliance with speed limits is a hard safety requirement — every breach is logged and alerted." },
+        { title: "Tyre pressure", desc: "Pressure that does not match the road or the norm raises accident risk and fuel use." },
+        { title: "Axle load", desc: "Correct weight distribution and secured cargo keep the vehicle controllable." },
+        { title: "Video monitoring", desc: "Continuous view of cabin and perimeter disciplines the driver and builds an evidence base." },
+      ],
+    },
     monitors: [
       "Driver health, fatigue and attention state",
       "Driving style and speed",
@@ -576,6 +609,7 @@ export const servicesContent = {
 
   "food-transport": {
     category: "By Industry",
+    roiCalculator: "Fleet efficiency calculator",
     stats: [
       { value: "+10%", label: "More food-transport orders" },
       { value: "−10%", label: "Fuel & repair costs" },
@@ -652,6 +686,7 @@ export const servicesContent = {
 
   freight: {
     category: "By Industry",
+    roiCalculator: "Freight efficiency calculator",
     stats: [
       { value: "−25%", label: "Fuel expense" },
       { value: "−20%", label: "Repair costs" },
@@ -798,6 +833,7 @@ export const servicesContent = {
 
   taxi: {
     category: "By Industry",
+    roiCalculator: "Taxi fleet efficiency calculator",
     stats: [
       { value: "+5%", label: "Rental revenue per car" },
       { value: "−10%", label: "Fuel & repair costs" },
@@ -872,6 +908,7 @@ export const servicesContent = {
 
   construction: {
     category: "By Industry",
+    roiCalculator: "Machinery efficiency calculator",
     stats: [
       { value: "Exact", label: "Engine-hour log" },
       { value: "Zero", label: "Fuel siphoning" },
@@ -1091,6 +1128,7 @@ export const servicesContent = {
 
   agriculture: {
     category: "By Industry",
+    roiCalculator: "Agro-fleet efficiency calculator",
     stats: [
       { value: "Hectares", label: "Cultivated-area log" },
       { value: "+15%", label: "Fuel saved" },
@@ -1602,6 +1640,7 @@ export const servicesContent = {
 
   "fuel-energy": {
     category: "By Industry",
+    roiCalculator: "Fuel logistics calculator",
     stats: [
       { value: "Zero", label: "Unaccounted drains" },
       { value: "Digital", label: "Seal monitoring" },
@@ -1675,6 +1714,7 @@ export const servicesContent = {
 
   "light-commercial": {
     category: "By Industry",
+    roiCalculator: "LCV efficiency calculator",
     stats: [
       { value: "Plug & play", label: "OBD-II install" },
       { value: "Affordable", label: "Tariffs from ₽249" },

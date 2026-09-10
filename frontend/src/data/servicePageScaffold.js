@@ -50,7 +50,28 @@ import devTpmsInt from "../assets/internal-tpms.jpg";
 import devTpmsMon from "../assets/tpms-monitor.jpg";
 import devHp21 from "../assets/hp21.jpg";
 
+// ── Client logos (owned assets) for the "used by" strip ──
+import logoAvanstroy from "../assets/avanstroy-logo.svg";
+import logoSts from "../assets/sts-logo.svg";
+import logoAdeo from "../assets/adeo-logo.png";
+import logoOktion from "../assets/oktion-logo.png";
+import logoTrak from "../assets/trakgrupp-logo.png";
+import logoGazprom from "../assets/GazpromMain.png.webp";
+
 const DEFAULT_HERO = sceneHighway;
+
+// Map client display names → a logo image where we have one; text chip otherwise.
+export const clientLogos = {
+  "SK Avanstroy": logoAvanstroy,
+  'LLC SK "Avanstroy"': logoAvanstroy,
+  "STS Logistic": logoSts,
+  "STS Group": logoSts,
+  "Adeo.Pro": logoAdeo,
+  Oktion: logoOktion,
+  "Trak Grupp": logoTrak,
+  "TracGroup": logoTrak,
+  "Gazprom Mezhregiongaz": logoGazprom,
+};
 
 export const industryHeroImages = {
   "food-transport": industryFood,
@@ -195,6 +216,33 @@ export const integrationPartners = [
 
 export const integrationProtocols = ["EGTS", "AIS140", "Wialon IPS", "NIS", "REST / WebSocket"];
 
+// "Integration with your systems" narrative blocks — shown on service & industry pages
+export const defaultIntegrationBlocks = [
+  {
+    title: "Integration with your accounting systems",
+    content:
+      "Telemetry, trips, fuel events and order status flow straight into 1C, SAP, Galaxia or a custom ERP. Automated reporting removes manual re-keying and reconciliation, so your staff spend time on service quality instead of spreadsheets.",
+    to: "/services/api",
+  },
+  {
+    title: "Integration with the external information environment",
+    content:
+      "Required movement data is retransmitted to state permit portals (EGTS, AIS140) and to your customers' own servers, in the protocol each side expects — continuously or on demand, with no extra hardware on the vehicle.",
+    to: "/services/relay-servers",
+  },
+];
+
+// Default equipment-cost / subscription figures the ROI calculator starts from
+export const roiDefaults = {
+  fleetSize: 20,
+  fuelPrice: 62,          // ₽ per litre
+  consumption: 25,        // litres / 100 km
+  monthlyKm: 6000,        // km per vehicle per month
+  targetSaving: 20,       // %
+  equipPerVehicle: 14999, // ₽ one-off
+  subPerVehicle: 549,     // ₽ / month
+};
+
 function defaultPricing(category) {
   if (category === "By Industry") return { equip: "from ₽5,900 / vehicle", sub: "from ₽249 / month" };
   if (category === "Our Services") return { equip: "from ₽14,999 / vehicle", sub: "from ₽349 / month" };
@@ -255,6 +303,8 @@ export function resolveServicePage(slug) {
   const extra = servicesContent[slug] || {};
   const category = extra.category || base.category || "Services & Solutions";
 
+  const rich = category === "Our Services" || category === "By Industry";
+
   return {
     // shared defaults — overridden per-slug
     steps: defaultSteps,
@@ -264,6 +314,7 @@ export function resolveServicePage(slug) {
     additional: defaultAdditional,
     testimonial: defaultTestimonial,
     pricing: defaultPricing(category),
+    integrationBlocks: rich ? defaultIntegrationBlocks : null,
     // thin servicesData.js entry
     ...base,
     // per-slug page content (wins over the thin entry; hero/CTA untouched)
