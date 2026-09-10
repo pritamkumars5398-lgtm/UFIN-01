@@ -148,6 +148,10 @@ export const serviceData = {
     subtitle: "Refrigerated transport monitoring with real-time alerts",
     description: "Monitor climate parameters of refrigerated transport with instant notifications for temperature deviations. Ensure cargo quality with continuous temperature logging and client-facing data sharing.",
     heroImage: "https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=1600&q=80",
+    pricing: {
+      equip: "from ₽4,900",
+      sub: "₽450 / mo",
+    },
     stats: [
       { value: "100%", label: "Temperature visibility" },
       { value: "Real-time", label: "Alert notifications" },
@@ -178,7 +182,7 @@ export const serviceData = {
     faqs: [
       { q: "How many temperature zones can be monitored?", a: "Tekonika Systems supports monitoring of multiple independent cooling zones within a single vehicle — each with its own sensor and alert thresholds." },
     ],
-    contactPerson: { name: "Alexey Osipov", role: "CEO", telegram: "https://t.me/Ufin_CEO" },
+    contactPerson: { name: "Alexey Osipov", role: "CEO", telegram: "https://t.me/Tekonika_CEO" },
     clients: [],
   },
 

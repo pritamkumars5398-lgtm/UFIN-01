@@ -8,6 +8,8 @@ import { resolveServicePage, sectionImagePool, deviceImagePool, clientLogos } fr
 import RoiCalculator from "../components/RoiCalculator";
 import EquipmentCarousel from "../components/EquipmentCarousel";
 import InlineLeadForm from "../components/InlineLeadForm";
+import DriverControlPage from "../components/DriverControlPage";
+import TemperatureControlPage from "../components/TemperatureControlPage";
 
 export default function ServiceDetail() {
   const { slug } = useParams();
@@ -18,6 +20,15 @@ export default function ServiceDetail() {
   }, [slug]);
 
   const data = resolveServicePage(slug);
+
+  if (slug === "driver-control") {
+    return <DriverControlPage data={data} />;
+  }
+
+  if (slug === "temperature-control") {
+    return <TemperatureControlPage data={data} />;
+  }
+
   const isSolution = data.category === "Solutions";
   const isIntegration = data.category === "Integrations";
   const rich = !isSolution && !isIntegration;
