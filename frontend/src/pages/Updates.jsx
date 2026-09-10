@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Sparkles } from "lucide-react";
 import PageHero from "../components/PageHero";
@@ -14,10 +14,16 @@ const tagColor = {
   Devices: "bg-rose-100 text-rose-700",
 };
 
+const STEP = 6;
+
 export default function Updates() {
+  const [visible, setVisible] = useState(STEP);
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  const shown = updates.slice(0, visible);
 
   return (
     <div className="bg-white min-h-screen">
@@ -31,7 +37,7 @@ export default function Updates() {
       <section className="py-16 px-6">
         <div className="max-w-3xl mx-auto">
           <div className="relative border-l-2 border-slate-200 pl-8 space-y-10">
-            {updates.map((u, i) => (
+            {shown.map((u, i) => (
               <div key={i} className="relative">
                 <span className="absolute -left-[41px] top-1 w-5 h-5 rounded-full bg-white border-2 border-[#4E8F89] flex items-center justify-center">
                   <Sparkles size={10} className="text-[#4E8F89]" />
@@ -51,6 +57,17 @@ export default function Updates() {
               </div>
             ))}
           </div>
+
+          {visible < updates.length && (
+            <div className="mt-10 text-center">
+              <button
+                onClick={() => setVisible((v) => v + STEP)}
+                className="px-6 py-3 rounded-xl border border-slate-200 text-sm font-bold text-[#4E8F89] hover:border-[#4E8F89] transition"
+              >
+                Show more
+              </button>
+            </div>
+          )}
 
           <div className="mt-14 p-6 bg-[#EAF5F3] rounded-2xl border border-[#4E8F89]/20 text-center">
             <p className="text-[#0B1F33] font-bold mb-1">Want a feature we don't have yet?</p>

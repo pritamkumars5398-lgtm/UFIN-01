@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { FileText, Search, ChevronRight, Cpu } from "lucide-react";
 import PageHero from "../components/PageHero";
 import CompanyCTA from "../components/CompanyCTA";
-import { instructionGroups, connectSteps } from "../data/resourcesContent";
+import { instructionGroups, connectSteps, instructionModels } from "../data/resourcesContent";
 import heroImg from "../assets/driver.png";
 
 export default function Instructions() {
@@ -58,8 +58,51 @@ export default function Instructions() {
         </div>
       </section>
 
-      {/* ── Model guides ── */}
+      {/* ── Browse by device ── */}
       <section className="py-16 px-6 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-2xl font-black text-[#0B1F33] mb-3">Browse by device</h2>
+          <p className="text-slate-400 text-sm mb-10">Pick your model to open its connection guide.</p>
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+            {instructionModels.map((m) => {
+              const Card = (
+                <>
+                  <div className="h-28 bg-[#f7f8f9] rounded-xl flex items-center justify-center p-4 mb-3">
+                    <img
+                      src={m.image}
+                      alt={m.name}
+                      loading="lazy"
+                      className="max-h-full max-w-full object-contain"
+                    />
+                  </div>
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-[#4E8F89]">{m.tag}</span>
+                  <p className="font-bold text-[#0B1F33] text-sm leading-snug mt-0.5">{m.name}</p>
+                </>
+              );
+              return m.to ? (
+                <Link
+                  key={m.name}
+                  to={m.to}
+                  className="group bg-white border border-slate-200 rounded-2xl p-4 hover:border-[#4E8F89] hover:shadow-md transition"
+                >
+                  {Card}
+                </Link>
+              ) : (
+                <a
+                  key={m.name}
+                  href="#guides"
+                  className="group bg-white border border-slate-200 rounded-2xl p-4 hover:border-[#4E8F89] hover:shadow-md transition"
+                >
+                  {Card}
+                </a>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Model guides ── */}
+      <section id="guides" className="py-16 px-6 bg-[#f7f8f9]">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-10">
             <h2 className="text-2xl font-black text-[#0B1F33]">Guides by model</h2>

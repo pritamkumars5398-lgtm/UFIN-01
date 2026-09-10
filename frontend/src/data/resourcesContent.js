@@ -13,6 +13,8 @@ import externalTpms from "../assets/external-tpms.jpg";
 import internalTpms from "../assets/internal-tpms.jpg";
 import tpmsMonitor from "../assets/tpms-monitor.jpg";
 import hp21 from "../assets/hp21.jpg";
+import ent850 from "../assets/ENT850.png.webp";
+import driverImg from "../assets/driver.png";
 
 /* ─────────────────────────  EQUIPMENT CATALOG  ───────────────────────── */
 
@@ -24,6 +26,10 @@ export const equipmentCategories = [
   "Tire pressure (TPMS)",
   "Driver assistance",
   "CAN readers",
+  "Personal & pet trackers",
+  "Search beacons",
+  "Tachographs",
+  "Accessories",
 ];
 
 export const equipment = [
@@ -147,6 +153,118 @@ export const equipment = [
     desc: "Compact CAN reader for light commercial vehicles and passenger cars.",
     tags: ["Compact", "LCV"],
   },
+  {
+    name: "SCOUT ENT-855 Terminal",
+    category: "Navigation terminals",
+    price: "8 900 ₽",
+    image: ent850,
+    desc: "Mid-range GLONASS/GPS terminal with RS-485, 1-Wire and digital inputs for sensors.",
+    tags: ["GLONASS/GPS", "RS-485", "1-Wire"],
+  },
+  {
+    name: "GALILEOSKY 7x Terminal",
+    category: "Navigation terminals",
+    price: "13 400 ₽",
+    image: galileo,
+    desc: "Programmable terminal with an internal accelerometer and EasyLogic scripting.",
+    tags: ["GLONASS/GPS", "Accelerometer", "Scriptable"],
+  },
+  {
+    name: "H18P 3-channel Recorder Kit",
+    category: "Video recorders & cameras",
+    price: "21 900 ₽",
+    image: hp21,
+    desc: "Three-channel DVR with cameras for cabin, road and cargo, plus 4G upload.",
+    tags: ["3 channels", "4G", "Cloud"],
+  },
+  {
+    name: "AHD Dome Camera VK045",
+    category: "Video recorders & cameras",
+    price: "2 850 ₽",
+    image: bpk,
+    desc: "1080p vandal-proof dome camera with microphone for AHD recorders.",
+    tags: ["1080p", "Microphone", "Vandal-proof"],
+  },
+  {
+    name: "Reverse Camera VK-R1",
+    category: "Video recorders & cameras",
+    price: "2 400 ₽",
+    image: bpk,
+    desc: "Weatherproof rear-view camera with IR night vision and guide lines.",
+    tags: ["IP68", "Night vision"],
+  },
+  {
+    name: "Escort TD-Online 700 mm",
+    category: "Fuel sensors",
+    price: "from 5 400 ₽",
+    image: escortTd,
+    desc: "Digital fuel level sensor with online output for shorter tanks.",
+    tags: ["RS-485", "700 mm"],
+  },
+  {
+    name: "Personal Tracker PT-200",
+    category: "Personal & pet trackers",
+    price: "3 900 ₽",
+    image: driverImg,
+    desc: "Pocket GPS tracker with an SOS button and multi-day battery for lone workers.",
+    tags: ["SOS", "BLE", "IP67"],
+  },
+  {
+    name: "Collar Tracker TK911 Mini",
+    category: "Personal & pet trackers",
+    price: "6 900 ₽",
+    image: driverImg,
+    desc: "Lightweight waterproof collar tracker for dogs and cats with a find mode.",
+    tags: ["Waterproof", "Find mode"],
+  },
+  {
+    name: "Search Beacon SB-10",
+    category: "Search beacons",
+    price: "4 300 ₽",
+    image: signal,
+    desc: "Hidden self-powered GPS beacon that keeps transmitting if the main unit is removed.",
+    tags: ["Hidden", "Own battery", "6 months"],
+  },
+  {
+    name: "Magnetic Beacon TK905B",
+    category: "Search beacons",
+    price: "from 3 500 ₽",
+    image: signal,
+    desc: "Magnetic-mount beacon with weeks of standby in power-saving mode.",
+    tags: ["Magnetic", "Power-saving"],
+  },
+  {
+    name: "Tachograph Mercury TA-002",
+    category: "Tachographs",
+    price: "from 28 900 ₽",
+    image: umka,
+    desc: "Certified digital tachograph with SKZI block and driver-card slot.",
+    tags: ["Certified", "SKZI"],
+  },
+  {
+    name: "Driver ID iButton Kit",
+    category: "Accessories",
+    price: "900 ₽",
+    image: signal,
+    desc: "Key-based driver identification reader and 5 keys for access control.",
+    tags: ["iButton", "Access control"],
+  },
+  {
+    name: "Panic Button PB-1",
+    category: "Accessories",
+    price: "1 200 ₽",
+    image: signal,
+    desc: "Concealed distress button that sends a silent alarm with location.",
+    tags: ["Silent alarm"],
+  },
+  {
+    name: "Cargo-Door Sensor DS-2",
+    category: "Accessories",
+    price: "1 600 ₽",
+    image: signal,
+    desc: "Magnetic contact sensor that logs every cargo-compartment opening.",
+    tags: ["Reed switch", "Wired"],
+  },
 ];
 
 /* ─────────────────────────  TRACKER INSTRUCTIONS  ───────────────────────── */
@@ -184,6 +302,81 @@ export const connectSteps = [
   { title: "Send the APN settings", desc: "Send the operator APN by SMS or set it in the app so the tracker can reach the server." },
   { title: "Bind it to your account", desc: "Add the object by IMEI in the app or dashboard. The first point usually appears within a minute outdoors." },
 ];
+
+/* Flat list of tracker models for the instructions gallery */
+export const instructionModels = [
+  { name: "Tekonika Systems mobile app", tag: "App", image: driverImg, to: "/resources/instructions/mobile-app" },
+  { name: "TK-STAR TK918", tag: "Consumer", image: signal },
+  { name: "TK-STAR TK109", tag: "Consumer", image: signal },
+  { name: "TK-STAR TK911", tag: "Consumer", image: signal },
+  { name: "TK-STAR TK935", tag: "Beacon", image: signal },
+  { name: "TK-STAR TK905 / TK905B", tag: "Beacon", image: signal },
+  { name: "OBD-2 TK816", tag: "OBD", image: umka },
+  { name: "QP103", tag: "Wired", image: umka },
+  { name: "SIGNAL S-2653", tag: "Fleet", image: signal },
+  { name: "GALILEOSKY 10", tag: "Fleet", image: galileo },
+  { name: "UMKa302", tag: "Fleet", image: umka },
+  { name: "Navtelecom Signal S-4614", tag: "Fleet", image: signal },
+];
+
+/* ─────────────────────────  MOBILE APP USER MANUAL  ───────────────────────── */
+
+export const mobileAppManual = {
+  intro:
+    "The Tekonika Systems mobile app puts your whole account on a phone — live map, trip history, reports and notifications for every object. This guide walks through the first-run setup.",
+  requirements: [
+    "Android 8.0+ or iOS 14+",
+    "An active Tekonika Systems account (or a demo login)",
+    "At least one object connected, or a device IMEI to add",
+  ],
+  steps: [
+    {
+      title: "Install the app",
+      body:
+        "Download “Tekonika Systems” from the App Store, Google Play, Huawei AppGallery or RuStore. On Huawei devices without Google services, use the AppGallery build.",
+    },
+    {
+      title: "Sign in",
+      body:
+        "Open the app and enter the login and password from your account. If your company uses SSO, tap “Sign in with company account”. Tap “Demo” to explore with sample data first.",
+    },
+    {
+      title: "Allow location and notifications",
+      body:
+        "Grant the location permission so the map can centre on you, and allow notifications so geofence and event alerts reach the phone. Both can be changed later in Settings.",
+    },
+    {
+      title: "Find your objects on the map",
+      body:
+        "The map opens on your fleet. Tap an object marker for its speed, ignition, last update and driver. Use the layers button to switch between OpenStreetMap, Yandex and satellite views.",
+    },
+    {
+      title: "Add a new object",
+      body:
+        "Menu → Objects → “+”. Enter the device IMEI and a name, pick the device model, and save. Outdoors the first point usually appears within a minute.",
+    },
+    {
+      title: "Set up notifications",
+      body:
+        "Menu → Notifications → “+”. Choose a trigger (geofence entry/exit, speeding, ignition, SOS, low battery), the objects it applies to, and a schedule. Alerts arrive as push messages and are listed in the Events tab.",
+    },
+    {
+      title: "Build a report",
+      body:
+        "Menu → Reports. Pick a template (trips, mileage, fuel, stops, driver activity), the object and the period, then “Build”. Reports can be shared as PDF or XLSX, or saved as a template for reuse.",
+    },
+    {
+      title: "Share a live tracking link",
+      body:
+        "Open an object → “Share” → set a duration. Send the link to a customer so they can follow that one vehicle in a browser, with no account needed. The link expires automatically.",
+    },
+  ],
+  faqs: [
+    { q: "The map shows no objects", a: "Check that you are signed into the right account and that at least one object is connected. Pull down to refresh." },
+    { q: "Notifications don't arrive", a: "Allow notifications for the app in the phone's system settings and make sure battery optimisation isn't force-stopping it in the background." },
+    { q: "Can several people use one account?", a: "Yes. Create sub-users in the web dashboard with their own permissions; each signs in on their own phone." },
+  ],
+};
 
 /* ─────────────────────────  UPDATES JOURNAL  ───────────────────────── */
 
@@ -223,6 +416,42 @@ export const updates = [
     tag: "Web",
     title: "Report builder templates",
     desc: "Save any configured report as a template and schedule it to a mailing list.",
+  },
+  {
+    date: "December 18, 2025",
+    tag: "Mobile",
+    title: "Offline map tiles",
+    desc: "The app now caches recently viewed map areas so the last position stays visible with no signal.",
+  },
+  {
+    date: "December 2, 2025",
+    tag: "Devices",
+    title: "Neomatica ADM firmware profiles",
+    desc: "Added ready parameter profiles for Neomatica ADM333 and ADM700, including fuel and CAN presets.",
+  },
+  {
+    date: "November 14, 2025",
+    tag: "Web",
+    title: "Geofence groups",
+    desc: "Group geofences into folders and apply a notification rule to a whole folder at once.",
+  },
+  {
+    date: "October 30, 2025",
+    tag: "Billing",
+    title: "Per-object invoices",
+    desc: "Download a breakdown of charges by object and by service for any billing period.",
+  },
+  {
+    date: "October 6, 2025",
+    tag: "Support",
+    title: "In-app diagnostics",
+    desc: "A device health screen now shows power, GSM level, satellites and last packet time for faster support.",
+  },
+  {
+    date: "September 15, 2025",
+    tag: "Web",
+    title: "Driver rating dashboard",
+    desc: "A consolidated driver scorecard aggregates harsh events, speeding and working hours per period.",
   },
 ];
 

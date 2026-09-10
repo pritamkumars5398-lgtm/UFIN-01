@@ -140,7 +140,7 @@ const ResursiDropdown = ({ onClose }) => {
   const resourcesList = [
     { label: "Compatible equipment for business", to: "/resources/equipment" },
     { label: "Instructions for trackers", to: "/resources/instructions" },
-    { label: "Mobile app user manual", to: "/resources/instructions" },
+    { label: "Mobile app user manual", to: "/resources/instructions/mobile-app" },
     { label: "What's new we developed", to: "/resources/updates" },
     { label: "User Agreement", to: "/resources/user-agreement" },
     { label: "Privacy Policy", to: "/resources/privacy-policy" },

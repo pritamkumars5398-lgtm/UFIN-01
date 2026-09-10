@@ -21,6 +21,7 @@ import Vacancies from './pages/Vacancies'
 import Guarantees from './pages/Guarantees'
 import Equipment from './pages/Equipment'
 import Instructions from './pages/Instructions'
+import MobileAppManual from './pages/MobileAppManual'
 import Updates from './pages/Updates'
 import UserAgreement from './pages/UserAgreement'
 import PrivacyPolicy from './pages/PrivacyPolicy'
@@ -60,6 +61,7 @@ export default function App() {
             {/* Resources section */}
             <Route path="/resources/equipment" element={<Equipment/>} />
             <Route path="/resources/instructions" element={<Instructions/>} />
+            <Route path="/resources/instructions/mobile-app" element={<MobileAppManual/>} />
             <Route path="/resources/updates" element={<Updates/>} />
             <Route path="/resources/user-agreement" element={<UserAgreement/>} />
             <Route path="/resources/privacy-policy" element={<PrivacyPolicy/>} />

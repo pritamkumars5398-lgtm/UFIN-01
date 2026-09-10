@@ -11,14 +11,21 @@ const SORTS = {
   "Name A–Z": (a, b) => a.name.localeCompare(b.name),
 };
 
+const PER_PAGE = 12;
+
 export default function Equipment() {
   const [category, setCategory] = useState("All");
   const [query, setQuery] = useState("");
   const [sort, setSort] = useState("Popular");
+  const [page, setPage] = useState(1);
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  useEffect(() => {
+    setPage(1);
+  }, [category, query, sort]);
 
   const counts = useMemo(() => {
     const c = { All: equipment.length };
@@ -39,6 +46,10 @@ export default function Equipment() {
         e.tags.some((t) => t.toLowerCase().includes(q))
     )
     .sort(SORTS[sort]);
+
+  const pageCount = Math.max(1, Math.ceil(list.length / PER_PAGE));
+  const current = Math.min(page, pageCount);
+  const shown = list.slice((current - 1) * PER_PAGE, current * PER_PAGE);
 
   return (
     <div className="bg-white min-h-screen">
@@ -106,7 +117,7 @@ export default function Equipment() {
             </div>
 
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-              {list.map((e) => (
+              {shown.map((e) => (
                 <div
                   key={e.name}
                   className="group flex flex-col bg-white border border-slate-200 rounded-2xl overflow-hidden hover:shadow-lg transition"
@@ -115,6 +126,7 @@ export default function Equipment() {
                     <img
                       src={e.image}
                       alt={e.name}
+                      loading="lazy"
                       className="max-h-full max-w-full object-contain group-hover:scale-105 transition duration-500"
                     />
                   </div>
@@ -149,6 +161,38 @@ export default function Equipment() {
               <p className="text-slate-400 text-sm py-16 text-center">
                 No equipment matches your filters.
               </p>
+            )}
+
+            {pageCount > 1 && (
+              <div className="flex items-center justify-center gap-2 mt-10">
+                <button
+                  onClick={() => setPage((p) => Math.max(1, p - 1))}
+                  disabled={current === 1}
+                  className="px-3 py-2 rounded-lg border border-slate-200 text-sm text-slate-500 disabled:opacity-40 hover:border-[#4E8F89] hover:text-[#4E8F89] transition"
+                >
+                  Prev
+                </button>
+                {Array.from({ length: pageCount }).map((_, i) => (
+                  <button
+                    key={i}
+                    onClick={() => setPage(i + 1)}
+                    className={`w-9 h-9 rounded-lg text-sm font-semibold transition ${
+                      current === i + 1
+                        ? "bg-[#4E8F89] text-white"
+                        : "border border-slate-200 text-slate-500 hover:border-[#4E8F89] hover:text-[#4E8F89]"
+                    }`}
+                  >
+                    {i + 1}
+                  </button>
+                ))}
+                <button
+                  onClick={() => setPage((p) => Math.min(pageCount, p + 1))}
+                  disabled={current === pageCount}
+                  className="px-3 py-2 rounded-lg border border-slate-200 text-sm text-slate-500 disabled:opacity-40 hover:border-[#4E8F89] hover:text-[#4E8F89] transition"
+                >
+                  Next
+                </button>
+              </div>
             )}
           </div>
         </div>
