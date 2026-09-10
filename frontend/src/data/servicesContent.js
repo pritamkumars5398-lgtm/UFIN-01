@@ -73,6 +73,9 @@ export const servicesContent = {
       "Delays getting telemetry to dispatchers",
       "Lock-in to a single monitoring vendor",
     ],
+    integrationPartners: ["1C:ERP", "1C:Transport Logistics", "SAP", "Galaxia", "Yandex.Courier", "Custom webhooks"],
+    integrationPartnersTitle: "Ready-made connectors",
+    leadForm: "Get detailed information about the API",
     faqs: [
       { q: "How is the API authenticated?", a: "With a bearer token issued in your account. Tokens are scoped and can be revoked at any time." },
       { q: "What data formats are supported?", a: "JSON by default, XML on request. The WebSocket channel streams JSON events." },
@@ -101,7 +104,7 @@ export const servicesContent = {
       {
         title: "How retransmission works",
         content:
-          "The platform forwards a copy of each object's data stream to one or more destinations, translating it into the protocol the receiving side expects. Your own dashboard keeps working unchanged.",
+          "The platform forwards a copy of each object's data stream to one or more destinations, translating it into the protocol the receiving side expects — continuously or on demand. Your own dashboard keeps working unchanged, and there is nothing to add on the vehicle.",
         details: [
           "Routing configured per object or per group",
           "Automatic protocol translation",
@@ -109,19 +112,11 @@ export const servicesContent = {
           "Retransmission status audit per destination",
         ],
       },
-      {
-        title: "Supported protocols",
-        content:
-          "Recognised standards and custom formats are both supported, so a single object can feed a government portal and a private customer at the same time.",
-        details: ["EGTS", "AIS140", "Wialon IPS", "NIS", "Custom TCP formats on request"],
-      },
-      {
-        title: "Already connected",
-        content:
-          "Data is already flowing to a range of external platforms and aggregators.",
-        details: ["Mos.ru", "Advantum", "Yandex.Courier", "MoveInSync", "RedBus", "RouteMatic"],
-      },
     ],
+    integrationPartnersTitle: "Currently active integrations",
+    integrationProtocols: ["EGTS", "AIS140", "Wialon IPS", "NIS", "Custom TCP formats"],
+    integrationPartners: ["Mos.ru", "Advantum", "Yandex.Courier", "MoveInSync", "RedBus", "RouteMatic"],
+    leadForm: "Connect a relay server",
     monitors: [
       "Retransmission session status per destination",
       "Delivered vs queued packets",
@@ -158,7 +153,33 @@ export const servicesContent = {
       "Optional import of historical data",
       "Lower monthly licence fees",
     ],
+    steps: [
+      { title: "Export your files from Wialon", desc: "Export the unit and geofence data as WLP and KML files from your current Wialon account." },
+      { title: "Send them to us", desc: "Email the files and your contact details to s@tekonikasystems.online — our engineers do the rest and re-point your terminals." },
+    ],
+    extraList: {
+      title: "Why operators switch to us",
+      items: [
+        "A Russian service, operating since 2015 on its own software",
+        "Equipment rental for any period",
+        "Flexible Pay-As-You-Go pricing",
+        "An individual tariff per vehicle",
+        "Custom feature development for your business",
+        "Continuous support for new device types",
+      ],
+    },
     sections: [
+      {
+        title: "Wialon is leaving Russia — how to find an alternative",
+        content:
+          "Gurtam stopped supporting Wialon in Russia from 4 July 2024 and began blocking Russian IP addresses, after the product was removed from the domestic software registry in 2022. Fleets need a stable platform they can rely on.",
+        details: [
+          "Data transfer from your current account",
+          "Equipment reconfiguration without replacement",
+          "Re-established integrations",
+          "Russian-language technical support",
+        ],
+      },
       {
         title: "What migration involves",
         content:

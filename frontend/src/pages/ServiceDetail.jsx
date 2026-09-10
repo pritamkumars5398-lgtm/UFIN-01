@@ -7,6 +7,7 @@ import {
 import { resolveServicePage, sectionImagePool, deviceImagePool, clientLogos } from "../data/servicePageScaffold";
 import RoiCalculator from "../components/RoiCalculator";
 import EquipmentCarousel from "../components/EquipmentCarousel";
+import InlineLeadForm from "../components/InlineLeadForm";
 
 export default function ServiceDetail() {
   const { slug } = useParams();
@@ -610,42 +611,74 @@ export default function ServiceDetail() {
         </section>
       )}
 
-      {/* ── 12. INTEGRATION PARTNERS (integrations only) ── */}
-      {isIntegration && (
+      {/* ── 11d. EXTRA BENEFIT LIST (opt-in) ── */}
+      {data.extraList?.items?.length > 0 && (
+        <section className="py-16 px-6 bg-white">
+          <div className="max-w-5xl mx-auto">
+            <h2 className="text-2xl font-black text-[#0B1F33] mb-8">
+              {data.extraList.title || "Why it works"}
+            </h2>
+            <div className="grid sm:grid-cols-2 gap-4">
+              {data.extraList.items.map((it, i) => (
+                <div key={i} className="flex items-start gap-3 bg-[#f7f8f9] p-5 rounded-xl">
+                  <Check size={16} className="text-[#4E8F89] shrink-0 mt-0.5" />
+                  <span className="text-slate-700 text-sm font-medium leading-relaxed">{it}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* ── 12. INTEGRATION PARTNERS / PROTOCOLS (data-driven) ── */}
+      {(data.integrationPartners?.length > 0 || data.integrationProtocols?.length > 0) && (
         <section className="py-20 px-6 bg-[#f7f8f9]">
           <div className="max-w-5xl mx-auto">
-            <h2 className="text-3xl font-black text-[#0B1F33] mb-3">Already connected</h2>
+            <h2 className="text-3xl font-black text-[#0B1F33] mb-3">
+              {data.integrationPartnersTitle || "Already connected"}
+            </h2>
             <p className="text-slate-400 text-sm mb-10">
               Data is transmitted continuously or on demand, in the protocol the receiving side expects.
             </p>
             <div className="grid sm:grid-cols-2 gap-8">
-              <div className="bg-white rounded-2xl p-8 border border-slate-100">
-                <h3 className="font-bold text-[#0B1F33] mb-4 flex items-center gap-2">
-                  <Plug size={18} className="text-[#4E8F89]" /> Systems &amp; portals
-                </h3>
-                <div className="flex flex-wrap gap-2">
-                  {["1C", "SAP", "Galaxia", "Yandex.Courier", "MoveInSync", "RedBus", "Mos.ru", "Advantum"].map((p) => (
-                    <span key={p} className="text-xs bg-[#f7f8f9] text-slate-600 px-3 py-1.5 rounded-full">
-                      {p}
-                    </span>
-                  ))}
+              {data.integrationPartners?.length > 0 && (
+                <div className="bg-white rounded-2xl p-8 border border-slate-100">
+                  <h3 className="font-bold text-[#0B1F33] mb-4 flex items-center gap-2">
+                    <Plug size={18} className="text-[#4E8F89]" /> Systems &amp; platforms
+                  </h3>
+                  <div className="flex flex-wrap gap-2">
+                    {data.integrationPartners.map((p) => (
+                      <span key={p} className="text-xs bg-[#f7f8f9] text-slate-600 px-3 py-1.5 rounded-full">
+                        {p}
+                      </span>
+                    ))}
+                  </div>
                 </div>
-              </div>
-              <div className="bg-white rounded-2xl p-8 border border-slate-100">
-                <h3 className="font-bold text-[#0B1F33] mb-4 flex items-center gap-2">
-                  <Boxes size={18} className="text-[#4E8F89]" /> Protocols
-                </h3>
-                <div className="flex flex-wrap gap-2">
-                  {["EGTS", "AIS140", "Wialon IPS", "NIS", "REST / WebSocket"].map((p) => (
-                    <span key={p} className="text-xs bg-[#f7f8f9] text-slate-600 px-3 py-1.5 rounded-full">
-                      {p}
-                    </span>
-                  ))}
+              )}
+              {data.integrationProtocols?.length > 0 && (
+                <div className="bg-white rounded-2xl p-8 border border-slate-100">
+                  <h3 className="font-bold text-[#0B1F33] mb-4 flex items-center gap-2">
+                    <Boxes size={18} className="text-[#4E8F89]" /> Protocols
+                  </h3>
+                  <div className="flex flex-wrap gap-2">
+                    {data.integrationProtocols.map((p) => (
+                      <span key={p} className="text-xs bg-[#f7f8f9] text-slate-600 px-3 py-1.5 rounded-full">
+                        {p}
+                      </span>
+                    ))}
+                  </div>
                 </div>
-              </div>
+              )}
             </div>
           </div>
         </section>
+      )}
+
+      {/* ── 12b. INLINE LEAD FORM (opt-in) ── */}
+      {data.leadForm && (
+        <InlineLeadForm
+          heading={typeof data.leadForm === "string" ? data.leadForm : "Get detailed information"}
+        />
       )}
 
       {/* ── 13. EQUIPMENT SHOWCASE (carousel) ── */}
