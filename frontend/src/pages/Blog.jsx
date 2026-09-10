@@ -38,8 +38,8 @@ export default function Blog() {
         crumbs={[{ label: "Company", to: "/company" }, { label: "Blog" }]}
       />
 
-      <section className="py-16 px-6">
-        <div className="max-w-4xl mx-auto">
+      <section className="py-16 px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
           {/* Filter */}
           <div className="flex flex-wrap items-center gap-2 mb-10">
             {categories.map((c) => (

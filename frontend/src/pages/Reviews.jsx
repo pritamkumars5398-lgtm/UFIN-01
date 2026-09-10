@@ -41,7 +41,7 @@ export default function Reviews() {
       />
 
       {/* ── Stats bar ── */}
-      <section className="bg-[#0B1F33] py-10 px-6">
+      <section className="bg-[#0B1F33] py-10 px-6 lg:px-8">
         <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center divide-x divide-white/10">
           {[
             { v: "400+", l: "Corporate clients" },
@@ -58,7 +58,7 @@ export default function Reviews() {
       </section>
 
       {/* ── Featured review ── */}
-      <section className="py-16 px-6 bg-[#f7f8f9]">
+      <section className="py-16 px-6 lg:px-8 bg-[#f7f8f9]">
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-10 items-stretch bg-white rounded-3xl overflow-hidden border border-slate-100 shadow-sm">
             <div className="relative min-h-[280px]">
@@ -92,7 +92,7 @@ export default function Reviews() {
       </section>
 
       {/* ── Filter + grid ── */}
-      <section className="py-16 px-6 bg-white">
+      <section className="py-16 px-6 lg:px-8 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-wrap items-center gap-2 mb-10">
             {industries.map((ind) => (

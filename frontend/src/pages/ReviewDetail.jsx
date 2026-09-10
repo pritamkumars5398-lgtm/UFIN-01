@@ -22,14 +22,14 @@ export default function ReviewDetail() {
     <div className="bg-white min-h-screen">
       {/* ── Hero ── */}
       <section
-        className="relative min-h-[50vh] flex items-end pt-28 pb-14 px-6"
+        className="relative min-h-[50vh] flex items-end pt-28 pb-14 px-6 lg:px-8"
         style={{
           backgroundImage: `linear-gradient(to right, rgba(11,31,51,0.94), rgba(11,31,51,0.7)), url('${review.image}')`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
       >
-        <div className="max-w-4xl mx-auto w-full">
+        <div className="max-w-7xl mx-auto w-full">
           <div className="flex items-center gap-2 text-sm text-white/60 mb-5">
             <Link to="/" className="hover:text-white transition">Home</Link>
             <ChevronRight size={14} />
@@ -50,8 +50,8 @@ export default function ReviewDetail() {
       </section>
 
       {/* ── Body ── */}
-      <section className="py-16 px-6">
-        <div className="max-w-4xl mx-auto grid lg:grid-cols-[1fr_260px] gap-12">
+      <section className="py-16 px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto grid lg:grid-cols-[1fr_260px] gap-12">
           <div>
             <div className="flex items-center gap-1 mb-6">
               {[...Array(5)].map((_, i) => (
@@ -101,7 +101,7 @@ export default function ReviewDetail() {
         </div>
 
         {/* Prev / Next */}
-        <div className="max-w-4xl mx-auto mt-14 pt-8 border-t border-slate-100 flex justify-between gap-4">
+        <div className="max-w-7xl mx-auto mt-14 pt-8 border-t border-slate-100 flex justify-between gap-4">
           {prev ? (
             <Link to={`/reviews/${prev.slug}`} className="group flex items-center gap-2 text-sm text-slate-500 hover:text-[#4E8F89] transition">
               <ChevronLeft size={16} />

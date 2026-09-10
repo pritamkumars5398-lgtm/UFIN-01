@@ -6,9 +6,7 @@ import {
   Clock3,
   ArrowUp,
 } from "lucide-react";
-import { FaTelegramPlane, FaApple, FaGooglePlay } from "react-icons/fa";
-import { SiHuawei } from "react-icons/si";
-import { TbDeviceMobileMessage } from "react-icons/tb"; // as a generic icon
+import { TelegramIcon } from "./Icons";
 import logoLight from "../assets/logo-light.png";
 
 // Footer Badge & App Store Icons
@@ -72,13 +70,13 @@ export default function Footer() {
 
             <div className="flex gap-4">
               <div className="w-10 h-10 rounded-full bg-[#1B7F6D] flex items-center justify-center hover:opacity-80 transition cursor-pointer">
-                <FaTelegramPlane className="text-white text-lg" />
+                <TelegramIcon className="text-white" size={18} />
               </div>
               <div className="w-10 h-10 rounded-full bg-[#1B7F6D] flex items-center justify-center hover:opacity-80 transition cursor-pointer font-bold text-white">
                 R
               </div>
               <div className="w-10 h-10 rounded-full bg-[#1B7F6D] flex items-center justify-center hover:opacity-80 transition cursor-pointer">
-                <TbDeviceMobileMessage className="text-white text-xl" />
+                <Phone className="text-white" size={18} />
               </div>
             </div>
           </div>

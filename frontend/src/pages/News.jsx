@@ -26,8 +26,8 @@ export default function News() {
         crumbs={[{ label: "Company", to: "/company" }, { label: "News" }]}
       />
 
-      <section className="py-16 px-6">
-        <div className="max-w-4xl mx-auto divide-y divide-slate-100">
+      <section className="py-16 px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto divide-y divide-slate-100">
           {shown.map((n) => (
             <article key={n.slug} className="py-8 first:pt-0">
               <Link

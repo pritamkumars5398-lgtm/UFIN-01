@@ -111,8 +111,8 @@ export default function ServiceDetail() {
 
       {/* ── 3. WHAT YOU CAN MONITOR (intro bullets) ── */}
       {data.highlights?.length > 0 && (
-        <section className="py-16 px-6 bg-white border-b border-slate-100">
-          <div className="max-w-5xl mx-auto text-center">
+        <section className="py-16 px-6 lg:px-8 bg-white border-b border-slate-100">
+          <div className="max-w-7xl mx-auto text-center">
             <h2 className="text-3xl font-black text-[#0B1F33] mb-4">
               {isIntegration ? "What the API lets you do" : `What ${data.title.toLowerCase()} lets you control`}
             </h2>
@@ -506,8 +506,8 @@ export default function ServiceDetail() {
 
       {/* ── 10. BEFORE / AFTER ── */}
       {rich && data.beforeAfter?.length > 0 && (
-        <section className="py-20 px-6 bg-white">
-          <div className="max-w-4xl mx-auto">
+        <section className="py-20 px-6 lg:px-8 bg-white">
+          <div className="max-w-7xl mx-auto">
             <h2 className="text-3xl font-black text-[#0B1F33] mb-3">
               Results of using {data.title.toLowerCase()}
             </h2>
@@ -613,8 +613,8 @@ export default function ServiceDetail() {
 
       {/* ── 11d. EXTRA BENEFIT LIST (opt-in) ── */}
       {data.extraList?.items?.length > 0 && (
-        <section className="py-16 px-6 bg-white">
-          <div className="max-w-5xl mx-auto">
+        <section className="py-16 px-6 lg:px-8 bg-white">
+          <div className="max-w-7xl mx-auto">
             <h2 className="text-2xl font-black text-[#0B1F33] mb-8">
               {data.extraList.title || "Why it works"}
             </h2>
@@ -632,8 +632,8 @@ export default function ServiceDetail() {
 
       {/* ── 12. INTEGRATION PARTNERS / PROTOCOLS (data-driven) ── */}
       {(data.integrationPartners?.length > 0 || data.integrationProtocols?.length > 0) && (
-        <section className="py-20 px-6 bg-[#f7f8f9]">
-          <div className="max-w-5xl mx-auto">
+        <section className="py-20 px-6 lg:px-8 bg-[#f7f8f9]">
+          <div className="max-w-7xl mx-auto">
             <h2 className="text-3xl font-black text-[#0B1F33] mb-3">
               {data.integrationPartnersTitle || "Already connected"}
             </h2>
@@ -686,8 +686,8 @@ export default function ServiceDetail() {
 
       {/* ── 14. FAQ ── */}
       {data.faqs?.length > 0 && (
-        <section className="py-20 px-6 bg-[#f7f8f9]">
-          <div className="max-w-3xl mx-auto">
+        <section className="py-20 px-6 lg:px-8 bg-[#f7f8f9]">
+          <div className="max-w-7xl mx-auto">
             <h2 className="text-3xl font-black text-[#0B1F33] mb-10">Questions and answers</h2>
             <div className="space-y-3">
               {data.faqs.map((f, i) => (
@@ -717,8 +717,8 @@ export default function ServiceDetail() {
 
       {/* ── 15. TESTIMONIAL ── */}
       {data.testimonial && (
-        <section className="py-16 px-6 bg-white">
-          <div className="max-w-4xl mx-auto bg-[#0B1F33] rounded-3xl p-10 text-white">
+        <section className="py-16 px-6 lg:px-8 bg-white">
+          <div className="max-w-7xl mx-auto bg-[#0B1F33] rounded-3xl p-10 text-white">
             <Quote className="text-[#4E8F89] mb-5" size={36} />
             <p className="text-lg lg:text-xl font-medium leading-relaxed mb-6">"{data.testimonial.quote}"</p>
             <p className="font-bold text-[#4E8F89]">{data.testimonial.author}</p>

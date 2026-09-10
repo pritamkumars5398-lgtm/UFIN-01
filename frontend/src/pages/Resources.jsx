@@ -48,7 +48,7 @@ export default function Resources() {
     <div className="bg-white min-h-screen">
 
       {/* ── HERO — editorial light style ── */}
-      <section className="bg-white pt-32 pb-16 px-6 border-b border-gray-100">
+      <section className="bg-white pt-32 pb-16 px-6 lg:px-8 border-b border-gray-100">
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
@@ -89,7 +89,7 @@ export default function Resources() {
       </section>
 
       {/* ── RESOURCES — category filter + grid ── */}
-      <section id="resources" className="py-16 bg-[#f7f8f9] px-6">
+      <section id="resources" className="py-16 bg-[#f7f8f9] px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="flex items-center justify-between mb-8 flex-wrap gap-4">
             <h2 className="text-2xl font-black text-gray-900">
@@ -131,7 +131,7 @@ export default function Resources() {
       </section>
 
       {/* ── NEWS — magazine grid ── */}
-      <section id="news" className="py-16 px-6 bg-white">
+      <section id="news" className="py-16 px-6 lg:px-8 bg-white">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-2xl font-black text-gray-900 mb-10">
             {t("resourcesPage.newsTitle")}
@@ -167,8 +167,8 @@ export default function Resources() {
       </section>
 
       {/* ── FAQ ── */}
-      <section id="faq" className="py-16 px-6 bg-[#f7f8f9]">
-        <div className="max-w-3xl mx-auto">
+      <section id="faq" className="py-16 px-6 lg:px-8 bg-[#f7f8f9]">
+        <div className="max-w-7xl mx-auto">
           <h2 className="text-2xl font-black text-gray-900 mb-2 text-center">
             {t("resourcesPage.faqTitle")}
           </h2>

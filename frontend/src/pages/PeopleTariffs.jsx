@@ -29,8 +29,8 @@ export default function PeopleTariffs() {
       />
 
       {/* ── Plans ── */}
-      <section className="py-16 px-6 bg-white">
-        <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-6">
+      <section className="py-16 px-6 lg:px-8 bg-white">
+        <div className="max-w-7xl mx-auto grid md:grid-cols-3 gap-6">
           {peopleTariffs.map((p) => (
             <div
               key={p.name}
@@ -79,8 +79,8 @@ export default function PeopleTariffs() {
       </section>
 
       {/* ── Before / after ── */}
-      <section className="py-16 px-6 bg-[#f7f8f9]">
-        <div className="max-w-3xl mx-auto">
+      <section className="py-16 px-6 lg:px-8 bg-[#f7f8f9]">
+        <div className="max-w-7xl mx-auto">
           <h2 className="text-2xl font-black text-[#0B1F33] mb-8 text-center">
             Life before and after
           </h2>
@@ -124,8 +124,8 @@ export default function PeopleTariffs() {
       </section>
 
       {/* ── CTA ── */}
-      <section className="py-16 px-6 bg-white text-center">
-        <div className="max-w-2xl mx-auto">
+      <section className="py-16 px-6 lg:px-8 bg-white text-center">
+        <div className="max-w-7xl mx-auto">
           <h2 className="text-2xl lg:text-3xl font-black text-[#0B1F33] mb-4">
             Two weeks free, then pick a plan
           </h2>

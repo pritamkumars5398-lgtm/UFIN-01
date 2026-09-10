@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Check, Phone, Mail, Clock3 } from "lucide-react";
-import { FaTelegramPlane } from "react-icons/fa";
+import { TelegramIcon } from "../components/Icons";
 import { useLanguage } from "../context/LanguageContext";
 import ceoImg from "../assets/ceo.webp";
 
@@ -53,7 +53,7 @@ export default function Consultation() {
       <div className="grid lg:grid-cols-[1fr_1fr] min-h-screen">
 
         {/* LEFT — dark info panel */}
-        <div className="bg-[#0d1b2a] flex flex-col justify-center px-10 lg:px-16 pt-28 pb-16">
+        <div className="bg-[#0d1b2a] flex flex-col justify-center px-6 lg:px-8 pt-28 pb-16">
 
           <Link to="/" className="inline-flex items-center gap-2 text-white/40 hover:text-white text-xs mb-10 transition">
             {t("consultationPage.backBtn")}
@@ -104,7 +104,7 @@ export default function Consultation() {
               href="https://t.me/tekonika_systems"
               className="inline-flex items-center gap-2 mt-2 px-5 py-2.5 bg-[#229ED9] hover:bg-[#1a8bc4] text-white text-sm font-bold rounded-full transition"
             >
-              <FaTelegramPlane size={14} /> {t("consultationPage.telegramChat")}
+              <TelegramIcon size={14} /> {t("consultationPage.telegramChat")}
             </a>
           </div>
 

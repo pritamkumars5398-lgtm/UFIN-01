@@ -35,7 +35,7 @@ export default function LegalDoc({ title, crumbLabel, doc }) {
   return (
     <div className="bg-white min-h-screen">
       {/* Hero */}
-      <section className="bg-[#0B1F33] pt-32 pb-14 px-6">
+      <section className="bg-[#0B1F33] pt-32 pb-14 px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="flex items-center gap-2 text-sm text-white/50 mb-5">
             <Link to="/" className="hover:text-white transition">Home</Link>
@@ -50,7 +50,7 @@ export default function LegalDoc({ title, crumbLabel, doc }) {
       </section>
 
       {/* Body */}
-      <section className="py-14 px-6">
+      <section className="py-14 px-6 lg:px-8">
         <div className="max-w-7xl mx-auto grid lg:grid-cols-[220px_minmax(0,760px)] gap-12">
           {/* TOC */}
           <nav className="hidden lg:block">

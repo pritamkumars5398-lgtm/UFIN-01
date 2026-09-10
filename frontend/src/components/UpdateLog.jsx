@@ -1,6 +1,4 @@
 import React from "react";
-import { FaApple, FaAndroid, FaChrome } from "react-icons/fa";
-import { SiHuawei } from "react-icons/si";
 import { useLanguage } from "../context/LanguageContext";
 
 export default function UpdateLog() {

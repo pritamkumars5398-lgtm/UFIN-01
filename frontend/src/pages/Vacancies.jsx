@@ -27,7 +27,7 @@ export default function Vacancies() {
       />
 
       {/* ── Intro ── */}
-      <section className="py-16 px-6 bg-white">
+      <section className="py-16 px-6 lg:px-8 bg-white">
         <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
           <div>
             <h2 className="text-3xl font-black text-[#0B1F33] mb-5">Work at Tekonika Systems</h2>
@@ -40,7 +40,7 @@ export default function Vacancies() {
       </section>
 
       {/* ── Perks ── */}
-      <section className="py-16 px-6 bg-[#f7f8f9]">
+      <section className="py-16 px-6 lg:px-8 bg-[#f7f8f9]">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-2xl font-black text-[#0B1F33] mb-10 text-center">
             What we offer
@@ -60,8 +60,8 @@ export default function Vacancies() {
       </section>
 
       {/* ── Open positions ── */}
-      <section className="py-16 px-6 bg-white">
-        <div className="max-w-4xl mx-auto">
+      <section className="py-16 px-6 lg:px-8 bg-white">
+        <div className="max-w-7xl mx-auto">
           <h2 className="text-2xl font-black text-[#0B1F33] mb-3">Open positions</h2>
           <p className="text-slate-400 text-sm mb-10">
             {vacancies.length} roles currently open. Don't see a fit? Send us your CV anyway.

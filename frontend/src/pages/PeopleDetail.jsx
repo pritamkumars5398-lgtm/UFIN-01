@@ -23,7 +23,7 @@ export default function PeopleDetail() {
     <div className="bg-white min-h-screen">
       {/* ── HERO ── */}
       <section
-        className="relative min-h-[60vh] flex items-center pt-28 pb-16 px-6"
+        className="relative min-h-[60vh] flex items-center pt-28 pb-16 px-6 lg:px-8"
         style={{
           backgroundImage: `linear-gradient(to right, rgba(11,31,51,0.93), rgba(11,31,51,0.6)), url('${data.image}')`,
           backgroundSize: "cover",
@@ -64,7 +64,7 @@ export default function PeopleDetail() {
       </section>
 
       {/* ── PRICE STRIP ── */}
-      <section className="bg-[#0B1F33] py-8 px-6 border-t border-white/10">
+      <section className="bg-[#0B1F33] py-8 px-6 lg:px-8 border-t border-white/10">
         <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-8 text-center sm:divide-x divide-white/10">
           <div>
             <div className="text-3xl font-black text-[#4E8F89] mb-1">{data.priceEquip}</div>
@@ -77,7 +77,7 @@ export default function PeopleDetail() {
         </div>
       </section>
 
-      <div className="max-w-7xl mx-auto px-6 py-20">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 py-20">
         <div className="grid lg:grid-cols-3 gap-12">
           {/* ── MAIN ── */}
           <div className="lg:col-span-2 space-y-16">
@@ -203,7 +203,7 @@ export default function PeopleDetail() {
       </div>
 
       {/* ── OTHER CATEGORIES ── */}
-      <section className="py-16 px-6 bg-[#f7f8f9] border-t border-slate-100">
+      <section className="py-16 px-6 lg:px-8 bg-[#f7f8f9] border-t border-slate-100">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-xl font-black text-[#0B1F33] mb-6">Other things you can track</h2>
           <div className="flex flex-wrap gap-3">

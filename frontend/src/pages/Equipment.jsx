@@ -60,7 +60,7 @@ export default function Equipment() {
         crumbs={[{ label: "Resources", to: "/resources" }, { label: "Equipment" }]}
       />
 
-      <section className="py-14 px-6">
+      <section className="py-14 px-6 lg:px-8">
         <div className="max-w-7xl mx-auto grid lg:grid-cols-[240px_1fr] gap-10">
           {/* Sidebar */}
           <aside>
@@ -198,7 +198,7 @@ export default function Equipment() {
         </div>
       </section>
 
-      <section className="bg-[#0B1F33] py-14 px-6 text-center">
+      <section className="bg-[#0B1F33] py-14 px-6 lg:px-8 text-center">
         <div className="max-w-3xl mx-auto">
           <h2 className="text-2xl lg:text-3xl font-black text-white mb-3">
             Bring your own hardware

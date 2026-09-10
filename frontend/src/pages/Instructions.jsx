@@ -36,7 +36,7 @@ export default function Instructions() {
       />
 
       {/* ── Universal connect steps ── */}
-      <section className="py-16 px-6 bg-[#f7f8f9]">
+      <section className="py-16 px-6 lg:px-8 bg-[#f7f8f9]">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-2xl font-black text-[#0B1F33] mb-3 text-center">
             How to connect any tracker
@@ -59,7 +59,7 @@ export default function Instructions() {
       </section>
 
       {/* ── Browse by device ── */}
-      <section className="py-16 px-6 bg-white">
+      <section className="py-16 px-6 lg:px-8 bg-white">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-2xl font-black text-[#0B1F33] mb-3">Browse by device</h2>
           <p className="text-slate-400 text-sm mb-10">Pick your model to open its connection guide.</p>
@@ -102,7 +102,7 @@ export default function Instructions() {
       </section>
 
       {/* ── Model guides ── */}
-      <section id="guides" className="py-16 px-6 bg-[#f7f8f9]">
+      <section id="guides" className="py-16 px-6 lg:px-8 bg-[#f7f8f9]">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-10">
             <h2 className="text-2xl font-black text-[#0B1F33]">Guides by model</h2>
@@ -153,8 +153,8 @@ export default function Instructions() {
       </section>
 
       {/* ── Help ── */}
-      <section className="pb-20 px-6 bg-white">
-        <div className="max-w-4xl mx-auto bg-[#EAF5F3] rounded-3xl p-8 md:p-10 border border-[#4E8F89]/20 flex flex-col sm:flex-row items-center justify-between gap-6">
+      <section className="pb-20 px-6 lg:px-8 bg-white">
+        <div className="max-w-7xl mx-auto bg-[#EAF5F3] rounded-3xl p-8 md:p-10 border border-[#4E8F89]/20 flex flex-col sm:flex-row items-center justify-between gap-6">
           <div>
             <h2 className="font-black text-[#0B1F33] text-lg mb-1">Stuck on setup?</h2>
             <p className="text-slate-500 text-sm">

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import {
   ShoppingCart, Settings, MapPin, Quote, ChevronDown, Star, ArrowRight,
 } from "lucide-react";
-import { FaApple, FaGooglePlay } from "react-icons/fa";
+import { AppleIcon, GooglePlayIcon } from "../components/Icons";
 import CompanyCTA from "../components/CompanyCTA";
 import { peopleLanding } from "../data/peopleContent";
 import { peopleSolutions, peoplePets } from "../data/peopleContent";
@@ -25,7 +25,7 @@ export default function People() {
     <div className="bg-white min-h-screen">
       {/* ── HERO ── */}
       <section
-        className="relative min-h-[80vh] flex items-center pt-28 pb-20 px-6"
+        className="relative min-h-[80vh] flex items-center pt-28 pb-20 px-6 lg:px-8"
         style={{
           backgroundImage: `linear-gradient(to right, rgba(11,31,51,0.92), rgba(11,31,51,0.55)), url('${hero.image}')`,
           backgroundSize: "cover",
@@ -58,8 +58,8 @@ export default function People() {
       </section>
 
       {/* ── SOCIAL PROOF ── */}
-      <section className="bg-[#0B1F33] py-14 px-6">
-        <div className="max-w-4xl mx-auto text-center">
+      <section className="bg-[#0B1F33] py-14 px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto text-center">
           <Quote className="text-[#4E8F89] mx-auto mb-5" size={36} />
           <p className="text-white text-xl lg:text-2xl font-medium leading-snug mb-4">
             "{proof.quote}"
@@ -69,7 +69,7 @@ export default function People() {
       </section>
 
       {/* ── STEPS ── */}
-      <section className="py-20 px-6 bg-white">
+      <section className="py-20 px-6 lg:px-8 bg-white">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-3xl font-black text-[#0B1F33] mb-14 text-center">
             Getting started takes minutes
@@ -91,17 +91,17 @@ export default function People() {
           </div>
           <div className="flex justify-center gap-4 mt-12">
             <span className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#0B1F33] text-white text-sm font-semibold rounded-xl">
-              <FaApple size={16} /> App Store
+              <AppleIcon size={16} /> App Store
             </span>
-            <span className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#0B1F33] text-white text-sm font-semibold rounded-xl">
-              <FaGooglePlay size={15} /> Google Play
-            </span>
+            <a href="#" className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#1F2937] hover:bg-[#374151] text-white text-xs font-bold rounded-lg transition">
+              <GooglePlayIcon size={15} /> Google Play
+            </a>
           </div>
         </div>
       </section>
 
       {/* ── WHAT CAN YOU TRACK ── */}
-      <section className="py-20 px-6 bg-[#f7f8f9]">
+      <section className="py-20 px-6 lg:px-8 bg-[#f7f8f9]">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-3xl font-black text-[#0B1F33] mb-3 text-center">
             What can you keep track of?
@@ -127,7 +127,7 @@ export default function People() {
       </section>
 
       {/* ── TESTIMONIALS ── */}
-      <section className="py-20 px-6 bg-white">
+      <section className="py-20 px-6 lg:px-8 bg-white">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-3xl font-black text-[#0B1F33] mb-12 text-center">
             What families tell us
@@ -150,8 +150,8 @@ export default function People() {
       </section>
 
       {/* ── FAQ ── */}
-      <section id="faq" className="py-20 px-6 bg-[#f7f8f9]">
-        <div className="max-w-3xl mx-auto">
+      <section id="faq" className="py-20 px-6 lg:px-8 bg-[#f7f8f9]">
+        <div className="max-w-7xl mx-auto">
           <h2 className="text-3xl font-black text-[#0B1F33] mb-10 text-center">
             Questions and answers
           </h2>

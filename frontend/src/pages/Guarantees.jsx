@@ -21,8 +21,8 @@ export default function Guarantees() {
       />
 
       {/* ── Key terms ── */}
-      <section className="py-16 px-6 bg-white">
-        <div className="max-w-5xl mx-auto grid sm:grid-cols-3 gap-6">
+      <section className="py-16 px-6 lg:px-8 bg-white">
+        <div className="max-w-7xl mx-auto grid sm:grid-cols-3 gap-6">
           {[
             { v: "12 months", l: "Standard warranty from the date of installation" },
             { v: "24/7", l: "Technical support for warranty cases" },
@@ -37,13 +37,13 @@ export default function Guarantees() {
       </section>
 
       {/* ── General provisions ── */}
-      <section className="pb-4 px-6 bg-white">
-        <div className="max-w-3xl mx-auto">
+      <section className="pb-4 px-6 lg:px-8 bg-white">
+        <div className="max-w-7xl mx-auto">
           <div className="flex items-center gap-3 mb-5">
             <ShieldCheck className="text-[#4E8F89]" size={24} />
             <h2 className="text-2xl font-black text-[#0B1F33]">General provisions</h2>
           </div>
-          <div className="space-y-4 text-slate-600 leading-relaxed">
+          <div className="space-y-4 text-slate-600 leading-relaxed max-w-3xl">
             <p>
               Tekonika Systems is committed to the high quality of its products and services. We
               recommend that installation, maintenance and repair be carried out only by qualified
@@ -63,13 +63,13 @@ export default function Guarantees() {
       </section>
 
       {/* ── Exclusions ── */}
-      <section className="py-14 px-6 bg-[#f7f8f9] mt-12">
-        <div className="max-w-3xl mx-auto">
+      <section className="py-14 px-6 lg:px-8 bg-[#f7f8f9] mt-12">
+        <div className="max-w-7xl mx-auto">
           <div className="flex items-center gap-3 mb-6">
             <XCircle className="text-[#f59e0b]" size={24} />
             <h2 className="text-2xl font-black text-[#0B1F33]">What the warranty does not cover</h2>
           </div>
-          <ul className="space-y-3">
+          <ul className="space-y-3 max-w-3xl">
             {guaranteeExclusions.map((e) => (
               <li
                 key={e}
@@ -84,8 +84,8 @@ export default function Guarantees() {
       </section>
 
       {/* ── Service support steps ── */}
-      <section className="py-16 px-6 bg-white">
-        <div className="max-w-4xl mx-auto">
+      <section className="py-16 px-6 lg:px-8 bg-white">
+        <div className="max-w-7xl mx-auto">
           <div className="flex items-center gap-3 mb-8">
             <LifeBuoy className="text-[#4E8F89]" size={24} />
             <h2 className="text-2xl font-black text-[#0B1F33]">If you find a defect</h2>
@@ -105,8 +105,8 @@ export default function Guarantees() {
       </section>
 
       {/* ── Contact block ── */}
-      <section className="pb-20 px-6 bg-white">
-        <div className="max-w-4xl mx-auto bg-[#0B1F33] rounded-3xl p-8 md:p-10 text-white">
+      <section className="pb-20 px-6 lg:px-8 bg-white">
+        <div className="max-w-7xl mx-auto bg-[#0B1F33] rounded-3xl p-8 md:p-10 text-white">
           <h2 className="text-xl font-black mb-6">Warranty support</h2>
           <div className="grid sm:grid-cols-3 gap-6 text-sm">
             <div className="flex items-start gap-3">

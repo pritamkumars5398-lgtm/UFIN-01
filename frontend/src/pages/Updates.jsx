@@ -34,8 +34,8 @@ export default function Updates() {
         crumbs={[{ label: "Resources", to: "/resources" }, { label: "Updates" }]}
       />
 
-      <section className="py-16 px-6">
-        <div className="max-w-3xl mx-auto">
+      <section className="py-16 px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
           <div className="relative border-l-2 border-slate-200 pl-8 space-y-10">
             {shown.map((u, i) => (
               <div key={i} className="relative">
