@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Check, Phone, Mail, Clock3 } from "lucide-react";
-import { TelegramIcon } from "../components/Icons";
+import { FaTelegramPlane } from "react-icons/fa";
 import { useLanguage } from "../context/LanguageContext";
 import ceoImg from "../assets/ceo.webp";
 
@@ -104,7 +104,7 @@ export default function Consultation() {
               href="https://t.me/tekonika_systems"
               className="inline-flex items-center gap-2 mt-2 px-5 py-2.5 bg-[#229ED9] hover:bg-[#1a8bc4] text-white text-sm font-bold rounded-full transition"
             >
-              <TelegramIcon size={14} /> {t("consultationPage.telegramChat")}
+              <FaTelegramPlane size={14} /> {t("consultationPage.telegramChat")}
             </a>
           </div>
 

@@ -6,7 +6,9 @@ import {
   Clock3,
   ArrowUp,
 } from "lucide-react";
-import { TelegramIcon } from "./Icons";
+import { FaTelegramPlane, FaApple, FaGooglePlay } from "react-icons/fa";
+import { SiHuawei } from "react-icons/si";
+import { TbDeviceMobileMessage } from "react-icons/tb"; // as a generic icon
 import logoLight from "../assets/logo-light.png";
 
 // Footer Badge & App Store Icons
@@ -52,7 +54,7 @@ export default function Footer() {
                 className="h-24 w-auto object-contain mix-blend-multiply origin-left"
               />
             </Link>
-            
+
             <div className="space-y-4 text-[#1B7F6D] text-[15px] font-medium mb-10">
               <div className="flex items-center gap-3">
                 <Phone size={18} className="text-[#A4CBC5]" />
@@ -70,13 +72,13 @@ export default function Footer() {
 
             <div className="flex gap-4">
               <div className="w-10 h-10 rounded-full bg-[#1B7F6D] flex items-center justify-center hover:opacity-80 transition cursor-pointer">
-                <TelegramIcon className="text-white" size={18} />
+                <FaTelegramPlane className="text-white text-lg" />
               </div>
               <div className="w-10 h-10 rounded-full bg-[#1B7F6D] flex items-center justify-center hover:opacity-80 transition cursor-pointer font-bold text-white">
                 R
               </div>
               <div className="w-10 h-10 rounded-full bg-[#1B7F6D] flex items-center justify-center hover:opacity-80 transition cursor-pointer">
-                <Phone className="text-white" size={18} />
+                <TbDeviceMobileMessage className="text-white text-xl" />
               </div>
             </div>
           </div>
@@ -176,7 +178,7 @@ export default function Footer() {
             </ul>
 
             {/* Scroll to Top Button */}
-            <button 
+            <button
               onClick={scrollToTop}
               className="absolute -right-6 md:right-0 bottom-0 md:-bottom-10 w-12 h-12 rounded-full bg-[#1B7F6D] hover:bg-[#156456] transition flex items-center justify-center shadow-lg"
             >
@@ -190,7 +192,7 @@ export default function Footer() {
       {/* Bottom Bar */}
       <div className="bg-[#1B7F6D] pt-10 pb-12 text-white relative">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          
+
           {/* Top Row: Badges */}
           <div className="flex flex-col lg:flex-row justify-between items-center gap-6">
             {/* Badges Left */}
@@ -227,11 +229,11 @@ export default function Footer() {
             © 2016-2024 ООО "Compass", INN 9717008560, OGRN 5157746091457<br />
             © 2018-2024 IP Kochkurkina INN 771616491922, OGRNIP 31
           </div>
-          
+
         </div>
 
         {/* Scroll to Top Button */}
-        <button 
+        <button
           onClick={scrollToTop}
           className="absolute right-8 top-10 w-[42px] h-[42px] rounded-full bg-transparent border border-white/20 hover:bg-white/10 transition flex items-center justify-center"
         >

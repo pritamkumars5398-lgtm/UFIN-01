@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import {
   ShoppingCart, Settings, MapPin, Quote, ChevronDown, Star, ArrowRight,
 } from "lucide-react";
-import { AppleIcon, GooglePlayIcon } from "../components/Icons";
+import { FaApple, FaGooglePlay } from "react-icons/fa";
 import CompanyCTA from "../components/CompanyCTA";
 import { peopleLanding } from "../data/peopleContent";
 import { peopleSolutions, peoplePets } from "../data/peopleContent";
@@ -91,11 +91,11 @@ export default function People() {
           </div>
           <div className="flex justify-center gap-4 mt-12">
             <span className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#0B1F33] text-white text-sm font-semibold rounded-xl">
-              <AppleIcon size={16} /> App Store
+              <FaApple size={16} /> App Store
             </span>
-            <a href="#" className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#1F2937] hover:bg-[#374151] text-white text-xs font-bold rounded-lg transition">
-              <GooglePlayIcon size={15} /> Google Play
-            </a>
+            <span className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#0B1F33] text-white text-sm font-semibold rounded-xl">
+              <FaGooglePlay size={15} /> Google Play
+            </span>
           </div>
         </div>
       </section>
@@ -165,9 +165,8 @@ export default function People() {
                   {f.q}
                   <ChevronDown
                     size={16}
-                    className={`text-slate-400 transition-transform shrink-0 ml-4 ${
-                      openFaq === i ? "rotate-180" : ""
-                    }`}
+                    className={`text-slate-400 transition-transform shrink-0 ml-4 ${openFaq === i ? "rotate-180" : ""
+                      }`}
                   />
                 </button>
                 {openFaq === i && (

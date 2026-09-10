@@ -1,6 +1,6 @@
 import React from "react";
 import { ChevronRight, Phone } from "lucide-react";
-import { TelegramIcon } from "./Icons";
+import { FaTelegramPlane } from "react-icons/fa";
 import { useLanguage } from "../context/LanguageContext";
 import partnerImg from "../assets/handshake.jpg";
 
@@ -58,7 +58,7 @@ export default function ResourcesSection() {
                   <span className="text-base font-bold text-[#0B1F33]">{t("common.phone")}</span>
                 </div>
                 <a href="https://t.me/tekonika_systems" className="w-9 h-9 rounded bg-[#229ED9] text-white flex items-center justify-center hover:opacity-80 transition">
-                  <TelegramIcon size={16} />
+                  <FaTelegramPlane size={16} />
                 </a>
               </div>
             </div>

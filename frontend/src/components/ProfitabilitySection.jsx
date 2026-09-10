@@ -1,4 +1,5 @@
 import React from "react";
+import animationVideo from "../assets/busniess-1-1.mp4";
 
 export default function ProfitabilitySection() {
   return (
@@ -24,7 +25,7 @@ export default function ProfitabilitySection() {
           className="w-full object-contain"
           style={{ display: "block" }}
         >
-          <source src="/busniess-1-1.mp4#t=0.001" type="video/mp4" />
+          <source src={`${animationVideo}#t=0.001`} type="video/mp4" />
         </video>
       </div>
     </section>

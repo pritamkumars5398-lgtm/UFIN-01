@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Award, Globe, HeartHandshake, Briefcase, ShieldCheck, ChevronRight, ArrowRight } from "lucide-react";
-import { TelegramIcon } from "../components/Icons";
+import { FaTelegramPlane } from "react-icons/fa";
 import { useLanguage } from "../context/LanguageContext";
 import imgNews1 from "../assets/img-24-e1674854414374.png.webp";
 import imgNews2 from "../assets/rybric-1.png.webp";
@@ -13,7 +13,7 @@ export default function Company() {
   const { t, language } = useLanguage();
 
   const stats = t("companyPage.stats") || [];
-  
+
   const valueIcons = [Award, Globe, ShieldCheck];
   const values = (t("companyPage.valuesList") || []).map((val, idx) => ({
     ...val,
@@ -164,7 +164,7 @@ export default function Company() {
           </div>
           <div className="flex gap-3 shrink-0">
             <a href="https://t.me/tekonika_systems" className="flex items-center gap-2 px-6 py-3 bg-[#229ED9] hover:bg-[#1a8bc4] text-white text-sm font-bold rounded-full transition">
-              <TelegramIcon size={15} /> Telegram
+              <FaTelegramPlane size={15} /> Telegram
             </a>
             <Link to="/contacts" className="px-6 py-3 border border-white/20 text-white text-sm font-bold rounded-full hover:bg-white/10 transition">
               {t("navbar.contacts")}

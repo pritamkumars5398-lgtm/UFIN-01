@@ -4,7 +4,7 @@ import {
   Rocket, Megaphone, MapPin, Cpu, Wrench, HandCoins, LifeBuoy,
   Check, ChevronRight, Send,
 } from "lucide-react";
-import { TelegramIcon } from "../components/Icons";
+import { FaTelegramPlane } from "react-icons/fa";
 import PageHero from "../components/PageHero";
 import handshakeImg from "../assets/handshake.jpg";
 import worldMap from "../assets/world-map-grey.png";
@@ -222,7 +222,7 @@ export default function Partners() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 mt-2 px-5 py-2.5 bg-[#229ED9] hover:bg-[#1a8bc4] text-white text-sm font-bold rounded-full transition"
               >
-                <TelegramIcon size={14} /> Telegram chat
+                <FaTelegramPlane size={14} /> Telegram chat
               </a>
             </div>
           </div>

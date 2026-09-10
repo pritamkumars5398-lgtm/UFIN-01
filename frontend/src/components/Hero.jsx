@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useLanguage } from "../context/LanguageContext";
+import businessVideo from "../assets/business-main.mp4";
 
 export default function Hero() {
   const { t } = useLanguage();
@@ -46,7 +47,7 @@ export default function Hero() {
             playsInline
             className="w-full h-full object-cover"
           >
-            <source src="/business-main.mp4#t=0.001" type="video/mp4" />
+            <source src={`${businessVideo}#t=0.001`} type="video/mp4" />
           </video>
         </div>
 

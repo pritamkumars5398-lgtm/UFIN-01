@@ -1,19 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Check, ChevronDown, ChevronUp, Smartphone, ArrowLeft } from "lucide-react";
-import { AppleIcon, GooglePlayIcon } from "../components/Icons";
+import { FaApple, FaGooglePlay } from "react-icons/fa";
+import { SiHuawei } from "react-icons/si";
 import PageHero from "../components/PageHero";
 import CompanyCTA from "../components/CompanyCTA";
 import { mobileAppManual } from "../data/resourcesContent";
 import heroImg from "../assets/driver.png";
-
-function HuaweiIcon({ size = 14 }) {
-  return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor">
-      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z" />
-    </svg>
-  );
-}
 
 export default function MobileAppManual() {
   const [openFaq, setOpenFaq] = useState(null);
@@ -54,13 +47,13 @@ export default function MobileAppManual() {
               </p>
               <div className="flex flex-wrap gap-2">
                 <span className="inline-flex items-center gap-2 bg-white/10 rounded-lg px-3 py-2 text-xs font-semibold">
-                  <AppleIcon size={14} /> App Store
+                  <FaApple size={14} /> App Store
                 </span>
                 <span className="inline-flex items-center gap-2 bg-white/10 rounded-lg px-3 py-2 text-xs font-semibold">
-                  <GooglePlayIcon size={13} /> Google Play
+                  <FaGooglePlay size={13} /> Google Play
                 </span>
                 <span className="inline-flex items-center gap-2 bg-white/10 rounded-lg px-3 py-2 text-xs font-semibold">
-                  <HuaweiIcon size={14} /> AppGallery
+                  <SiHuawei size={14} /> AppGallery
                 </span>
                 <span className="inline-flex items-center gap-2 bg-white/10 rounded-lg px-3 py-2 text-xs font-semibold">
                   RuStore

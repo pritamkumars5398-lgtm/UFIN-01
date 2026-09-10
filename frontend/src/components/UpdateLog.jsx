@@ -1,4 +1,6 @@
 import React from "react";
+import { FaApple, FaAndroid, FaChrome } from "react-icons/fa";
+import { SiHuawei } from "react-icons/si";
 import { useLanguage } from "../context/LanguageContext";
 
 export default function UpdateLog() {
@@ -8,7 +10,7 @@ export default function UpdateLog() {
   return (
     <section className="bg-white py-20">
       <div className="max-w-[800px] mx-auto px-6">
-        
+
         <h2 className="text-center text-4xl font-normal text-[#1F2937] mb-16">
           {t("updateLogTitle") || "Update log"}
         </h2>
