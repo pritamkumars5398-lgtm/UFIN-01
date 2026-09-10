@@ -189,6 +189,102 @@ export const reviews = [
       "After deploying fuel level sensors and enabling the purchased-vs-actual fuel reconciliation report, underfills became visible immediately. The equipment paid for itself within a few months.",
     ],
   },
+  {
+    slug: "reflogistik",
+    company: "TK Reflogistik",
+    logo: null,
+    image: torexImg,
+    date: "March 12, 2024",
+    author: "Ivan Melnik",
+    role: "Fleet Director",
+    industry: "Refrigerated transport",
+    excerpt:
+      "Migrating off Wialon took two files and a phone call. Nothing stopped reporting.",
+    body: [
+      "When Wialon support ended in Russia we needed a stable platform quickly.",
+      "We exported WLP and KML files, sent them over, and the engineers re-pointed every terminal remotely. Reports and geofences came across intact and the licence cost is lower.",
+    ],
+  },
+  {
+    slug: "sdka-group",
+    company: "SDKA Group logistic",
+    logo: null,
+    image: torexImg,
+    date: "September 21, 2023",
+    author: "Operations",
+    role: "Logistics",
+    industry: "Freight logistics",
+    excerpt:
+      "Driver monitoring and ADAS cut our incident rate through a hard winter season.",
+    body: [
+      "Long-haul routes in winter are where accidents happen. We deployed DSM cameras and ADAS across the fleet.",
+      "Real-time alerts for drowsiness and forward-collision risk, plus weekly driver scorecards, changed how our drivers approach night driving. Incidents dropped noticeably.",
+    ],
+  },
+  {
+    slug: "torex-tk",
+    company: 'TK "TOREX"',
+    logo: null,
+    image: torexImg,
+    date: "April 9, 2024",
+    author: "Maxim",
+    role: "Senior Mechanic",
+    industry: "Refrigerated transport",
+    excerpt:
+      "The temperature history for every trip ended arguments with clients about transport conditions.",
+    body: [
+      "We move temperature-sensitive cargo, so cold-chain proof is everything.",
+      "Instant alerts on any deviation, plus a downloadable chart per trip, mean a complaint is settled with data. Disputes have practically disappeared.",
+    ],
+  },
+  {
+    slug: "pflk-m-fuel",
+    company: '"PFLK-M"',
+    logo: null,
+    image: pflkImg,
+    date: "April 3, 2024",
+    author: "Andrey Loginov",
+    role: "General Director",
+    industry: "Leasing",
+    excerpt:
+      "Fuel sensors and staff training were handled by the team end to end.",
+    body: [
+      "We needed accurate fuel control on a mixed fleet plus integration with accounting.",
+      "The team fitted the sensors, built the calibration tables, set up automated reports and trained our people. It works as one system now.",
+    ],
+  },
+  {
+    slug: "bajaj-travels",
+    company: "Bajaj Travels",
+    logo: null,
+    image: torexImg,
+    date: "November 2, 2023",
+    author: "Minu Narang",
+    role: "VP Operations",
+    industry: "Passenger transit",
+    excerpt:
+      "I cannot imagine running the fleet now without these control services.",
+    body: [
+      "Across a large passenger fleet, schedule adherence and in-cabin safety are constant concerns.",
+      "Timetable-deviation alerts, multi-camera DVRs and driver-fatigue monitoring gave our dispatchers a real handle on the operation. Reports arrive on time by email.",
+    ],
+  },
+  {
+    slug: "gruzavtotrans",
+    company: "GruzAvtoTrans",
+    logo: null,
+    image: torexImg,
+    date: "July 18, 2022",
+    author: "Dispatch Team",
+    role: "Operations",
+    industry: "Freight logistics",
+    excerpt:
+      "Sharing a live tracking link with shippers stopped the 'where is my load?' calls.",
+    body: [
+      "Our dispatchers spent hours a day answering location questions from customers.",
+      "Now we send a temporary tracking link per load. Customers follow the truck themselves, with automatic ETA and delay alerts. The phones are quieter and customers are happier.",
+    ],
+  },
 ];
 
 /* ─────────────────────────  NEWS  ───────────────────────── */
@@ -233,6 +329,76 @@ export const newsPosts = [
     body: [
       "We have refreshed our visual identity. The new logo keeps the recognisable mark but modernises the type and colour system across the product, the website and the mobile apps.",
       "The update is purely cosmetic — all accounts, contracts and integrations continue to work exactly as before.",
+    ],
+  },
+  {
+    slug: "support-in-max-messenger",
+    title: "Technical support now available in the MAX messenger",
+    date: "April 15, 2026",
+    tag: "Product",
+    author: "Alexey Osipov",
+    image: newsFuel,
+    excerpt:
+      "MAX joins Telegram and the phone line as a primary support channel across all Tekonika Systems mobile apps in Russia.",
+    body: [
+      "From this week, technical support is reachable in the MAX messenger directly from every Tekonika Systems mobile app.",
+      "The change adds a channel — it does not remove any. Telegram, the toll-free line and email continue to work exactly as before, 24/7.",
+    ],
+  },
+  {
+    slug: "huawei-hms-build",
+    title: "A dedicated Huawei (HMS) build of the mobile app",
+    date: "March 30, 2026",
+    tag: "Product",
+    author: "Alexey Osipov",
+    image: newsLogo,
+    excerpt:
+      "Huawei users without Google services get the full feature set in a native AppGallery build.",
+    body: [
+      "The new build targets Huawei devices running HMS instead of GMS. Push notifications, maps and background tracking all work natively.",
+      "Existing Huawei users can switch by installing the AppGallery version and signing in with the same account — nothing else changes.",
+    ],
+  },
+  {
+    slug: "sk-avanstroy-case",
+    title: "Case study: SK Avanstroy connects field staff to mobile monitoring",
+    date: "June 4, 2024",
+    tag: "Stories",
+    author: "Alexey Osipov",
+    image: newsFuel,
+    excerpt:
+      "Moving off a local server let the construction company automate reporting and add mobile monitoring for people, not just vehicles.",
+    body: [
+      "SK Avanstroy had run vehicle monitoring for years on a local server, which capped how far automation could go.",
+      "The switch to the Tekonika Systems cloud integrated satellite monitoring into their information system and extended it to field staff through the mobile app. Reporting is now generated and delivered automatically.",
+    ],
+  },
+  {
+    slug: "winter-fuel-checklist",
+    title: "Winter fuel checklist for fleet managers",
+    date: "November 18, 2025",
+    tag: "Product",
+    author: "Sergey Chulsky",
+    image: newsFuel,
+    excerpt:
+      "Cold weather changes fuel behaviour. A short checklist to keep drain detection accurate through the season.",
+    body: [
+      "Diesel volume contracts in the cold, so a tank can read lower in the morning without any theft. Re-check sensor calibration tables and temperature compensation before the first frosts.",
+      "Idling to warm up cabins spikes consumption — set a separate idling norm for winter so the reports stay meaningful.",
+    ],
+  },
+  {
+    slug: "egts-retransmission-garbage-trucks",
+    title: "Municipal operators: EGTS retransmission for waste collection",
+    date: "September 5, 2025",
+    tag: "Company",
+    author: "Sergey Chulsky",
+    image: newsLogo,
+    excerpt:
+      "New regional rules require waste-collection vehicles to feed telemetry to a municipal portal. Retransmission handles it with no extra hardware.",
+    body: [
+      "Where a region mandates a data feed for garbage trucks, the platform forwards a copy of each vehicle's stream to the municipal portal in EGTS while your own dashboard keeps working.",
+      "Bin-lift counters and route-completion reports then match the format municipal contracts expect.",
     ],
   },
 ];
@@ -330,6 +496,81 @@ export const blogPosts = [
     body: [
       "Most 'GLONASS not working' cases come down to five causes: no power to the terminal, a disconnected or damaged antenna, an expired or blocked SIM card, no cellular coverage in the current area, or the device being in a deep parking-mode sleep.",
       "The quick triage: if the last point is recent but the vehicle is in a basement or tunnel, it is coverage. If the last point is days old, it is power or the SIM. The app's device-status screen shows which.",
+    ],
+  },
+  {
+    slug: "uveos-mark-in-pts",
+    title: "UVEOS: what it is and why it appears in the vehicle passport",
+    date: "February 26, 2025",
+    author: "Andrey Markov",
+    readTime: "5 min read",
+    category: "Regulation",
+    image: blogBg,
+    excerpt:
+      "The emergency-response device (ERA-GLONASS / UVEOS) and what its mark in the PTS means for owners and fleets.",
+    body: [
+      "UVEOS is the in-vehicle emergency-call device. On a crash it sends location and severity to the emergency services automatically and opens a voice channel.",
+      "For fleets the practical point is compliance: the device must be present and active for the vehicle to pass inspection, and its status can be monitored alongside the rest of the telemetry.",
+    ],
+  },
+  {
+    slug: "qzss-and-multi-gnss",
+    title: "QZSS, Galileo, BeiDou: why multi-GNSS matters for fleets",
+    date: "February 5, 2025",
+    author: "Andrey Markov",
+    readTime: "6 min read",
+    category: "Industry",
+    image: blogHighway,
+    excerpt:
+      "A modern terminal listens to more than GPS and GLONASS. More constellations means faster fixes and fewer urban-canyon gaps.",
+    body: [
+      "Adding Galileo, BeiDou and regional systems like QZSS increases the number of satellites in view, which shortens time-to-first-fix and improves accuracy between tall buildings.",
+      "When choosing terminals, multi-GNSS support is worth prioritising for city fleets and anything that spends time in dense urban areas.",
+    ],
+  },
+  {
+    slug: "digitalization-checklist-small-fleet",
+    title: "A digitalization checklist for a 10-vehicle fleet",
+    date: "January 15, 2025",
+    author: "Andrey Markov",
+    readTime: "7 min read",
+    category: "Efficiency",
+    image: blogHighway,
+    excerpt:
+      "You don't need an enterprise rollout to get the benefits. Here is the minimum that pays back on a small fleet.",
+    body: [
+      "Start with location plus CAN mileage on every vehicle and a fuel level sensor on the two or three highest-mileage ones.",
+      "Turn on three reports — daily mileage, fuel, and harsh-driving — delivered by email, and one geofence per regular site. That is enough to see the savings within a quarter.",
+    ],
+  },
+  {
+    slug: "driver-scorecards-that-work",
+    title: "Driver scorecards people actually act on",
+    date: "December 10, 2024",
+    author: "Andrey Markov",
+    readTime: "6 min read",
+    category: "Efficiency",
+    image: blogTrucks,
+    excerpt:
+      "A scorecard that lists every event is ignored. One that ranks drivers on three weighted metrics changes behaviour.",
+    body: [
+      "Effective scorecards are short: harsh events per 100 km, speeding time as a share of driving time, and idling. Weight them, rank the drivers, and review the bottom three each week.",
+      "Pair the ranking with the event video clips so a conversation is about a specific moment, not an abstract number.",
+    ],
+  },
+  {
+    slug: "cold-chain-audit-trail",
+    title: "Building a cold-chain audit trail your clients trust",
+    date: "November 20, 2024",
+    author: "Andrey Markov",
+    readTime: "6 min read",
+    category: "Industry",
+    image: blogTransport,
+    excerpt:
+      "Temperature data is only useful if it is complete, tamper-evident and easy to hand over. Three things to get right.",
+    body: [
+      "Log every zone continuously, not on a schedule, so a short excursion cannot slip between samples. Add a door sensor so an open door explains a spike.",
+      "Generate a per-shipment certificate automatically and expose the raw data via API, so a client's quality team can pull it into their own system without asking you.",
     ],
   },
 ];

@@ -6,12 +6,19 @@ import CompanyCTA from "../components/CompanyCTA";
 import { reviews } from "../data/companyContent";
 import aboutHighway from "../assets/about-highway.png";
 
+const PER_PAGE = 9;
+
 export default function Reviews() {
   const [industry, setIndustry] = useState("All");
+  const [visible, setVisible] = useState(PER_PAGE);
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  useEffect(() => {
+    setVisible(PER_PAGE);
+  }, [industry]);
 
   const industries = useMemo(
     () => ["All", ...Array.from(new Set(reviews.map((r) => r.industry)))],
@@ -20,6 +27,7 @@ export default function Reviews() {
 
   const filtered =
     industry === "All" ? reviews : reviews.filter((r) => r.industry === industry);
+  const shown = filtered.slice(0, visible);
 
   const featured = reviews[0];
 
@@ -103,7 +111,7 @@ export default function Reviews() {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filtered.map((r) => (
+            {shown.map((r) => (
               <div
                 key={r.slug}
                 className="flex flex-col bg-white border border-slate-200 rounded-2xl p-6 hover:shadow-lg transition"
@@ -134,6 +142,17 @@ export default function Reviews() {
               </div>
             ))}
           </div>
+
+          {visible < filtered.length && (
+            <div className="mt-10 text-center">
+              <button
+                onClick={() => setVisible((v) => v + PER_PAGE)}
+                className="px-6 py-3 rounded-xl border border-slate-200 text-sm font-bold text-[#4E8F89] hover:border-[#4E8F89] transition"
+              >
+                Show more
+              </button>
+            </div>
+          )}
         </div>
       </section>
 

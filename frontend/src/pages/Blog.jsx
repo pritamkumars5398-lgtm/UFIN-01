@@ -6,12 +6,19 @@ import CompanyCTA from "../components/CompanyCTA";
 import { blogPosts } from "../data/companyContent";
 import heroImg from "../assets/about-highway.png";
 
+const PER_PAGE = 6;
+
 export default function Blog() {
   const [category, setCategory] = useState("All");
+  const [visible, setVisible] = useState(PER_PAGE);
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  useEffect(() => {
+    setVisible(PER_PAGE);
+  }, [category]);
 
   const categories = useMemo(
     () => ["All", ...Array.from(new Set(blogPosts.map((p) => p.category)))],
@@ -20,8 +27,7 @@ export default function Blog() {
 
   const filtered =
     category === "All" ? blogPosts : blogPosts.filter((p) => p.category === category);
-
-  const [lead, ...rest] = filtered;
+  const shown = filtered.slice(0, visible);
 
   return (
     <div className="bg-white min-h-screen">
@@ -32,8 +38,8 @@ export default function Blog() {
         crumbs={[{ label: "Company", to: "/company" }, { label: "Blog" }]}
       />
 
-      <section className="py-16 px-6 bg-white">
-        <div className="max-w-7xl mx-auto">
+      <section className="py-16 px-6">
+        <div className="max-w-4xl mx-auto">
           {/* Filter */}
           <div className="flex flex-wrap items-center gap-2 mb-10">
             {categories.map((c) => (
@@ -51,73 +57,60 @@ export default function Blog() {
             ))}
           </div>
 
-          {/* Lead */}
-          {lead && (
-            <Link
-              to={`/blog/${lead.slug}`}
-              className="group grid lg:grid-cols-2 gap-8 items-center rounded-3xl overflow-hidden border border-slate-100 hover:shadow-lg transition mb-12"
-            >
-              <div className="relative min-h-[280px] overflow-hidden">
-                <img
-                  src={lead.image}
-                  alt={lead.title}
-                  className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition duration-500"
-                />
-              </div>
-              <div className="p-8 lg:p-12">
-                <span className="text-[11px] font-bold uppercase tracking-widest text-[#4E8F89]">
-                  {lead.category}
-                </span>
-                <h2 className="text-2xl lg:text-3xl font-black text-[#0B1F33] mt-3 mb-4 leading-snug group-hover:text-[#4E8F89] transition">
-                  {lead.title}
-                </h2>
-                <p className="text-slate-600 leading-relaxed mb-5">{lead.excerpt}</p>
-                <div className="flex items-center gap-3 text-xs text-slate-400">
-                  <span>{lead.author}</span>
-                  <span>·</span>
-                  <span>{lead.date}</span>
-                  <span className="flex items-center gap-1">
-                    <Clock size={12} /> {lead.readTime}
-                  </span>
-                </div>
-              </div>
-            </Link>
-          )}
-
-          {/* Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {rest.map((p) => (
-              <Link
-                key={p.slug}
-                to={`/blog/${p.slug}`}
-                className="group bg-white rounded-2xl overflow-hidden border border-slate-100 hover:shadow-lg transition flex flex-col"
-              >
-                <div className="aspect-video overflow-hidden">
-                  <img
-                    src={p.image}
-                    alt={p.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition duration-500"
-                  />
-                </div>
-                <div className="p-6 flex-1 flex flex-col">
-                  <span className="text-[10px] font-bold uppercase tracking-widest text-[#4E8F89] mb-2">
-                    {p.category}
-                  </span>
-                  <h3 className="font-bold text-[#0B1F33] leading-snug mb-2 group-hover:text-[#4E8F89] transition">
-                    {p.title}
-                  </h3>
-                  <p className="text-slate-500 text-sm leading-relaxed flex-1">{p.excerpt}</p>
-                  <div className="flex items-center gap-2 text-xs text-slate-400 mt-4 pt-4 border-t border-slate-100">
-                    <span>{p.date}</span>
-                    <span>·</span>
-                    <span className="flex items-center gap-1">
-                      <Clock size={12} /> {p.readTime}
+          {/* List */}
+          <div className="divide-y divide-slate-100">
+            {shown.map((p) => (
+              <article key={p.slug} className="py-8 first:pt-0">
+                <Link
+                  to={`/blog/${p.slug}`}
+                  className="group grid sm:grid-cols-[220px_1fr] gap-6 items-start"
+                >
+                  <div className="aspect-video sm:aspect-[4/3] rounded-2xl overflow-hidden bg-[#f7f8f9]">
+                    <img
+                      src={p.image}
+                      alt={p.title}
+                      loading="lazy"
+                      className="w-full h-full object-cover group-hover:scale-105 transition duration-500"
+                    />
+                  </div>
+                  <div>
+                    <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-slate-400 mb-2">
+                      <span className="font-bold uppercase tracking-wider text-[#4E8F89]">{p.category}</span>
+                      <span>·</span>
+                      <span>{p.date}</span>
+                      <span>·</span>
+                      <span>{p.author}</span>
+                      <span className="flex items-center gap-1">
+                        <Clock size={12} /> {p.readTime}
+                      </span>
+                    </div>
+                    <h2 className="text-lg lg:text-xl font-black text-[#0B1F33] leading-snug mb-2 group-hover:text-[#4E8F89] transition">
+                      {p.title}
+                    </h2>
+                    <p className="text-slate-600 text-sm leading-relaxed mb-3">{p.excerpt}</p>
+                    <span className="inline-flex items-center gap-1 text-sm font-bold text-[#4E8F89]">
+                      Read more <ChevronRight size={15} />
                     </span>
                   </div>
-                </div>
-              </Link>
+                </Link>
+              </article>
             ))}
           </div>
+
+          {shown.length === 0 && (
+            <p className="text-slate-400 text-sm py-10 text-center">No articles in this category yet.</p>
+          )}
+
+          {visible < filtered.length && (
+            <div className="pt-8 text-center">
+              <button
+                onClick={() => setVisible((v) => v + PER_PAGE)}
+                className="px-6 py-3 rounded-xl border border-slate-200 text-sm font-bold text-[#4E8F89] hover:border-[#4E8F89] transition"
+              >
+                Show more
+              </button>
+            </div>
+          )}
         </div>
       </section>
 
